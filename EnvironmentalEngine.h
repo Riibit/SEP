@@ -8,3 +8,16 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
+#ifndef ENV_ENG_H
+#define ENV_ENG_H
+
+//------------------------------------------------------------------------------
+// The class that contains the environmental engine
+//
+class EnvironmentalEngine 
+{
+	
+};
+
+#endif // ENV_ENG_H

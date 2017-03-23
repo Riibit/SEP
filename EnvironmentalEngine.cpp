@@ -8,3 +8,10 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
+#include "EnvironmentalEngine.h"
+
+void EnvironmentalEngine::createCondition()
+{
+	
+}
