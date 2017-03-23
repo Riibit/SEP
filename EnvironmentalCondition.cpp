@@ -24,6 +24,8 @@ class EnvironmentalCondition
     bool isItHot();
     bool isItRainy();
     bool isItStormy();
+    EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
+    float temperature_, Rank wind_);
 };
 
 bool EnvironmentalCondition::isItHot()
