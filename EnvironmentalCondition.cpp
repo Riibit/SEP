@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "EnvironmentalCondition.h"
+#include "EnvironmentalEngine.h"
 
 //------------------------------------------------------------------------------
 // Method to find out if it is sunny

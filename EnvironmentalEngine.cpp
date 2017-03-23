@@ -9,9 +9,10 @@
 //------------------------------------------------------------------------------
 //
 
+#include <iostream>
+#include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
-void EnvironmentalEngine::createCondition()
+EnvironmentalCondition EnvironmentalEngine::createCondition()
 {
-	
 }
