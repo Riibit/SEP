@@ -91,7 +91,10 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
 
 void EnvironmentalCondition::setTemperature(float temperature)
 {
-  temperature_ = temperature;
+  if (temperature_ >= 35 || temperature_ <= 10)
+  {
+    temperature_ = temperature;
+  }
 }
 
 float EnvironmentalCondition::getTemperature(void)
