@@ -10,33 +10,7 @@
 //
 
 #include <iostream>
-
-//------------------------------------------------------------------------------
-// The class tht contains al environmental conditions
-//
-class EnvironmentalCondition 
-{
-  enum Cover {SUNNY, CLOUDY, OVERCAST, VERY_OVERCAST};
-  enum Rank {NONE, LOW, MEDIUM, HIGH};
-    Cover sky_cover_;
-    Rank precipitation_;
-    float temperature_;
-    Rank wind_;
-  public:
-    bool isItHot();
-    bool isItRainy();
-    bool isItStormy();
-    EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
-    float temperature_, Rank wind_);
-    void setSkyCover(Cover cover);
-    void setPrecipitation(Rank rank);
-    void setTemperature(float temperature);
-    void setWind(Rank rank);
-    Cover getSkyCover(void);
-    Rank getPrecipitation(void);
-    float getTemperature(void);
-    Rank getWind(void);
-};
+#include "EnvironmentalCondition.h"
 
 //------------------------------------------------------------------------------
 // Method to find out if it is sunny
