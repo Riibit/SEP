@@ -28,6 +28,14 @@ class EnvironmentalCondition
     bool isItStormy();
     EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
     float temperature_, Rank wind_);
+    void setSkyCover(Cover cover);
+    void setPrecipitation(Rank rank);
+    void setTemperature(float temperature);
+    void setWind(Rank rank);
+    Cover getSkyCover(void);
+    Rank getPrecipitation(void);
+    float getTemperature(void);
+    Rank getWind(void);
 };
 
 //------------------------------------------------------------------------------
@@ -85,6 +93,49 @@ bool EnvironmentalCondition::isItStormy()
     return false;
   }
 }
+
+void EnvironmentalCondition::setSkyCover(Cover cover)
+{
+  sky_cover_ = cover;
+}
+
+Cover EnvironmentalCondition::getSkyCover(void)
+{
+  return sky_cover_;
+}
+
+
+void EnvironmentalCondition::setPrecipitation(Rank rank)
+{
+  precipitation_ = rank;
+}
+
+Rank EnvironmentalCondition::getPrecipitation(void)
+{
+  return precipitation_;
+}
+
+void EnvironmentalCondition::setTemperature(float temperature)
+{
+  temperature_ = temperature;
+}
+
+float EnvironmentalCondition::getTemperature(void)
+{
+  return temperature_;
+}
+
+void EnvironmentalCondition::setWind(Rank rank)
+{
+  wind_ = rank;
+}
+
+Rank EnvironmentalCondition::getWind(void)
+{
+  return wind_;
+}
+
+//---------------------MAIN-----------------------------------------------------
 
 int main ()
 {
