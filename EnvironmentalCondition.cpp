@@ -73,7 +73,7 @@ void EnvironmentalCondition::setSkyCover(Cover cover)
   sky_cover_ = cover;
 }
 
-Cover EnvironmentalCondition::getSkyCover(void)
+EnvironmentalCondition::Cover EnvironmentalCondition::getSkyCover(void)
 {
   return sky_cover_;
 }
@@ -84,7 +84,7 @@ void EnvironmentalCondition::setPrecipitation(Rank rank)
   precipitation_ = rank;
 }
 
-Rank EnvironmentalCondition::getPrecipitation(void)
+EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
 {
   return precipitation_;
 }
@@ -104,7 +104,7 @@ void EnvironmentalCondition::setWind(Rank rank)
   wind_ = rank;
 }
 
-Rank EnvironmentalCondition::getWind(void)
+EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 {
   return wind_;
 }
