@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 //
 
-#include <iostream>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
@@ -117,6 +116,5 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 
 int main ()
 {
-  std::cout << "DEBUG" << std::endl;
   return 0;
 }
