@@ -30,25 +30,25 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   switch(rand_value)
   {
     case 0 : sky_cover_rng = EnvironmentalCondition::SUNNY;
-    break;
+      break;
     case 1 : sky_cover_rng = EnvironmentalCondition::CLOUDY;
-    break;
+      break;
     case 2 : sky_cover_rng = EnvironmentalCondition::OVERCAST;
-    break;
+      break;
     case 3 : sky_cover_rng = EnvironmentalCondition::VERY_OVERCAST;
-    break;
+      break;
   }
   rand_value = rand() % 4;
   switch(rand_value)
   {
     case 0 : precipitation_rng = EnvironmentalCondition::NONE;
-    break;
+      break;
     case 1 : precipitation_rng = EnvironmentalCondition::LOW;
-    break;
+      break;
     case 2 : precipitation_rng = EnvironmentalCondition::MEDIUM;
-    break;
+      break;
     case 3 : precipitation_rng = EnvironmentalCondition::HIGH;
-    break;
+      break;
   }
   temperature_rng = (rand() % 25 + MIN_TEMP);
   if (temperature_rng <= MAX_TEMP)
@@ -57,13 +57,13 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   switch(rand_value)
   {
     case 0 : wind_rng = EnvironmentalCondition::NONE;
-    break;
+      break;
     case 1 : wind_rng = EnvironmentalCondition::LOW;
-    break;
+      break;
     case 2 : wind_rng = EnvironmentalCondition::MEDIUM;
-    break;
+      break;
     case 3 : wind_rng = EnvironmentalCondition::HIGH;
-    break;
+      break;
   }
   EnvironmentalCondition *newCondition;
   newCondition = new EnvironmentalCondition(sky_cover_rng, precipitation_rng, 
