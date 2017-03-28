@@ -19,10 +19,10 @@ class EnvironmentalCondition;
 class EnvironmentalEngine 
 {
 private:
-  Cover sky_cover_rng;
-  Rank precipitation_rng;
+  EnvironmentalCondition::Cover sky_cover_rng;
+  EnvironmentalCondition::Rank precipitation_rng;
   float temperature_rng;
-  Rank wind_rng;
+  EnvironmentalCondition::Rank wind_rng;
 public:
   EnvironmentalCondition createCondition();	
 };

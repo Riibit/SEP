@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// EnvironmentalCondition.cpp
+// main.cpp
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -15,5 +15,8 @@
 
 int main()
 {
-	return 0;
+  EnvironmentalEngine engine;
+  EnvironmentalCondition newCondition;
+  newCondition = engine.createCondition();
+  return 0;
 }

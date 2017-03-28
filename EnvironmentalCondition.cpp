@@ -166,9 +166,3 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 }
 
 //---------------------MAIN-----------------------------------------------------
-
-int main ()
-{
-  EnvironmentalCondition condition;
-  return 0;
-}
