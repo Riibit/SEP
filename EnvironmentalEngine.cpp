@@ -31,36 +31,36 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   {
     case 0 : sky_cover_rng = EnvironmentalCondition::SUNNY;
     break;
-    case 1 : sky_cover_rng = CLOUDY;
+    case 1 : sky_cover_rng = EnvironmentalCondition::CLOUDY;
     break;
-    case 2 : sky_cover_rng = OVERCAST;
+    case 2 : sky_cover_rng = EnvironmentalCondition::OVERCAST;
     break;
-    case 3 : sky_cover_rng = VERY_OVERCAST;
+    case 3 : sky_cover_rng = EnvironmentalCondition::VERY_OVERCAST;
     break;
   }
   rand_value = rand() % 4;
   switch(rand_value)
   {
-    case 0 : precipitation_rng = NONE;
+    case 0 : precipitation_rng = EnvironmentalCondition::NONE;
     break;
-    case 1 : precipitation_rng = LOW;
+    case 1 : precipitation_rng = EnvironmentalCondition::LOW;
     break;
-    case 2 : precipitation_rng = MEDIUM;
+    case 2 : precipitation_rng = EnvironmentalCondition::MEDIUM;
     break;
-    case 3 : precipitation_rng = HIGH;
+    case 3 : precipitation_rng = EnvironmentalCondition::HIGH;
     break;
   }
   temperature_rng = (rand() % 10 + 25) + ((rand() % 10) / 10);
   rand_value = rand() % 4;
   switch(rand_value)
   {
-    case 0 : wind_rng = NONE;
+    case 0 : wind_rng = EnvironmentalCondition::NONE;
     break;
-    case 1 : wind_rng = LOW;
+    case 1 : wind_rng = EnvironmentalCondition::LOW;
     break;
-    case 2 : wind_rng = MEDIUM;
+    case 2 : wind_rng = EnvironmentalCondition::MEDIUM;
     break;
-    case 3 : wind_rng = HIGH;
+    case 3 : wind_rng = EnvironmentalCondition::HIGH;
     break;
   }
   std::cout << "sky_cover_rng =" << sky_cover_rng << std::endl;
@@ -68,9 +68,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   std::cout << "temperature_rng =" << temperature_rng << std::endl;
   std::cout << "wind_rng =" << wind_rng << std::endl;
 
-  EnvironmentalCondition::EnvironmentalCondition *newCondition = 
-  new EnvironmentalCondition::EnvironmentalCondition(sky_cover_rng, 
-  	precipitation_rng, temperature_rng, wind_rng);
+  EnvironmentalCondition::EnvironmentalCondition *newCondition = new EnvironmentalCondition::EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
 
 
 	return newCondition;
