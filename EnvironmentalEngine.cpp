@@ -24,6 +24,10 @@
 EnvironmentalCondition EnvironmentalEngine::createCondition()
 {
   int rand_value;
+  EnvironmentalCondition::Cover sky_cover_rng;
+  EnvironmentalCondition::Rank precipitation_rng;
+  float temperature_rng;
+  EnvironmentalCondition::Rank wind_rng;
   srand (time(NULL));
   rand_value = rand() % 4;
   switch(rand_value)
