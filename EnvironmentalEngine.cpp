@@ -8,14 +8,11 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
-#include <iostream>
+
 #include <ctime>
 #include <cstdlib>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
-
-
-
 
 //------------------------------------------------------------------------------
 // The function createCondition creates a new condition, which values are
@@ -68,14 +65,8 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
     case 3 : wind_rng = EnvironmentalCondition::HIGH;
     break;
   }
-  std::cout << "sky_cover_rng = " << sky_cover_rng << std::endl;
-  std::cout << "precipitation_rng = " << precipitation_rng << std::endl;
-  std::cout << "temperature_rng = " << temperature_rng << std::endl;
-  std::cout << "wind_rng = " << wind_rng << std::endl;
-
   EnvironmentalCondition *newCondition;
-  newCondition = new EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
-
-
+  newCondition = new EnvironmentalCondition(sky_cover_rng, precipitation_rng, 
+    temperature_rng, wind_rng);
 	return *newCondition;
 }
