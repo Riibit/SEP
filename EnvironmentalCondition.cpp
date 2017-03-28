@@ -20,8 +20,8 @@ EnvironmentalCondition::EnvironmentalCondition()
 
 EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, Rank precipitation, float temperature, Rank wind)
 {
-    EnvironmentalCondition::setSkyCover(sky_cover);
-    EnvironmentalCondition::setPrecipitation(precipitation);
+    setSkyCover(sky_cover);
+    setPrecipitation(precipitation);
     setTemperature(temperature);
     setWind(wind);
 }
