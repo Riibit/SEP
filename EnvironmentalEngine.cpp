@@ -26,6 +26,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
 	EnvironmentalCondition *newCondition = new EnvironmentalCondition;
 	//----------------------------------------------------------
 	//Engine:
+	
 	srand (time(NULL));
   sky_cover_rng = rand() % 5;
   precipitation_rng = rand() % 5;

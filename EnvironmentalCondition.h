@@ -27,9 +27,9 @@ class EnvironmentalCondition
     bool isItHot();
     bool isItRainy();
     bool isItStormy();
+  public:
     EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
     float temperature_, Rank wind_);
-  public:
     void setSkyCover(Cover cover);
     void setPrecipitation(Rank rank);
     void setTemperature(float temperature);
