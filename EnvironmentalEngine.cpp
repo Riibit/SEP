@@ -25,14 +25,48 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
 {
 	//----------------------------------------------------------
 	//Engine:
-	
+	int rand_value;
+
 	srand (time(NULL));
-  sky_cover_rng = rand() % 5;
-  precipitation_rng = rand() % 5;
+  rand_value = rand() % 4;
+  switch(rand_value)
+  {
+    case 0 : sky_cover_rng = SUNNY;
+    break;
+    case 1 : sky_cover_rng = CLOUDY;
+    break;
+    case 2 : sky_cover_rng = OVERCAST;
+    break;
+    case 3 : sky_cover_rng = VERY_OVERCAST;
+    break;
+  }
+  rand_value = rand() % 4;
+  switch(rand_value)
+  {
+    case 0 : precipitation_rng = NONE;
+    break;
+    case 1 : precipitation_rng = LOW;
+    break;
+    case 2 : precipitation_rng = MEDIUM;
+    break;
+    case 3 : precipitation_rng = HIGH;
+    break;
+  }
   temperature_rng = (rand() % 10 + 25) + ((rand() % 10) / 10);
-  wind_rng = rand() % 5;
+  rand_value = rand() % 4;
+  switch(rand_value)
+  {
+    case 0 : wind_rng = NONE;
+    break;
+    case 1 : wind_rng = LOW;
+    break;
+    case 2 : wind_rng = MEDIUM;
+    break;
+    case 3 : wind_rng = HIGH;
+    break;
+  }
   std::cout << "sky_cover_rng =" << sky_cover_rng << std::endl;
-  std::cout << "temperature_rng =" << precipitation_rng << std::endl;
+  std::cout << "precipitation_rng =" << precipitation_rng << std::endl;
   std::cout << "temperature_rng =" << temperature_rng << std::endl;
   std::cout << "wind_rng =" << wind_rng << std::endl;
 
