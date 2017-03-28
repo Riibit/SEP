@@ -53,7 +53,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
     case 3 : precipitation_rng = EnvironmentalCondition::HIGH;
     break;
   }
-  temperature_rng = (rand() % 10 + 25) + ((rand() % 10) / 10);
+  temperature_rng = (rand() % 25 + 10) + ((rand() % 10) / 10.0f);
   rand_value = rand() % 4;
   switch(rand_value)
   {
@@ -66,10 +66,10 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
     case 3 : wind_rng = EnvironmentalCondition::HIGH;
     break;
   }
-  std::cout << "sky_cover_rng =" << sky_cover_rng << std::endl;
-  std::cout << "precipitation_rng =" << precipitation_rng << std::endl;
-  std::cout << "temperature_rng =" << temperature_rng << std::endl;
-  std::cout << "wind_rng =" << wind_rng << std::endl;
+  std::cout << "sky_cover_rng = " << sky_cover_rng << std::endl;
+  std::cout << "precipitation_rng = " << precipitation_rng << std::endl;
+  std::cout << "temperature_rng = " << temperature_rng << std::endl;
+  std::cout << "wind_rng = " << wind_rng << std::endl;
 
   EnvironmentalCondition *newCondition;
   newCondition = new EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
