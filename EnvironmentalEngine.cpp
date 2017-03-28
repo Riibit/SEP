@@ -18,7 +18,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
 	EnvironmentalCondition *newCondition = new EnvironmentalCondition;
 	//----------------------------------------------------------
 	//Engine:
-
+	
 
 
 

@@ -12,6 +12,15 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
+    float temperature_, Rank wind_);
+{
+    EnvironmentalCondition::setSkyCover(sky_cover_);
+    EnvironmentalCondition::setPrecipitation(precipitation_);
+    void setTemperature(temperature_);
+    void setWind(wind_);
+}
+
 //------------------------------------------------------------------------------
 // Method to find out if it is sunny
 //
