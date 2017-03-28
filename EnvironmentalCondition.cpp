@@ -13,10 +13,6 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
-#define MIN_TEMP 10
-#define MAX_TEMP 35
-#define HOT_TRESHOLD (((MAX_TEMP - MIN_TEMP)/3) + MIN_TEMP)
-
 EnvironmentalCondition::EnvironmentalCondition()
 {
   

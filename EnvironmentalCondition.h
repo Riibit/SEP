@@ -12,6 +12,10 @@
 #ifndef ENV_CON_H
 #define ENV_CON_H
 
+#define MIN_TEMP 10
+#define MAX_TEMP 35
+#define HOT_TRESHOLD (((MAX_TEMP - MIN_TEMP)/3) + MIN_TEMP)
+
 //------------------------------------------------------------------------------
 // The class that contains all environmental conditions
 //
