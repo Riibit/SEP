@@ -14,6 +14,9 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+
+
+
 //------------------------------------------------------------------------------
 // The function createCondition creates a new condition, which values are
 // random, and returns the condition.
@@ -72,5 +75,5 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   newCondition = new EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
 
 
-	return newCondition;
+	return *newCondition;
 }
