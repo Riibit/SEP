@@ -12,6 +12,10 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+#define MIN_TEMP 10
+#define MAX_TEMP 35
+#define HOT_TRESHOLD (((MAX_TEMP - MIN_TEMP)/3) + MIN_TEMP)
+
 //------------------------------------------------------------------------------
 // Method to find out if it is sunny
 //
@@ -20,7 +24,7 @@
 //
 bool EnvironmentalCondition::isItHot()
 {
-  if (sky_cover_ == SUNNY && temperature_ > (25/3+10))
+  if (sky_cover_ == SUNNY && temperature_ > (HOT_TRESHOLD))
   {
     return true;
   }
@@ -68,45 +72,84 @@ bool EnvironmentalCondition::isItStormy()
   }
 }
 
+//------------------------------------------------------------------------------
+// Method to set sky cover rank
+//
+// @param cover The sky cover rank that is to be set
+//
 void EnvironmentalCondition::setSkyCover(Cover cover)
 {
   sky_cover_ = cover;
 }
 
+//------------------------------------------------------------------------------
+// Method to get the sky cover rank
+//
+// @return Returns the sky cover rank
+//
 EnvironmentalCondition::Cover EnvironmentalCondition::getSkyCover(void)
 {
   return sky_cover_;
 }
 
-
+//------------------------------------------------------------------------------
+// Method to set the precipitation rank
+//
+// @param rank The precipitation rank that is to be set
+//
 void EnvironmentalCondition::setPrecipitation(Rank rank)
 {
   precipitation_ = rank;
 }
 
+//------------------------------------------------------------------------------
+// Method to get the precipitation rank
+//
+// @return Returns the precipitation rank
+//
 EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
 {
   return precipitation_;
 }
 
+//------------------------------------------------------------------------------
+// Method to set the temperature
+//
+// @param temperature the value of the temperature that is to be set
+//
 void EnvironmentalCondition::setTemperature(float temperature)
 {
-  if (temperature_ >= 35 || temperature_ <= 10)
+  if (temperature_ >= MAX_TEMP || temperature_ <= MIN_TEMP)
   {
     temperature_ = temperature;
   }
 }
 
+//------------------------------------------------------------------------------
+// Method to get the temperature
+//
+// @return Returns the temperature
+//
 float EnvironmentalCondition::getTemperature(void)
 {
   return temperature_;
 }
 
+//------------------------------------------------------------------------------
+// Method to set the wind rank
+//
+// @param rank The wind rank that is to be set
+//
 void EnvironmentalCondition::setWind(Rank rank)
 {
   wind_ = rank;
 }
 
+//------------------------------------------------------------------------------
+// Method to get the wind rank
+//
+// @return Returns the wind rank
+//
 EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 {
   return wind_;
