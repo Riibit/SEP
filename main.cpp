@@ -18,5 +18,7 @@ int main()
   EnvironmentalEngine engine;
   EnvironmentalCondition *newCondition;
   newCondition = engine.createCondition();
+  delete newCondition;
+  newCondition = NULL;
   return 0;
 }
