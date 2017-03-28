@@ -23,9 +23,8 @@
 //
 EnvironmentalCondition EnvironmentalEngine::createCondition()
 {
-	int rand_value;
-
-	srand (time(NULL));
+  int rand_value;
+  srand (time(NULL));
   rand_value = rand() % 4;
   switch(rand_value)
   {
@@ -68,5 +67,5 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   EnvironmentalCondition *newCondition;
   newCondition = new EnvironmentalCondition(sky_cover_rng, precipitation_rng, 
     temperature_rng, wind_rng);
-	return *newCondition;
+  return *newCondition;
 }
