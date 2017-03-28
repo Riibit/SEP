@@ -19,10 +19,17 @@ EnvironmentalCondition::EnvironmentalCondition()
 
 EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, Rank precipitation, float temperature, Rank wind)
 {
+<<<<<<< HEAD
   EnvironmentalCondition::setSkyCover(sky_cover);
   EnvironmentalCondition::setPrecipitation(precipitation);
   setTemperature(temperature);
   setWind(wind);
+=======
+    setSkyCover(sky_cover);
+    setPrecipitation(precipitation);
+    setTemperature(temperature);
+    setWind(wind);
+>>>>>>> 8c10adb08823211bcc763e68fc93b5e02de9ffef
 }
 
 //------------------------------------------------------------------------------
