@@ -9,21 +9,20 @@
 //------------------------------------------------------------------------------
 //
 
-#include <iostream>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
 EnvironmentalCondition::EnvironmentalCondition()
 {
-  
+
 }
 
 EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, Rank precipitation, float temperature, Rank wind)
 {
-    EnvironmentalCondition::setSkyCover(sky_cover);
-    EnvironmentalCondition::setPrecipitation(precipitation);
-    setTemperature(temperature);
-    setWind(wind);
+  EnvironmentalCondition::setSkyCover(sky_cover);
+  EnvironmentalCondition::setPrecipitation(precipitation);
+  setTemperature(temperature);
+  setWind(wind);
 }
 
 //------------------------------------------------------------------------------
@@ -164,5 +163,3 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 {
   return wind_;
 }
-
-//---------------------MAIN-----------------------------------------------------
