@@ -18,6 +18,7 @@
 class EnvironmentalCondition 
 {
 public:
+  EnvironmentalCondition();
   enum Cover {SUNNY, CLOUDY, OVERCAST, VERY_OVERCAST};
   enum Rank {NONE, LOW, MEDIUM, HIGH};
   EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,

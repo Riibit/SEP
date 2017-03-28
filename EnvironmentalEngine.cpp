@@ -68,10 +68,9 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   std::cout << "temperature_rng =" << temperature_rng << std::endl;
   std::cout << "wind_rng =" << wind_rng << std::endl;
 
-  EnvironmentalCondition::EnvironmentalCondition *newCondition = new EnvironmentalCondition::EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
+  EnvironmentalCondition *newCondition;
+  newCondition = new EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
 
 
 	return newCondition;
 }
-
-

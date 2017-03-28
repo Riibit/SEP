@@ -17,12 +17,12 @@
 #define MAX_TEMP 35
 #define HOT_TRESHOLD (((MAX_TEMP - MIN_TEMP)/3) + MIN_TEMP)
 
-EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover_, Rank precipitation_, float temperature_, Rank wind_)
+EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, Rank precipitation, float temperature, Rank wind)
 {
-    EnvironmentalCondition::setSkyCover(sky_cover_);
-    EnvironmentalCondition::setPrecipitation(precipitation_);
-    setTemperature(temperature_);
-    setWind(wind_);
+    EnvironmentalCondition::setSkyCover(sky_cover);
+    EnvironmentalCondition::setPrecipitation(precipitation);
+    setTemperature(temperature);
+    setWind(wind);
 }
 
 //------------------------------------------------------------------------------
