@@ -55,7 +55,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   }
   temperature_rng = (rand() % 25 + 10);
   if (temperature_rng <= MAX_TEMP)
-    temperature_rng += ((rand() % 10) / 10.0f;
+    temperature_rng += ((rand() % 10) / 10.0f);
   rand_value = rand() % 4;
   switch(rand_value)
   {
