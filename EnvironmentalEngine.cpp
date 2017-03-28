@@ -13,6 +13,13 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+//------------------------------------------------------------------------------
+// The function createCondition creates a new condition, which values are
+// random, and returns the condition.
+//
+// @return Returns a new condition 
+//         
+//
 EnvironmentalCondition EnvironmentalEngine::createCondition()
 {
 	EnvironmentalCondition *newCondition = new EnvironmentalCondition;
