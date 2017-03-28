@@ -18,6 +18,11 @@ class EnvironmentalCondition;
 //
 class EnvironmentalEngine 
 {
+  private:
+  	int sky_cover_rng;
+  	int precipitation_rng;
+  	float temperature_rng;
+  	int wind_rng;
   public:
     EnvironmentalCondition createCondition();	
 };
