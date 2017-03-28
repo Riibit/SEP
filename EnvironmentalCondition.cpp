@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 //
 
+#include <iostream>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
@@ -159,5 +160,6 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 
 int main ()
 {
+  EnvironmentalCondition condition = EnvironmentalEngine::createCondition();
   return 0;
 }

@@ -8,8 +8,8 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
-
 #include <iostream>
+#include <time>
 #include <cstdlib>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
@@ -31,7 +31,10 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   precipitation_rng = rand() % 5;
   temperature_rng = (rand() % 10 + 25) + ((rand() % 10) / 10);
   wind_rng = rand() % 5;
-
+  std:cout << "sky_cover_rng =" << sky_cover_rng << std::endl;
+  std:cout << "temperature_rng =" << precipitation_rng << std::endl;
+  std:cout << "temperature_rng =" << temperature_rng << std::endl;
+  std:cout << "wind_rng =" << wind_rng << std::endl;
 
 
 
@@ -39,3 +42,5 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
 	//----------------------------------------------------------
 	return newCondition;
 }
+
+
