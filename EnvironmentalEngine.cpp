@@ -29,7 +29,7 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   rand_value = rand() % 4;
   switch(rand_value)
   {
-    case 0 : sky_cover_rng = SUNNY;
+    case 0 : sky_cover_rng = EnvironmentalCondition::SUNNY;
     break;
     case 1 : sky_cover_rng = CLOUDY;
     break;

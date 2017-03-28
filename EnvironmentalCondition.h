@@ -20,8 +20,8 @@ class EnvironmentalCondition
 public:
   enum Cover {SUNNY, CLOUDY, OVERCAST, VERY_OVERCAST};
   enum Rank {NONE, LOW, MEDIUM, HIGH};
-  //EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
-  //  float temperature_, Rank wind_);
+  EnvironmentalCondition(Cover sky_cover_, Rank precipitation_,
+    float temperature_, Rank wind_);
   void setSkyCover(Cover cover);
   void setPrecipitation(Rank rank);
   void setTemperature(float temperature);
