@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------------
 // The class that contains all environmental conditions
 //
-class EnvironmentalCondition 
+class EnvironmentalCondition
 {
 public:
   EnvironmentalCondition();
