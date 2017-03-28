@@ -16,7 +16,7 @@
 int main()
 {
   EnvironmentalEngine engine;
-  EnvironmentalCondition newCondition;
+  EnvironmentalCondition *newCondition;
   newCondition = engine.createCondition();
   return 0;
 }

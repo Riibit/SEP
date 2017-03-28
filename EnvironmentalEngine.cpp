@@ -21,7 +21,7 @@
 // @return Returns a new condition 
 //         
 //
-EnvironmentalCondition EnvironmentalEngine::createCondition()
+EnvironmentalCondition* EnvironmentalEngine::createCondition()
 {
   int rand_value;
   EnvironmentalCondition::Cover sky_cover_rng;
@@ -71,5 +71,5 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   EnvironmentalCondition *newCondition;
   newCondition = new EnvironmentalCondition(sky_cover_rng, precipitation_rng, 
     temperature_rng, wind_rng);
-  return *newCondition;
+  return newCondition;
 }
