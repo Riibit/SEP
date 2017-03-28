@@ -72,5 +72,5 @@ EnvironmentalCondition EnvironmentalEngine::createCondition()
   newCondition = new EnvironmentalCondition(sky_cover_rng,	precipitation_rng, temperature_rng, wind_rng);
 
 
-	return newCondition;
+	return *newCondition;
 }
