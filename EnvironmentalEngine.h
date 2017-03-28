@@ -18,13 +18,13 @@ class EnvironmentalCondition;
 //
 class EnvironmentalEngine 
 {
-  private:
-  	Cover sky_cover_rng;
-  	Rank precipitation_rng;
-  	float temperature_rng;
-  	Rank wind_rng;
-  public:
-    EnvironmentalCondition createCondition();	
+private:
+  Cover sky_cover_rng;
+  Rank precipitation_rng;
+  float temperature_rng;
+  Rank wind_rng;
+public:
+  EnvironmentalCondition createCondition();	
 };
 
 #endif // ENV_ENG_H
