@@ -33,7 +33,7 @@ EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, Rank precipitati
 //
 bool EnvironmentalCondition::isItHot()
 {
-  if (sky_cover_ == SUNNY && temperature_ > (HOT_TRESHOLD))
+  if (sky_cover_ == SUNNY && temperature_ > (HOT_THRESHOLD))
   {
     return true;
   }
