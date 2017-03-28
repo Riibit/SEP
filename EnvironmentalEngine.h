@@ -11,6 +11,7 @@
 
 #ifndef ENV_ENG_H
 #define ENV_ENG_H
+class EnvironmentalCondition;
 
 //------------------------------------------------------------------------------
 // The class that contains the environmental engine
@@ -18,7 +19,7 @@
 class EnvironmentalEngine 
 {
   public:
-    class* createCondition();
+    EnvironmentalCondition* createCondition();
 };
 
 #endif // ENV_ENG_H
