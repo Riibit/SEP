@@ -25,11 +25,14 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
 {
   int random_value;
   float temperature;
+
   EnvironmentalCondition::Cover sky_cover;
   EnvironmentalCondition::Rank precipitation;
   EnvironmentalCondition::Rank wind;
+
   srand (time(NULL));
   random_value = rand() % 4;
+
   switch(random_value)
   {
     case 0 : sky_cover = EnvironmentalCondition::SUNNY;
@@ -42,6 +45,7 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
       break;
   }
   random_value = rand() % 4;
+
   switch(random_value)
   {
     case 0 : precipitation = EnvironmentalCondition::NONE;
@@ -54,9 +58,12 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
       break;
   }
   temperature = (rand() % 25 + MIN_TEMP);
+
   if (temperature <= MAX_TEMP)
     temperature += ((rand() % 10) / 10.0f);
+
   random_value = rand() % 4;
+
   switch(random_value)
   {
     case 0 : wind = EnvironmentalCondition::NONE;
@@ -68,8 +75,10 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
     case 3 : wind = EnvironmentalCondition::HIGH;
       break;
   }
+
   EnvironmentalCondition *new_condition;
   new_condition = new EnvironmentalCondition(sky_cover, precipitation, 
     temperature, wind);
+  
   return new_condition;
 }
