@@ -23,53 +23,53 @@
 //
 EnvironmentalCondition* EnvironmentalEngine::createCondition()
 {
-  int rand_value;
-  EnvironmentalCondition::Cover sky_cover_rng;
-  EnvironmentalCondition::Rank precipitation_rng;
-  float temperature_rng;
-  EnvironmentalCondition::Rank wind_rng;
+  int random_value;
+  float temperature;
+  EnvironmentalCondition::Cover sky_cover;
+  EnvironmentalCondition::Rank precipitation;
+  EnvironmentalCondition::Rank wind;
   srand (time(NULL));
-  rand_value = rand() % 4;
-  switch(rand_value)
+  random_value = rand() % 4;
+  switch(random_value)
   {
-    case 0 : sky_cover_rng = EnvironmentalCondition::SUNNY;
+    case 0 : sky_cover = EnvironmentalCondition::SUNNY;
       break;
-    case 1 : sky_cover_rng = EnvironmentalCondition::CLOUDY;
+    case 1 : sky_cover = EnvironmentalCondition::CLOUDY;
       break;
-    case 2 : sky_cover_rng = EnvironmentalCondition::OVERCAST;
+    case 2 : sky_cover = EnvironmentalCondition::OVERCAST;
       break;
-    case 3 : sky_cover_rng = EnvironmentalCondition::VERY_OVERCAST;
+    case 3 : sky_cover = EnvironmentalCondition::VERY_OVERCAST;
       break;
   }
-  rand_value = rand() % 4;
-  switch(rand_value)
+  random_value = rand() % 4;
+  switch(random_value)
   {
-    case 0 : precipitation_rng = EnvironmentalCondition::NONE;
+    case 0 : precipitation = EnvironmentalCondition::NONE;
       break;
-    case 1 : precipitation_rng = EnvironmentalCondition::LOW;
+    case 1 : precipitation = EnvironmentalCondition::LOW;
       break;
-    case 2 : precipitation_rng = EnvironmentalCondition::MEDIUM;
+    case 2 : precipitation = EnvironmentalCondition::MEDIUM;
       break;
-    case 3 : precipitation_rng = EnvironmentalCondition::HIGH;
+    case 3 : precipitation = EnvironmentalCondition::HIGH;
       break;
   }
-  temperature_rng = (rand() % 25 + MIN_TEMP);
-  if (temperature_rng <= MAX_TEMP)
-    temperature_rng += ((rand() % 10) / 10.0f);
-  rand_value = rand() % 4;
-  switch(rand_value)
+  temperature = (rand() % 25 + MIN_TEMP);
+  if (temperature <= MAX_TEMP)
+    temperature += ((rand() % 10) / 10.0f);
+  random_value = rand() % 4;
+  switch(random_value)
   {
-    case 0 : wind_rng = EnvironmentalCondition::NONE;
+    case 0 : wind = EnvironmentalCondition::NONE;
       break;
-    case 1 : wind_rng = EnvironmentalCondition::LOW;
+    case 1 : wind = EnvironmentalCondition::LOW;
       break;
-    case 2 : wind_rng = EnvironmentalCondition::MEDIUM;
+    case 2 : wind = EnvironmentalCondition::MEDIUM;
       break;
-    case 3 : wind_rng = EnvironmentalCondition::HIGH;
+    case 3 : wind = EnvironmentalCondition::HIGH;
       break;
   }
-  EnvironmentalCondition *newCondition;
-  newCondition = new EnvironmentalCondition(sky_cover_rng, precipitation_rng, 
-    temperature_rng, wind_rng);
-  return newCondition;
+  EnvironmentalCondition *new_condition;
+  new_condition = new EnvironmentalCondition(sky_cover, precipitation, 
+    temperature, wind);
+  return new_condition;
 }
