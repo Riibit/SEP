@@ -42,7 +42,7 @@ void HTMLWriter::writeFile(string body)
     writer << "<title>SEP 2017</title>" << endl;
     writer << "<style>body{margin: 0px; padding: 0px;}</style>" << endl;
     writer << "</head>" << endl;
-    writer << "<body>" << "<h1>Test fürs Standl</h1>" << body;
+    writer << "<body>" << "<h1><center>LIMOSTANDL</center></h1>" << body;
     writer << "</body>" << endl;
     writer << "</html>";
     writer.close();

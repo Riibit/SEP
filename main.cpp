@@ -21,8 +21,8 @@ int main()
   EnvironmentalEngine engine;
   EnvironmentalCondition *newCondition;
   newCondition = engine.createCondition();
-  HTMLWriter html_writer("LimoStandl.html");
-  html_writer.writeFile("");
+  HTMLWriterEnvironment test;
+  test.writeFile(*newCondition);
   delete newCondition;
   newCondition = NULL;
   return 0;

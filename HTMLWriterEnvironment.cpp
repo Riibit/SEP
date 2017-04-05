@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 //
 #include <sstream>
+#include <iostream>
 
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
@@ -43,7 +44,23 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   environment_body << "<td></td>" << endl;
   environment_body << "</tr>" << endl;
   environment_body << "<tr>";
-  environment_body << "<td><img src=\"" << icon << "\" alt=\"\" width=\"128\"";  
+  environment_body << "<td><img src=\"";
+
+  switch(condition.getSkyCover())
+  {
+    case EnvironmentalCondition::SUNNY : environment_body << ICON_SUNNY;
+      break;
+    case EnvironmentalCondition::CLOUDY : environment_body << ICON_CLOUDY;
+      break;
+    case EnvironmentalCondition::OVERCAST : environment_body << ICON_OVERCAST;
+      break;
+    case EnvironmentalCondition::VERY_OVERCAST: 
+      environment_body << ICON_VERY_OVERCAST;
+      break;
+  }
+
+
+  environment_body << "\" alt=\"\" width=\"128\"";  
   environment_body << " height=\"128\" /></td>" << endl;
   environment_body << "<td>" << endl;
   environment_body << "<p><strong>Precipitation: </strong>medium</p>" << endl;
@@ -56,7 +73,11 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   environment_body << "</tr>" << endl;
   environment_body << "</tbody>" << endl;
   environment_body << "</table>";
+  
+  HTMLWriter html_writer("LimoStandl.html");
+  html_writer.writeFile(environment_body.str());
+
+  std::cout << environment_body.str();
 }
 
 
-  //HTMLWriter html_writer("LimoStandl.html");
