@@ -15,3 +15,17 @@
 #include "HTMLWriterEnvironment.h"
 #include "HTMLWriterBalance.h"
 
+HTMLWriterBalance::HTMLWriterBalance()
+{
+
+}
+
+HTMLWriterBalance::HTMLWriterBalance(string filename_)
+{
+
+}
+
+int HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
+{
+
+}

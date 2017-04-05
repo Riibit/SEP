@@ -8,3 +8,20 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#ifndef HTML_WRITER_H
+#define HTML_WRITER_H
+
+#include <string>
+
+class HTMLWriter
+{
+public:
+  HTMLWriter();
+  HTMLWriter(string filename_);
+
+  string filename_;
+private:
+  string writeFile();
+}
+
+#endif //HTML_WRITER_H
