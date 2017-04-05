@@ -12,17 +12,17 @@
 #include <iostream>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
-/*
 #include "HTMLWriter.h"
 #include "HTMLWriterEnvironment.h"
 #include "HTMLWriterBalance.h"
-*/
 
 int main()
 {
   EnvironmentalEngine engine;
   EnvironmentalCondition *newCondition;
   newCondition = engine.createCondition();
+  HTMLWriter html_writer("LimoStandl.html");
+  html_writer.writeFile("");
   delete newCondition;
   newCondition = NULL;
   return 0;

@@ -16,7 +16,7 @@ class HTMLWriterBalance : public HTMLWriter
 {
 public:
   HTMLWriterBalance();
-  HTMLWriterBalance(string filename_);
+  HTMLWriterBalance(std::string filename);
 
   void writeFile(int lemon, int sugar, int cash, int delta);
 };

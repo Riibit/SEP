@@ -15,12 +15,14 @@
 #include "HTMLWriterEnvironment.h"
 #include "HTMLWriterBalance.h"
 
+using std::string;
+
 HTMLWriterBalance::HTMLWriterBalance()
 {
 
 }
 
-HTMLWriterBalance::HTMLWriterBalance(string filename_)
+HTMLWriterBalance::HTMLWriterBalance(string filename)
 {
 
 }

@@ -18,11 +18,10 @@ class HTMLWriter
 {
 public:
   HTMLWriter();
-  HTMLWriter(std::string filename);
-
-  std::string filename_;
+  HTMLWriter(std::string body);
+  void writeFile(std::string body);
 private:
-  void writeFile();
+  std::string filename_;
 };
 
 #endif //HTML_WRITER_H
