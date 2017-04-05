@@ -21,7 +21,7 @@ public:
 
   string filename_;
 private:
-  string writeFile();
+  void writeFile();
 }
 
 #endif //HTML_WRITER_H

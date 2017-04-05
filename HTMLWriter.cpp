@@ -25,7 +25,7 @@ HTMLWriter::HTMLWriter(string filename_)
 
 }
 
-string HTMLWriter::writeFile(string)
+void HTMLWriter::writeFile(string)
 {
 
 }

@@ -25,7 +25,7 @@ HTMLWriterBalance::HTMLWriterBalance(string filename_)
 
 }
 
-int HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
+void HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
 {
 
 }
