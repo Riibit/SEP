@@ -17,7 +17,7 @@ class HTMLWriter
 {
 public:
   HTMLWriter();
-  HTMLWriter(string filename_);
+  HTMLWriter(string filename);
 
   string filename_;
 private:
