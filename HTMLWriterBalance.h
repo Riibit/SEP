@@ -18,7 +18,7 @@ public:
   HTMLWriterBalance();
   HTMLWriterBalance(string filename_);
 
-  writeFile(int lemon, int sugar, int cash, int delta);
-}
+  void writeFile(int lemon, int sugar, int cash, int delta);
+};
 
 #endif // HTML_WRITER_BALANCE_H

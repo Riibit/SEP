@@ -20,9 +20,9 @@ class HTMLWriterEnvironment : public HTMLWriter
 {
   public:
     HTMLWriterEnvironment();
-    writeFile(EnvironmentalCondition::Cover sky_cover, 
+    void writeFile(EnvironmentalCondition::Cover sky_cover, 
       EnvironmentalCondition::Rank precipitation, float temperature, 
       EnvironmentalCondition::Rank wind);
-}
+};
 
 #endif // HTML_WRITER_ENV_H
