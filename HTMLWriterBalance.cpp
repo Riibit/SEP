@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// main.cpp
+// HTMLWriterBalance.cpp 
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -9,19 +9,9 @@
 //------------------------------------------------------------------------------
 //
 
-#include <iostream>
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 #include "HTMLWriter.h"
 #include "HTMLWriterEnvironment.h"
 #include "HTMLWriterBalance.h"
 
-int main()
-{
-  EnvironmentalEngine engine;
-  EnvironmentalCondition *newCondition;
-  newCondition = engine.createCondition();
-  delete newCondition;
-  newCondition = NULL;
-  return 0;
-}
