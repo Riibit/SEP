@@ -20,9 +20,9 @@ HTMLWriter::HTMLWriter()
 
 }
 
-HTMLWriter::HTMLWriter(string filename_)
+HTMLWriter::HTMLWriter(string filename)
 {
-
+  filename_ = filename;
 }
 
 void HTMLWriter::writeFile(string)
