@@ -11,6 +11,12 @@
 
 #ifndef HTML_WRITER_ENV_H
 #define HTML_WRITER_ENV_H
+
+#define ICON_SUNNY "icons/Sunny.png"
+#define ICON_CLOUDY "icons/Sunny.png"
+#define ICON_OVERCAST "icons/Sunny.png"
+#define ICON_VERY_OVERCAST "icons/Sunny.png"
+
 class EnvironmentalCondition;
 
 //------------------------------------------------------------------------------
