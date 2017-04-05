@@ -39,15 +39,15 @@ public:
   Rank getPrecipitation(void);
   float getTemperature(void);
   Rank getWind(void);
+
+  bool isItHot();
+  bool isItRainy();
+  bool isItStormy();
 private:
   Cover sky_cover_;
   Rank precipitation_;
   float temperature_;
   Rank wind_;
-  
-  bool isItHot();
-  bool isItRainy();
-  bool isItStormy();
 };
 
 #endif // ENV_CON_H
