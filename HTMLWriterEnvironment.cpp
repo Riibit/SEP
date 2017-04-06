@@ -37,7 +37,6 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   string precipitation;
   string wind;
 
-
   switch(condition.getPrecipitation())
   {
     case EnvironmentalCondition::NONE : precipitation = "none";
@@ -65,11 +64,8 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   environment_body << "<table>" << endl
     << "<tbody>" << endl
     << "<tr>" << endl
-    << "<td><strong>Sky cover</strong></td>" << endl
-    << "<td></td>" << endl
-    << "</tr>" << endl
-    << "<tr>"
-    << "<td><img src=\"";
+    << "<td><p style=\"text-align:center\"><strong>Sky cover</strong></p><br>" << endl
+    << "<img src=\"";
 
   switch(condition.getSkyCover())
   {
@@ -83,7 +79,6 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
       environment_body << ICON_VERY_OVERCAST;
       break;
   }
-
 
   environment_body << "\" alt=\"\" width=\"128\"" 
     << " height=\"128\" /></td>" << endl
@@ -108,8 +103,6 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << "</table>";
    
   html_writer.writeFile(environment_body.str());
-
-  std::cout << environment_body.str();
 }
 
 

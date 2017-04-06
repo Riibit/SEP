@@ -23,6 +23,8 @@ int main()
   newCondition = engine.createCondition();
   HTMLWriterBalance test("Balance.html");
   test.writeFile(1, 2, 3, 4);
+  HTMLWriterEnvironment test_env("Environment.html");
+  test_env.writeFile(*newCondition);
   delete newCondition;
   newCondition = NULL;
   return 0;
