@@ -39,7 +39,7 @@ void HTMLWriter::writeFile(string body)
       << "<meta http-equiv=\"refresh\" content=\"3\">" << endl
       << "<title>SEP 2017</title>" << endl 
       << "<style>body{margin: 0px; padding: 0px;}</style>" << endl << "</head>" 
-      << endl << "<body>" << "<h1><center>LIMOSTANDL</center></h1>" << body
+      << endl << "<body>" << "<h1>LIMOSTANDL</h1>" << body
       << "</body>" << endl << "</html>";
     writer.close();
   }
