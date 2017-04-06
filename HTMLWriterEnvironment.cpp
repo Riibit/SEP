@@ -23,11 +23,16 @@ using std::endl;
 HTMLWriterEnvironment::HTMLWriterEnvironment()
 {
 
+}
+
+HTMLWriterEnvironment::HTMLWriterEnvironment(string filename)
+{
+  filename_ = filename;
 }  
 
 void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 {
-  HTMLWriter html_writer("LimoStandl.html");
+  HTMLWriter html_writer(filename_);
   std::ostringstream environment_body;
   string precipitation;
   string wind;
@@ -57,14 +62,14 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
       break;
   }
   
-  environment_body << "<table>" << endl;
-  environment_body << "<tbody>" << endl;
-  environment_body << "<tr>" << endl;
-  environment_body << "<td><strong>Sky cover</strong></td>" << endl;
-  environment_body << "<td></td>" << endl;
-  environment_body << "</tr>" << endl;
-  environment_body << "<tr>";
-  environment_body << "<td><img src=\"";
+  environment_body << "<table>" << endl
+    << "<tbody>" << endl
+    << "<tr>" << endl
+    << "<td><strong>Sky cover</strong></td>" << endl
+    << "<td></td>" << endl
+    << "</tr>" << endl
+    << "<tr>"
+    << "<td><img src=\"";
 
   switch(condition.getSkyCover())
   {

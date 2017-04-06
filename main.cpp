@@ -21,8 +21,8 @@ int main()
   EnvironmentalEngine engine;
   EnvironmentalCondition *newCondition;
   newCondition = engine.createCondition();
-  HTMLWriterEnvironment test;
-  test.writeFile(*newCondition);
+  HTMLWriterBalance test("Balance.html");
+  test.writeFile(1, 2, 3, 4);
   delete newCondition;
   newCondition = NULL;
   return 0;
