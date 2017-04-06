@@ -20,6 +20,7 @@ public:
   HTMLWriter();
   HTMLWriter(std::string body);
   void writeFile(std::string body);
+  string isItString(bool input);
 private:
   std::string filename_;
 };

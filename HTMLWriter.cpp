@@ -48,3 +48,14 @@ void HTMLWriter::writeFile(string body)
     writer.close();
   }
 }
+
+string isItString(bool input)
+{
+  switch(input)
+  {
+    case TRUE : return "true";
+      break;
+    case FALSE : return "false";
+      break;
+  }
+}
