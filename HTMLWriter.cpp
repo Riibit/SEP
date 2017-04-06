@@ -49,13 +49,14 @@ void HTMLWriter::writeFile(string body)
   }
 }
 
-string isItString(bool input)
+std::string isItString(bool input)
 {
-  switch(input)
+  if(input)
   {
-    case TRUE : return "true";
-      break;
-    case FALSE : return "false";
-      break;
+    return "true";
+  }
+  else
+  {
+    return "false";
   }
 }

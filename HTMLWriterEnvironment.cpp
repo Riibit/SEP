@@ -27,9 +27,9 @@ HTMLWriterEnvironment::HTMLWriterEnvironment()
 
 void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 {
+  HTMLWriter html_writer("LimoStandl.html");
   std::ostringstream environment_body;
   string precipitation;
-  float temperature;
   string wind;
 
 
@@ -80,25 +80,25 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   }
 
 
-  environment_body << "\" alt=\"\" width=\"128\"";  
-  environment_body << " height=\"128\" /></td>" << endl;
-  environment_body << "<td>" << endl;
-  environment_body << "<p><strong>Precipitation: </strong>" << precipitation;
-  environment_body << "</p>" << endl;
-  environment_body << "<p><strong>Temperature: </strong>" 
-  << condition.getTemperature();
-  environment_body << "°C</p>" << endl;
-  environment_body << "<p><strong>Wind: </strong>" << wind;
-  environment_body << "</p>" << endl;
-  environment_body << "<p><strong>Hot: </strong>false</p>" << endl;
-  environment_body << "<p><strong>Rainy: </strong>true</p>" << endl;
-  environment_body << "<p><strong>Stormy: </strong>true</p>" << endl;
-  environment_body << "</td>" << endl;
-  environment_body << "</tr>" << endl;
-  environment_body << "</tbody>" << endl;
-  environment_body << "</table>";
-  
-  HTMLWriter html_writer("LimoStandl.html");
+  environment_body << "\" alt=\"\" width=\"128\"" 
+    << " height=\"128\" /></td>" << endl
+    << "<td>" << endl
+    << "<p><strong>Precipitation: </strong>" << precipitation
+    << "</p>" << endl
+    << "<p><strong>Temperature: </strong>" 
+    << condition.getTemperature()
+    << "°C</p>" << endl
+    << "<p><strong>Wind: </strong>" << wind
+    << "</p>" << endl
+    << "<p><strong>Hot: </strong>"
+    << html_writer.isItString(condition.isItHot())
+    << "</p>" << endl << "<p><strong>Rainy: </strong>true</p>" << endl
+    << "<p><strong>Stormy: </strong>true</p>" << endl
+    << "</td>" << endl
+    << "</tr>" << endl
+    << "</tbody>" << endl
+    << "</table>";
+   
   html_writer.writeFile(environment_body.str());
 
   std::cout << environment_body.str();
