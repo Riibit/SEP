@@ -49,7 +49,7 @@ void HTMLWriter::writeFile(string body)
   }
 }
 
-std::string isItString(bool input)
+std::string HTMLWriter::isItString(bool input)
 {
   if(input)
   {

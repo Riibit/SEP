@@ -92,8 +92,11 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << "</p>" << endl
     << "<p><strong>Hot: </strong>"
     << html_writer.isItString(condition.isItHot())
-    << "</p>" << endl << "<p><strong>Rainy: </strong>true</p>" << endl
-    << "<p><strong>Stormy: </strong>true</p>" << endl
+    << "</p>" << endl << "<p><strong>Rainy: </strong>"
+    << html_writer.isItString(condition.isItRainy())
+    << "</p>" << endl << "<p><strong>Stormy: </strong>"
+    << html_writer.isItString(condition.isItStormy())
+    << "</p>" << endl
     << "</td>" << endl
     << "</tr>" << endl
     << "</tbody>" << endl
