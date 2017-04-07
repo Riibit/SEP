@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 //
 #include <sstream>
-#include <iostream>
 
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
@@ -100,7 +99,7 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << "</td>" << endl
     << "</tr>" << endl
     << "</tbody>" << endl
-    << "</table>";
+    << "</table>" << endl;
    
   html_writer.writeFile(environment_body.str());
 }

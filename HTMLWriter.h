@@ -19,6 +19,7 @@ class HTMLWriter
 public:
   HTMLWriter();
   HTMLWriter(std::string body);
+
   void writeFile(std::string body);
   std::string isItString(bool input);
 private:

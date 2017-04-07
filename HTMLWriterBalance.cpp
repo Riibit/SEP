@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 //
 #include <sstream>
-#include <iostream>
 
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
