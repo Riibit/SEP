@@ -12,13 +12,14 @@
 #ifndef HTML_WRITER_BALANCE_H
 #define HTML_WRITER_BALANCE_H
 
-#define ICON_LEMON "icons/Lemon.png"
-#define ICON_SUGAR "icons/Sugar.png"
-#define ICON_COINS "icons/Coins.png"
-
 class HTMLWriterBalance : public HTMLWriter
 {
 public:
+
+  const static std::string ICON_LEMON;
+  const static std::string ICON_SUGAR;
+  const static std::string ICON_COINS;
+
   HTMLWriterBalance();
   HTMLWriterBalance(std::string filename);
 

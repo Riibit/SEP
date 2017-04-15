@@ -57,9 +57,9 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
     case 3 : precipitation = EnvironmentalCondition::HIGH;
       break;
   }
-  temperature = (rand() % 25 + MIN_TEMP);
+  temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
 
-  if (temperature <= MAX_TEMP)
+  if (temperature <= EnvironmentalCondition::MAX_TEMP)
     temperature += ((rand() % 10) / 10.0f);
 
   random_value = rand() % 4;

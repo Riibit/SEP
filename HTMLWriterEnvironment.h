@@ -12,11 +12,6 @@
 #ifndef HTML_WRITER_ENV_H
 #define HTML_WRITER_ENV_H
 
-#define ICON_SUNNY "icons/Sunny.png"
-#define ICON_CLOUDY "icons/Cloudy.png"
-#define ICON_OVERCAST "icons/Overcast.png"
-#define ICON_VERY_OVERCAST "icons/Very_overcast.png"
-
 class EnvironmentalCondition;
 
 //------------------------------------------------------------------------------
@@ -25,6 +20,12 @@ class EnvironmentalCondition;
 class HTMLWriterEnvironment : public HTMLWriter
 {
   public:
+
+    static const std::string ICON_SUNNY;
+    static const std::string ICON_CLOUDY;
+    static const std::string ICON_OVERCAST;
+    static const std::string ICON_VERY_OVERCAST;
+
     HTMLWriterEnvironment();
     HTMLWriterEnvironment(std::string filename);
     void writeFile(EnvironmentalCondition conditions);

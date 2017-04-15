@@ -19,6 +19,11 @@
 using std::string;
 using std::endl;
 
+const std::string HTMLWriterEnvironment::ICON_SUNNY = "icons/Sunny.png";
+const std::string HTMLWriterEnvironment::ICON_CLOUDY = "icons/Cloudy.png";
+const std::string HTMLWriterEnvironment::ICON_OVERCAST = "icons/Overcast.png";
+const std::string HTMLWriterEnvironment::ICON_VERY_OVERCAST = "icons/Very_overcast.png";
+
 HTMLWriterEnvironment::HTMLWriterEnvironment()
 {
 

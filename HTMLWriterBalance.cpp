@@ -19,6 +19,10 @@
 using std::string;
 using std::endl;
 
+const std::string HTMLWriterBalance::ICON_LEMON = "icons/Lemon.png";
+const std::string HTMLWriterBalance::ICON_SUGAR = "icons/Sugar.png";
+const std::string HTMLWriterBalance::ICON_COINS = "icons/Coins.png";
+
 HTMLWriterBalance::HTMLWriterBalance()
 {
 
