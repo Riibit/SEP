@@ -63,7 +63,8 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   environment_body << "<table>" << endl
     << "<tbody>" << endl
     << "<tr>" << endl
-    << "<td><p style=\"text-align:center\"><strong>Sky cover</strong></p><br>" << endl
+    << "<td><p style=\"text-align:center\">"
+    << "<strong>Sky cover</strong></p><br>" << endl
     << "<img src=\"";
 
   switch(condition.getSkyCover())
