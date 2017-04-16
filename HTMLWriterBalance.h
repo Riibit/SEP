@@ -16,9 +16,9 @@ class HTMLWriterBalance : public HTMLWriter
 {
 public:
 
-  const static std::string ICON_LEMON;
-  const static std::string ICON_SUGAR;
-  const static std::string ICON_COINS;
+  const static std::string icon_lemon_;
+  const static std::string icon_sugar_;
+  const static std::string icon_coins_;
 
   HTMLWriterBalance();
   HTMLWriterBalance(std::string filename);

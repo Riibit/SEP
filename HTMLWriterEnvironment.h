@@ -21,10 +21,10 @@ class HTMLWriterEnvironment : public HTMLWriter
 {
   public:
 
-    static const std::string ICON_SUNNY;
-    static const std::string ICON_CLOUDY;
-    static const std::string ICON_OVERCAST;
-    static const std::string ICON_VERY_OVERCAST;
+    static const std::string icon_sunny_;
+    static const std::string icon_cloudy_;
+    static const std::string icon_overcast_;
+    static const std::string icon_very_overcast_;
 
     HTMLWriterEnvironment();
     HTMLWriterEnvironment(std::string filename);
