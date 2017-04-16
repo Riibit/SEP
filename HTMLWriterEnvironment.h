@@ -12,8 +12,8 @@
 #ifndef HTML_WRITER_ENV_H
 #define HTML_WRITER_ENV_H
 
-#include "HTMLWriter.h"
 
+class HTMLWriter;
 class EnvironmentalCondition;
 
 //------------------------------------------------------------------------------
