@@ -35,26 +35,34 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
 
   switch(random_value)
   {
-    case 0 : sky_cover = EnvironmentalCondition::SUNNY;
+    case 0 :
+      sky_cover = EnvironmentalCondition::SUNNY;
       break;
-    case 1 : sky_cover = EnvironmentalCondition::CLOUDY;
+    case 1 :
+      sky_cover = EnvironmentalCondition::CLOUDY;
       break;
-    case 2 : sky_cover = EnvironmentalCondition::OVERCAST;
+    case 2 :
+      sky_cover = EnvironmentalCondition::OVERCAST;
       break;
-    case 3 : sky_cover = EnvironmentalCondition::VERY_OVERCAST;
+    case 3 :
+      sky_cover = EnvironmentalCondition::VERY_OVERCAST;
       break;
   }
   random_value = rand() % 4;
 
   switch(random_value)
   {
-    case 0 : precipitation = EnvironmentalCondition::NONE;
+    case 0 :
+      precipitation = EnvironmentalCondition::NONE;
       break;
-    case 1 : precipitation = EnvironmentalCondition::LOW;
+    case 1 :
+      precipitation = EnvironmentalCondition::LOW;
       break;
-    case 2 : precipitation = EnvironmentalCondition::MEDIUM;
+    case 2 :
+      precipitation = EnvironmentalCondition::MEDIUM;
       break;
-    case 3 : precipitation = EnvironmentalCondition::HIGH;
+    case 3 :
+      precipitation = EnvironmentalCondition::HIGH;
       break;
   }
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
@@ -66,13 +74,17 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
 
   switch(random_value)
   {
-    case 0 : wind = EnvironmentalCondition::NONE;
+    case 0 :
+      wind = EnvironmentalCondition::NONE;
       break;
-    case 1 : wind = EnvironmentalCondition::LOW;
+    case 1 :
+      wind = EnvironmentalCondition::LOW;
       break;
-    case 2 : wind = EnvironmentalCondition::MEDIUM;
+    case 2 :
+      wind = EnvironmentalCondition::MEDIUM;
       break;
-    case 3 : wind = EnvironmentalCondition::HIGH;
+    case 3 :
+      wind = EnvironmentalCondition::HIGH;
       break;
   }
 

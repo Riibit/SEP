@@ -44,25 +44,33 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 
   switch(condition.getPrecipitation())
   {
-    case EnvironmentalCondition::NONE : precipitation = "none";
+    case EnvironmentalCondition::NONE :
+      precipitation = "none";
       break;
-    case EnvironmentalCondition::LOW : precipitation = "low";
+    case EnvironmentalCondition::LOW :
+      precipitation = "low";
       break;
-    case EnvironmentalCondition::MEDIUM : precipitation = "medium";
+    case EnvironmentalCondition::MEDIUM :
+      precipitation = "medium";
       break;
-    case EnvironmentalCondition::HIGH : precipitation = "high";
+    case EnvironmentalCondition::HIGH :
+      precipitation = "high";
       break;
   }
 
   switch(condition.getWind())
   {
-    case EnvironmentalCondition::NONE : wind = "none";
+    case EnvironmentalCondition::NONE :
+      wind = "none";
       break;
-    case EnvironmentalCondition::LOW : wind = "low";
+    case EnvironmentalCondition::LOW :
+      wind = "low";
       break;
-    case EnvironmentalCondition::MEDIUM : wind = "medium";
+    case EnvironmentalCondition::MEDIUM :
+      wind = "medium";
       break;
-    case EnvironmentalCondition::HIGH : wind = "high";
+    case EnvironmentalCondition::HIGH :
+      wind = "high";
       break;
   }
   
@@ -75,11 +83,14 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 
   switch(condition.getSkyCover())
   {
-    case EnvironmentalCondition::SUNNY : environment_body << icon_sunny_;
+    case EnvironmentalCondition::SUNNY :
+      environment_body << icon_sunny_;
       break;
-    case EnvironmentalCondition::CLOUDY : environment_body << icon_cloudy_;
+    case EnvironmentalCondition::CLOUDY :
+      environment_body << icon_cloudy_;
       break;
-    case EnvironmentalCondition::OVERCAST : environment_body << icon_overcast_;
+    case EnvironmentalCondition::OVERCAST :
+      environment_body << icon_overcast_;
       break;
     case EnvironmentalCondition::VERY_OVERCAST : 
       environment_body << icon_very_overcast_;
