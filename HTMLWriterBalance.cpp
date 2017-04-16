@@ -30,13 +30,13 @@ HTMLWriterBalance::HTMLWriterBalance()
 
 HTMLWriterBalance::HTMLWriterBalance(string filename)
 {
-	filename_ = filename;
+    filename_ = filename;
 }
 
 void HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
 {
-	HTMLWriter html_writer(filename_);
-	std::ostringstream balance_body;
+    HTMLWriter html_writer(filename_);
+    std::ostringstream balance_body;
 
   balance_body << "<table>" << endl
     << "<tbody>" << endl
@@ -62,4 +62,4 @@ void HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
     << "</table>" << endl;
 
   html_writer.writeFile(balance_body.str());
-  }
+}
