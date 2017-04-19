@@ -61,14 +61,12 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << HTMLWriterEnvironment::rankString(condition.getPrecipitation())
     << "</p>" << endl
     << "<p><strong>Temperature: </strong>"
-    << condition.getTemperature()
-    << "°C</p>" << endl
+    << condition.getTemperature() << "°C</p>" << endl
     << "<p><strong>Wind: </strong>"
-    << HTMLWriterEnvironment::rankString(condition.getWind())
-    << "</p>" << endl
+    << HTMLWriterEnvironment::rankString(condition.getWind()) << "</p>" << endl
     << "<p><strong>Hot: </strong>"
-    << HTMLWriterEnvironment::isItString(condition.isItHot())
-    << "</p>" << endl << "<p><strong>Rainy: </strong>"
+    << HTMLWriterEnvironment::isItString(condition.isItHot()) << "</p>" << endl
+    << "<p><strong>Rainy: </strong>"
     << HTMLWriterEnvironment::isItString(condition.isItRainy())
     << "</p>" << endl << "<p><strong>Stormy: </strong>"
     << HTMLWriterEnvironment::isItString(condition.isItStormy())
