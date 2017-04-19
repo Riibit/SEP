@@ -12,20 +12,22 @@
 #ifndef HTML_WRITER_BALANCE_H
 #define HTML_WRITER_BALANCE_H
 
+#include <string>
+#include "HTMLWriter.h"
+
+//------------------------------------------------------------------------------
+// The class for writing Balance HTML files
+//
 class HTMLWriterBalance : public HTMLWriter
 {
-public:
-
-  const static std::string icon_lemon_;
-  const static std::string icon_sugar_;
-  const static std::string icon_coins_;
-
-  HTMLWriterBalance();
-  HTMLWriterBalance(std::string filename);
-
-  void writeFile(int lemon, int sugar, int cash, int delta);
-private:
-  std::string filename_;
+  public:
+    using HTMLWriter::HTMLWriter;
+    void writeFile(int lemon, int sugar, int cash, int delta);
+    
+  private:
+    const static std::string icon_lemon_;
+    const static std::string icon_sugar_;
+    const static std::string icon_coins_;
 };
 
 #endif // HTML_WRITER_BALANCE_H

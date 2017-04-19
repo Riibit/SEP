@@ -9,23 +9,27 @@
 //------------------------------------------------------------------------------
 //
 
-#include "EnvironmentalCondition.h"
-#include "EnvironmentalEngine.h"
+#include <fstream>
 #include "HTMLWriter.h"
 
 using std::string;
 using std::endl;
 
-HTMLWriter::HTMLWriter()
-{
-
-}
-
+//------------------------------------------------------------------------------
+// Constructor for the class
+//
+// @param filename The filename of the html file that is to be written
+//
 HTMLWriter::HTMLWriter(string filename)
 {
   filename_ = filename;
 }
 
+//------------------------------------------------------------------------------
+// The function that writes the html file with the given body
+//
+// @param body The string that is to be inserted in the body of the html file
+//
 void HTMLWriter::writeFile(string body)
 {
   std::ofstream writer;
@@ -43,16 +47,8 @@ void HTMLWriter::writeFile(string body)
       << "</body>" << endl << "</html>";
     writer.close();
   }
-}
-
-std::string HTMLWriter::isItString(bool input)
-{
-  if(input)
-  {
-    return "true";
-  }
   else
   {
-    return "false";
+    //Error handling
   }
 }

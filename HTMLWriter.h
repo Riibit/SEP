@@ -12,18 +12,15 @@
 #define HTML_WRITER_H
 
 #include <string>
-#include <fstream>
 
 class HTMLWriter
 {
-public:
-  HTMLWriter();
-  HTMLWriter(std::string body);
-
-  void writeFile(std::string body);
-  std::string isItString(bool input);
-private:
-  std::string filename_;
+  public:
+    HTMLWriter(std::string filename);
+    void writeFile(std::string body);
+    
+  private:
+    std::string filename_;
 };
 
 #endif //HTML_WRITER_H

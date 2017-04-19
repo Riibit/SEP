@@ -9,71 +9,28 @@
 //------------------------------------------------------------------------------
 //
 #include <sstream>
-
-#include "EnvironmentalCondition.h"
-#include "EnvironmentalEngine.h"
-#include "HTMLWriter.h"
 #include "HTMLWriterEnvironment.h"
-#include "HTMLWriterBalance.h"
 
 using std::string;
 using std::endl;
 
-const std::string HTMLWriterEnvironment::icon_sunny_ = "icons/Sunny.png";
-const std::string HTMLWriterEnvironment::icon_cloudy_ = "icons/Cloudy.png";
-const std::string HTMLWriterEnvironment::icon_overcast_ = "icons/Overcast.png";
-const std::string HTMLWriterEnvironment::icon_very_overcast_ =
- "icons/Very_overcast.png";
+const string HTMLWriterEnvironment::icon_sunny_ = "icons/Sunny.png";
+const string HTMLWriterEnvironment::icon_cloudy_ = "icons/Cloudy.png";
+const string HTMLWriterEnvironment::icon_overcast_ = "icons/Overcast.png";
+const string HTMLWriterEnvironment::icon_very_overcast_ = 
+  "icons/Very_overcast.png";
 
-HTMLWriterEnvironment::HTMLWriterEnvironment()
-{
-
-}
-
-HTMLWriterEnvironment::HTMLWriterEnvironment(string filename)
-{
-  filename_ = filename;
-}  
-
+//------------------------------------------------------------------------------
+// Creates the body part of the Environmental html file and passes it to the
+// writeFile function of the parent class
+//
+// @param condition The EnvironmentalCondition object that supplies the values
+//        that are to be written
+//
 void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 {
-  HTMLWriter html_writer(filename_);
   std::ostringstream environment_body;
-  string precipitation;
-  string wind;
 
-  switch(condition.getPrecipitation())
-  {
-    case EnvironmentalCondition::NONE :
-      precipitation = "none";
-      break;
-    case EnvironmentalCondition::LOW :
-      precipitation = "low";
-      break;
-    case EnvironmentalCondition::MEDIUM :
-      precipitation = "medium";
-      break;
-    case EnvironmentalCondition::HIGH :
-      precipitation = "high";
-      break;
-  }
-
-  switch(condition.getWind())
-  {
-    case EnvironmentalCondition::NONE :
-      wind = "none";
-      break;
-    case EnvironmentalCondition::LOW :
-      wind = "low";
-      break;
-    case EnvironmentalCondition::MEDIUM :
-      wind = "medium";
-      break;
-    case EnvironmentalCondition::HIGH :
-      wind = "high";
-      break;
-  }
-  
   environment_body << "<table>" << endl
     << "<tbody>" << endl
     << "<tr>" << endl
@@ -100,26 +57,69 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   environment_body << "\" alt=\"\" width=\"128\"" 
     << " height=\"128\" /></td>" << endl
     << "<td>" << endl
-    << "<p><strong>Precipitation: </strong>" << precipitation
+    << "<p><strong>Precipitation: </strong>"
+    << HTMLWriterEnvironment::rankString(condition.getPrecipitation())
     << "</p>" << endl
-    << "<p><strong>Temperature: </strong>" 
+    << "<p><strong>Temperature: </strong>"
     << condition.getTemperature()
     << "°C</p>" << endl
-    << "<p><strong>Wind: </strong>" << wind
+    << "<p><strong>Wind: </strong>"
+    << HTMLWriterEnvironment::rankString(condition.getWind())
     << "</p>" << endl
     << "<p><strong>Hot: </strong>"
-    << html_writer.isItString(condition.isItHot())
+    << HTMLWriterEnvironment::isItString(condition.isItHot())
     << "</p>" << endl << "<p><strong>Rainy: </strong>"
-    << html_writer.isItString(condition.isItRainy())
+    << HTMLWriterEnvironment::isItString(condition.isItRainy())
     << "</p>" << endl << "<p><strong>Stormy: </strong>"
-    << html_writer.isItString(condition.isItStormy())
+    << HTMLWriterEnvironment::isItString(condition.isItStormy())
     << "</p>" << endl
     << "</td>" << endl
     << "</tr>" << endl
     << "</tbody>" << endl
     << "</table>" << endl;
-   
-  html_writer.writeFile(environment_body.str());
+
+  HTMLWriter::writeFile(environment_body.str());
 }
 
+//------------------------------------------------------------------------------
+// Takes a boolean value and returns a true or falase string depending on the
+// value
+//
+// @param input The boolean value
+//
+// @return string The corresponding string
+//
+string HTMLWriterEnvironment::isItString(bool input)
+{
+  if(input)
+  {
+    return "true";
+  }
+  else
+  {
+    return "false";
+  }
+}
 
+//------------------------------------------------------------------------------
+// Takes a Rank enum defined in the EnvironmentalCondition and returns the
+// corresponding strings
+//
+// @param rank The rank enum
+//
+// @return string The corresponding string
+//
+string HTMLWriterEnvironment::rankString(EnvironmentalCondition::Rank rank)
+{
+  switch(rank)
+  {
+    case EnvironmentalCondition::NONE :
+      return "none";
+    case EnvironmentalCondition::LOW :
+      return "low";
+    case EnvironmentalCondition::MEDIUM :
+      return "medium";
+    default :
+      return "high";
+  }
+}
