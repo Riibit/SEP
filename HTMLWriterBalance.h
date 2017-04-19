@@ -12,7 +12,6 @@
 #ifndef HTML_WRITER_BALANCE_H
 #define HTML_WRITER_BALANCE_H
 
-#include <string>
 #include "HTMLWriter.h"
 
 //------------------------------------------------------------------------------
