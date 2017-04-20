@@ -24,14 +24,14 @@ class HTMLWriterEnvironment : public HTMLWriter
     using HTMLWriter::HTMLWriter;
     void writeFile(EnvironmentalCondition conditions);
 
-  private:
-    std::string isItString(bool input);
-    std::string rankString(EnvironmentalCondition::Rank rank);
-
     static const std::string ICON_SUNNY;
     static const std::string ICON_CLOUDY;
     static const std::string ICON_OVERCAST;
     static const std::string ICON_VERY_OVERCAST;
+
+  private:
+    std::string isItString(bool input);
+    std::string rankString(EnvironmentalCondition::Rank rank);
 };
 
 #endif // HTML_WRITER_ENV_H
