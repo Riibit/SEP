@@ -24,9 +24,9 @@ class HTMLWriterBalance : public HTMLWriter
     void writeFile(int lemon, int sugar, int cash, int delta);
     
   private:
-    const static std::string icon_lemon_;
-    const static std::string icon_sugar_;
-    const static std::string icon_coins_;
+    const static std::string ICON_LEMON;
+    const static std::string ICON_SUGAR;
+    const static std::string ICON_COINS;
 };
 
 #endif // HTML_WRITER_BALANCE_H

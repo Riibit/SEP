@@ -14,9 +14,12 @@
 using std::string;
 using std::endl;
 
-const string HTMLWriterBalance::icon_lemon_ = "icons/Lemon.png";
-const string HTMLWriterBalance::icon_sugar_ = "icons/Sugar.png";
-const string HTMLWriterBalance::icon_coins_ = "icons/Coins.png";
+const string HTMLWriterBalance::ICON_LEMON = 
+  "https://palme.iicm.tugraz.at/wiki/images/3/35/Lemon.png";
+const string HTMLWriterBalance::ICON_SUGAR = 
+  "https://palme.iicm.tugraz.at/wiki/images/a/a9/Sugar.png";
+const string HTMLWriterBalance::ICON_COINS = 
+  "https://palme.iicm.tugraz.at/wiki/images/f/f0/Coins.png";
 
 //------------------------------------------------------------------------------
 // Creates the body part of the Balance html file and passes it to the
@@ -34,17 +37,17 @@ void HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
   balance_body << "<table>" << endl
     << "<tbody>" << endl
     << "<tr>" << endl
-    << "<td><img src=\"" << icon_lemon_ 
+    << "<td><img src=\"" << ICON_LEMON 
     << "\" alt=\"\" width=\"64\" height=\"64\" /></td>" << endl
     << "<td><strong>Lemons: </strong>" << lemon << "</td>" << endl
     << "</tr>" << endl
     << "<tr>" << endl
-    << "<td><img src=\"" << icon_sugar_
+    << "<td><img src=\"" << ICON_SUGAR
     << "\" alt=\"\" width=\"64\" height=\"64\" /></td>" << endl
     << "<td><strong>Sugar: </strong>" << sugar << "</td>" << endl
     << "</tr>" << endl
     << "<tr>" << endl
-    << "<td><img src=\"" << icon_coins_
+    << "<td><img src=\"" << ICON_COINS
     << "\" alt=\"\" width=\"64\" height=\"64\" /></td>" << endl
     << "<td>" << endl
     << "<p><strong>Cash: </strong>" << cash << "$</p>" << endl

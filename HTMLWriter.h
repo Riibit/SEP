@@ -13,6 +13,9 @@
 
 #include <string>
 
+//------------------------------------------------------------------------------
+// The class for writing html files
+//
 class HTMLWriter
 {
   public:

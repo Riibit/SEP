@@ -15,11 +15,14 @@
 using std::string;
 using std::endl;
 
-const string HTMLWriterEnvironment::icon_sunny_ = "icons/Sunny.png";
-const string HTMLWriterEnvironment::icon_cloudy_ = "icons/Cloudy.png";
-const string HTMLWriterEnvironment::icon_overcast_ = "icons/Overcast.png";
-const string HTMLWriterEnvironment::icon_very_overcast_ = 
-  "icons/Very_overcast.png";
+const string HTMLWriterEnvironment::ICON_SUNNY = 
+  "https://palme.iicm.tugraz.at/wiki/images/9/9a/Sunny.png";
+const string HTMLWriterEnvironment::ICON_CLOUDY = 
+  "https://palme.iicm.tugraz.at/wiki/images/3/33/Cloudy.png";
+const string HTMLWriterEnvironment::ICON_OVERCAST = 
+  "https://palme.iicm.tugraz.at/wiki/images/6/6f/Overcast.png";
+const string HTMLWriterEnvironment::ICON_VERY_OVERCAST = 
+  "https://palme.iicm.tugraz.at/wiki/images/3/30/Very_overcast.png";
 
 //------------------------------------------------------------------------------
 // Creates the body part of the Environmental html file and passes it to the
@@ -42,16 +45,16 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
   switch(condition.getSkyCover())
   {
     case EnvironmentalCondition::SUNNY :
-      environment_body << icon_sunny_;
+      environment_body << ICON_SUNNY;
       break;
     case EnvironmentalCondition::CLOUDY :
-      environment_body << icon_cloudy_;
+      environment_body << ICON_CLOUDY;
       break;
     case EnvironmentalCondition::OVERCAST :
-      environment_body << icon_overcast_;
+      environment_body << ICON_OVERCAST;
       break;
     case EnvironmentalCondition::VERY_OVERCAST : 
-      environment_body << icon_very_overcast_;
+      environment_body << ICON_VERY_OVERCAST;
       break;
   }
 
