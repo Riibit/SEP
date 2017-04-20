@@ -47,7 +47,8 @@ void HTMLWriter::writeFile(string body)
       << "<body>" << endl
       << "<h1 style=\"text-align:center\">LIMOSTANDL</h1>" << endl
       << body
-      << "</body>" << endl << "</html>";
+      << "</body>" << endl
+      << "</html>";
     writer.close();
   }
   else

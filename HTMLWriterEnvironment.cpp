@@ -8,6 +8,7 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
 #include <sstream>
 #include "HTMLWriterEnvironment.h"
 
