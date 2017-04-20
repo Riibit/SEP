@@ -12,11 +12,22 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+//------------------------------------------------------------------------------
+// Default constructor for the class
+//
 EnvironmentalCondition::EnvironmentalCondition()
 {
 
 }
 
+//------------------------------------------------------------------------------
+// Constructor for the class
+//
+// @param sky_cover The sky cover rank
+// @param precipitation The precipitation rank
+// @param temperature The temperature
+// @param wind The wind rank
+//
 EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover, 
   Rank precipitation, float temperature, Rank wind)
 {
@@ -29,7 +40,7 @@ EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover,
 //------------------------------------------------------------------------------
 // Method to find out if it is sunny
 //
-// @return Returns true if it is sunny and the temperature is in the top one 
+// @return bool True if it is sunny and the temperature is in the top one 
 //         third
 //
 bool EnvironmentalCondition::isItHot()
@@ -47,7 +58,7 @@ bool EnvironmentalCondition::isItHot()
 //------------------------------------------------------------------------------
 // Method to find out if it is rainy
 //
-// @return Returns true if the precipation is medium or high and the sky cover
+// @return bool True if the precipation is medium or high and the sky cover
 //         is overcast or very overcast
 //
 bool EnvironmentalCondition::isItRainy()
@@ -66,7 +77,7 @@ bool EnvironmentalCondition::isItRainy()
 //------------------------------------------------------------------------------
 // Method to find out if it is stormy
 //
-// @return Returns true if the wind is medium or high and the sky cover is 
+// @return bool True if the wind is medium or high and the sky cover is 
 //         overcast or very overcast
 //
 bool EnvironmentalCondition::isItStormy()
@@ -95,7 +106,7 @@ void EnvironmentalCondition::setSkyCover(Cover cover)
 //------------------------------------------------------------------------------
 // Method to get the sky cover rank
 //
-// @return Returns the sky cover rank
+// @return EnvironmentalCondition::Cover The sky cover rank
 //
 EnvironmentalCondition::Cover EnvironmentalCondition::getSkyCover(void)
 {
@@ -115,7 +126,7 @@ void EnvironmentalCondition::setPrecipitation(Rank rank)
 //------------------------------------------------------------------------------
 // Method to get the precipitation rank
 //
-// @return Returns the precipitation rank
+// @return EnvironmentalCondition::Rank The precipitation rank
 //
 EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
 {
@@ -138,7 +149,7 @@ void EnvironmentalCondition::setTemperature(float temperature)
 //------------------------------------------------------------------------------
 // Method to get the temperature
 //
-// @return Returns the temperature
+// @return float The temperature
 //
 float EnvironmentalCondition::getTemperature(void)
 {
@@ -158,7 +169,7 @@ void EnvironmentalCondition::setWind(Rank rank)
 //------------------------------------------------------------------------------
 // Method to get the wind rank
 //
-// @return Returns the wind rank
+// @return EnvironmentalCondition::Rank The wind rank
 //
 EnvironmentalCondition::Rank EnvironmentalCondition::getWind(void)
 {

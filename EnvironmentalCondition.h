@@ -18,7 +18,6 @@
 class EnvironmentalCondition
 {
 public:
-
   static const int MIN_TEMP = 10;
   static const int MAX_TEMP = 35;
   static const int HOT_THRESHOLD = (((MAX_TEMP - MIN_TEMP) / 3) + MIN_TEMP);

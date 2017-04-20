@@ -18,7 +18,7 @@
 // The function createCondition creates a new condition, which values are
 // random, and returns the condition.
 //
-// @return Returns a new condition 
+// @return EnvironmentalCondition Returns the pointer to the object on the stack
 //         
 //
 EnvironmentalCondition* EnvironmentalEngine::createCondition()
