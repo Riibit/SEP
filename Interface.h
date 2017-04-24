@@ -8,17 +8,20 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#include <string>
+#include <vector>
 
 class GameHandler; 
 
 class Interface 
 {
   public:
-    Interface(GameHandler& game);
+    Interface();
     const int runInterface();
+    const std::vector<std::string> makeVector();
 
   private:
-    GameHandler game_;
+    //GameHandler game_;
 
 
-}
+};

@@ -11,12 +11,14 @@
 
 #include <iostream>
 
-#include "Command.h"
+#include "Interface.h"
 
 int main()
 {
+  int return_value = 0;
+  Interface interface;
+  return_value = interface.runInterface();
 
-
-  return 0;
+  return return_value;
 }
 
