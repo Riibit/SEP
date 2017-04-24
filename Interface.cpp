@@ -8,3 +8,21 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
+#include "Interface.h"
+
+Interface::Interface(GameHandler& game)
+{
+  game_ = game;
+}
+
+Interface::runInterface()
+{
+  while (1)
+  {
+    std::cout << "sep> ";
+    
+  }
+}
+
+Interface::make

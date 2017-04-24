@@ -8,3 +8,17 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
+class GameHandler; 
+
+class Interface 
+{
+  public:
+    Interface(GameHandler& game);
+    const int runInterface();
+
+  private:
+    GameHandler game_;
+
+
+}
