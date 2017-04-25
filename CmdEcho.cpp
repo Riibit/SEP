@@ -14,7 +14,7 @@
 
 using std::cout;
 
-int execute (GameHandler& game, std::vector<std::string>& params){
+int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params){
 {
   if (!params.empty())
   {

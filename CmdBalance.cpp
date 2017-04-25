@@ -15,7 +15,7 @@
 using std::cout;
 using std::endl;
 
-int execute (GameHandler& game, std::vector<std::string>& params)
+int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
 {
   int lemon = 100;
   int sugar = 100;
