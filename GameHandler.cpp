@@ -15,17 +15,27 @@ GameHandler()
 {
 }
 
-void setInterfaceParameters(std::vector<std::string>* interface_parameters); 
+void GameHandler::runInterface()
+{
+  Interface* interface_instance = new Interface(this);
+  while(1) 
+  {
+    interface_instance -> runPrompt();
+    resolveCommand();
+  }
+}
+
+void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters); 
 {
   interface_parameters_ = interface_parameters;
 }
 
-void setInterfaceCommand(std::string command_name) 
+void GameHandler::setInterfaceCommand(std::string command_name) 
 {
   command_name_ = command_name;
 }
 
-void resolveCommand(std::string command_name_)
+void GameHandler::resolveCommand()
 {
   /*try
   {

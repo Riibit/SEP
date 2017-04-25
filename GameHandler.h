@@ -12,16 +12,20 @@
 #ifndef GAMEHANDLER_H
 #define GAMEHANDLER_H
 
+#include <string>
+#include <vector>
+
 class GameHandler 
 {
   public:
     GameHandler();
+    void runInterface();
     void setInterfaceParameters(std::vector<std::string>* interface_parameters);
     void setInterfaceCommand(std::string* command_name);
   private:
     std::string* command_name_;
     std::vector<std::string>* interface_parameters_;
-    void resolveCommand(std::string command_name);
+    void resolveCommand();
 };
 
 #endif //GAMEHANDLER_H
