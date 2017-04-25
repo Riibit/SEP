@@ -22,15 +22,10 @@ class Interface
   public:
     Interface();
     const int runInterface();
-    const std::vector<std::string> makeVector(char* cin_value);
     const std::string getArgument(char* cin_value, bool to_lower);
+    void std::vector<std::string> makeVector(char* cin_value);
 
     static const std::string PROMPT_STRING;
-
-  private:
-    //GameHandler game_;
-
-
 };
 
 #endif //INTERFACE_H_INCLUDED

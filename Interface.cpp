@@ -22,7 +22,7 @@ const string Interface::PROMPT_STRING = "sep> ";
 
 Interface::Interface()
 {
-  //game_ = game;
+  
 }
 
 const int Interface::runInterface()
@@ -41,7 +41,14 @@ const int Interface::runInterface()
     {
       continue;
     }
+    new string* heap_command = input;
+    GameHandler::setInterfaceCommand(heap_command);
+    makeVector(&character);
 
+
+
+
+/*
     if (!input.compare("quit"))
     {
       arguments = makeVector(&character);
@@ -62,6 +69,7 @@ const int Interface::runInterface()
     {
       cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
+    */
     input.clear();
   }
 }
@@ -92,10 +100,10 @@ const string Interface::getArgument(char* cin_value, bool to_lower)
   return return_string;
 }
 
-const std::vector<string> Interface::makeVector(char* cin_value)
+void std::vector<string> Interface::makeVector(char* cin_value)
 {
   string temporarily_used_string_value;
-  std::vector<string> return_vector;
+  new std::vector<string> *heap_parameters;
   while(!(*cin_value == '\n'))
   {
     temporarily_used_string_value = getArgument(cin_value, false);
@@ -103,7 +111,7 @@ const std::vector<string> Interface::makeVector(char* cin_value)
     {
       break;
     }
-    return_vector.push_back(temporarily_used_string_value);
+    *heap_parameters.push_back(temporarily_used_string_value);
   }
-  return return_vector;
+  GameHandler::setInterfaceParameters(heap_parameters);
 }
