@@ -34,22 +34,12 @@ const int Interface::runInterface()
   while (1)
   {
     cout << PROMPT_STRING;
-    while (1)
-    {
-      character = cin.get();
-      if (character != ' ')
-      {
-        break;
-      }
-    }
-    if (character == '\n')
+    
+    input = getArgument(&character);
+
+    if (input.empty())
     {
       continue;
-    }
-    while (character != ' ' && character != '\n')
-    {
-      input.push_back(std::tolower(character));
-      character = cin.get();
     }
 
     if (!input.compare("quit"))
@@ -76,6 +66,24 @@ const int Interface::runInterface()
   }
 }
 
+const string Interface::getArgument(char* cin_value)
+{
+  string return_string;
+  while (1)
+  {
+    *cin_value = cin.get();
+    if (*cin_value != ' ')
+    {
+      break;
+    }
+  }
+  while (*cin_value != ' ' && *cin_value != '\n')
+  {
+    return_string.push_back(std::tolower(*cin_value));
+    *cin_value = cin.get();
+  }
+  return return_string;
+}
 
 const std::vector<string> Interface::makeVector(char* cin_value)
 {
