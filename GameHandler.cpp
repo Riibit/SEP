@@ -10,6 +10,7 @@
 //
 
 #include "GameHandler.h"
+#include "Interface.h"
 
 GameHandler::GameHandler() 
 {
