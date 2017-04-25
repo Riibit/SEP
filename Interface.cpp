@@ -21,12 +21,12 @@ using std::cout;
 
 const string Interface::PROMPT_STRING = "sep> ";
 
-Interface::Interface()
+Interface::Interface(GameHandler& game)
 {
-
+  game_ = game;
 }
 
-const int Interface::runInterface()
+const int Interface::runPrompt()
 {
   string input;
   std::vector<string> arguments;
@@ -44,7 +44,7 @@ const int Interface::runInterface()
     }
     string* heap_command;
     heap_command = new string(input);
-    GameHandler::setInterfaceCommand(heap_command);
+    game_.setInterfaceCommand(heap_command);
     makeVector(&character);
 
 
@@ -115,5 +115,5 @@ void Interface::makeVector(char* cin_value)
     }
     *heap_parameters.push_back(temporarily_used_string_value);
   }
-  GameHandler::setInterfaceParameters(heap_parameters);
+  game_.setInterfaceParameters(heap_parameters);
 }
