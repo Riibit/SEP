@@ -22,6 +22,7 @@ class CmdRecipe : public Command
     int execute (GameHandler& game, std::vector<std::string>& params);
 
     static const std::string ERROR_MSG;
+    static const std::string ERROR_MSG_PERCENT;
 }
 
 #endif //CMDRECIPE_H_INCLUDED
