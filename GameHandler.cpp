@@ -11,10 +11,6 @@
 
 #include "GameHandler.h"
 
-const GameHandler::ECHO = "echo";
-const GameHandler::BALANCE = "balance";
-const GameHandler::RECIPE = "recipe";
-
 GameHandler() 
 {
 }
@@ -31,6 +27,28 @@ void setInterfaceCommand(std::string command_name)
 
 void resolveCommand(std::string command_name_)
 {
-  Command new_command = new Command(command_name);
-  new_command.execute(&GameHandler game, interface_parameters_);
+  /*try
+  {
+    throw checkCorrectness();
+  }
+  catch (int i)
+  {
+    
+  }
+*/
+
+  Command* new_command = new Command(command_name);
+  new_command -> execute(&GameHandler game, interface_parameters_);
+  delete new_command;
+  
 }
+/*
+int checkCorrectness()
+{
+
+}
+
+void resolveError()
+{
+  
+}*/

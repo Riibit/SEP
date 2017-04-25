@@ -22,9 +22,6 @@ class GameHandler
     static const std::string command_name;
     std::vector<std::string>* interface_parameters_;
     void resolveCommand(std::string command_name);
-    static const std::string ECHO;
-    static const std::string BALANCE;
-    static const std::string RECIPE;
 };
 
 #endif //GAMEHANDLER_H
