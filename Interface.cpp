@@ -12,9 +12,13 @@
 #include "Interface.h"
 #include <iostream>
 #include <cctype>
+#include <limits>
+
 using std::string;
 using std::cin;
 using std::cout;
+
+const string Interface::PROMPT_STRING = "sep> ";
 
 Interface::Interface()
 {
@@ -25,59 +29,85 @@ const int Interface::runInterface()
 {
   string input;
   std::vector<string> arguments;
-  /*
-  bool control_value;
-  unsigned int index;
-  */
+  char character;
+
   while (1)
   {
-    /*
-    index = 0;
-    control_value == FALSE;
-    while(1)
+    cout << PROMPT_STRING;
+    while (1)
     {
       character = cin.get();
-      if (character == '\n')
+      if (character != ' ')
       {
         break;
       }
-      control_value = TRUE;
-      if (character != ' ')
-      {
-        input[index] = character;
-      }
     }
-    */
-    cout << "sep> ";
-    if ((cin.get() == '\n'))
+    if (character == '\n')
     {
       continue;
     }
-    cin >> input;
-    for (unsigned int index; index < input.size(); index++)
+    while (character != ' ' && character != '\n')
     {
-      input[index] = std::tolower(input[index]);
+      input.push_back(std::tolower(character));
+      character = cin.get();
     }
+
     if (!input.compare("quit"))
     {
+      arguments = makeVector(character);
       cout << "Going out of business" << std::endl;
       return 0;
     }
     else if (!input.compare("echo"))
     {
-      arguments = makeVector();
+      cout << "catch echo" << std::endl;
+      arguments = makeVector(character);
+      cout << "<<" << arguments.size() << ">>" << std::endl;
+      for (unsigned int index = 0; index < arguments.size(); index++)
+      {
+        cout << arguments[index] << std::endl;
+      }
     }
+    
+    if (character != '\n')
+    {
+      cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+    input.clear();
   }
 }
 
-const std::vector<string> Interface::makeVector()
+
+const std::vector<string> Interface::makeVector(char cin_value)
 {
   //new std::vector<string> return_vector;
   string temporarily_used_string_value;
   std::vector<string> return_vector;
   while(!(cin.get() == '\n'))
   {
+    cin >> temporarily_used_string_value;
     return_vector.push_back(temporarily_used_string_value);
   }
   return return_vector;
 }
+
+
+/*
+const std::vector<string> Interface::makeVector(char cin_value)
+{
+  string temporarily_used_string_value;
+  std::vector<string> return_vector;
+  if (cin_value == '\n')
+  {
+    return return_vector;
+  }
+  while (!(cin_value == '\n'))
+  {
+    cin_value = cin.get();
+    cin >> temporarily_used_string_value;
+    return_vector.push_back(temporarily_used_string_value);
+    
+  }
+  return return_vector;
+}
+*/

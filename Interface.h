@@ -8,6 +8,10 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
+#ifndef INTERFACE_H_INCLUDED
+#define INTERFACE_H_INCLUDED
+
 #include <string>
 #include <vector>
 
@@ -18,10 +22,14 @@ class Interface
   public:
     Interface();
     const int runInterface();
-    const std::vector<std::string> makeVector();
+    const std::vector<std::string> makeVector(char cin_value);
+
+    static const std::string PROMPT_STRING;
 
   private:
     //GameHandler game_;
 
 
 };
+
+#endif //INTERFACE_H_INCLUDED
