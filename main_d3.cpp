@@ -11,14 +11,15 @@
 
 #include <iostream>
 
-#include "Interface.h"
+#include "GameHandler.h"
 
 int main()
 {
   int return_value = 0;
-  Interface interface;
-  return_value = interface.runInterface();
+  GameHandler *game;
+  game = new GameHandler();
+  game->runInterface();
 
-  return return_value;
+  return 0;
 }
 

@@ -20,14 +20,14 @@ class GameHandler;
 class Interface 
 {
   public:
-    Interface(GameHandler& game);
+    Interface(GameHandler* game);
     const int runPrompt();
     const std::string getArgument(char* cin_value, bool to_lower);
     void makeVector(char* cin_value);
 
     static const std::string PROMPT_STRING;
   private:
-    GameHandler game_;
+    GameHandler* game_;
 };
 
 #endif //INTERFACE_H_INCLUDED
