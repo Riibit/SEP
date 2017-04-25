@@ -10,6 +10,7 @@
 //
 
 #include "Interface.h"
+#include "GameHandler.h"
 #include <iostream>
 #include <cctype>
 #include <limits>
@@ -22,7 +23,7 @@ const string Interface::PROMPT_STRING = "sep> ";
 
 Interface::Interface()
 {
-  
+
 }
 
 const int Interface::runInterface()
@@ -41,7 +42,8 @@ const int Interface::runInterface()
     {
       continue;
     }
-    new string* heap_command = input;
+    string* heap_command;
+    heap_command = new string(input);
     GameHandler::setInterfaceCommand(heap_command);
     makeVector(&character);
 
@@ -100,7 +102,7 @@ const string Interface::getArgument(char* cin_value, bool to_lower)
   return return_string;
 }
 
-void std::vector<string> Interface::makeVector(char* cin_value)
+void Interface::makeVector(char* cin_value)
 {
   string temporarily_used_string_value;
   new std::vector<string> *heap_parameters;

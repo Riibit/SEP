@@ -23,9 +23,11 @@ class Interface
     Interface();
     const int runInterface();
     const std::string getArgument(char* cin_value, bool to_lower);
-    void std::vector<std::string> makeVector(char* cin_value);
+    void makeVector(char* cin_value);
 
     static const std::string PROMPT_STRING;
+  private:
+    
 };
 
 #endif //INTERFACE_H_INCLUDED

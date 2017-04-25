@@ -22,7 +22,7 @@ void setInterfaceParameters(std::vector<std::string>* interface_parameters);
 
 void setInterfaceCommand(std::string command_name) 
 {
-  command_name_ = command_name
+  command_name_ = command_name;
 }
 
 void resolveCommand(std::string command_name_)

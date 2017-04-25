@@ -17,9 +17,9 @@ class GameHandler
   public:
     GameHandler();
     void setInterfaceParameters(std::vector<std::string>* interface_parameters);
-    void setInterfaceCommand(string);
+    void setInterfaceCommand(std::string* command_name);
   private:
-    static const std::string command_name;
+    std::string* command_name_;
     std::vector<std::string>* interface_parameters_;
     void resolveCommand(std::string command_name);
 };
