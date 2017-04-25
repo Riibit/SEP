@@ -35,7 +35,7 @@ const int Interface::runInterface()
   {
     cout << PROMPT_STRING;
     
-    input = getArgument(&character);
+    input = getArgument(&character, true);
 
     if (input.empty())
     {
@@ -66,7 +66,7 @@ const int Interface::runInterface()
   }
 }
 
-const string Interface::getArgument(char* cin_value)
+const string Interface::getArgument(char* cin_value, bool to_lower)
 {
   string return_string;
   while (1)
@@ -79,7 +79,14 @@ const string Interface::getArgument(char* cin_value)
   }
   while (*cin_value != ' ' && *cin_value != '\n')
   {
-    return_string.push_back(std::tolower(*cin_value));
+    if (to_lower)
+    {
+      return_string.push_back(std::tolower(*cin_value));
+    }
+    else
+    {
+      return_string.push_back(*cin_value);
+    }
     *cin_value = cin.get();
   }
   return return_string;
@@ -87,36 +94,16 @@ const string Interface::getArgument(char* cin_value)
 
 const std::vector<string> Interface::makeVector(char* cin_value)
 {
-  //new std::vector<string> return_vector;
   string temporarily_used_string_value;
   std::vector<string> return_vector;
   while(!(*cin_value == '\n'))
   {
-    cout << "test" << std::endl;
-    cin >> temporarily_used_string_value;
+    temporarily_used_string_value = getArgument(cin_value, false);
+    if (temporarily_used_string_value.empty())
+    {
+      break;
+    }
     return_vector.push_back(temporarily_used_string_value);
-    *cin_value = cin.get();
   }
   return return_vector;
 }
-
-
-/*
-const std::vector<string> Interface::makeVector(char cin_value)
-{
-  string temporarily_used_string_value;
-  std::vector<string> return_vector;
-  if (cin_value == '\n')
-  {
-    return return_vector;
-  }
-  while (!(cin_value == '\n'))
-  {
-    cin_value = cin.get();
-    cin >> temporarily_used_string_value;
-    return_vector.push_back(temporarily_used_string_value);
-    
-  }
-  return return_vector;
-}
-*/
