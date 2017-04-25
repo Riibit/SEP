@@ -54,14 +54,13 @@ const int Interface::runInterface()
 
     if (!input.compare("quit"))
     {
-      arguments = makeVector(character);
+      arguments = makeVector(&character);
       cout << "Going out of business" << std::endl;
       return 0;
     }
     else if (!input.compare("echo"))
     {
-      cout << "catch echo" << std::endl;
-      arguments = makeVector(character);
+      arguments = makeVector(&character);
       cout << "<<" << arguments.size() << ">>" << std::endl;
       for (unsigned int index = 0; index < arguments.size(); index++)
       {
@@ -78,15 +77,17 @@ const int Interface::runInterface()
 }
 
 
-const std::vector<string> Interface::makeVector(char cin_value)
+const std::vector<string> Interface::makeVector(char* cin_value)
 {
   //new std::vector<string> return_vector;
   string temporarily_used_string_value;
   std::vector<string> return_vector;
-  while(!(cin.get() == '\n'))
+  while(!(*cin_value == '\n'))
   {
+    cout << "test" << std::endl;
     cin >> temporarily_used_string_value;
     return_vector.push_back(temporarily_used_string_value);
+    *cin_value = cin.get();
   }
   return return_vector;
 }

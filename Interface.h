@@ -22,7 +22,7 @@ class Interface
   public:
     Interface();
     const int runInterface();
-    const std::vector<std::string> makeVector(char cin_value);
+    const std::vector<std::string> makeVector(char* cin_value);
 
     static const std::string PROMPT_STRING;
 
