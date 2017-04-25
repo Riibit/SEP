@@ -18,6 +18,6 @@ class CmdEcho : public Command
 {
   using Command::Command;
   int execute (GameHandler& game, std::vector<std::string>& params);
-}
+};
 
 #endif //CMDECHO_H_INCLUDED

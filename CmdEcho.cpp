@@ -14,11 +14,13 @@
 
 using std::cout;
 
-int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params){
+int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
 {
+  unsigned int counter;
+
   if (!params.empty())
   {
-    for (unsigned int counter = 0; counter < params.size() - 1; ++counter)
+    for (counter = 0; counter < params.size() - 1; ++counter)
     {
       cout << params[counter] << ' ';
     }

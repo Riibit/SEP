@@ -10,15 +10,16 @@
 //
 
 #include "CmdQuote.h"
+#include <iostream>
 
 using std::cout;
 using std::endl;
 
-int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
+int CmdQuote::execute (GameHandler& game, std::vector<std::string>& params)
 {
   int lemon_quote = 100;
   int sugar_quote = 100;
 
-  cout << 'L: ' << lemon_quote << ' $' << endl
-  << 'S: ' << sugar_quote << ' $' << endl;
+  cout << "L: " << lemon_quote << " $" << endl
+  << "S: " << sugar_quote << " $" << endl;
 }
