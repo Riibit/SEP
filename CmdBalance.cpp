@@ -21,8 +21,8 @@ int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
   int sugar = 100;
   int cash = 1000;
 
-  cout << 'L: ' << lemon << endl
-  << 'S: ' << sugar << endl
-  << '----------' << endl
-  << 'C: ' << cash << ' $' << endl;
+  cout << "L: " << lemon << endl
+  << "S: " << sugar << endl
+  << "----------" << endl
+  << "C: " << cash << " $" << endl;
 }

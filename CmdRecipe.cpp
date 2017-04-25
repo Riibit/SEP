@@ -28,8 +28,6 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
   unsigned int sugar_percent;
   unsigned int water_percent;
 
-  std::locale loc;
-
   if (!params.size() == 3)
   {
     cout << ERROR_MSG << endl;
@@ -44,6 +42,7 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
       return 0;
     }
   }
+
   lemon_percent = std::stoi(params[0]);
   sugar_percent = std::stoi(params[1]);
   water_percent = std::stoi(params[2]);
@@ -54,14 +53,15 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
     return 0;
   }
 
-  cout << 'L: ' lemon_percent << '%' << endl
-  << 'S: ' << sugar_percent << '%' << endl
-  << 'W: ' << water_percent << '%' << endl;
+  cout << "L: " << lemon_percent << '%' << endl
+  << "S: " << sugar_percent << '%' << endl
+  << "W: " << water_percent << '%' << endl;
 
 }
 
 bool CmdRecipe::isItInteger (std::string string)
 {
+  std::locale loc;
   for (int char_counter = 0; char_counter < string.size(); ++char_counter)
   {
     if (!std::isdigit(string[char_counter], loc))

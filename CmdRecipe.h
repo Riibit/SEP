@@ -20,9 +20,10 @@ class CmdRecipe : public Command
   public:
     using Command::Command;
     int execute (GameHandler& game, std::vector<std::string>& params);
+    bool isItInteger(std::string string);
 
     static const std::string ERROR_MSG;
     static const std::string ERROR_MSG_PERCENT;
-}
+};
 
 #endif //CMDRECIPE_H_INCLUDED

@@ -18,6 +18,6 @@ class CmdBalance : public Command
 {
   using Command::Command;
   int execute (GameHandler& game, std::vector<std::string>& params);
-}
+};
 
 #endif //CMDBALANCE_H_INCLUDED
