@@ -15,10 +15,13 @@
 class GameHandler 
 {
   public:
-
+    GameHandler();
 
   private:
-
+    void resolveCommand(std::string command_name);
+    static const std::string ECHO;
+    static const std::string BALANCE;
+    static const std::string RECIPE;
 };
 
 #endif //GAMEHANDLER_H

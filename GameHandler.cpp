@@ -11,4 +11,16 @@
 
 #include "GameHandler.h"
 
+const GameHandler::ECHO = "echo";
+const GameHandler::BALANCE = "balance";
+const GameHandler::RECIPE = "recipe";
 
+GameHandler() 
+{
+}
+
+void resolveCommand(std::string command_name)
+{
+  Command new_command = new Command(command_name);
+  new_command.execute();
+}
