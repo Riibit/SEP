@@ -19,8 +19,18 @@ GameHandler()
 {
 }
 
-void resolveCommand(std::string command_name)
+void setInterfaceParameters(std::vector<std::string>* interface_parameters); 
+{
+  interface_parameters_ = interface_parameters;
+}
+
+void setInterfaceCommand(std::string command_name) 
+{
+  command_name_ = command_name
+}
+
+void resolveCommand(std::string command_name_)
 {
   Command new_command = new Command(command_name);
-  new_command.execute();
+  new_command.execute(&GameHandler game, interface_parameters_);
 }
