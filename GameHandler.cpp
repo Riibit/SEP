@@ -33,7 +33,8 @@ int GameHandler::runInterface()
 {
   int return_value = 0;
   unique_ptr<Interface> interface_instance;
-  interface_instance = unique_ptr<Interface>(new Interface(this));
+  //interface_instance = unique_ptr<Interface>(new Interface(this));
+  interface_instance = new Interface(this);
   while(1) 
   {
     interface_instance -> runPrompt();
