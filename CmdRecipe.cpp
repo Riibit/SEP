@@ -17,13 +17,14 @@ using std::cout;
 using std::endl;
 
 const std::string CmdRecipe::CMD_NAME = "recipe";
+static const unsigned int PARA_COUNT = 3;
 
 const std::string CmdRecipe::ERROR_MSG = 
   "[ERR] Usage: recipe [lemon] [sugar] [water]";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe () : Command::Command (CMD_NAME)
+CmdRecipe::CmdRecipe () : Command::Command (CMD_NAME, PARA_COUNT)
 {
 }
 
