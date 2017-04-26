@@ -9,13 +9,14 @@
 //------------------------------------------------------------------------------
 //
 
-#include <iostream>
-
 #include "GameHandler.h"
 
 int main()
 {
+  int return_value;
   GameHandler game;
-  return game.runInterface();
+  game.runInterface();
+
+  return 0;
 }
 
