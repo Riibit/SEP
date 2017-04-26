@@ -11,6 +11,7 @@
 
 #include "GameHandler.h"
 #include "Interface.h"
+#include "CmdEcho.h"
 
 GameHandler::GameHandler() 
 {
@@ -26,12 +27,12 @@ void GameHandler::runInterface()
   }
 }
 
-void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters); 
+void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters)
 {
   interface_parameters_ = interface_parameters;
 }
 
-void GameHandler::setInterfaceCommand(std::string command_name) 
+void GameHandler::setInterfaceCommand(std::string* command_name) 
 {
   command_name_ = command_name;
 }
@@ -48,9 +49,8 @@ void GameHandler::resolveCommand()
   }
 */
 
-  Command* new_command = new Command(command_name);
-  new_command -> execute(&GameHandler game, interface_parameters_);
-  delete new_command;
+  CmdEcho exe(*command_name_);
+  exe.execute(*this, *interface_parameters_);
   
 }
 /*

@@ -10,7 +10,6 @@
 //
 
 #include "CmdRecipe.h"
-#include <string>
 #include <locale>
 #include <iostream>
 
@@ -28,7 +27,7 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
   unsigned int sugar_percent;
   unsigned int water_percent;
 
-  if (!params.size() == 3)
+  if (!(params.size() == 3))
   {
     cout << ERROR_MSG << endl;
     return 0;
@@ -62,9 +61,9 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
 bool CmdRecipe::isItInteger (std::string string)
 {
   std::locale loc;
-  for (int char_counter = 0; char_counter < string.size(); ++char_counter)
+  for (unsigned int position = 0; position < string.size(); ++position)
   {
-    if (!std::isdigit(string[char_counter], loc))
+    if (!std::isdigit(string[position], loc))
     {
       return false;
     }

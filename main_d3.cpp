@@ -15,7 +15,6 @@
 
 int main()
 {
-  int return_value = 0;
   GameHandler *game;
   game = new GameHandler();
   game->runInterface();

@@ -26,4 +26,5 @@ int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
     }
     cout << params[counter] << std::endl;
   }
+  return 0;
 }
