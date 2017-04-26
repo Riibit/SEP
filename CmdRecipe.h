@@ -12,8 +12,9 @@
 #ifndef CMDRECIPE_H_INCLUDED
 #define CMDRECIPE_H_INCLUDED
 
-
 #include "Command.h"
+
+class GameHandler;
 
 class CmdRecipe : public Command
 {

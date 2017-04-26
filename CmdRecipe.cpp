@@ -9,9 +9,11 @@
 //------------------------------------------------------------------------------
 //
 
-#include "CmdRecipe.h"
 #include <locale>
 #include <iostream>
+#include "CmdRecipe.h"
+#include "GameHandler.h"
+
 
 using std::cout;
 using std::endl;

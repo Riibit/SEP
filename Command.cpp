@@ -14,14 +14,26 @@
 
 
 //------------------------------------------------------------------------------
-Command::Command(std::string name)
+Command::Command(std::string name, unsigned int parameter_count) 
+  : command_name_(name) : parameter_count_(parameter_count)
 {
-  command_name_ = name;
 }
 
 //------------------------------------------------------------------------------
 Command::~Command()
 {
+}
+
+const bool Command::correctParameterCount(const unsigned int to_compare)
+{
+  if (parameter_count_ == to_compare)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 //------------------------------------------------------------------------------

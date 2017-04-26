@@ -17,7 +17,7 @@ using std::endl;
 
 const std::string CmdEcho::CMD_NAME = "echo";
 
-CmdEcho::CmdEcho () : Command::Command(CMD_NAME)
+CmdEcho::CmdEcho () : Command::Command(CMD_NAME, PARA_COUNT)
 {
 }
 
@@ -37,4 +37,9 @@ int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
     cout << params[counter] << endl;
   }
   return 0;
+}
+
+const bool CmdEcho::correctParameterCount(const unsigned int to_compare)
+{
+  return true;
 }

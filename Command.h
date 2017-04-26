@@ -34,6 +34,8 @@ class Command
     /// Name of this command
     std::string command_name_;
 
+    unsigned int paramter_count_;
+
   public:
 
 
@@ -54,6 +56,8 @@ class Command
     // @return Integer representing the success of the action
 
     virtual int execute(GameHandler& game, std::vector<std::string>& params) = 0;
+
+    const bool correctParameterCount(const unsigned int to_compare);
     
     //--------------------------------------------------------------------------
     // Getter Methods
