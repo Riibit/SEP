@@ -12,7 +12,11 @@
 #include "GameHandler.h"
 #include "Interface.h"
 #include "CmdEcho.h"
+#include "CmdBalance.h"
+#include "CmdQuote.h"
 #include "CmdRecipe.h"
+#include "CmdQuit.h"
+
 #include <iostream>
 
 GameHandler::GameHandler() 
@@ -34,21 +38,12 @@ void GameHandler::runInterface()
 
 void GameHandler::initCommands()
 {
-  commands_ = new std::vector<Command*>;
-  commands_ -> push_back(new CmdEcho());
-  commands_ -> push_back(new CmdRecipe());
+  commands_.push_back(std::unique_ptr<Command>(new CmdEcho()));
+  commands_.push_back(std::unique_ptr<Command>(new CmdBalance()));
+  commands_.push_back(std::unique_ptr<Command>(new CmdQuote()));
+  commands_.push_back(std::unique_ptr<Command>(new CmdRecipe()));
+  commands_.push_back(std::unique_ptr<Command>(new CmdQuit()));
 }
-
-/*
-void GameHandler::destroyCommands()
-{
-  for (unsigned int index = 0; index < commands_ -> size(); ++index)
-  {
-    delete 
-  }
-  delete 
-}
-*/
 
 void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters)
 {
@@ -72,11 +67,11 @@ void GameHandler::resolveCommand()
   }
 */
   unsigned int command_index;
-  for (command_index = 0; command_index < commands_ -> size(); ++command_index)
+  for (command_index = 0; command_index < commands_.size(); ++command_index)
   {
-    if (!((*commands_)[command_index] -> getName().compare(*command_name_)))
+    if (!(commands_[command_index] -> getName().compare(*command_name_)))
     {
-      (*commands_)[command_index] -> execute(*this, *interface_parameters_);
+      commands_[command_index] -> execute(*this, *interface_parameters_);
     }
   }
 }

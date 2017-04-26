@@ -14,6 +14,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 class Command;
 
@@ -28,7 +29,7 @@ class GameHandler
   private:
     std::string* command_name_;
     std::vector<std::string>* interface_parameters_;
-    std::vector<Command*>* commands_;
+    std::vector<std::unique_ptr<Command>> commands_;
     void resolveCommand();
 };
 
