@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 //
 
+#include <iostream>
 #include "GameHandler.h"
 #include "Interface.h"
 #include "CmdEcho.h"
@@ -17,16 +18,21 @@
 #include "CmdRecipe.h"
 #include "CmdQuit.h"
 
-#include <iostream>
+using std::unique_ptr;
 
 GameHandler::GameHandler() 
 {
+  commands_.push_back(unique_ptr<Command>(new CmdEcho()));
+  commands_.push_back(unique_ptr<Command>(new CmdBalance()));
+  commands_.push_back(unique_ptr<Command>(new CmdQuote()));
+  commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
+  commands_.push_back(unique_ptr<Command>(new CmdQuit()));
 }
 
 void GameHandler::runInterface()
 {
-  initCommands();
-  Interface* interface_instance = new Interface(this);
+  unique_ptr<Interface> interface_instance;
+  interface_instance = unique_ptr<Interface>(new Interface(this));
   while(1) 
   {
     interface_instance -> runPrompt();
@@ -34,15 +40,6 @@ void GameHandler::runInterface()
     delete command_name_;
     delete interface_parameters_;
   }
-}
-
-void GameHandler::initCommands()
-{
-  commands_.push_back(std::unique_ptr<Command>(new CmdEcho()));
-  commands_.push_back(std::unique_ptr<Command>(new CmdBalance()));
-  commands_.push_back(std::unique_ptr<Command>(new CmdQuote()));
-  commands_.push_back(std::unique_ptr<Command>(new CmdRecipe()));
-  commands_.push_back(std::unique_ptr<Command>(new CmdQuit()));
 }
 
 void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters)
