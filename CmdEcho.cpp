@@ -13,19 +13,28 @@
 #include <iostream>
 
 using std::cout;
+using std::endl;
 
+const std::string CmdEcho::CMD_NAME = "echo";
+
+CmdEcho::CmdEcho () : Command::Command(CMD_NAME)
+{
+}
 
 int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
 {
   unsigned int counter;
-
-  if (!params.empty())
+  if ((params.empty()))
   {
-    for (counter = 0; counter < params.size() - 1; ++counter)
+    cout << endl;
+  }
+  else
+  {
+    for (counter = 0; counter < (params.size() - 1); ++counter)
     {
       cout << params[counter] << ' ';
     }
-    cout << params[counter] << std::endl;
+    cout << params[counter] << endl;
   }
   return 0;
 }

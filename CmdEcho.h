@@ -17,9 +17,10 @@
 class CmdEcho : public Command
 {
   public:
-    using Command::Command;
-    //CmdEcho (std::string name) : Command (name) {}
+    CmdEcho ();
     virtual int execute (GameHandler& game, std::vector<std::string>& params);
+
+    static const std::string CMD_NAME;
 };
 
 #endif //CMDECHO_H_INCLUDED

@@ -25,4 +25,5 @@ int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
   << "S: " << sugar << endl
   << "----------" << endl
   << "C: " << cash << " $" << endl;
+  return 0;
 }

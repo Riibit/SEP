@@ -12,8 +12,7 @@
 #include "Interface.h"
 #include "GameHandler.h"
 #include <iostream>
-#include <cctype>
-#include <limits>
+//#include <cctype>
 
 using std::string;
 using std::cin;
@@ -52,7 +51,7 @@ const int Interface::runPrompt()
   return 0;
 }
 
-const string Interface::getArgument(char* cin_value, bool to_lower)
+const string Interface::getArgument(char* cin_value, const bool to_lower)
 {
   string return_string;
   while (1)

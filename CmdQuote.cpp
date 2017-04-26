@@ -22,4 +22,5 @@ int CmdQuote::execute (GameHandler& game, std::vector<std::string>& params)
 
   cout << "L: " << lemon_quote << " $" << endl
   << "S: " << sugar_quote << " $" << endl;
+  return 0;
 }

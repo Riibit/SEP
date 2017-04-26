@@ -16,10 +16,16 @@
 using std::cout;
 using std::endl;
 
+const std::string CmdRecipe::CMD_NAME = "recipe";
+
 const std::string CmdRecipe::ERROR_MSG = 
   "[ERR] Usage: recipe [lemon] [sugar] [water]";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
+
+CmdRecipe::CmdRecipe () : Command::Command (CMD_NAME)
+{
+}
 
 int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
 {
@@ -55,7 +61,7 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
   cout << "L: " << lemon_percent << '%' << endl
   << "S: " << sugar_percent << '%' << endl
   << "W: " << water_percent << '%' << endl;
-
+  return 0;
 }
 
 bool CmdRecipe::isItInteger (std::string string)

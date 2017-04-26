@@ -12,20 +12,43 @@
 #include "GameHandler.h"
 #include "Interface.h"
 #include "CmdEcho.h"
+#include "CmdRecipe.h"
 #include <iostream>
+
 GameHandler::GameHandler() 
 {
 }
 
 void GameHandler::runInterface()
 {
+  initCommands();
   Interface* interface_instance = new Interface(this);
   while(1) 
   {
     interface_instance -> runPrompt();
     resolveCommand();
+    delete command_name_;
+    delete interface_parameters_;
   }
 }
+
+void GameHandler::initCommands()
+{
+  commands_ = new std::vector<Command*>;
+  commands_ -> push_back(new CmdEcho());
+  commands_ -> push_back(new CmdRecipe());
+}
+
+/*
+void GameHandler::destroyCommands()
+{
+  for (unsigned int index = 0; index < commands_ -> size(); ++index)
+  {
+    delete 
+  }
+  delete 
+}
+*/
 
 void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters)
 {
@@ -48,10 +71,14 @@ void GameHandler::resolveCommand()
     
   }
 */
-
-  CmdEcho exe(*command_name_);
-  exe.execute(*this, *interface_parameters_);
-  
+  unsigned int command_index;
+  for (command_index = 0; command_index < commands_ -> size(); ++command_index)
+  {
+    if (!((*commands_)[command_index] -> getName().compare(*command_name_)))
+    {
+      (*commands_)[command_index] -> execute(*this, *interface_parameters_);
+    }
+  }
 }
 /*
 int checkCorrectness()
