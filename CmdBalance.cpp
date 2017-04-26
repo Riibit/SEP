@@ -16,8 +16,9 @@ using std::cout;
 using std::endl;
 
 const std::string CmdBalance::CMD_NAME = "balance";
+static const unsigned int PARA_COUNT = 0;
 
-CmdBalance::CmdBalance () : Command::Command(CMD_NAME)
+CmdBalance::CmdBalance () : Command::Command(CMD_NAME, PARA_COUNT)
 {
 }
 

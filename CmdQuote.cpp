@@ -16,8 +16,9 @@ using std::cout;
 using std::endl;
 
 const std::string CmdQuote::CMD_NAME = "quote";
+static const unsigned int PARA_COUNT = 0;
 
-CmdQuote::CmdQuote () : Command::Command(CMD_NAME)
+CmdQuote::CmdQuote () : Command::Command(CMD_NAME, PARA_COUNT)
 {
 }
 
