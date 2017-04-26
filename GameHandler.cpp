@@ -22,6 +22,7 @@ using std::unique_ptr;
 
 GameHandler::GameHandler() 
 {
+  game_quit_ = false;
   commands_.push_back(unique_ptr<Command>(new CmdEcho()));
   commands_.push_back(unique_ptr<Command>(new CmdBalance()));
   commands_.push_back(unique_ptr<Command>(new CmdQuote()));
@@ -29,18 +30,25 @@ GameHandler::GameHandler()
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
 }
 
+GameHandler::~GameHandler()
+{
+}
+
 int GameHandler::runInterface()
 {
   int return_value = 0;
   unique_ptr<Interface> interface_instance;
-  //interface_instance = unique_ptr<Interface>(new Interface(this));
-  interface_instance = new Interface(this);
+  interface_instance = unique_ptr<Interface>(new Interface(this));
   while(1) 
   {
     interface_instance -> runPrompt();
     return_value = resolveCommand();
     delete command_name_;
     delete interface_parameters_;
+    if (game_quit_)
+    {
+      break;
+    }
   }
   return return_value;
 }
@@ -79,13 +87,8 @@ int GameHandler::resolveCommand()
   }
   return return_value;
 }
-/*
-int checkCorrectness()
-{
 
+void GameHandler::endOfLife()
+{
+  game_quit_ = true;
 }
-
-void resolveError()
-{
-  
-}*/

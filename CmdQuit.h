@@ -14,6 +14,8 @@
 
 #include "Command.h"
 
+class GameHandler;
+
 class CmdQuit : public Command
 {
   public:

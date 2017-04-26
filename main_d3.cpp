@@ -13,10 +13,9 @@
 
 int main()
 {
-  int return_value;
+  int return_value = 0;
   GameHandler game;
-  game.runInterface();
-
-  return 0;
+  return_value = game.runInterface();
+  return return_value;
 }
 
