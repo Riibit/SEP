@@ -8,16 +8,20 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#include <iostream>
 
 #include "CmdQuit.h"
 
-//------------------------------------------------------------------------------
-Command::~Command()
+const std::string CmdQuit::QUIT_MSG = "Going out of business!";
+const std::string CmdQuit::CMD_NAME = "quit";
+
+CmdQuit::CmdQuit () : Command::Command(CMD_NAME)
 {
 }
 
-//------------------------------------------------------------------------------
-const std::string &Command::getName() const
+int CmdQuit::execute (GameHandler& game, std::vector<std::string>& params)
 {
-  return command_name_;
+  std::cout << QUIT_MSG << std::endl;
+
+  return 0;
 }

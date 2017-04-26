@@ -15,7 +15,7 @@
 using std::cout;
 using std::endl;
 
-const std::string CmdEcho::CMD_NAME = "balance";
+const std::string CmdBalance::CMD_NAME = "balance";
 
 CmdBalance::CmdBalance () : Command::Command(CMD_NAME)
 {

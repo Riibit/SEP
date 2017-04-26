@@ -17,15 +17,11 @@
 class CmdQuit : public Command
 {
   public:
-    using Command::Command;
+    CmdQuit ();
+    virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
-    //--------------------------------------------------------------------------
-    // Executes the command.
-    // @param game The game where action should be performed on
-    // @param params Possible parameters needed for the execution
-    // @return Integer representing the success of the action
-
-    int execute(GameHandler& game, std::vector<std::string>& params) = 0;
+    static const std::string QUIT_MSG;
+    static const std::string CMD_NAME;
 };
 
 #endif //CMDQUIT_H_INCLUDED

@@ -15,7 +15,7 @@
 using std::cout;
 using std::endl;
 
-const std::string CmdEcho::CMD_NAME = "quote";
+const std::string CmdQuote::CMD_NAME = "quote";
 
 CmdQuote::CmdQuote () : Command::Command(CMD_NAME)
 {
