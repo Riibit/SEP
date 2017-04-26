@@ -35,6 +35,8 @@ class Command
     std::string command_name_;
 
   public:
+
+
     //--------------------------------------------------------------------------
     // Constructor
 

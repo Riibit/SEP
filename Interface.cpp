@@ -46,34 +46,10 @@ const int Interface::runPrompt()
     heap_command = new string(input);
     game_ -> setInterfaceCommand(heap_command);
     makeVector(&character);
+    break;
 
-
-
-
-/*
-    if (!input.compare("quit"))
-    {
-      arguments = makeVector(&character);
-      cout << "Going out of business" << std::endl;
-      return 0;
-    }
-    else if (!input.compare("echo"))
-    {
-      arguments = makeVector(&character);
-      cout << "<<" << arguments.size() << ">>" << std::endl;
-      for (unsigned int index = 0; index < arguments.size(); index++)
-      {
-        cout << arguments[index] << std::endl;
-      }
-    }
-    
-    if (character != '\n')
-    {
-      cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-    */
-    input.clear();
   }
+  return 0;
 }
 
 const string Interface::getArgument(char* cin_value, bool to_lower)

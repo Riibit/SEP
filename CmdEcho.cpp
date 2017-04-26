@@ -14,6 +14,7 @@
 
 using std::cout;
 
+
 int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
 {
   unsigned int counter;

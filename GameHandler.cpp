@@ -12,7 +12,7 @@
 #include "GameHandler.h"
 #include "Interface.h"
 #include "CmdEcho.h"
-
+#include <iostream>
 GameHandler::GameHandler() 
 {
 }

@@ -18,6 +18,7 @@ class CmdEcho : public Command
 {
   public:
     using Command::Command;
+    //CmdEcho (std::string name) : Command (name) {}
     virtual int execute (GameHandler& game, std::vector<std::string>& params);
 };
 

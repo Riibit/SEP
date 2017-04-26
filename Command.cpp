@@ -12,9 +12,11 @@
 #include "Command.h"
 
 
+
 //------------------------------------------------------------------------------
-Command::Command(std::string name) : command_name_(name)
+Command::Command(std::string name)
 {
+  command_name_ = name;
 }
 
 //------------------------------------------------------------------------------
