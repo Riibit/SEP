@@ -15,6 +15,12 @@
 using std::cout;
 using std::endl;
 
+const std::string CmdEcho::CMD_NAME = "balance";
+
+CmdBalance::CmdBalance () : Command::Command(CMD_NAME)
+{
+}
+
 int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
 {
   int lemon = 100;

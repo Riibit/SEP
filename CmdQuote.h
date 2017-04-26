@@ -16,8 +16,11 @@
 
 class CmdQuote : public Command
 {
-  using Command::Command;
-  int execute (GameHandler& game, std::vector<std::string>& params);
+  public:
+    CmdQuote ();
+    virtual int execute (GameHandler& game, std::vector<std::string>& params);
+
+    static const std::string CMD_NAME;
 };
 
 #endif //CMDQUOTE_H_INCLUDED
