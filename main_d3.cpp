@@ -15,10 +15,7 @@
 
 int main()
 {
-  GameHandler *game;
-  game = new GameHandler();
-  game->runInterface();
-
-  return 0;
+  GameHandler game;
+  return game.runInterface();
 }
 

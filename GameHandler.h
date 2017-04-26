@@ -22,14 +22,14 @@ class GameHandler
 {
   public:
     GameHandler();
-    void runInterface();
+    int runInterface();
     void setInterfaceParameters(std::vector<std::string>* interface_parameters);
     void setInterfaceCommand(std::string* command_name);
   private:
     std::string* command_name_;
     std::vector<std::string>* interface_parameters_;
     std::vector<std::unique_ptr<Command>> commands_;
-    void resolveCommand();
+    int resolveCommand();
 };
 
 #endif //GAMEHANDLER_H
