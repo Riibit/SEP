@@ -34,7 +34,10 @@ class Command
     /// Name of this command
     std::string command_name_;
 
-    unsigned int paramter_count_;
+    std::string parameter_message_;
+
+    unsigned int parameter_count_;
+
 
   public:
 
@@ -42,7 +45,7 @@ class Command
     //--------------------------------------------------------------------------
     // Constructor
 
-    Command(std::string name);
+    Command(std::string name, unsigned int paramter_count);
 
     //--------------------------------------------------------------------------
     // Destructor
@@ -62,6 +65,9 @@ class Command
     //--------------------------------------------------------------------------
     // Getter Methods
     const std::string& getName() const;
+
+    const std::string& getErrorMessage() const;
+
 };
 
 #endif //COMMAND_H_INCLUDED

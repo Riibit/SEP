@@ -19,7 +19,6 @@ using std::cout;
 using std::endl;
 
 const std::string CmdRecipe::CMD_NAME = "recipe";
-static const unsigned int PARA_COUNT = 3;
 
 const std::string CmdRecipe::ERROR_MSG = 
   "[ERR] Usage: recipe [lemon] [sugar] [water]";

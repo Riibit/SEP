@@ -23,10 +23,10 @@ class CmdRecipe : public Command
     virtual int execute (GameHandler& game, std::vector<std::string>& params);
     bool isItInteger(std::string string);
 
-    static const std::string CMD_NAME;
-
     static const std::string ERROR_MSG;
     static const std::string ERROR_MSG_PERCENT;
+
+    static const unsigned int PARA_COUNT = 3;
 };
 
 #endif //CMDRECIPE_H_INCLUDED

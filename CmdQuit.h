@@ -22,7 +22,6 @@ class CmdQuit : public Command
     CmdQuit ();
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
-    static const std::string QUIT_MSG;
     static const std::string CMD_NAME;
 };
 

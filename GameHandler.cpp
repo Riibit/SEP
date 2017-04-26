@@ -80,8 +80,15 @@ int GameHandler::resolveCommand()
   {
     if (!(commands_[command_index] -> getName().compare(*command_name_)))
     {
-      return_value = commands_[command_index] -> 
-        execute(*this, *interface_parameters_);
+      if (commands_[command_index] -> correctParameterCount(commands_.size()))
+      {
+        std::cout << "test";
+      }
+      else
+      {
+        return_value = commands_[command_index] -> 
+          execute(*this, *interface_parameters_);
+      }
       break;
     }
   }

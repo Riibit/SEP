@@ -11,12 +11,13 @@
 
 #include "Command.h"
 
-
-
 //------------------------------------------------------------------------------
-Command::Command(std::string name, unsigned int parameter_count) 
-  : command_name_(name) : parameter_count_(parameter_count)
+Command::Command(std::string name, unsigned int parameter_count, 
+  std::string parameter_message)
 {
+  command_name_ = name;
+  parameter_count_ = parameter_count;
+  parameter_message_ = parameter_message;
 }
 
 //------------------------------------------------------------------------------
@@ -30,10 +31,12 @@ const bool Command::correctParameterCount(const unsigned int to_compare)
   {
     return true;
   }
-  else
-  {
-    return false;
-  }
+  return false;
+}
+
+const std::string &Command::getErrorMessage() const
+{
+  return CMD_NAME;
 }
 
 //------------------------------------------------------------------------------
