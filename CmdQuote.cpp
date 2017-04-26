@@ -15,6 +15,12 @@
 using std::cout;
 using std::endl;
 
+const std::string CmdEcho::CMD_NAME = "quote";
+
+CmdQuote::CmdQuote () : Command::Command(CMD_NAME)
+{
+}
+
 int CmdQuote::execute (GameHandler& game, std::vector<std::string>& params)
 {
   int lemon_quote = 100;
