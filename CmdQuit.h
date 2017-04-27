@@ -16,6 +16,10 @@
 
 class GameHandler;
 
+//----------------------------------------------------------------------------
+// CmdQuit Class
+// Class for the quit command.
+//
 class CmdQuit : public Command
 {
   public:

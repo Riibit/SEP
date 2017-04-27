@@ -16,6 +16,10 @@
 
 class GameHandler;
 
+//----------------------------------------------------------------------------
+// CmdRecipe Class
+// Class for the recipe command.
+//
 class CmdRecipe : public Command
 {
   public:

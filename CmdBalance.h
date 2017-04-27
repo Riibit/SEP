@@ -14,6 +14,10 @@
 
 #include "Command.h"
 
+//----------------------------------------------------------------------------
+// CmdBalance Class
+// Class for the balance command.
+//
 class CmdBalance : public Command
 {
   public:

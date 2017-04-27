@@ -14,6 +14,10 @@
 
 #include "Command.h"
 
+//----------------------------------------------------------------------------
+// CmdQuote Class
+// Class for the quotes command.
+//
 class CmdQuote : public Command
 {
   public:

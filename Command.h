@@ -17,6 +17,10 @@
 
 class GameHandler;
 
+//----------------------------------------------------------------------------
+// Command Class
+// Class for the command management.
+//
 class Command
 {
   private:
