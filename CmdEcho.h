@@ -17,8 +17,21 @@
 class CmdEcho : public Command
 {
   public:
+    //--------------------------------------------------------------------------
+    // Constructor
     CmdEcho();
+
+    //--------------------------------------------------------------------------
+    // Executes the command.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
+
+    //--------------------------------------------------------------------------
+    // Overwrites the function to always return true
+    // @param to_compare The amount of parameters
+    // @return bool Returns always true
     virtual const bool correctParameterCount(const unsigned int to_compare);
 
     static const std::string CMD_NAME;
