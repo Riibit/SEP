@@ -14,6 +14,10 @@
 
 #include "Command.h"
 
+//----------------------------------------------------------------------------
+// CmdEcho Class
+// Class for the echo command.
+//
 class CmdEcho : public Command
 {
   public:

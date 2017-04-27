@@ -18,6 +18,10 @@
 
 class Command;
 
+//----------------------------------------------------------------------------
+// GameHandler Class
+// Class that runs the various methods of the game.
+//
 class GameHandler 
 {
   public:
