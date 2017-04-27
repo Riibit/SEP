@@ -36,7 +36,7 @@ const bool Command::correctParameterCount(const unsigned int to_compare)
 
 const std::string &Command::getErrorMessage() const
 {
-  return CMD_NAME;
+  return parameter_message_;
 }
 
 //------------------------------------------------------------------------------

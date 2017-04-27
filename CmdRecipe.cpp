@@ -25,7 +25,7 @@ const std::string CmdRecipe::ERROR_MSG =
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, "")
+CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, ERROR_MSG)
 {
 }
 

@@ -83,7 +83,7 @@ int GameHandler::resolveCommand()
     {
       if (commands_[command_index] -> correctParameterCount(commands_.size()))
       {
-        std::cout << "test";
+        std::cout << commands_[command_index] -> getErrorMessage() << std::endl;
       }
       else
       {
