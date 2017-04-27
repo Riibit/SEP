@@ -40,6 +40,7 @@ class Interface
     // Acquires command name
     // @param cin_value Input item 
     // @param to_lower Lowercase flag
+    // @return Lowercase Input item
     //
     const std::string getArgument(char* cin_value, bool to_lower);
     
@@ -50,7 +51,7 @@ class Interface
     void makeVector(char* cin_value);
 
     static const std::string PROMPT_STRING;
-    
+
   private:
     GameHandler* game_;
 };
