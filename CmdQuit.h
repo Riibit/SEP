@@ -19,10 +19,11 @@ class GameHandler;
 class CmdQuit : public Command
 {
   public:
-    CmdQuit ();
+    CmdQuit();
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     static const std::string CMD_NAME;
+    static const std::string QUIT_MSG;
 };
 
 #endif //CMDQUIT_H_INCLUDED

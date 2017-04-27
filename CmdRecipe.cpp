@@ -25,11 +25,11 @@ const std::string CmdRecipe::ERROR_MSG =
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe () : Command::Command (CMD_NAME, PARA_COUNT)
+CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, "")
 {
 }
 
-int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
+int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
 {
   unsigned int lemon_percent;
   unsigned int sugar_percent;
@@ -66,7 +66,7 @@ int CmdRecipe::execute (GameHandler& game, std::vector<std::string>& params)
   return 0;
 }
 
-bool CmdRecipe::isItInteger (std::string string)
+bool CmdRecipe::isItInteger(std::string string)
 {
   std::locale loc;
   for (unsigned int position = 0; position < string.size(); ++position)

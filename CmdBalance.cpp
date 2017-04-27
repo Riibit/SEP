@@ -16,13 +16,14 @@ using std::cout;
 using std::endl;
 
 const std::string CmdBalance::CMD_NAME = "balance";
+const std::string CmdBalance::ERR_BALANCE = "[ERR] Usage: balance";
 static const unsigned int PARA_COUNT = 0;
 
-CmdBalance::CmdBalance () : Command::Command(CMD_NAME, PARA_COUNT)
+CmdBalance::CmdBalance() : Command::Command(CMD_NAME, PARA_COUNT, ERR_BALANCE)
 {
 }
 
-int CmdBalance::execute (GameHandler& game, std::vector<std::string>& params)
+int CmdBalance::execute(GameHandler& game, std::vector<std::string>& params)
 {
   int lemon = 100;
   int sugar = 100;

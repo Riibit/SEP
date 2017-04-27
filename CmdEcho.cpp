@@ -17,11 +17,11 @@ using std::endl;
 
 const std::string CmdEcho::CMD_NAME = "echo";
 
-CmdEcho::CmdEcho () : Command::Command(CMD_NAME, PARA_COUNT)
+CmdEcho::CmdEcho() : Command::Command(CMD_NAME, PARA_COUNT, "")
 {
 }
 
-int CmdEcho::execute (GameHandler& game, std::vector<std::string>& params)
+int CmdEcho::execute(GameHandler& game, std::vector<std::string>& params)
 {
   unsigned int counter;
   if ((params.empty()))

@@ -17,9 +17,10 @@
 class CmdQuote : public Command
 {
   public:
-    CmdQuote ();
-    virtual int execute (GameHandler& game, std::vector<std::string>& params);
+    CmdQuote();
+    virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
+    static const std::string ERR_QUOTE;
     static const std::string CMD_NAME;
 };
 

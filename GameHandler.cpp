@@ -53,7 +53,8 @@ int GameHandler::runInterface()
   return return_value;
 }
 
-void GameHandler::setInterfaceParameters(std::vector<std::string>* interface_parameters)
+void GameHandler::setInterfaceParameters(std::vector<std::string>* 
+  interface_parameters)
 {
   interface_parameters_ = interface_parameters;
 }

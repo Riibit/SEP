@@ -22,9 +22,10 @@ class GameHandler
 {
   public:
     GameHandler();
-    ~GameHandler ();
+    ~GameHandler();
     int runInterface();
-    void setInterfaceParameters(std::vector<std::string>* interface_parameters);
+    void setInterfaceParameters(std::vector<std::string>* 
+      interface_parameters);
     void setInterfaceCommand(std::string* command_name);
     void endOfLife();
   private:

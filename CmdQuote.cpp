@@ -16,13 +16,14 @@ using std::cout;
 using std::endl;
 
 const std::string CmdQuote::CMD_NAME = "quote";
+const std::string CmdQuote::ERR_QUOTE = "[ERR] Usage: quote";
 static const unsigned int PARA_COUNT = 0;
 
-CmdQuote::CmdQuote () : Command::Command(CMD_NAME, PARA_COUNT)
+CmdQuote::CmdQuote() : Command::Command(CMD_NAME, PARA_COUNT, ERR_QUOTE)
 {
 }
 
-int CmdQuote::execute (GameHandler& game, std::vector<std::string>& params)
+int CmdQuote::execute(GameHandler& game, std::vector<std::string>& params)
 {
   int lemon_quote = 100;
   int sugar_quote = 100;

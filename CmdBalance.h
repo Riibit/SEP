@@ -17,9 +17,10 @@
 class CmdBalance : public Command
 {
   public:
-    CmdBalance ();
-    int execute (GameHandler& game, std::vector<std::string>& params);
-
+    CmdBalance();
+    int execute(GameHandler& game, std::vector<std::string>& params);
+    
+    static const std::string ERR_BALANCE;
     static const std::string CMD_NAME;
 };
 
