@@ -28,8 +28,13 @@ class CmdQuote : public Command
     // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
-    static const std::string ERR_QUOTE;
+    //--------------------------------------------------------------------------
+    /// The name of the command
     static const std::string CMD_NAME;
+
+    //--------------------------------------------------------------------------
+    /// The error message if the parameter count is not right
+    static const std::string ERR_QUOTE;
 };
 
 #endif //CMDQUOTE_H_INCLUDED

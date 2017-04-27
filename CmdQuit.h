@@ -30,9 +30,17 @@ class CmdQuit : public Command
     // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
+    //--------------------------------------------------------------------------
+    /// The name of the command
     static const std::string CMD_NAME;
-    static const std::string QUIT_MSG;
+
+    //--------------------------------------------------------------------------
+    /// The error message if the parameter count is not right
     static const std::string ERR_QUIT;
+    
+    //--------------------------------------------------------------------------
+    /// The leaving message
+    static const std::string QUIT_MSG;
 };
 
 #endif //CMDQUIT_H_INCLUDED

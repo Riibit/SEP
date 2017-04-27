@@ -34,6 +34,8 @@ class CmdEcho : public Command
     // @return bool Returns always true
     virtual const bool correctParameterCount(const unsigned int to_compare);
 
+    //--------------------------------------------------------------------------
+    /// The name of the command
     static const std::string CMD_NAME;
 };
 

@@ -38,6 +38,9 @@ class CmdRecipe : public Command
 
     static const std::string ERROR_MSG;
     static const std::string ERROR_MSG_PERCENT;
+    
+    //--------------------------------------------------------------------------
+    /// The name of the command
     static const std::string CMD_NAME;
 
     //--------------------------------------------------------------------------
