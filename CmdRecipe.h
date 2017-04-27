@@ -19,13 +19,23 @@ class GameHandler;
 class CmdRecipe : public Command
 {
   public:
+    //--------------------------------------------------------------------------
+    // Constructor
+
     CmdRecipe();
+
+    //--------------------------------------------------------------------------
+    // Executes the command.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
+
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
     
     //--------------------------------------------------------------------------
     // Checks if the string is an Integer.
-    // @param The string to check.
-    // @return False if not Integer, otherwise true.
+    // @param string The string to check.
+    // @return bool False if not Integer, otherwise true.
 
     bool isItInteger(std::string string);
 
@@ -33,6 +43,8 @@ class CmdRecipe : public Command
     static const std::string ERROR_MSG_PERCENT;
     static const std::string CMD_NAME;
 
+    //--------------------------------------------------------------------------
+    /// Number of Parameters for this function
     static const unsigned int PARA_COUNT = 3;
 };
 

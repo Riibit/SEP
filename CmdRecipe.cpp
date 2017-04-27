@@ -35,12 +35,6 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   unsigned int sugar_percent;
   unsigned int water_percent;
 
-  if (!(params.size() == 3))
-  {
-    cout << ERROR_MSG << endl;
-    return 0;
-  }
-
   for (unsigned int index = 0; index < 3; ++index)
   {
     if (!isItInteger(params[index]))
