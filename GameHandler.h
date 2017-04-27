@@ -21,18 +21,45 @@ class Command;
 class GameHandler 
 {
   public:
+    //--------------------------------------------------------------------------
+    // Constructor
     GameHandler();
+
+    //--------------------------------------------------------------------------
+    // Destructor
     ~GameHandler();
+
+    //--------------------------------------------------------------------------
+    // runInterface executes the prompt method and is used to terminate the 
+    // programm.
+    // @return return_value Returns the corresponding return value.
     int runInterface();
+
+    //--------------------------------------------------------------------------
+    // Setter Methods
+    //
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
+
+    //--------------------------------------------------------------------------
+    // endOfLife Method
+    // Sets the variable game_quit_ to false so that the programm terminates
+    // 
     void endOfLife();
+
   private:
     std::string* command_name_;
     std::vector<std::string>* interface_parameters_;
     std::vector<std::unique_ptr<Command>> commands_;
     bool game_quit_;
+
+    //--------------------------------------------------------------------------
+    // resolveCommand Method
+    // Compares the first arg with the commands and checks the if the number of
+    // parameters are correct.
+    // 
+    // @return Returns the correspondent return value.
     int resolveCommand();
 };
 
