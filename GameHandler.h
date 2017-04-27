@@ -49,9 +49,20 @@ class GameHandler
     void endOfLife();
 
   private:
+    //--------------------------------------------------------------------------
+    /// The name of the command that was given in stdin
     std::string* command_name_;
+
+    //--------------------------------------------------------------------------
+    /// The interface parameters given in stdin
     std::vector<std::string>* interface_parameters_;
+
+    //--------------------------------------------------------------------------
+    /// Vector with all command object initialized at construction
     std::vector<std::unique_ptr<Command>> commands_;
+
+    //--------------------------------------------------------------------------
+    /// The bool that ends the game if true. to be set in the endOfLife method
     bool game_quit_;
 
     //--------------------------------------------------------------------------
