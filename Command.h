@@ -68,7 +68,7 @@ class Command
     // @param The amount of parameters
     // @return True if the amount is correct, otherwise false 
 
-    const bool correctParameterCount(const unsigned int to_compare);
+    virtual const bool correctParameterCount(const unsigned int to_compare);
     
     //--------------------------------------------------------------------------
     // Getter Methods
