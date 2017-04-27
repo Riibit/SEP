@@ -21,7 +21,6 @@ class CmdEcho : public Command
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
     virtual const bool correctParameterCount(const unsigned int to_compare);
 
-    static const unsigned int PARA_COUNT = 0;
     static const std::string CMD_NAME;
 };
 
