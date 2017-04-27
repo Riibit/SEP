@@ -17,7 +17,15 @@
 class CmdBalance : public Command
 {
   public:
+    //--------------------------------------------------------------------------
+    // Constructor
     CmdBalance();
+
+    //--------------------------------------------------------------------------
+    // Executes the command.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
     int execute(GameHandler& game, std::vector<std::string>& params);
     
     static const std::string ERR_BALANCE;
