@@ -24,6 +24,7 @@ class CmdQuit : public Command
 
     static const std::string CMD_NAME;
     static const std::string QUIT_MSG;
+    static const std::string ERR_QUIT;
 };
 
 #endif //CMDQUIT_H_INCLUDED
