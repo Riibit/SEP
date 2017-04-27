@@ -66,29 +66,21 @@ void GameHandler::setInterfaceCommand(std::string* command_name)
 
 int GameHandler::resolveCommand()
 {
-  /*try
-  {
-    throw checkCorrectness();
-  }
-  catch (int i)
-  {
-    
-  }
-*/
   int return_value = 0;
   unsigned int command_index;
   for (command_index = 0; command_index < commands_.size(); ++command_index)
   {
     if (!(commands_[command_index] -> getName().compare(*command_name_)))
     {
-      if (commands_[command_index] -> correctParameterCount(commands_.size()))
-      {
-        std::cout << commands_[command_index] -> getErrorMessage() << std::endl;
-      }
-      else
+      if (commands_[command_index] -> 
+        correctParameterCount(interface_parameters_ -> size()))
       {
         return_value = commands_[command_index] -> 
           execute(*this, *interface_parameters_);
+      }
+      else
+      {
+        std::cout << commands_[command_index] -> getErrorMessage() << std::endl;
       }
       break;
     }

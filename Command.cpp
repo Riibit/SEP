@@ -25,7 +25,7 @@ Command::~Command()
 {
 }
 
-const bool Command::correctParameterCount(const unsigned int to_compare)
+const bool Command::correctParameterCount(unsigned int to_compare)
 {
   if (parameter_count_ == to_compare)
   {
