@@ -17,7 +17,7 @@
 
 class GameHandler; 
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // Interface Class
 // class representing the user interface/view
 //
@@ -25,18 +25,18 @@ class Interface
 {
   public:
 
-    //------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Constructor
     // @param game Pointer to the calling object
     //
     Interface(GameHandler* game);
 
-    //------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Initializes the interface
     //  
     const int runPrompt();
 
-    //------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Acquires command name
     // @param cin_value Input item 
     // @param to_lower Lowercase flag
@@ -44,15 +44,19 @@ class Interface
     //
     const std::string getArgument(char* cin_value, bool to_lower);
     
-    //------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Pushes command parameters to a vector
     // @param cin_value Input item
     //
     void makeVector(char* cin_value);
 
+    //--------------------------------------------------------------------------
+    /// The string before every command entry
     static const std::string PROMPT_STRING;
 
   private:
+    //--------------------------------------------------------------------------
+    /// object pointer to game
     GameHandler* game_;
 };
 
