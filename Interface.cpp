@@ -12,7 +12,6 @@
 #include "Interface.h"
 #include "GameHandler.h"
 #include <iostream>
-//#include <cctype>
 
 using std::string;
 using std::cin;
