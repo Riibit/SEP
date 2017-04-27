@@ -36,12 +36,17 @@ class CmdRecipe : public Command
     // @return bool False if not Integer, otherwise true.
     bool isItInteger(std::string string);
 
-    static const std::string ERROR_MSG;
-    static const std::string ERROR_MSG_PERCENT;
-    
     //--------------------------------------------------------------------------
     /// The name of the command
     static const std::string CMD_NAME;
+
+    //--------------------------------------------------------------------------
+    /// The error message if the parameter count is not right
+    static const std::string ERR_RECIPE;
+
+    //--------------------------------------------------------------------------
+    /// The message if the parameters dont add up to 100
+    static const std::string ERROR_MSG_PERCENT;
 
     //--------------------------------------------------------------------------
     /// Number of Parameters for this function

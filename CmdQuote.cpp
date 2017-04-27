@@ -17,7 +17,6 @@ using std::endl;
 
 const std::string CmdQuote::CMD_NAME = "quote";
 const std::string CmdQuote::ERR_QUOTE = "[ERR] Usage: quote";
-static const unsigned int PARA_COUNT = 0;
 
 CmdQuote::CmdQuote() : Command::Command(CMD_NAME, PARA_COUNT, ERR_QUOTE)
 {

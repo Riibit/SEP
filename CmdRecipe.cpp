@@ -20,12 +20,12 @@ using std::endl;
 
 const std::string CmdRecipe::CMD_NAME = "recipe";
 
-const std::string CmdRecipe::ERROR_MSG = 
+const std::string CmdRecipe::ERR_RECIPE = 
   "[ERR] Usage: recipe [lemon] [sugar] [water]";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, ERROR_MSG)
+CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, ERR_RECIPE)
 {
 }
 
@@ -34,15 +34,6 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   unsigned int lemon_percent;
   unsigned int sugar_percent;
   unsigned int water_percent;
-
-  for (unsigned int index = 0; index < 3; ++index)
-  {
-    if (!isItInteger(params[index]))
-    {
-      cout << ERROR_MSG << endl;
-      return 0;
-    }
-  }
 
   lemon_percent = std::stoi(params[0]);
   sugar_percent = std::stoi(params[1]);

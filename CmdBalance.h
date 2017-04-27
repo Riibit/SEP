@@ -28,8 +28,17 @@ class CmdBalance : public Command
     // @return Integer representing the success of the action
     int execute(GameHandler& game, std::vector<std::string>& params);
     
-    static const std::string ERR_BALANCE;
+    //--------------------------------------------------------------------------
+    /// The name of the command
     static const std::string CMD_NAME;
+
+    //--------------------------------------------------------------------------
+    /// The error message if the parameter count is not right
+    static const std::string ERR_BALANCE;
+
+    //--------------------------------------------------------------------------
+    /// Number of Parameters for this function
+    static const unsigned int PARA_COUNT = 0;
 };
 
 #endif //CMDBALANCE_H_INCLUDED

@@ -35,6 +35,10 @@ class CmdQuote : public Command
     //--------------------------------------------------------------------------
     /// The error message if the parameter count is not right
     static const std::string ERR_QUOTE;
+
+    //--------------------------------------------------------------------------
+    /// Number of Parameters for this function
+    static const unsigned int PARA_COUNT = 0;
 };
 
 #endif //CMDQUOTE_H_INCLUDED
