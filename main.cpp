@@ -11,6 +11,12 @@
 
 #include "GameHandler.h"
 
+
+//------------------------------------------------------------------------
+// main function
+// Creates a new game instance and executes the interface.
+//
+// @return return_value Returns the corresponding return value.
 int main()
 {
   int return_value = 0;
