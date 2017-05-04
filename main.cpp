@@ -21,7 +21,7 @@ int main()
 {
   int return_value = 0;
   GameHandler game;
-  return_value = game.runInterface();
+  return_value = game.play();
   return return_value;
 }
 

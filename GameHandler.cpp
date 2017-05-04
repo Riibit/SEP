@@ -34,7 +34,7 @@ GameHandler::~GameHandler()
 {
 }
 
-int GameHandler::runInterface()
+int GameHandler::play()
 {
   int return_value = 0;
   unique_ptr<Interface> interface_instance;
