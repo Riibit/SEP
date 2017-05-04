@@ -19,14 +19,14 @@
 // Class that parses various values.
 //
 
-class parse
+class Parse
 {
   public:
     //--------------------------------------------------------------------------
     // Constructor
-    parse();
+    Parse();
 
-    int parseInteger(std::string input);
+    uint parseInteger(std::string input);
 
 };
 

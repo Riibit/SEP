@@ -8,16 +8,23 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#include "Parse.h"
+#include <locale>
 
-int parseInteger(std::string string)
+Parse::Parse()
 {
-  int parsed_integer;
+}
+
+uint Parse::parseInteger(std::string string)
+{
+  uint parsed_integer;
   std::locale loc;
   for (unsigned int position = 0; position < string.size(); ++position)
   {
     if (!std::isdigit(string[position], loc))
     {
-      return -1;
+      throw 5;
+      return 0;
     }
   }
   parsed_integer = std::stoi(string);

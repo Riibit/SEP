@@ -9,10 +9,10 @@
 //------------------------------------------------------------------------------
 //
 
-#include <locale>
 #include <iostream>
 #include "CmdRecipe.h"
 #include "GameHandler.h"
+#include "Parse.h"
 
 
 using std::cout;
@@ -29,15 +29,28 @@ CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, ERR_RECIPE)
 {
 }
 
+
 int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
 {
   unsigned int lemon_percent;
   unsigned int sugar_percent;
   unsigned int water_percent;
 
-  lemon_percent = std::stoi(params[0]);
-  sugar_percent = std::stoi(params[1]);
-  water_percent = std::stoi(params[2]);
+  Parse parser;
+  try
+  {
+    lemon_percent = parser.parseInteger(params[0]);
+    sugar_percent = parser.parseInteger(params[1]);
+    water_percent = parser.parseInteger(params[2]);
+  }
+  catch(int notInteger)
+  {
+    if (notInteger == 5)
+    {
+      cout << ERR_RECIPE << endl;
+      return 0;
+    }
+  }
 
   if (lemon_percent + sugar_percent + water_percent != 100)
   {
@@ -49,17 +62,4 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   << "S: " << sugar_percent << '%' << endl
   << "W: " << water_percent << '%' << endl;
   return 0;
-}
-
-bool CmdRecipe::isItInteger(std::string string)
-{
-  std::locale loc;
-  for (unsigned int position = 0; position < string.size(); ++position)
-  {
-    if (!std::isdigit(string[position], loc))
-    {
-      return false;
-    }
-  }
-  return true;
 }
