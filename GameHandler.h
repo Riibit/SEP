@@ -34,10 +34,10 @@ class GameHandler
     ~GameHandler();
 
     //--------------------------------------------------------------------------
-    // runInterface executes the prompt method and is used to terminate the 
+    // play executes the prompt method and is used to terminate the 
     // programm.
     // @return return_value Returns the corresponding return value.
-    int runInterface();
+    int play();
 
     //--------------------------------------------------------------------------
     // Setter Methods
