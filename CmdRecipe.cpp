@@ -13,6 +13,7 @@
 #include "CmdRecipe.h"
 #include "GameHandler.h"
 #include "Parse.h"
+#include "ExceptionNotInteger.h"
 
 
 using std::cout;
@@ -43,7 +44,6 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
     sugar_percent = parser.parseInteger(params[1]);
     water_percent = parser.parseInteger(params[2]);
   }
-  
   catch(const ExceptionNotInteger& exception)
   {
     cout << ERR_RECIPE << endl;
