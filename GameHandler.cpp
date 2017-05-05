@@ -95,7 +95,7 @@ unsigned int GameHandler::getResourceSugar()
   return player_.sugar;
 }
 
-unsigned int GameHandler::getResourceMoney();
+unsigned int GameHandler::getResourceMoney()
 {
   return player_.money;
 }
