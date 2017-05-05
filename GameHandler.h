@@ -51,6 +51,9 @@ class GameHandler
     // Sets the variable game_quit_ to true so that the program terminates
     // 
     void endOfLife();
+    void setWeather(EnvironmentalCondition::Cover cover, 
+      EnvironmentalCondition::Rank precipitation, float temperature, 
+      EnvironmentalCondition::Rank wind);
 
   private:
 
@@ -85,6 +88,10 @@ class GameHandler
     //--------------------------------------------------------------------------
     /// The bool that ends the game if true. to be set in the endOfLife method
     bool game_quit_;
+
+    //--------------------------------------------------------------------------
+    /// The member_variable that contains the weather
+    EnvironmentalCondition* condition_;
 
     //--------------------------------------------------------------------------
     // resolveCommand Method

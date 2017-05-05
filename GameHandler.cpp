@@ -17,6 +17,7 @@
 #include "CmdQuote.h"
 #include "CmdRecipe.h"
 #include "CmdQuit.h"
+#include "CmdSetWeather.h"
 
 using std::unique_ptr;
 
@@ -29,6 +30,7 @@ GameHandler::GameHandler()
   commands_.push_back(unique_ptr<Command>(new CmdQuote()));
   commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
+  commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
   // initialize player resources
   player_.lemons = LEMONS_INITIAL_VALUE;
   player_.sugar = SUGAR_INITIAL_VALUE;
@@ -96,4 +98,18 @@ int GameHandler::resolveCommand()
 void GameHandler::endOfLife()
 {
   game_quit_ = true;
+}
+
+void GameHandler::setWeather(EnvironmentalCondition::Cover cover, 
+  EnvironmentalCondition::Rank precipitation, float temperature, 
+  EnvironmentalCondition::Rank wind)
+{
+  condition_ = unique_ptr<EnvironmentalCondition>(new EnvironmentalCondition(
+    cover, precipitation, temperature, wind));
+}
+
+void GameHandler::setWeather(EnvironmentalCondition* condition)
+{
+  // Memory management  
+  condition_ = condition;
 }
