@@ -37,8 +37,12 @@ class CmdSetWeather : public Command
     static const std::string CMD_NAME;
 
     //--------------------------------------------------------------------------
+    // The error message if the parameter count is not right
+    static const std::string ERR_CMD;
+
+    //--------------------------------------------------------------------------
     // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 4;
-}
+};
 
 #endif //CMDSETWEATHER_H

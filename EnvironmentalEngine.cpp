@@ -11,8 +11,12 @@
 
 #include <ctime>
 #include <cstdlib>
-#include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
+
+EnvironmentalEngine::EnvironmentalEngine()
+{
+  srand (time(NULL));
+}
 
 //------------------------------------------------------------------------------
 // The function createCondition creates a new condition, which values are
@@ -30,7 +34,6 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
   EnvironmentalCondition::Rank precipitation;
   EnvironmentalCondition::Rank wind;
 
-  srand (time(NULL));
   sky_cover = toCover(rand() % 4);
 
   precipitation = toRank(rand() % 4);
@@ -55,7 +58,7 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
 // @return Returns the Enum value
 //         
 //
-Cover EnvironmentalEngine::toCover(uint input)
+EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 {
   switch(input)
   {
@@ -80,9 +83,9 @@ Cover EnvironmentalEngine::toCover(uint input)
 // @return Returns the Enum value
 //         
 //
-Rank EnvironmentalEngine::toRank(uint input)
+EnvironmentalCondition::Rank EnvironmentalEngine::toRank(unsigned int input)
 {
-  switch(random_value)
+  switch(input)
   {
     case 0 :
       return EnvironmentalCondition::NONE;

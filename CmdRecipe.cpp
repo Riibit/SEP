@@ -13,7 +13,7 @@
 #include "CmdRecipe.h"
 #include "GameHandler.h"
 #include "Parse.h"
-#include "ExceptionNotInteger.h"
+#include "ExceptionDataType.h"
 
 
 using std::cout;
@@ -22,7 +22,7 @@ using std::endl;
 const std::string CmdRecipe::CMD_NAME = "recipe";
 
 const std::string CmdRecipe::ERR_RECIPE = 
-  "[ERR] Usage: recipe [lemon] [sugar] [water]";
+  "[ERR] Usage: recipe <lemon> <sugar> <water>";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
@@ -44,7 +44,7 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
     sugar_percent = parser.parseInteger(params[1]);
     water_percent = parser.parseInteger(params[2]);
   }
-  catch(const ExceptionNotInteger& exception)
+  catch(const ExceptionDataType& exception)
   {
     cout << ERR_RECIPE << endl;
     return 0;

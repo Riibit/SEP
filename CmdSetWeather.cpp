@@ -16,8 +16,10 @@
 #include "EnvironmentalEngine.h"
 
 const std::string CmdSetWeather::CMD_NAME = "setweather";
+const std::string CmdSetWeather::ERR_CMD = "[ERR] Usage: setweather <cover> \
+<precipitation> <temperature> <wind>";
 
-CmdSetWeather::CmdSetWeather() : Command::Command(CMD_NAME, PARA_COUNT)
+CmdSetWeather::CmdSetWeather() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 
@@ -28,9 +30,9 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   float temperature;
   uint int_wind;
 
-  Cover sky_cover;
-  Rank precipitation;
-  Rank wind;
+  EnvironmentalCondition::Cover sky_cover;
+  EnvironmentalCondition::Rank precipitation;
+  EnvironmentalCondition::Rank wind;
 
   Parse parser;
   int_cover = parser.parseInteger(params[0]);
