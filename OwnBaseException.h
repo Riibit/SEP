@@ -19,7 +19,6 @@
 //
 class OwnBaseException : std::exception
 {
-
 };
  
 #endif // OWNBASEEXCEPTION_H_INCLUDED
