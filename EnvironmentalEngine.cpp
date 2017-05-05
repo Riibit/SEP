@@ -75,7 +75,7 @@ Cover EnvironmentalEngine::toCover(uint input)
 }
 
 //------------------------------------------------------------------------------
-// The function toCover sets the correspondent enum value
+// The function toRank sets the correspondent enum value
 //
 // @return Returns the Enum value
 //         
