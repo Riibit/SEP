@@ -48,11 +48,28 @@ class GameHandler
 
     //--------------------------------------------------------------------------
     // endOfLife Method
-    // Sets the variable game_quit_ to false so that the programm terminates
+    // Sets the variable game_quit_ to true so that the program terminates
     // 
     void endOfLife();
 
   private:
+
+    //--------------------------------------------------------------------------
+    /// The initial values of resources available to the player
+    static const int LEMONS_INITIAL_VALUE = 100;
+    static const int SUGAR_INITIAL_VALUE = 100;
+    static const int MONEY_INITIAL_VALUE = 5000;
+
+
+    //--------------------------------------------------------------------------
+    /// The resources available to the player
+    struct GameResources
+    {
+        uint lemons;
+        uint sugar;
+        uint money;
+    } player_;
+
     //--------------------------------------------------------------------------
     /// The name of the command that was given in stdin
     std::string* command_name_;

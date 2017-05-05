@@ -11,7 +11,7 @@
 
 #include "CmdPlay.h"
 
-const std::string CmdEcho::CMD_NAME = "play";
+const std::string CmdPlay::CMD_NAME = "play";
 
 CmdPlay::CmdPlay() : Command::Command(CMD_NAME)
 {
@@ -19,6 +19,6 @@ CmdPlay::CmdPlay() : Command::Command(CMD_NAME)
 
 int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  
+
   return 0;
 }

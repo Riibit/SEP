@@ -23,11 +23,16 @@ using std::unique_ptr;
 GameHandler::GameHandler() 
 {
   game_quit_ = false;
+  // TODO:  possibly add out of mem exception handling later
   commands_.push_back(unique_ptr<Command>(new CmdEcho()));
   commands_.push_back(unique_ptr<Command>(new CmdBalance()));
   commands_.push_back(unique_ptr<Command>(new CmdQuote()));
   commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
+  // initialize player resources
+  player_.lemons = LEMONS_INITIAL_VALUE;
+  player_.sugar = SUGAR_INITIAL_VALUE;
+  player_.money = MONEY_INITIAL_VALUE;
 }
 
 GameHandler::~GameHandler()
