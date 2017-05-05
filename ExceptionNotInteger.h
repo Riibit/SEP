@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// CmdPlay.cpp
+// OwnBaseException.h
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -8,17 +8,16 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+ 
+#ifndef NOTINTEGER_EXCEPTION_H_INCLUDED
+#define NOTINTEGER_EXCEPTION_H_INCLUDED
 
-#include "CmdPlay.h"
-
-const std::string CmdEcho::CMD_NAME = "play";
-
-CmdPlay::CmdPlay() : Command::Command(CMD_NAME)
+//------------------------------------------------------------------------------
+// Not Integer Exception
+//
+class ExceptionNotInteger : OwnBaseException
 {
-}
 
-int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
-{
-  
-  return 0;
-}
+};
+ 
+#endif // NOTINTEGER_EXCEPTION_H_INCLUDED

@@ -43,10 +43,11 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
     sugar_percent = parser.parseInteger(params[1]);
     water_percent = parser.parseInteger(params[2]);
   }
-  catch(int notInteger)
+  
+  catch(const ExceptionNotInteger& exception)
   {
-      cout << ERR_RECIPE << endl;
-      return 0;
+    cout << ERR_RECIPE << endl;
+    return 0;
   }
 
   if (lemon_percent + sugar_percent + water_percent != 100)

@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// CmdPlay.cpp
+// CmdBuy.cpp
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -9,15 +9,15 @@
 //------------------------------------------------------------------------------
 //
 
-#include "CmdPlay.h"
+#include "CmdBuy.h"
 
-const std::string CmdEcho::CMD_NAME = "play";
+const std::string CmdEcho::CMD_NAME = "buy";
 
-CmdPlay::CmdPlay() : Command::Command(CMD_NAME)
+CmdBuy::CmdBuy() : Command::Command(CMD_NAME)
 {
 }
 
-int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
+int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
 {
   
   return 0;
