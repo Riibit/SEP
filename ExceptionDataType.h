@@ -9,20 +9,20 @@
 //------------------------------------------------------------------------------
 //
  
-#ifndef NOTINTEGER_EXCEPTION_H_INCLUDED
-#define NOTINTEGER_EXCEPTION_H_INCLUDED
+#ifndef DATA_TYPE_EXCEPTION_H_INCLUDED
+#define DATA_TYPE_EXCEPTION_H_INCLUDED
 
 #include "OwnBaseException.h"
 
 //------------------------------------------------------------------------------
 // Not Integer Exception
 //
-class ExceptionNotInteger : public OwnBaseException
+class ExceptionDataType : public OwnBaseException
 {
   public:
     //--------------------------------------------------------------------------
     // Constructor
-    ExceptionNotInteger();
+    ExceptionDataType();
 };
  
-#endif // NOTINTEGER_EXCEPTION_H_INCLUDED
+#endif // DATA_TYPE_EXCEPTION_H_INCLUDED

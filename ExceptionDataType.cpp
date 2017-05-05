@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// CmdPlay.cpp
+// ExceptionNotInteger.cpp
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -8,18 +8,8 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#include "ExceptionDataType.h"
 
-#include "CmdPlay.h"
-
-const std::string CmdPlay::CMD_NAME = "play";
-const std::string CmdPlay::ERR_PLAY = "[ERR] Usage: play";
-
-CmdPlay::CmdPlay() : Command::Command(CMD_NAME, PARA_COUNT, ERR_PLAY)
+ExceptionDataType::ExceptionDataType()
 {
-}
-
-int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
-{
-
-  return 0;
 }

@@ -12,7 +12,7 @@
 #ifndef ENV_ENG_H
 #define ENV_ENG_H
 
-class EnvironmentalCondition;
+#include "EnvironmentalCondition.h"
 
 //------------------------------------------------------------------------------
 // The class that contains the environmental engine
@@ -20,7 +20,14 @@ class EnvironmentalCondition;
 class EnvironmentalEngine 
 {
   public:
+    EnvironmentalEngine();
+
     EnvironmentalCondition* createCondition();
+
+    EnvironmentalCondition::Cover toCover(unsigned int input);
+    EnvironmentalCondition::Rank toRank(unsigned int input);
+
+
 };
 
 #endif // ENV_ENG_H

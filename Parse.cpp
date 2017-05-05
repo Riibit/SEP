@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 //
 #include "Parse.h"
-#include "ExceptionNotInteger.h"
+#include "ExceptionDataType.h"
 #include <locale>
 
 Parse::Parse()
@@ -24,10 +24,25 @@ uint Parse::parseInteger(std::string string)
   {
     if (!std::isdigit(string[position], loc))
     {
-      throw ExceptionNotInteger();
+      throw ExceptionDataType();
       return 0;
     }
   }
   parsed_integer = std::stoi(string);
   return parsed_integer;
+}
+
+float Parse::parseFloat(std::string input)
+{
+  float to_return = 0;
+  try
+  {
+    to_return = stof(input);
+  }
+  catch(const std::invalid_argument& exception)
+  {
+    throw ExceptionDataType();
+    return to_return;
+  }
+  return to_return;
 }
