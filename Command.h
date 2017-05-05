@@ -33,7 +33,7 @@ class Command
     Command& operator=(const Command& original);
     
     //--------------------------------------------------------------------------
-    /// Name of this command
+    // Name of this command
     std::string command_name_;
 
     std::string parameter_message_;

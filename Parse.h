@@ -26,7 +26,17 @@ class Parse
     // Constructor
     Parse();
 
+    //--------------------------------------------------------------------------
+    // Parses string to unsigned integer
+    // @param input The string that is to be parsed
+    // @return uint The parsed unsigned integer
     uint parseInteger(std::string input);
+
+    //--------------------------------------------------------------------------
+    // Parses string to float
+    // @param input The string that is to be parsed
+    // @return uint The parsed float
+    float parseFloat(std::string input);
 
 };
 
