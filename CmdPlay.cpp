@@ -19,6 +19,6 @@ CmdPlay::CmdPlay() : Command::Command(CMD_NAME)
 
 int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 {
-
+  
   return 0;
 }
