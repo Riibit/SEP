@@ -45,6 +45,4 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   precipitation = get_enums.toRank(int_precipitation);
   wind = get_enums.toRank(int_wind);
 
-  game.setWeather(unique_ptr<EnvironmentalCondition>(new EnvironmentalCondition(
-    cover, precipitation, temperature, wind)));
 }
