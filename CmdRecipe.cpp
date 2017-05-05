@@ -25,7 +25,7 @@ const std::string CmdRecipe::ERR_RECIPE =
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe() : Command::Command (CMD_NAME, PARA_COUNT, ERR_RECIPE)
+CmdRecipe::CmdRecipe() : Command::Command(CMD_NAME, PARA_COUNT, ERR_RECIPE)
 {
 }
 
@@ -45,11 +45,8 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   }
   catch(int notInteger)
   {
-    if (notInteger == 5)
-    {
       cout << ERR_RECIPE << endl;
       return 0;
-    }
   }
 
   if (lemon_percent + sugar_percent + water_percent != 100)
