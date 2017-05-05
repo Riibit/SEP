@@ -49,6 +49,12 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
   return new_condition;
 }
 
+//------------------------------------------------------------------------------
+// The function toCover sets the correspondent enum value
+//
+// @return Returns the Enum value
+//         
+//
 Cover EnvironmentalEngine::toCover(uint input)
 {
   switch(input)
@@ -68,6 +74,12 @@ Cover EnvironmentalEngine::toCover(uint input)
   }
 }
 
+//------------------------------------------------------------------------------
+// The function toCover sets the correspondent enum value
+//
+// @return Returns the Enum value
+//         
+//
 Rank EnvironmentalEngine::toRank(uint input)
 {
   switch(random_value)
