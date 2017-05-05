@@ -12,12 +12,17 @@
 #ifndef NOTINTEGER_EXCEPTION_H_INCLUDED
 #define NOTINTEGER_EXCEPTION_H_INCLUDED
 
+#include "OwnBaseException.h"
+
 //------------------------------------------------------------------------------
 // Not Integer Exception
 //
-class ExceptionNotInteger : OwnBaseException
+class ExceptionNotInteger : public OwnBaseException
 {
-
+  public:
+    //--------------------------------------------------------------------------
+    // Constructor
+    ExceptionNotInteger();
 };
  
 #endif // NOTINTEGER_EXCEPTION_H_INCLUDED

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 //
 #include "Parse.h"
+#include "ExceptionNotInteger.h"
 #include <locale>
 
 Parse::Parse()
@@ -23,7 +24,7 @@ uint Parse::parseInteger(std::string string)
   {
     if (!std::isdigit(string[position], loc))
     {
-      throw 5;
+      throw ExceptionNotInteger();
       return 0;
     }
   }
