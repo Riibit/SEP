@@ -27,7 +27,6 @@ EnvironmentalEngine::EnvironmentalEngine()
 //
 EnvironmentalCondition* EnvironmentalEngine::createCondition()
 {
-  int random_value;
   float temperature;
 
   EnvironmentalCondition::Cover sky_cover;

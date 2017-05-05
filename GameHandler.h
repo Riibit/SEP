@@ -45,16 +45,16 @@ class GameHandler
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
-    void setResourceLemon(uint lemon_value);
-    void setResourceSugar(uint sugar_value);
-    void setResourceMoney(uint money_value);
+    void setResourceLemon(unsigned int lemon_value);
+    void setResourceSugar(unsigned int sugar_value);
+    void setResourceMoney(unsigned int money_value);
 
     //--------------------------------------------------------------------------
     // Getter Methods
     //
-    uint getResourceLemon();
-    uint getResourceSugar();
-    uint getResourceMoney(); 
+    unsigned int getResourceLemon();
+    unsigned int getResourceSugar();
+    unsigned int getResourceMoney(); 
 
     //--------------------------------------------------------------------------
     // endOfLife Method
@@ -75,9 +75,9 @@ class GameHandler
     /// The resources available to the player
     struct GameResources
     {
-        uint lemons;
-        uint sugar;
-        uint money;
+        unsigned int lemons;
+        unsigned int sugar;
+        unsigned int money;
     } player_;
 
     //--------------------------------------------------------------------------
