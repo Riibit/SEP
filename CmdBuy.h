@@ -31,6 +31,18 @@ class CmdBuy : public Command
     // @param params Possible parameters needed for the execution
     // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
+
+    //--------------------------------------------------------------------------
+    /// The name of the command
+    static const std::string CMD_NAME;
+
+    //--------------------------------------------------------------------------
+    /// The error message if the parameter count is not right
+    static const std::string ERR_CMD;
+
+    //--------------------------------------------------------------------------
+    /// Number of Parameters for this function
+    static const unsigned int PARA_COUNT = 2;
 };
 
 #endif //CMD_BUY

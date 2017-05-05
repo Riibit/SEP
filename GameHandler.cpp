@@ -69,33 +69,33 @@ void GameHandler::setInterfaceCommand(std::string* command_name)
   command_name_ = command_name;
 }
 
-void setResourceLemon(lemon_value)
+void setResourceLemon(unsigned int lemon_value)
 {
   player_.lemons = lemon_value;
 }
 
-void setResourceSugar(sugar_value)
+void setResourceSugar(unsigned int sugar_value)
 {
   player_.sugar = sugar_value;
 }
 
-void setResourceMoney(money_value)
+void setResourceMoney(unsigned int money_value)
 {
   player_.money = money_value;
 }
 
 
-int getResourceLemon()
+unsigned int getResourceLemon()
 {
   return player_.lemons;
 }
 
-int getResourceSugar()
+unsigned int getResourceSugar()
 {
   return player_.sugar;
 }
 
-int getResourceMoney();
+unsigned int getResourceMoney();
 {
   return player_.money;
 }

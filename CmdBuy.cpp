@@ -12,8 +12,10 @@
 #include "CmdBuy.h"
 
 const std::string CmdBuy::CMD_NAME = "buy";
+const std::string CmdRecipe::ERR_RECIPE = 
+  "[ERR] Usage: buy <lemon> <sugar>";
 
-CmdBuy::CmdBuy() : Command::Command(CMD_NAME)
+CmdBuy::CmdBuy() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 
