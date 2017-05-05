@@ -20,24 +20,25 @@
 //
 class CmdSetWeather : public Command
 {
-  //--------------------------------------------------------------------------
-  // Constructor
-  CmdSetWeather();
+  public:
+    //--------------------------------------------------------------------------
+    // Constructor
+    CmdSetWeather();
 
-  //--------------------------------------------------------------------------
-  // Executes the command.
-  // @param game The game where action should be performed on
-  // @param params Possible parameters needed for the execution
-  // @return Integer representing the success of the action
-  virtual int execute(GameHandler& game, std::vector<std::string>& params);
+    //--------------------------------------------------------------------------
+    // Executes the command.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
+    virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
-  //--------------------------------------------------------------------------
-  // The name of the command
-  static const std::string CMD_NAME;
+    //--------------------------------------------------------------------------
+    // The name of the command
+    static const std::string CMD_NAME;
 
-  //--------------------------------------------------------------------------
-  // Number of Parameters for this function
-  static const unsigned int PARA_COUNT = 4;
+    //--------------------------------------------------------------------------
+    // Number of Parameters for this function
+    static const unsigned int PARA_COUNT = 4;
 }
 
 #endif //CMDSETWEATHER_H

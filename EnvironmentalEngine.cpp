@@ -31,66 +31,58 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
   EnvironmentalCondition::Rank wind;
 
   srand (time(NULL));
-  random_value = rand() % 4;
+  sky_cover = toCover(rand() % 4);
 
-  switch(random_value)
-  {
-    case 0 :
-      sky_cover = EnvironmentalCondition::SUNNY;
-      break;
-    case 1 :
-      sky_cover = EnvironmentalCondition::CLOUDY;
-      break;
-    case 2 :
-      sky_cover = EnvironmentalCondition::OVERCAST;
-      break;
-    case 3 :
-      sky_cover = EnvironmentalCondition::VERY_OVERCAST;
-      break;
-  }
-  random_value = rand() % 4;
+  precipitation = toRank(rand() % 4);
 
-  switch(random_value)
-  {
-    case 0 :
-      precipitation = EnvironmentalCondition::NONE;
-      break;
-    case 1 :
-      precipitation = EnvironmentalCondition::LOW;
-      break;
-    case 2 :
-      precipitation = EnvironmentalCondition::MEDIUM;
-      break;
-    case 3 :
-      precipitation = EnvironmentalCondition::HIGH;
-      break;
-  }
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
 
   if (temperature <= EnvironmentalCondition::MAX_TEMP)
     temperature += ((rand() % 10) / 10.0f);
 
-  random_value = rand() % 4;
-
-  switch(random_value)
-  {
-    case 0 :
-      wind = EnvironmentalCondition::NONE;
-      break;
-    case 1 :
-      wind = EnvironmentalCondition::LOW;
-      break;
-    case 2 :
-      wind = EnvironmentalCondition::MEDIUM;
-      break;
-    case 3 :
-      wind = EnvironmentalCondition::HIGH;
-      break;
-  }
+  wind = toRank(rand() % 4);
 
   EnvironmentalCondition *new_condition;
   new_condition = new EnvironmentalCondition(sky_cover, precipitation, 
     temperature, wind);
   
   return new_condition;
+}
+
+Cover EnvironmentalEngine::toCover(uint input)
+{
+  switch(input)
+  {
+    case 0 :
+      return EnvironmentalCondition::SUNNY;
+      break;
+    case 1 :
+      return EnvironmentalCondition::CLOUDY;
+      break;
+    case 2 :
+      return EnvironmentalCondition::OVERCAST;
+      break;
+    default :
+      return EnvironmentalCondition::VERY_OVERCAST;
+      break;
+  }
+}
+
+Rank EnvironmentalEngine::toRank(uint input)
+{
+  switch(random_value)
+  {
+    case 0 :
+      return EnvironmentalCondition::NONE;
+      break;
+    case 1 :
+      return EnvironmentalCondition::LOW;
+      break;
+    case 2 :
+      return EnvironmentalCondition::MEDIUM;
+      break;
+    default :
+      return EnvironmentalCondition::HIGH;
+      break;
+  }  
 }
