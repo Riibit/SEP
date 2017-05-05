@@ -45,6 +45,16 @@ class GameHandler
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
+    void setResourceLemon(uint lemon_value);
+    void setResourceSugar(uint sugar_value);
+    void setResourceMoney(uint money_value);
+
+    //--------------------------------------------------------------------------
+    // Getter Methods
+    //
+    uint getResourceLemon();
+    uint getResourceSugar();
+    uint getResourceMoney(); 
 
     //--------------------------------------------------------------------------
     // endOfLife Method
