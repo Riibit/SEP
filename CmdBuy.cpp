@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-// ExceptionNotInteger.cpp
+// CmdBuy.cpp
 //
 // Group: Group 15666, study assistant Hasan Durmaz
 //
@@ -8,8 +8,17 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
-#include "ExceptionNotInteger.h"
 
-ExceptionNotInteger::ExceptionNotInteger()
+#include "CmdBuy.h"
+
+const std::string CmdEcho::CMD_NAME = "buy";
+
+CmdBuy::CmdBuy() : Command::Command(CMD_NAME)
 {
+}
+
+int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
+{
+  
+  return 0;
 }
