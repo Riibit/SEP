@@ -18,6 +18,7 @@
 #include "CmdQuote.h"
 #include "CmdRecipe.h"
 #include "CmdQuit.h"
+#include "CmdBuy.h"
 #include "ExceptionDataType.h"
 
 using std::unique_ptr;
@@ -34,6 +35,7 @@ GameHandler::GameHandler()
   commands_.push_back(unique_ptr<Command>(new CmdQuote()));
   commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
+  commands_.push_back(unique_ptr<Command>(new CmdBuy()));
   // initialize player resources
   player_.lemons = LEMONS_INITIAL_VALUE;
   player_.sugar = SUGAR_INITIAL_VALUE;
@@ -46,14 +48,15 @@ GameHandler::~GameHandler()
 
 int GameHandler::initialize(int argc, char *parameters[])
 {
-  if (argc != 3)
+  if (argc != 4)
   {
+    std::cout << ERR_PROGRAM_START << std::endl;
     return 2;
   }
   Parse parser;
-  std::string argument_1(parameters[0]);
-  std::string argument_2(parameters[1]);
-  std::string argument_3(parameters[2]);
+  std::string argument_1(parameters[1]);
+  std::string argument_2(parameters[2]);
+  std::string argument_3(parameters[3]);
   try
   {
     price_lemonade_ = parser.parseInteger(argument_1);
