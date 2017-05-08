@@ -37,6 +37,12 @@ class GameHandler
     // play executes the prompt method and is used to terminate the 
     // programm.
     // @return return_value Returns the corresponding return value.
+    void initialize(int argc, char *argv[]);
+
+    //--------------------------------------------------------------------------
+    // play executes the prompt method and is used to terminate the 
+    // programm.
+    // @return return_value Returns the corresponding return value.
     int play();
 
     //--------------------------------------------------------------------------

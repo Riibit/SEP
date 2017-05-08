@@ -25,7 +25,7 @@ EnvironmentalEngine::EnvironmentalEngine()
 // @return EnvironmentalCondition Returns the pointer to the object on the stack
 //         
 //
-EnvironmentalCondition* EnvironmentalEngine::createCondition()
+std::shared_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
   float temperature;
 
@@ -44,11 +44,8 @@ EnvironmentalCondition* EnvironmentalEngine::createCondition()
 
   wind = toRank(rand() % 4);
 
-  EnvironmentalCondition *new_condition;
-  new_condition = new EnvironmentalCondition(sky_cover, precipitation, 
-    temperature, wind);
-  
-  return new_condition;
+  return std::shared_ptr<EnvironmentalCondition>
+    (new EnvironmentalCondition(sky_cover, precipitation, temperature, wind));
 }
 
 //------------------------------------------------------------------------------

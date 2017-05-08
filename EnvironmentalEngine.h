@@ -12,6 +12,7 @@
 #ifndef ENV_ENG_H
 #define ENV_ENG_H
 
+#include <memory>
 #include "EnvironmentalCondition.h"
 
 //------------------------------------------------------------------------------
@@ -22,7 +23,7 @@ class EnvironmentalEngine
   public:
     EnvironmentalEngine();
 
-    EnvironmentalCondition* createCondition();
+    std::shared_ptr<EnvironmentalCondition> createCondition();
 
     EnvironmentalCondition::Cover toCover(unsigned int input);
     EnvironmentalCondition::Rank toRank(unsigned int input);
