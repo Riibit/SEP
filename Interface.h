@@ -60,6 +60,14 @@ class Interface
 
   private:
     //--------------------------------------------------------------------------
+    // Private copy constructor
+    Interface(const Command& original);
+
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    Interface& operator=(const Command& original);
+
+    //--------------------------------------------------------------------------
     /// object pointer to game
     GameHandler* game_;
 };

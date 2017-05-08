@@ -41,7 +41,14 @@ class Parse
     // @param input The string that is to be parsed
     // @return uint The parsed float
     float parseFloat(std::string input);
+  private:
+    //--------------------------------------------------------------------------
+    // Private copy constructor
+    Parse(const Command& original);
 
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    Parse& operator=(const Command& original);    
 };
 
 
