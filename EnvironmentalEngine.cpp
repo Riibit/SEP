@@ -18,13 +18,10 @@ EnvironmentalEngine::EnvironmentalEngine()
   srand (time(NULL));
 }
 
-//------------------------------------------------------------------------------
-// The function createCondition creates a new condition, which values are
-// random, and returns the condition.
-//
-// @return EnvironmentalCondition Returns the pointer to the object on the stack
-//         
-//
+EnvironmentalEngine::~EnvironmentalEngine()
+{
+}
+
 std::shared_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
   float temperature;
@@ -48,12 +45,6 @@ std::shared_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
     (new EnvironmentalCondition(sky_cover, precipitation, temperature, wind));
 }
 
-//------------------------------------------------------------------------------
-// The function toCover sets the correspondent enum value
-//
-// @return Returns the Enum value
-//         
-//
 EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 {
   switch(input)
@@ -73,12 +64,6 @@ EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
   }
 }
 
-//------------------------------------------------------------------------------
-// The function toRank sets the correspondent enum value
-//
-// @return Returns the Enum value
-//         
-//
 EnvironmentalCondition::Rank EnvironmentalEngine::toRank(unsigned int input)
 {
   switch(input)
