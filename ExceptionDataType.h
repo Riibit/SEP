@@ -25,7 +25,7 @@ class ExceptionDataType : public OwnBaseException
     ExceptionDataType();
 
     //--------------------------------------------------------------------------
-    // Deconstructor
+    // Destructor
     ~ExceptionDataType();
 };
  

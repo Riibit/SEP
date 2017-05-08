@@ -19,7 +19,6 @@
 class HTMLWriter
 {
   public:
-
     //--------------------------------------------------------------------------
     // Constructor for the class
     //
@@ -28,7 +27,7 @@ class HTMLWriter
     HTMLWriter(std::string filename);
 
     //--------------------------------------------------------------------------
-    // Deconstructor
+    // Destructor
     ~HTMLWriter();
 
 
@@ -41,6 +40,13 @@ class HTMLWriter
     void writeFile(std::string body);
     
   private:
+    //--------------------------------------------------------------------------
+    // Private copy constructor
+    HTMLWriter(const Command& original);
+
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    HTMLWriter& operator=(const Command& original);
     std::string filename_;
 };
 

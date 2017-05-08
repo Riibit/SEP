@@ -26,7 +26,7 @@ class EnvironmentalEngine
     EnvironmentalEngine();
 
     //--------------------------------------------------------------------------
-    // Deconstructor
+    // Destructor
     ~EnvironmentalEngine();
 
     //--------------------------------------------------------------------------
@@ -55,7 +55,14 @@ class EnvironmentalEngine
     //
     EnvironmentalCondition::Rank toRank(unsigned int input);
 
+  private:
+    //--------------------------------------------------------------------------
+    // Private copy constructor
+    EnvironmentalEngine(const Command& original);
 
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    EnvironmentalEngine& operator=(const Command& original);
 };
 
 #endif // ENV_ENG_H

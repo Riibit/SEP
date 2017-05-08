@@ -76,6 +76,13 @@ class GameHandler
     static const std::string ERR_PROGRAM_START;
 
   private:
+    //--------------------------------------------------------------------------
+    // Private copy constructor
+    GameHandler(const Command& original);
+
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    GameHandler& operator=(const Command& original);
 
     //--------------------------------------------------------------------------
     // The initial values of resources available to the player

@@ -32,6 +32,10 @@ class Interface
     Interface(GameHandler* game);
 
     //--------------------------------------------------------------------------
+    // Destructor
+    ~Interface();
+
+    //--------------------------------------------------------------------------
     // Initializes the interface
     //  
     const int runPrompt();
@@ -55,6 +59,14 @@ class Interface
     static const std::string PROMPT_STRING;
 
   private:
+    //--------------------------------------------------------------------------
+    // Private copy constructor
+    Interface(const Command& original);
+
+    //--------------------------------------------------------------------------
+    // Private assignment operator
+    Interface& operator=(const Command& original);
+
     //--------------------------------------------------------------------------
     /// object pointer to game
     GameHandler* game_;
