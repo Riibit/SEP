@@ -10,24 +10,22 @@
 //
 
 #include "CmdQuote.h"
+#include "GameHandler.h"
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
 const std::string CmdQuote::CMD_NAME = "quote";
-const std::string CmdQuote::ERR_QUOTE = "[ERR] Usage: quote";
+const std::string CmdQuote::ERR_CMD = "[ERR] Usage: quote";
 
-CmdQuote::CmdQuote() : Command::Command(CMD_NAME, PARA_COUNT, ERR_QUOTE)
+CmdQuote::CmdQuote() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 
 int CmdQuote::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  int lemon_quote = 100;
-  int sugar_quote = 100;
-
-  cout << "L: " << lemon_quote << " $" << endl
-  << "S: " << sugar_quote << " $" << endl;
+  cout << "L: " << game.getPriceLemon() << " $" << endl
+  << "S: " << game.getPriceSugar() << " $" << endl;
   return 0;
 }
