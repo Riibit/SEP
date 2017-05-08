@@ -15,21 +15,11 @@
 using std::string;
 using std::endl;
 
-//------------------------------------------------------------------------------
-// Constructor for the class
-//
-// @param filename The filename of the html file that is to be written
-//
 HTMLWriter::HTMLWriter(string filename)
 {
   filename_ = filename;
 }
 
-//------------------------------------------------------------------------------
-// The function that writes the html file with the given body
-//
-// @param body The string that is to be inserted in the body of the html file
-//
 void HTMLWriter::writeFile(string body)
 {
   std::ofstream writer;

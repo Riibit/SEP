@@ -23,6 +23,10 @@ class ExceptionDataType : public OwnBaseException
     //--------------------------------------------------------------------------
     // Constructor
     ExceptionDataType();
+
+    //--------------------------------------------------------------------------
+    // Deconstructor
+    ~ExceptionDataType();
 };
  
 #endif // DATA_TYPE_EXCEPTION_H_INCLUDED
