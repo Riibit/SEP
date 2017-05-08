@@ -12,13 +12,18 @@
 #include <iostream>
 #include "GameHandler.h"
 #include "Interface.h"
+#include "Parse.h"
 #include "CmdEcho.h"
 #include "CmdBalance.h"
 #include "CmdQuote.h"
 #include "CmdRecipe.h"
 #include "CmdQuit.h"
+#include "ExceptionDataType.h"
 
 using std::unique_ptr;
+
+const std::string GameHandler::ERR_PROGRAM_START = 
+  "[ERR] Wrong usage: ./basic <price_lemonade> <price_lemon> <price_sugar>";
 
 GameHandler::GameHandler() 
 {
@@ -37,6 +42,30 @@ GameHandler::GameHandler()
 
 GameHandler::~GameHandler()
 {
+}
+
+GameHandler::initialize(int argc, char *parameters[])
+{
+  if (argc != 3)
+  {
+    return 2;
+  }
+  Parse parser;
+  std::string argument_1(parameters[0]);
+  std::string argument_2(parameters[1]);
+  std::string argument_3(parameters[2]);
+  try
+  {
+    price_lemonade_ = parser.parseInteger(argument_1);
+    price_lemon_ = parser.parseInteger(argument_2);
+    price_sugar_ = parser.parseInteger(argument_3);
+  }
+  catch(const ExceptionDataType& exception)
+  {
+    cout << ERR_PROGRAM_START << endl;
+    return 2;
+  }
+  return 0;
 }
 
 int GameHandler::play()
@@ -98,6 +127,22 @@ unsigned int GameHandler::getResourceSugar()
 unsigned int GameHandler::getResourceMoney()
 {
   return player_.money;
+}
+
+
+unsigned int GameHandler::getPriceLemonade()
+{
+  return price_lemonade_;
+}
+
+unsigned int GameHandler::getPriceLemon()
+{
+  return price_lemon_;
+}
+
+unsigned int GameHandler::getPriceSugar()
+{
+  return price_sugar_;
 }
 
 int GameHandler::resolveCommand()
