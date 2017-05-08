@@ -13,3 +13,7 @@
 ExceptionDataType::ExceptionDataType()
 {
 }
+
+ExceptionDataType::~ExceptionDataType()
+{
+}

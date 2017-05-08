@@ -21,11 +21,38 @@
 class EnvironmentalEngine 
 {
   public:
+    //--------------------------------------------------------------------------
+    // Constructor
     EnvironmentalEngine();
 
+    //--------------------------------------------------------------------------
+    // Deconstructor
+    ~EnvironmentalEngine();
+
+    //--------------------------------------------------------------------------
+    // The function createCondition creates a new condition, which values are
+    // random, and returns the condition.
+    //
+    // @return EnvironmentalCondition Returns the pointer to the object on the 
+    //         stack
+    //         
+    //
     std::shared_ptr<EnvironmentalCondition> createCondition();
 
+    //--------------------------------------------------------------------------
+    // The function toCover sets the correspondent enum value
+    //
+    // @return Returns the Enum value
+    //         
+    //
     EnvironmentalCondition::Cover toCover(unsigned int input);
+
+    //--------------------------------------------------------------------------
+    // The function toRank sets the correspondent enum value
+    //
+    // @return Returns the Enum value
+    //         
+    //
     EnvironmentalCondition::Rank toRank(unsigned int input);
 
 

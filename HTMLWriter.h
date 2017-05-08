@@ -19,7 +19,25 @@
 class HTMLWriter
 {
   public:
+
+    //--------------------------------------------------------------------------
+    // Constructor for the class
+    //
+    // @param filename The filename of the html file that is to be written
+    //
     HTMLWriter(std::string filename);
+
+    //--------------------------------------------------------------------------
+    // Deconstructor
+    ~HTMLWriter();
+
+
+    //--------------------------------------------------------------------------
+    // The function that writes the html file with the given body
+    //
+    // @param body The string that is to be inserted in the body of the html 
+    //        file
+    //
     void writeFile(std::string body);
     
   private:
