@@ -10,6 +10,9 @@
 //
 
 #include "CmdBuy.h"
+#include "GameHandler.h"
+#include "Parse.h"
+#include "ExceptionDataType.h"
 
 const std::string CmdBuy::CMD_NAME = "buy";
 const std::string CmdBuy::ERR_CMD = 
@@ -22,20 +25,21 @@ CmdBuy::CmdBuy() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
 {
   // game data loaded
-  uint lemon_value = game.getResourceLemon();
-  uint sugar_value = game.getResourceSugar();
-  uint money_value = game.getResourceMoney(); // not a pyramid scheme
+  unsigned int lemon_value = game.getResourceLemon();
+  unsigned int sugar_value = game.getResourceSugar();
+  unsigned int money_value = game.getResourceMoney(); // not a pyramid scheme
   unsigned int lemon_price = game.getPriceLemon();
   unsigned int sugar_price = game.getPriceSugar();
   
+  Parse parser;
   try
   {
-    uint lemon_buy_amount = parser.parse(params[0]);
-    uint sugar_buy_amount = parser.parse(params[1]);
+    unsigned int lemon_buy_amount = parser.parseInteger(params[0]);
+    unsigned int sugar_buy_amount = parser.parseInteger(params[1]);
   }
   catch(const ExceptionNotInteger& exception)
   {
-    cout << ERR_CMD << endl;
+    std::cout << ERR_CMD << std::endl;
     return 0;
   }
 
@@ -51,7 +55,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   // no. get 1 by 1 as much as possible of both
   else
   {
-    cout << "[WARN] Not enough money. I buy what I can." << endl; 
+    std::cout << "[WARN] Not enough money. I buy what I can." << std::endl; 
     while(1)
     {
       if (lemon_value < lemon_value + lemon_buy_amount)
@@ -82,9 +86,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   }
   
   // output
-  cout << "Bought:" << endl;
-  cout << "L: " << lemon_value - game.getResourceLemon() << endl;
-  cout << "S: " << sugar_value - game.getResourceSugar() << endl;
+  std::cout << "Bought:" << std::endl;
+  std::cout << "L: " << lemon_value - game.getResourceLemon() << std::endl;
+  std::cout << "S: " << sugar_value - game.getResourceSugar() << std::endl;
 
   // update game data
   game.setResourceSugar(sugar_value);
