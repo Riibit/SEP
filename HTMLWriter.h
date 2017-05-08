@@ -42,11 +42,11 @@ class HTMLWriter
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    HTMLWriter(const Command& original);
+    HTMLWriter(const HTMLWriter& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    HTMLWriter& operator=(const Command& original);
+    HTMLWriter& operator=(const HTMLWriter& original);
     std::string filename_;
 };
 

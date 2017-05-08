@@ -78,11 +78,11 @@ class GameHandler
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    GameHandler(const Command& original);
+    GameHandler(const GameHandler& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    GameHandler& operator=(const Command& original);
+    GameHandler& operator=(const GameHandler& original);
 
     //--------------------------------------------------------------------------
     // The initial values of resources available to the player

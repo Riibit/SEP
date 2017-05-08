@@ -58,11 +58,11 @@ class EnvironmentalEngine
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    EnvironmentalEngine(const Command& original);
+    EnvironmentalEngine(const EnvironmentalEngine& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    EnvironmentalEngine& operator=(const Command& original);
+    EnvironmentalEngine& operator=(const EnvironmentalEngine& original);
 };
 
 #endif // ENV_ENG_H
