@@ -13,6 +13,10 @@
 #include "GameHandler.h"
 #include "Parse.h"
 #include "ExceptionDataType.h"
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 const std::string CmdBuy::CMD_NAME = "buy";
 const std::string CmdBuy::ERR_CMD = 
@@ -37,9 +41,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
     unsigned int lemon_buy_amount = parser.parseInteger(params[0]);
     unsigned int sugar_buy_amount = parser.parseInteger(params[1]);
   }
-  catch(const ExceptionNotInteger& exception)
+  catch(const ExceptionDataType& exception)
   {
-    std::cout << ERR_CMD << std::endl;
+    cout << ERR_CMD << endl;
     return 0;
   }
 
@@ -49,13 +53,13 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   {
     lemon_value += lemon_buy_amount;
     sugar_value += sugar_buy_amount;
-    money_value -= lemon_buy_amount *  lemon_price;
-    money_value -= sugar_buy_amount *  sugar_price;
+    money_value -= lemon_buy_amount * lemon_price;
+    money_value -= sugar_buy_amount * sugar_price;
   }
   // no. get 1 by 1 as much as possible of both
   else
   {
-    std::cout << "[WARN] Not enough money. I buy what I can." << std::endl; 
+    cout << "[WARN] Not enough money. I buy what I can." << endl; 
     while(1)
     {
       if (lemon_value < lemon_value + lemon_buy_amount)
@@ -86,9 +90,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   }
   
   // output
-  std::cout << "Bought:" << std::endl;
-  std::cout << "L: " << lemon_value - game.getResourceLemon() << std::endl;
-  std::cout << "S: " << sugar_value - game.getResourceSugar() << std::endl;
+  cout << "Bought:" << endl;
+  cout << "L: " << lemon_value - game.getResourceLemon() << endl;
+  cout << "S: " << sugar_value - game.getResourceSugar() << endl;
 
   // update game data
   game.setResourceSugar(sugar_value);
