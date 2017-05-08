@@ -44,11 +44,11 @@ class Parse
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    Parse(const Command& original);
+    Parse(const Parse& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    Parse& operator=(const Command& original);    
+    Parse& operator=(const Parse& original);    
 };
 
 

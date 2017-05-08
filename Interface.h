@@ -61,11 +61,11 @@ class Interface
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    Interface(const Command& original);
+    Interface(const Interface& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    Interface& operator=(const Command& original);
+    Interface& operator=(const Interface& original);
 
     //--------------------------------------------------------------------------
     /// object pointer to game

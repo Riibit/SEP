@@ -129,11 +129,11 @@ class EnvironmentalCondition
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
-    EnvironmentalCondition(const Command& original);
+    EnvironmentalCondition(const EnvironmentalCondition& original);
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    EnvironmentalCondition& operator=(const Command& original);
+    EnvironmentalCondition& operator=(const EnvironmentalCondition& original);
 
     Cover sky_cover_;
     Rank precipitation_;
