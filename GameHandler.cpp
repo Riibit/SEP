@@ -76,7 +76,6 @@ int GameHandler::play()
   int return_value = 0;
   unique_ptr<Interface> interface_instance;
   interface_instance = unique_ptr<Interface>(new Interface(this));
-  std::cout << price_lemonade_ << "||" << price_lemon_ << "||" << price_sugar_ << std::endl;
   while(1) 
   {
     interface_instance -> runPrompt();
