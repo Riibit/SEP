@@ -34,12 +34,15 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   unsigned int money_value = game.getResourceMoney(); // not a pyramid scheme
   unsigned int lemon_price = game.getPriceLemon();
   unsigned int sugar_price = game.getPriceSugar();
-  
+
+  unsigned int sugar_buy_amount = 0;
+  unsigned int lemon_buy_amount = 0;
+
   Parse parser;
   try
   {
-    unsigned int lemon_buy_amount = parser.parseInteger(params[0]);
-    unsigned int sugar_buy_amount = parser.parseInteger(params[1]);
+    lemon_buy_amount = parser.parseInteger(params[0]);
+    sugar_buy_amount = parser.parseInteger(params[1]);
   }
   catch(const ExceptionDataType& exception)
   {
@@ -96,7 +99,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
 
   // update game data
   game.setResourceSugar(sugar_value);
-  game.setResourceLemons(lemon_value);
+  game.setResourceLemon(lemon_value);
   game.setResourceMoney(money_value);
     
   return 0;

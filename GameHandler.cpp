@@ -44,7 +44,7 @@ GameHandler::~GameHandler()
 {
 }
 
-GameHandler::initialize(int argc, char *parameters[])
+int GameHandler::initialize(int argc, char *parameters[])
 {
   if (argc != 3)
   {
@@ -62,7 +62,7 @@ GameHandler::initialize(int argc, char *parameters[])
   }
   catch(const ExceptionDataType& exception)
   {
-    cout << ERR_PROGRAM_START << endl;
+    std::cout << ERR_PROGRAM_START << std::endl;
     return 2;
   }
   return 0;
