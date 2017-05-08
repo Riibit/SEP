@@ -24,6 +24,10 @@ Interface::Interface(GameHandler* game)
   game_ = game;
 }
 
+Interface::~Interface()
+{
+}
+
 const int Interface::runPrompt()
 {
   string input;

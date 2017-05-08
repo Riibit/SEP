@@ -27,6 +27,10 @@ class Parse
     Parse();
 
     //--------------------------------------------------------------------------
+    // Destructor
+    ~Parse();
+
+    //--------------------------------------------------------------------------
     // Parses string to unsigned integer
     // @param input The string that is to be parsed
     // @return uint The parsed unsigned integer

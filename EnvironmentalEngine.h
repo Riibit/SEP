@@ -26,7 +26,7 @@ class EnvironmentalEngine
     EnvironmentalEngine();
 
     //--------------------------------------------------------------------------
-    // Deconstructor
+    // Destructor
     ~EnvironmentalEngine();
 
     //--------------------------------------------------------------------------

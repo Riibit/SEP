@@ -28,7 +28,7 @@ class HTMLWriter
     HTMLWriter(std::string filename);
 
     //--------------------------------------------------------------------------
-    // Deconstructor
+    // Destructor
     ~HTMLWriter();
 
 

@@ -16,6 +16,10 @@ Parse::Parse()
 {
 }
 
+Parse::~Parse()
+{
+}
+
 uint Parse::parseInteger(std::string string)
 {
   uint parsed_integer;

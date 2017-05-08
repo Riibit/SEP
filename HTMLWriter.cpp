@@ -20,6 +20,11 @@ HTMLWriter::HTMLWriter(string filename)
   filename_ = filename;
 }
 
+HTMLWriter::~HTMLWriter()
+{
+}
+
+
 void HTMLWriter::writeFile(string body)
 {
   std::ofstream writer;

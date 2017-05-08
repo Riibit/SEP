@@ -32,6 +32,10 @@ class Interface
     Interface(GameHandler* game);
 
     //--------------------------------------------------------------------------
+    // Destructor
+    ~Interface();
+
+    //--------------------------------------------------------------------------
     // Initializes the interface
     //  
     const int runPrompt();
