@@ -54,6 +54,8 @@ class GameHandler
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
 
+    void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
+
     //--------------------------------------------------------------------------
     // Getter Methods
     //
@@ -64,6 +66,10 @@ class GameHandler
     unsigned int getPriceLemonade();
     unsigned int getPriceLemon();
     unsigned int getPriceSugar();
+
+    unsigned int getRecipeLemon();
+    unsigned int getRecipeSugar();
+    unsigned int getRecipeWater();
 
     //--------------------------------------------------------------------------
     // endOfLife Method
@@ -95,10 +101,17 @@ class GameHandler
     // The resources available to the player
     struct GameResources
     {
-        unsigned int lemons;
-        unsigned int sugar;
-        unsigned int money;
+      unsigned int lemons;
+      unsigned int sugar;
+      unsigned int money;
     } player_;
+
+    struct Recipe
+    {
+      unsigned int lemon;
+      unsigned int sugar;
+      unsigned int water;
+    } recipe_;
 
     //--------------------------------------------------------------------------
     // The name of the command that was given in stdin

@@ -68,6 +68,7 @@ int GameHandler::initialize(int argc, char *parameters[])
     std::cout << ERR_PROGRAM_START << std::endl;
     return 2;
   }
+  setRecipe(6, 6, 88);
   return 0;
 }
 
@@ -146,6 +147,32 @@ unsigned int GameHandler::getPriceLemon()
 unsigned int GameHandler::getPriceSugar()
 {
   return price_sugar_;
+}
+
+unsigned int GameHandler::getRecipeLemon()
+{
+  return recipe_.lemon;
+}
+
+unsigned int GameHandler::getRecipeSugar()
+{
+  return recipe_.sugar;
+}
+
+unsigned int GameHandler::getRecipeWater()
+{
+  return recipe_.water;
+}
+
+void GameHandler::setRecipe(unsigned int lemon, unsigned int sugar, 
+  unsigned int water)
+{
+  if (lemon + sugar + water == 100)
+  {
+    recipe_.lemon = lemon;
+    recipe_.sugar = sugar;
+    recipe_.water = water;
+  }
 }
 
 int GameHandler::resolveCommand()
