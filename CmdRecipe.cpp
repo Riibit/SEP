@@ -25,6 +25,10 @@ const std::string CmdRecipe::ERR_RECIPE =
   "[ERR] Usage: recipe [lemon] [sugar] [water]";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
+const std::string CmdRecipe::ERROR_MODULO_LEMON =
+  "[ERR] The value of Lemon must be a multiple of 3."
+const std::string CmdRecipe::ERROR_MODULO_LEMON =
+  "[ERR] The value of Sugar must be a multiple of 2."
 
 CmdRecipe::CmdRecipe() : Command::Command(CMD_NAME, PARA_COUNT_ONE, ERR_RECIPE)
 {
@@ -68,10 +72,20 @@ int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& 
     return 0;
   }
 
-  if (lemon_percent + sugar_percent + water_percent != 100)
+  if(lemon_percent + sugar_percent + water_percent != 100)
   {
     cout << ERROR_MSG_PERCENT << endl;
     return 0;
+  }
+
+  if((lemon_percent % 3) != 0)
+  {
+    cout << ERROR_MODULO_LEMON << endl;
+  }
+
+  if((sugar_percent % 2) != 0)
+  {
+    cout << ERROR_MODULO_SUGAR << endl;
   }
 
   cout << "L: " << lemon_percent << '%' << endl

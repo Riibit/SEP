@@ -31,11 +31,21 @@ class CmdRecipe : public Command
     // Executes the command.
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
-    // @return Integer representing the success of the action
+    // @return Function Param = 0 or Param = 3
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
+    //--------------------------------------------------------------------------
+    // Executes the command if there are no parameters.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
     int executeParameterOne(GameHandler& game, std::vector<std::string>& params);
 
+    //--------------------------------------------------------------------------
+    // Executes the command if there are three parameters.
+    // @param game The game where action should be performed on
+    // @param params Possible parameters needed for the execution
+    // @return Integer representing the success of the action
     int executeParameterTwo(GameHandler& game, std::vector<std::string>& params);
     
     //--------------------------------------------------------------------------
@@ -51,19 +61,27 @@ class CmdRecipe : public Command
     virtual const bool correctParameterCount(const unsigned int to_compare);
 
     //--------------------------------------------------------------------------
-    /// The name of the command
+    // The name of the command
     static const std::string CMD_NAME;
 
     //--------------------------------------------------------------------------
-    /// The error message if the parameter count is not right
+    // The error message if the parameter count is not right
     static const std::string ERR_RECIPE;
 
     //--------------------------------------------------------------------------
-    /// The message if the parameters dont add up to 100
+    // The message if the parameters dont add up to 100
     static const std::string ERROR_MSG_PERCENT;
 
     //--------------------------------------------------------------------------
-    /// Number of Parameters for this function
+    // The message if the lemon value is not a multiple of 3
+    static const std::string ERROR_MODULO_LEMON;
+
+    //--------------------------------------------------------------------------
+    // The message if the sugar value is not a multiple of 2
+    static const std::string ERROR_MODULO_SUGAR;
+
+    //--------------------------------------------------------------------------
+    // Number of Parameters for this function
     static const unsigned int PARA_COUNT_ONE = 0;
     static const unsigned int PARA_COUNT_TWO = 3;
 };
