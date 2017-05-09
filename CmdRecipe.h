@@ -49,10 +49,9 @@ class CmdRecipe : public Command
     int executeParameterTwo(GameHandler& game, std::vector<std::string>& params);
     
     //--------------------------------------------------------------------------
-    // Checks if the string is an Integer.
-    // @param string The string to check.
-    // @return bool False if not Integer, otherwise true.
-    bool isItInteger(std::string string);
+    // Prints out the current recipe
+    // @param game The game where action should be performed on
+    void printRecipe(GameHandler& game);
 
     //--------------------------------------------------------------------------
     // Overwrites the function to return true if the PARA_COUNT == 3 || 0

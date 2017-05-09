@@ -50,7 +50,7 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
 
 int CmdRecipe::executeParameterOne(GameHandler& game, std::vector<std::string>& params)
 {
-
+  printRecipe(game);
 }
 
 int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& params) 
@@ -89,10 +89,16 @@ int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& 
     cout << ERROR_MODULO_SUGAR << endl;
     return 0;
   }
+  game.setRecipe(lemon_percent, sugar_percent, water_percent);
+  printRecipe(game);
+  return 0;
+}
 
-  cout << "L: " << lemon_percent << '%' << endl
-  << "S: " << sugar_percent << '%' << endl
-  << "W: " << water_percent << '%' << endl;
+void CmdRecipe::printRecipe(GameHandler& game)
+{
+  cout << "L: " << game.getRecipeLemon() << '%' << endl
+    << "S: " << game.getRecipeSugar() << '%' << endl
+    << "W: " << game.getRecipeWater() << '%' << endl;
 }
 
 const bool CmdRecipe::correctParameterCount(const unsigned int to_compare)
