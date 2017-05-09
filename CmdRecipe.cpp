@@ -22,16 +22,34 @@ using std::endl;
 const std::string CmdRecipe::CMD_NAME = "recipe";
 
 const std::string CmdRecipe::ERR_RECIPE = 
-  "[ERR] Usage: recipe <lemon> <sugar> <water>";
+  "[ERR] Usage: recipe [lemon] [sugar] [water]";
 const std::string CmdRecipe::ERROR_MSG_PERCENT =
   "[ERR] The sum of parts must be 100.";
 
-CmdRecipe::CmdRecipe() : Command::Command(CMD_NAME, PARA_COUNT, ERR_RECIPE)
+CmdRecipe::CmdRecipe() : Command::Command(CMD_NAME, PARA_COUNT_ONE, ERR_RECIPE)
 {
 }
 
 
 int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
+{
+
+  if(params.size() == PARA_COUNT_ONE)
+  {
+    return executeParameterOne(game, params);
+  }
+  else
+  {
+    return executeParameterTwo(game, params);
+  }
+}
+
+int CmdRecipe::executeParameterOne(GameHandler& game, std::vector<std::string>& params)
+{
+
+}
+
+int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& params) 
 {
   unsigned int lemon_percent;
   unsigned int sugar_percent;
@@ -59,5 +77,13 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   cout << "L: " << lemon_percent << '%' << endl
   << "S: " << sugar_percent << '%' << endl
   << "W: " << water_percent << '%' << endl;
-  return 0;
+}
+
+const bool CmdRecipe::correctParameterCount(const unsigned int to_compare)
+{
+  if(to_compare == PARA_COUNT_ONE || to_compare == PARA_COUNT_TWO)
+  {
+    return true;
+  }
+  return false;
 }

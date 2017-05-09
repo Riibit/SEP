@@ -33,12 +33,22 @@ class CmdRecipe : public Command
     // @param params Possible parameters needed for the execution
     // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
+
+    int executeParameterOne(GameHandler& game, std::vector<std::string>& params);
+
+    int executeParameterTwo(GameHandler& game, std::vector<std::string>& params);
     
     //--------------------------------------------------------------------------
     // Checks if the string is an Integer.
     // @param string The string to check.
     // @return bool False if not Integer, otherwise true.
     bool isItInteger(std::string string);
+
+    //--------------------------------------------------------------------------
+    // Overwrites the function to return true if the PARA_COUNT == 3 || 0
+    // @param to_compare The amount of parameters
+    // @return bool Returns true if input is correct
+    virtual const bool correctParameterCount(const unsigned int to_compare);
 
     //--------------------------------------------------------------------------
     /// The name of the command
@@ -54,7 +64,8 @@ class CmdRecipe : public Command
 
     //--------------------------------------------------------------------------
     /// Number of Parameters for this function
-    static const unsigned int PARA_COUNT = 3;
+    static const unsigned int PARA_COUNT_ONE = 0;
+    static const unsigned int PARA_COUNT_TWO = 3;
 };
 
 #endif //CMDRECIPE_H_INCLUDED
