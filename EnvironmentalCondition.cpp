@@ -32,7 +32,7 @@ EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover,
 
 bool EnvironmentalCondition::isItHot()
 {
-  if (sky_cover_ == SUNNY && temperature_ > (HOT_THRESHOLD))
+  if(sky_cover_ == SUNNY && temperature_ > (HOT_THRESHOLD))
   {
     return true;
   }
@@ -44,7 +44,7 @@ bool EnvironmentalCondition::isItHot()
 
 bool EnvironmentalCondition::isItRainy()
 {
-  if ((precipitation_ == MEDIUM || precipitation_ == HIGH)
+  if((precipitation_ == MEDIUM || precipitation_ == HIGH)
     && (sky_cover_ == OVERCAST || sky_cover_ == VERY_OVERCAST))
   {
     return true;
@@ -57,7 +57,7 @@ bool EnvironmentalCondition::isItRainy()
 
 bool EnvironmentalCondition::isItStormy()
 {
-  if ((wind_ == MEDIUM || wind_ == HIGH) 
+  if((wind_ == MEDIUM || wind_ == HIGH) 
     && (sky_cover_ == OVERCAST || sky_cover_ == VERY_OVERCAST))
   {
     return true;
@@ -66,6 +66,23 @@ bool EnvironmentalCondition::isItStormy()
   {
     return false;
   }
+}
+
+bool EnvironmentalCondition::isItCloudy
+{
+  if(sky_cover == OVERCAST || sky_cover == VERY_OVERCAST)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+bool EnvironmentalCondition::isItChilly
+{
+  if()
 }
 
 void EnvironmentalCondition::setSkyCover(Cover cover)
@@ -90,7 +107,7 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
 
 void EnvironmentalCondition::setTemperature(float temperature)
 {
-  if (temperature_ >= MAX_TEMP || temperature_ <= MIN_TEMP)
+  if(temperature_ >= MAX_TEMP || temperature_ <= MIN_TEMP)
   {
     temperature_ = temperature;
   }

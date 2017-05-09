@@ -20,7 +20,10 @@ class EnvironmentalCondition
   public:
     static const int MIN_TEMP = 10;
     static const int MAX_TEMP = 35;
-    static const int HOT_THRESHOLD = (((MAX_TEMP - MIN_TEMP) / 3) + MIN_TEMP);
+    static const int HOT_THRESHOLD = 
+      ((((MAX_TEMP - MIN_TEMP) / 3) * 2) + MIN_TEMP);
+    static const int CHILLY_THRESHOLD = 
+      (((MAX_TEMP - MIN_TEMP) / 3) + MIN_TEMP);
 
     //--------------------------------------------------------------------------
     // Constructor
@@ -125,6 +128,22 @@ class EnvironmentalCondition
     //         overcast or very overcast
     //
     bool isItStormy();
+
+    //--------------------------------------------------------------------------
+    // Method to find out if it is cloudy
+    //
+    // @return bool True if the wind is medium or high and the sky cover is 
+    //         overcast or very overcast
+    //
+    bool isItCloudy();
+
+    //--------------------------------------------------------------------------
+    // Method to find out if it is chilly
+    //
+    // @return bool True if the wind is medium or high and the sky cover is 
+    //         overcast or very overcast
+    //
+    bool isItChilly();
 
   private:
     //--------------------------------------------------------------------------
