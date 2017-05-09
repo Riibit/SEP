@@ -50,48 +50,32 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
     return 0;
   }
 
-  // enough money for purchase? 
-  if (( lemon_buy_amount * lemon_price  + 
-  sugar_buy_amount * sugar_price) <= money_value )
+  bool error_output = true;
+  while(1)
   {
-    lemon_value += lemon_buy_amount;
-    sugar_value += sugar_buy_amount;
-    money_value -= lemon_buy_amount * lemon_price;
-    money_value -= sugar_buy_amount * sugar_price;
-  }
-  // no. get 1 by 1 as much as possible of both
-  else
-  {
-    cout << "[WARN] Not enough money. I buy what I can." << endl; 
-    while(1)
+    if (( lemon_buy_amount * lemon_price  + 
+    sugar_buy_amount * sugar_price) <= money_value )
     {
-      if (lemon_value < lemon_value + lemon_buy_amount)
-      {
-        if ((money_value - lemon_price) >= lemon_price)
-          {
-            lemon_value ++;
-            money_value -= lemon_price;
-          }
-          else
-          {
-            break;
-          }
-        }
-      if (sugar_value < sugar_value + sugar_buy_amount)
-      {
-        if ((money_value - sugar_price) >=  sugar_price)
-        {
-          sugar_value ++;
-          money_value -= sugar_price;
-        }
-        else
-        {
-          break;
-        }
-      }
+      lemon_value += lemon_buy_amount;
+      sugar_value += sugar_buy_amount;
+      money_value -= lemon_buy_amount * lemon_price;
+      money_value -= sugar_buy_amount * sugar_price;
+      break;
+    }
+    if(error_output)
+    {
+      cout << "[WARN] Not enough money. I buy what I can." << endl;
+      error_output = false;
+    }
+    if (lemon_buy_amount > 0)
+    {
+      lemon_buy_amount--;
+    }
+    if (sugar_buy_amount > 0)
+    {
+      sugar_buy_amount--;
     }
   }
-  
   // output
   cout << "Bought:" << endl;
   cout << "L: " << lemon_value - game.getResourceLemon() << endl;
