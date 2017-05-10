@@ -29,3 +29,33 @@ int main(int argc, char **argv)
   return_value = game.play();
   return return_value;
 }
+
+/*
+Daily Goals:
+
+-Donnerstag
+  Produce (Basic/Aufbau implementierung)
+  Stock (implementierung)
+  Balance/Cash (implementierung)
+-Freitag
+  Play (implementierung) !!!
+  setWeather (connect)
+  realsticWeather / forcast
+-Samstag
+  Save/Load (implementierung) Milan???
+-Sonntag
+  Save/Load -"-
+-Montag
+  Error-Handling
+  Valgrind
+  Verbleibendes
+-Dienstag
+  Alles Verbleibendes
+-Mittwoch
+  CS
+  Verbleibendes
+-Donnerstag
+  Frustsaufen
+
+
+*/
