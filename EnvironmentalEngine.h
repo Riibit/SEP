@@ -33,25 +33,36 @@ class EnvironmentalEngine
     // The function createCondition creates a new condition, which values are
     // random, and returns the condition.
     //
-    // @return EnvironmentalCondition Returns the pointer to the object on the 
-    //         stack
-    //         
+    // @return std::unique_ptr<EnvironmentalCondition> Returns the pointer to 
+    //   the object on the stack wrapped in a unique_ptr
     //
     std::unique_ptr<EnvironmentalCondition> createCondition();
 
     //--------------------------------------------------------------------------
+    // Creates a random Cover enum value
+    //
+    // @return EnvironmentalCondition::Cover Returns the Enum value
+    //
+    EnvironmentalCondition::Cover randomCover();
+
+    //--------------------------------------------------------------------------
+    // Creates a random Rank enum value
+    //
+    // @return EnvironmentalCondition::Rank Returns the Enum value
+    //
+    EnvironmentalCondition::Rank randomRank();
+
+    //--------------------------------------------------------------------------
     // The function toCover sets the correspondent enum value
     //
-    // @return Returns the Enum value
-    //         
+    // @return EnvironmentalCondition::Cover Returns the Enum value
     //
     EnvironmentalCondition::Cover toCover(unsigned int input);
 
     //--------------------------------------------------------------------------
     // The function toRank sets the correspondent enum value
     //
-    // @return Returns the Enum value
-    //         
+    // @return EnvironmentalCondition::Rank Returns the Enum value
     //
     EnvironmentalCondition::Rank toRank(unsigned int input);
 

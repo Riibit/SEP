@@ -26,16 +26,6 @@ std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
   float temperature;
 
-  std::cout << EnvironmentalCondition::HOT_THRESHOLD << std::endl;
-
-  EnvironmentalCondition::Cover sky_cover;
-  EnvironmentalCondition::Rank precipitation;
-  EnvironmentalCondition::Rank wind;
-
-  sky_cover = toCover(rand() % 4);
-
-  precipitation = toRank(rand() % 4);
-
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
 
   if (temperature <= EnvironmentalCondition::MAX_TEMP)
@@ -43,10 +33,18 @@ std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
     temperature += ((rand() % 10) / 10.0f);
   }
 
-  wind = toRank(rand() % 4);
-
   return std::unique_ptr<EnvironmentalCondition>
-    (new EnvironmentalCondition(sky_cover, precipitation, temperature, wind));
+    (new EnvironmentalCondition(randomCover(), randomRank(), temperature, randomRank()));
+}
+
+EnvironmentalCondition::Cover EnvironmentalEngine::randomCover()
+{
+  return toCover(rand() % 4);
+}
+
+EnvironmentalCondition::Rank EnvironmentalEngine::randomRank()
+{
+  return toRank(rand() % 4);
 }
 
 EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
