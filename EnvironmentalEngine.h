@@ -37,7 +37,7 @@ class EnvironmentalEngine
     //         stack
     //         
     //
-    std::shared_ptr<EnvironmentalCondition> createCondition();
+    std::unique_ptr<EnvironmentalCondition> createCondition();
 
     //--------------------------------------------------------------------------
     // The function toCover sets the correspondent enum value

@@ -10,27 +10,25 @@
 //
 
 #include "CmdBalance.h"
+#include "GameHandler.h"
 #include <iostream>
 
 using std::cout;
 using std::endl;
 
 const std::string CmdBalance::CMD_NAME = "balance";
-const std::string CmdBalance::ERR_BALANCE = "[ERR] Usage: balance";
+const std::string CmdBalance::ERR_CMD = "[ERR] Usage: balance";
 
-CmdBalance::CmdBalance() : Command::Command(CMD_NAME, PARA_COUNT, ERR_BALANCE)
+CmdBalance::CmdBalance() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 
 int CmdBalance::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  int lemon = 100;
-  int sugar = 100;
-  int cash = 1000;
-
-  cout << "L: " << lemon << endl
-  << "S: " << sugar << endl
+  cout << "L: " << game.getResourceLemon() << endl
+  << "S: " << game.getResourceSugar() << endl
   << "----------" << endl
-  << "C: " << cash << " $" << endl;
+  << "C: " << game.getResourceMoney() << " $" << endl
+  << "B: " << game.getResourceBalance() << " $" << endl;
   return 0;
 }

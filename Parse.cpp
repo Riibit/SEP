@@ -8,6 +8,7 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+
 #include "Parse.h"
 #include "ExceptionDataType.h"
 #include <locale>

@@ -52,7 +52,7 @@ bool EnvironmentalCondition::isItRainy()
   else
   {
     return false;
-  } 
+  }
 }
 
 bool EnvironmentalCondition::isItStormy()

@@ -22,7 +22,7 @@ EnvironmentalEngine::~EnvironmentalEngine()
 {
 }
 
-std::shared_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
+std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
   float temperature;
 
@@ -37,11 +37,13 @@ std::shared_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
 
   if (temperature <= EnvironmentalCondition::MAX_TEMP)
+  {
     temperature += ((rand() % 10) / 10.0f);
+  }
 
   wind = toRank(rand() % 4);
 
-  return std::shared_ptr<EnvironmentalCondition>
+  return std::unique_ptr<EnvironmentalCondition>
     (new EnvironmentalCondition(sky_cover, precipitation, temperature, wind));
 }
 

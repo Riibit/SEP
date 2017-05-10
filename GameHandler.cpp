@@ -20,6 +20,7 @@
 #include "CmdQuit.h"
 #include "CmdBuy.h"
 #include "ExceptionDataType.h"
+#include "EnvironmentalEngine.h"
 
 using std::unique_ptr;
 
@@ -37,9 +38,10 @@ GameHandler::GameHandler()
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
   commands_.push_back(unique_ptr<Command>(new CmdBuy()));
   // initialize player resources
-  player_.lemons = LEMONS_INITIAL_VALUE;
-  player_.sugar = SUGAR_INITIAL_VALUE;
-  player_.money = MONEY_INITIAL_VALUE;
+  resources_.lemons = LEMONS_INITIAL_VALUE;
+  resources_.sugar = SUGAR_INITIAL_VALUE;
+  resources_.money = MONEY_INITIAL_VALUE;
+  resources_.balance = BALANCE_INITIAL_VALUE;
 }
 
 GameHandler::~GameHandler()
@@ -68,7 +70,11 @@ int GameHandler::initialize(int argc, char *parameters[])
     std::cout << ERR_PROGRAM_START << std::endl;
     return 2;
   }
-  setRecipe(6, 6, 88);
+
+  EnvironmentalEngine engine;
+  environment_condition_ = std::move(engine.createCondition());
+
+  resetStandardRecipe();
   return 0;
 }
 
@@ -91,6 +97,44 @@ int GameHandler::play()
   return return_value;
 }
 
+int GameHandler::resolveCommand()
+{
+  int return_value = 0;
+  unsigned int command_index;
+  for (command_index = 0; command_index < commands_.size(); ++command_index)
+  {
+    if (!(commands_[command_index] -> getName().compare(*command_name_)))
+    {
+      if (commands_[command_index] -> 
+        correctParameterCount(interface_parameters_ -> size()))
+      {
+        return_value = commands_[command_index] -> 
+          execute(*this, *interface_parameters_);
+      }
+      else
+      {
+        std::cout << commands_[command_index] -> getErrorMessage() << std::endl;
+      }
+      break;
+    }
+  }
+  return return_value;
+}
+
+void GameHandler::resetStandardRecipe()
+{
+  recipe_.lemon = STANDARD_RECIPE_LEMON;
+  recipe_.sugar = STANDARD_RECIPE_SUGAR;
+  recipe_.water = STANDARD_RECIPE_WATER;
+}
+
+void GameHandler::endOfLife()
+{
+  game_quit_ = true;
+}
+
+
+
 void GameHandler::setInterfaceParameters(std::vector<std::string>* 
   interface_parameters)
 {
@@ -104,33 +148,38 @@ void GameHandler::setInterfaceCommand(std::string* command_name)
 
 void GameHandler::setResourceLemon(unsigned int lemon_value)
 {
-  player_.lemons = lemon_value;
+  resources_.lemons = lemon_value;
 }
 
 void GameHandler::setResourceSugar(unsigned int sugar_value)
 {
-  player_.sugar = sugar_value;
+  resources_.sugar = sugar_value;
 }
 
 void GameHandler::setResourceMoney(unsigned int money_value)
 {
-  player_.money = money_value;
+  resources_.money = money_value;
 }
 
 
 unsigned int GameHandler::getResourceLemon()
 {
-  return player_.lemons;
+  return resources_.lemons;
 }
 
 unsigned int GameHandler::getResourceSugar()
 {
-  return player_.sugar;
+  return resources_.sugar;
 }
 
 unsigned int GameHandler::getResourceMoney()
 {
-  return player_.money;
+  return resources_.money;
+}
+
+int GameHandler::getResourceBalance()
+{
+  return resources_.balance;
 }
 
 
@@ -164,6 +213,11 @@ unsigned int GameHandler::getRecipeWater()
   return recipe_.water;
 }
 
+const std::unique_ptr<EnvironmentalCondition>& GameHandler::getCondition() const
+{
+  return environment_condition_;
+}
+
 void GameHandler::setRecipe(unsigned int lemon, unsigned int sugar, 
   unsigned int water)
 {
@@ -174,32 +228,10 @@ void GameHandler::setRecipe(unsigned int lemon, unsigned int sugar,
     recipe_.water = water;
   }
 }
-
-int GameHandler::resolveCommand()
+/*
+void GameHandler::setCondition(std::shared_ptr<EnvironmentalCondition>& 
+      environment_condition)
 {
-  int return_value = 0;
-  unsigned int command_index;
-  for (command_index = 0; command_index < commands_.size(); ++command_index)
-  {
-    if (!(commands_[command_index] -> getName().compare(*command_name_)))
-    {
-      if (commands_[command_index] -> 
-        correctParameterCount(interface_parameters_ -> size()))
-      {
-        return_value = commands_[command_index] -> 
-          execute(*this, *interface_parameters_);
-      }
-      else
-      {
-        std::cout << commands_[command_index] -> getErrorMessage() << std::endl;
-      }
-      break;
-    }
-  }
-  return return_value;
+  environment_condition_ = std::move(environment_condition);
 }
-
-void GameHandler::endOfLife()
-{
-  game_quit_ = true;
-}
+*/

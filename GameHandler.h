@@ -16,6 +16,7 @@
 #include <vector>
 #include <memory>
 
+class EnvironmentalCondition;
 class Command;
 
 //------------------------------------------------------------------------------
@@ -44,6 +45,8 @@ class GameHandler
     // @return return_value Returns the corresponding return value.
     int play();
 
+    void resetStandardRecipe();
+
     //--------------------------------------------------------------------------
     // Setter Methods
     //
@@ -56,12 +59,16 @@ class GameHandler
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
+    void setCondition(std::shared_ptr<EnvironmentalCondition>& 
+      environment_condition);
+
     //--------------------------------------------------------------------------
     // Getter Methods
     //
     unsigned int getResourceLemon();
     unsigned int getResourceSugar();
-    unsigned int getResourceMoney(); 
+    unsigned int getResourceMoney();
+    int getResourceBalance();
 
     unsigned int getPriceLemonade();
     unsigned int getPriceLemon();
@@ -70,6 +77,9 @@ class GameHandler
     unsigned int getRecipeLemon();
     unsigned int getRecipeSugar();
     unsigned int getRecipeWater();
+
+    const std::unique_ptr<EnvironmentalCondition>& getCondition() const;
+
 
     //--------------------------------------------------------------------------
     // endOfLife Method
@@ -95,7 +105,17 @@ class GameHandler
     static const int LEMONS_INITIAL_VALUE = 100;
     static const int SUGAR_INITIAL_VALUE = 100;
     static const int MONEY_INITIAL_VALUE = 5000;
+    static const int BALANCE_INITIAL_VALUE = 0;
 
+    //--------------------------------------------------------------------------
+    // The standard recipe for the lemonade
+    static const int STANDARD_RECIPE_LEMON = 6;
+    static const int STANDARD_RECIPE_SUGAR = 6;
+    static const int STANDARD_RECIPE_WATER = 88;
+
+    //--------------------------------------------------------------------------
+    // The object that contains the Environmental Condition
+    std::unique_ptr<EnvironmentalCondition> environment_condition_;
 
     //--------------------------------------------------------------------------
     // The resources available to the player
@@ -104,8 +124,11 @@ class GameHandler
       unsigned int lemons;
       unsigned int sugar;
       unsigned int money;
-    } player_;
+      int balance;
+    } resources_;
 
+    //--------------------------------------------------------------------------
+    // The composition of the current recipe
     struct Recipe
     {
       unsigned int lemon;
