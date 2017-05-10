@@ -12,7 +12,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "EnvironmentalEngine.h"
-
+#include <iostream>
 EnvironmentalEngine::EnvironmentalEngine()
 {
   srand (time(NULL));
@@ -25,6 +25,8 @@ EnvironmentalEngine::~EnvironmentalEngine()
 std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
   float temperature;
+
+  std::cout << EnvironmentalCondition::HOT_THRESHOLD << std::endl;
 
   EnvironmentalCondition::Cover sky_cover;
   EnvironmentalCondition::Rank precipitation;

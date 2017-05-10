@@ -12,6 +12,14 @@
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
 
+
+const float EnvironmentalCondition::MIN_TEMP = 10;
+const float EnvironmentalCondition::MAX_TEMP = 35;
+const float EnvironmentalCondition::HOT_THRESHOLD = 
+  ((((MAX_TEMP - MIN_TEMP) / 3) * 2) + MIN_TEMP);
+const float EnvironmentalCondition::CHILLY_THRESHOLD = 
+  ((MAX_TEMP - MIN_TEMP) / 3) + MIN_TEMP;
+
 EnvironmentalCondition::EnvironmentalCondition()
 {
 }
@@ -32,7 +40,7 @@ EnvironmentalCondition::EnvironmentalCondition(Cover sky_cover,
 
 bool EnvironmentalCondition::isItHot()
 {
-  if(sky_cover_ == SUNNY && temperature_ > (HOT_THRESHOLD))
+  if(sky_cover_ == SUNNY && temperature_ > HOT_THRESHOLD)
   {
     return true;
   }
@@ -68,9 +76,9 @@ bool EnvironmentalCondition::isItStormy()
   }
 }
 
-bool EnvironmentalCondition::isItCloudy
+bool EnvironmentalCondition::isItCloudy()
 {
-  if(sky_cover == OVERCAST || sky_cover == VERY_OVERCAST)
+  if(sky_cover_ == OVERCAST || sky_cover_ == VERY_OVERCAST)
   {
     return true;
   }
@@ -80,9 +88,16 @@ bool EnvironmentalCondition::isItCloudy
   }
 }
 
-bool EnvironmentalCondition::isItChilly
+bool EnvironmentalCondition::isItChilly()
 {
-  if()
+  if(temperature_ < CHILLY_THRESHOLD)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 void EnvironmentalCondition::setSkyCover(Cover cover)

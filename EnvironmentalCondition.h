@@ -18,12 +18,10 @@
 class EnvironmentalCondition
 {
   public:
-    static const int MIN_TEMP = 10;
-    static const int MAX_TEMP = 35;
-    static const int HOT_THRESHOLD = 
-      ((((MAX_TEMP - MIN_TEMP) / 3) * 2) + MIN_TEMP);
-    static const int CHILLY_THRESHOLD = 
-      (((MAX_TEMP - MIN_TEMP) / 3) + MIN_TEMP);
+    static const float MIN_TEMP;
+    static const float MAX_TEMP;
+    static const float HOT_THRESHOLD;;
+    static const float CHILLY_THRESHOLD;
 
     //--------------------------------------------------------------------------
     // Constructor
