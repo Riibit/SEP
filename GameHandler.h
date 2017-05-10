@@ -91,6 +91,12 @@ class GameHandler
     /// The message if the parameters are invalid at start
     static const std::string ERR_PROGRAM_START;
 
+    //--------------------------------------------------------------------------
+    // The standard recipe for the lemonade
+    static const int STANDARD_RECIPE_LEMON = 6;
+    static const int STANDARD_RECIPE_SUGAR = 6;
+    static const int STANDARD_RECIPE_WATER = 88;
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
@@ -106,12 +112,6 @@ class GameHandler
     static const int SUGAR_INITIAL_VALUE = 100;
     static const int MONEY_INITIAL_VALUE = 5000;
     static const int BALANCE_INITIAL_VALUE = 0;
-
-    //--------------------------------------------------------------------------
-    // The standard recipe for the lemonade
-    static const int STANDARD_RECIPE_LEMON = 6;
-    static const int STANDARD_RECIPE_SUGAR = 6;
-    static const int STANDARD_RECIPE_WATER = 88;
 
     //--------------------------------------------------------------------------
     // The object that contains the Environmental Condition

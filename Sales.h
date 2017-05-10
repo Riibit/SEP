@@ -25,8 +25,17 @@ class Sales
 
     unsigned int calculateCustomers(GameHandler& game);
 
+    int calculateSaleInfluence(GameHandler& game);
+
+    void calculateSales(GameHandler& game);
+
   private:
     static const int STANDARD_CUSTOMER_COUNT = 500;
+    static const int TWENTY = 20;
+    static const int FIFTY = 50;
+    static const int HUNDRED = 100;
+    static const int MINIMUM_PERCENT = -100;
+
     static const float VALUE_STORMY;
     static const float VALUE_RAINY;
     static const float VALUE_CLOUDY;

@@ -10,6 +10,7 @@
 //
 #include <iostream>
 #include <memory>
+#include <cmath>
 #include "GameHandler.h"
 #include "Sales.h"
 #include "EnvironmentalCondition.h"
@@ -28,34 +29,130 @@ Sales::~Sales()
 }
 
 unsigned int Sales::calculateCustomers(GameHandler& game)
-{
-  float customer_count = STANDARD_CUSTOMER_COUNT;
-  //std::unique_ptr<EnvironmentalCondition> condition;
-  //*condition = game.getCondition();
-  
+{ 
+  unsigned int customer_count = STANDARD_CUSTOMER_COUNT;
+
   if(game.getCondition() -> isItStormy())
   {
     customer_count = customer_count * VALUE_STORMY;
-    return customer_count;
   }
-
-  if(game.getCondition() -> isItRainy())
+  else if(game.getCondition() -> isItRainy())
   {
     customer_count = customer_count * VALUE_RAINY;
-    return customer_count;
   }
-
-  if(game.getCondition() -> isItCloudy())
+  else if(game.getCondition() -> isItCloudy())
   {
     customer_count = customer_count * VALUE_CLOUDY;
-    return customer_count;
   }
-
-  if(game.getCondition() -> isItHot())
+  else if(game.getCondition() -> isItHot())
   {
     customer_count = customer_count * VALUE_HOT;
-    return customer_count;
   }
+
+  #ifdef AUFBAU
+
+  #endif //AUFBAU customer_satisfaction
   return customer_count;
 }
 
+int Sales::calculateSaleInfluence(GameHandler& game)
+{
+  int sale_percent = HUNDRED;
+
+  if(game.getCondition() -> isItHot())
+  {
+    if(game.getRecipeSugar() < GameHandler::STANDARD_RECIPE_SUGAR)
+    {
+      sale_percent += TWENTY;
+    }
+    else if(game.getRecipeSugar() > GameHandler::STANDARD_RECIPE_SUGAR)
+    {
+      sale_percent -= TWENTY;
+    }
+
+    if(game.getRecipeLemon() > GameHandler::STANDARD_RECIPE_LEMON)
+    {
+      sale_percent += TWENTY;
+    }
+  }
+  else if(game.getCondition() -> isItChilly())
+  {
+    if(game.getRecipeSugar() > GameHandler::STANDARD_RECIPE_SUGAR)
+    {
+      sale_percent += TWENTY;
+    }
+    else if(game.getRecipeSugar() < GameHandler::STANDARD_RECIPE_SUGAR)
+    {
+      sale_percent -= TWENTY;
+    }
+
+    if(game.getRecipeLemon() > GameHandler::STANDARD_RECIPE_LEMON)
+    {
+      sale_percent -= TWENTY;
+    }
+  }
+
+  if(game.getRecipeSugar() > 15)
+  {
+    sale_percent -= FIFTY;
+  }
+
+  if(game.getRecipeSugar() > 20)
+  {
+    sale_percent -= HUNDRED;
+  }
+
+  if(game.getRecipeLemon() > 12)
+  {
+    sale_percent -= FIFTY;
+  }   
+  
+  if(game.getRecipeLemon() > 18)
+  {
+    sale_percent -= HUNDRED;
+  } 
+
+  if(game.getRecipeWater() > 95)
+  {
+    sale_percent -= FIFTY;
+  }   
+  
+  if(game.getRecipeWater() > 98)
+  {
+    sale_percent -= HUNDRED;
+  }  
+
+  if(sale_percent < MINIMUM_PERCENT)
+  {
+    sale_percent = MINIMUM_PERCENT;
+  } 
+  
+  return sale_percent;    
+}
+
+void Sales::calculateSales(GameHandler& game)
+{
+  int customers = calculateCustomers(game);
+  int sale_percent = calculateSaleInfluence(game);
+  int lemonade_price = game.getPriceLemonade();
+  //int lemonade_stock = game.getStockLemonade();
+  int revenue;
+  float influence_factor = sale_percent / 100;
+
+  customers = std::round(customers * influence_factor);
+
+/* 
+  if(customers > lemonade_stock)
+  {
+    //Zufriedenheit -10%
+    customers = lemonade_stock;
+  }
+  else
+  {
+    
+    //Zufriedenheit +10%
+  }
+*/
+  revenue = customers * lemonade_price;
+
+}
