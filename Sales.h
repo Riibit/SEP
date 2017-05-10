@@ -27,6 +27,10 @@ class Sales
 
   private:
     static const int STANDARD_CUSTOMER_COUNT = 500;
-}
+    static const float VALUE_STORMY;
+    static const float VALUE_RAINY;
+    static const float VALUE_CLOUDY;
+    static const float VALUE_HOT;
+};
 
 #endif //SALES_H
