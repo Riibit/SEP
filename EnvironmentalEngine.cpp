@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include "EnvironmentalEngine.h"
 #include <iostream>
+
 EnvironmentalEngine::EnvironmentalEngine()
 {
   srand (time(NULL));
@@ -24,6 +25,22 @@ EnvironmentalEngine::~EnvironmentalEngine()
 
 std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
+  return std::unique_ptr<EnvironmentalCondition>
+    (new EnvironmentalCondition(randomCover(), randomRank(), 
+    randomTemperature(), randomRank()));
+}
+
+void EnvironmentalEngine::randomizeCondition(
+  const std::unique_ptr<EnvironmentalCondition>& condition)
+{
+  condition -> setSkyCover(randomCover());
+  condition -> setPrecipitation(randomRank());
+  condition -> setTemperature(randomTemperature());
+  condition -> setWind(randomRank());
+}
+
+float EnvironmentalEngine::randomTemperature()
+{
   float temperature;
 
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
@@ -32,9 +49,7 @@ std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
   {
     temperature += ((rand() % 10) / 10.0f);
   }
-
-  return std::unique_ptr<EnvironmentalCondition>
-    (new EnvironmentalCondition(randomCover(), randomRank(), temperature, randomRank()));
+  return temperature;
 }
 
 EnvironmentalCondition::Cover EnvironmentalEngine::randomCover()
