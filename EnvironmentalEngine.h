@@ -39,6 +39,22 @@ class EnvironmentalEngine
     std::unique_ptr<EnvironmentalCondition> createCondition();
 
     //--------------------------------------------------------------------------
+    // The function randomizeCondition randomizes the EnvironmentalCondition
+    //
+    // @param condition The EnvironmentalCondition object that is to be 
+    //   randomized
+    //
+    void randomizeCondition(
+      const std::unique_ptr<EnvironmentalCondition>& condition);
+
+    //--------------------------------------------------------------------------
+    // Creates a random temperature between the defined limitations
+    //
+    // @return float Returns the float
+    //
+    float randomTemperature();
+
+    //--------------------------------------------------------------------------
     // Creates a random Cover enum value
     //
     // @return EnvironmentalCondition::Cover Returns the Enum value
