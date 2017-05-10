@@ -133,8 +133,6 @@ void GameHandler::endOfLife()
   game_quit_ = true;
 }
 
-
-
 void GameHandler::setInterfaceParameters(std::vector<std::string>* 
   interface_parameters)
 {
@@ -160,7 +158,6 @@ void GameHandler::setResourceMoney(unsigned int money_value)
 {
   resources_.money = money_value;
 }
-
 
 unsigned int GameHandler::getResourceLemon()
 {
