@@ -11,6 +11,7 @@
 
 #include "CmdLoad.h"
 #include "Parse.h"
+#include <fstream>
 
 const std::string FILENAME = "";
 const std::string CmdLoad::CMD_NAME = "load";
@@ -22,5 +23,11 @@ CmdLoad::CmdLoad() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
   
 int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 {
+ /* FILENAME = params[0];
+
+  std::ifstream savefile;
+  savefile.open(FILENAME.c_str());
+
+  savefile.close();*/
   return 0;
 }
