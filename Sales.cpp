@@ -138,6 +138,7 @@ void Sales::calculateSales(GameHandler& game)
   //int lemonade_stock = game.getStockLemonade();
   int revenue;
   int balance;
+  int money;
   float influence_factor = sale_percent / 100;
 
   customers = std::round(customers * influence_factor);
@@ -157,6 +158,10 @@ void Sales::calculateSales(GameHandler& game)
   revenue = customers * lemonade_price;
   balance = revenue - game.getExpenses();
   game.setResourceBalance(balance);
+  
+  money = game.getResourceMoney();
+  money += revenue;
+  game.setResourceMoney(money);
 }
 
 
