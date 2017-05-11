@@ -25,7 +25,7 @@
 #include "CmdForecast.h"
 #include "CmdProduce.h"
 #include "CmdLoad.h"
-#include "CmdSave"
+#include "CmdSave.h"
 
 using std::unique_ptr;
 

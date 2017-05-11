@@ -16,8 +16,8 @@
 using std::cout;
 using std::endl;
 
-const std::string CmdProduce::CMD_NAME = "forecast";
-const std::string CmdProduce::ERR_CMD = 
+const std::string CmdForecast::CMD_NAME = "forecast";
+const std::string CmdForecast::ERR_CMD = 
   "[ERR] Usage: forecast";
 
 CmdForecast::CmdForecast() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
