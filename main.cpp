@@ -35,13 +35,9 @@ int main(int argc, char **argv)
 Daily Goals:
 
 -Donnerstag
-  Produce (Basic/Aufbau implementierung)
-  Stock (implementierung)
-  Balance/Cash (implementierung)
 -Freitag
   Play (implementierung) !!!
-  setWeather (connect)
-  realsticWeather / forcast
+  realsticWeather / forecast
 -Samstag
   Save/Load (implementierung) Milan???
 -Sonntag
