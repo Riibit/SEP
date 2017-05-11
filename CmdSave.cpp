@@ -8,10 +8,11 @@
 // Julian Rudolf 1331657
 //------------------------------------------------------------------------------
 //
+#include <fstream>
 
 #include "CmdSave.h"
 #include "GameHandler.h"
-#include <fstream>
+#include "EnvironmentalCondition.h"
 
 const std::string CmdSave::CMD_NAME = "save";
 const std::string CmdSave::ERR_CMD = "[ERR] Usage: save <filename>";
@@ -33,10 +34,10 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
 
   savefile << "  <weather>" << std::endl;
 
-  savefile << "    <wind>" << " "/*game.getEnvCond.wind*/ << "</wind>" << std::endl;
-  savefile << "    <temperature>" <<" " /*game.getEnvCond.temp*/  << "</temperature>" << std::endl;
-  savefile << "    <precipitation>" << " "/*game.getEnvCond.prec*/ << "</precipitation>" << std::endl;
-  savefile << "    <cover>" << " "/*game.getEnvCond.cover*/ << "</cover>" << std::endl;
+  savefile << "    <wind>" << game.getCondition() -> getWind() << "</wind>" << std::endl;
+  savefile << "    <temperature>" << game.getCondition() -> getTemperature()  << "</temperature>" << std::endl; 
+  savefile << "    <precipitation>" << game.getCondition() -> getPrecipitation() << "</precipitation>" << std::endl;
+  savefile << "    <cover>" << game.getCondition() -> getSkyCover() << "</cover>" << std::endl;
 
   savefile << "  </weather>" << std::endl;
   
