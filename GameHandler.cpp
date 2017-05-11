@@ -103,11 +103,13 @@ int GameHandler::play()
 int GameHandler::resolveCommand()
 {
   int return_value = 0;
+  bool invalid_command = true;
   unsigned int command_index;
   for (command_index = 0; command_index < commands_.size(); ++command_index)
   {
     if (!(commands_[command_index] -> getName().compare(*command_name_)))
     {
+      invalid_command = false;
       if (commands_[command_index] -> 
         correctParameterCount(interface_parameters_ -> size()))
       {
@@ -120,6 +122,11 @@ int GameHandler::resolveCommand()
       }
       break;
     }
+  }
+  
+  if (invalid_command == true)
+  {
+    std::cout << "[ERR] Unknown command." << std::endl;
   }
   return return_value;
 }
