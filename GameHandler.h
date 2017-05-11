@@ -130,7 +130,8 @@ class GameHandler
     static const int SUGAR_INITIAL_VALUE = 100;
     static const int MONEY_INITIAL_VALUE = 5000;
     static const int BALANCE_INITIAL_VALUE = 0;
-    static const int MONEY_SPENT_INITIAL_VALUE = 0;  
+    static const int INCOME_INITIAL_VALUE = 0;
+    static const int MONEY_SPENT_INITIAL_VALUE = 0;
 
     //--------------------------------------------------------------------------
     // The percentage value of the customers satisfaction

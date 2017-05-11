@@ -74,6 +74,7 @@ GameHandler::GameHandler()
   resources_.sugar = SUGAR_INITIAL_VALUE;
   resources_.money = MONEY_INITIAL_VALUE;
   resources_.balance = BALANCE_INITIAL_VALUE;
+  resources_.income = INCOME_INITIAL_VALUE;
   resources_.money_spent = MONEY_SPENT_INITIAL_VALUE;
 }
 
