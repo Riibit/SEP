@@ -53,7 +53,7 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
   savefile << "    <balance>" << game.getResourceBalance();
   savefile << "</balance>" << std::endl;
 
-  savefile << "    <income>" << " "/*game.getIncome()*/;
+  savefile << "    <income>" << game.getResourceIncome();
   savefile << "</income>" << std::endl;
 
   savefile << "    <expense>" << game.getExpenses() ;
@@ -73,16 +73,12 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
 
   savefile << "    <pricelemons>" << game.getPriceLemon();
   savefile << "</pricelemons>" << std::endl;
-  
+
   savefile << "    <pricelemonade>" << game.getPriceLemonade();
   savefile << "</pricelemonade>" << std::endl;
   savefile << "  </stats>" << std::endl;
 
   savefile << "</savefile>" << std::endl;
-  /*if(!savefile)
-  {
-    savefile.open(FILENAME.c_str(), ios::in | ios::out | ios::trunc);
-  }*/
 
   savefile.close();
   return 0;
