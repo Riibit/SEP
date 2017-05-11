@@ -23,7 +23,7 @@ Parse::~Parse()
 
 uint Parse::parseInteger(std::string string)
 {
-  uint parsed_integer;
+  uint to_return = 0;
   std::locale loc;
   for (unsigned int position = 0; position < string.size(); ++position)
   {
@@ -33,8 +33,16 @@ uint Parse::parseInteger(std::string string)
       return 0;
     }
   }
-  parsed_integer = std::stoi(string);
-  return parsed_integer;
+  try
+  {
+    to_return = std::stoi(string);
+  }
+  catch(const std::out_of_range& exception)
+  {
+    throw ExceptionDataType();
+    return to_return;
+  }
+  return to_return;
 }
 
 float Parse::parseFloat(std::string input)
@@ -45,6 +53,11 @@ float Parse::parseFloat(std::string input)
     to_return = stof(input);
   }
   catch(const std::invalid_argument& exception)
+  {
+    throw ExceptionDataType();
+    return to_return;
+  }
+  catch(const std::out_of_range& exception)
   {
     throw ExceptionDataType();
     return to_return;

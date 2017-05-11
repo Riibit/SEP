@@ -48,11 +48,11 @@ class Produce
 
     //--------------------------------------------------------------------------
     // Return Value if input is not divisible by four
-    int NOT_DIVISIBLE_BY_FOUR = 1;
+    static const int NOT_DIVISIBLE_BY_FOUR = 1;
 
     //--------------------------------------------------------------------------
     // Return Value if resources are not enough to produce the asked quantity
-    int NOT_ENOUGH_RESOURCES = 2;
+    static const int NOT_ENOUGH_RESOURCES = 2;
 };
 
 #endif //PRODUCE_H
