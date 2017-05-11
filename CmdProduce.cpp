@@ -22,6 +22,10 @@ using std::endl;
 const std::string CmdProduce::CMD_NAME = "produce";
 const std::string CmdProduce::ERR_CMD = 
   "[ERR] Usage: produce <lemonade>";
+const std::string CmdProduce::ERR_MODULO_LEMONADE = 
+  "[ERR] The value of Lemonade must be a multiple of 4.";
+const std::string CmdProduce::NOT_ENOUGH_RESOURCES = 
+  "[WARN] Not enough resources. I produce what I can.";
 
 CmdProduce::CmdProduce() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
@@ -29,6 +33,7 @@ CmdProduce::CmdProduce() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 
 int CmdProduce::execute(GameHandler& game, std::vector<std::string>& params)
 {
+  int producer_return = 0;
   unsigned int lemonade_quantity;
   Parse parser;
   try
@@ -37,15 +42,22 @@ int CmdProduce::execute(GameHandler& game, std::vector<std::string>& params)
   }
   catch(const ExceptionDataType& exception)
   {
-    cout << ERR_CMD << endl;
+    cout << Command::ERR_WRONG_PARAMETER << endl;
     return 0;
   }
 
   Produce producer;
-  if(producer.produceLemonade(game, lemonade_quantity) 
-    == Produce::NOT_DIVISIBLE_BY_FOUR)
+
+  producer_return = producer.produceLemonade(game, lemonade_quantity);
+
+  if(producer_return == Produce::NOT_DIVISIBLE_BY_FOUR)
   {
-    cout << Command::ERR_WRONG_PARAMETER << endl;
+    cout << ERR_MODULO_LEMONADE << endl;
+  }
+
+  if(producer_return == Produce::NOT_ENOUGH_RESOURCES)
+  {
+    cout << NOT_ENOUGH_RESOURCES << endl;
   }
 
   return 0;

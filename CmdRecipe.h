@@ -65,7 +65,7 @@ class CmdRecipe : public Command
 
     //--------------------------------------------------------------------------
     // The error message if the parameter count is not right
-    static const std::string ERR_RECIPE;
+    static const std::string ERR_CMD;
 
     //--------------------------------------------------------------------------
     // The message if the parameters dont add up to 100
