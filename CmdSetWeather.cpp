@@ -15,11 +15,11 @@
 #include "Parse.h"
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
+#include "ExceptionDataType.h"
 
 const std::string CmdSetWeather::CMD_NAME = "setweather";
 const std::string CmdSetWeather::ERR_CMD = "[ERR] Usage: setweather <cover> \
 <precipitation> <temperature> <wind>";
-const std::string CmdSetWeather::ERR_WRONG_PARAMETER = "[ERR] Wrong parameter";
 
 CmdSetWeather::CmdSetWeather() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
@@ -37,10 +37,18 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   EnvironmentalCondition::Rank wind;
 
   Parse parser;
-  int_cover = parser.parseInteger(params[0]);
-  int_precipitation = parser.parseInteger(params[1]);
-  temperature = parser.parseFloat(params[2]);
-  int_wind = parser.parseInteger(params[3]);
+  try
+  {
+    int_cover = parser.parseInteger(params[0]);
+    int_precipitation = parser.parseInteger(params[1]);
+    temperature = parser.parseFloat(params[2]);
+    int_wind = parser.parseInteger(params[3]);
+  }
+  catch(const ExceptionDataType& exception)
+  {
+    std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
+    return 0;
+  }
 
   EnvironmentalEngine get_enums;
   sky_cover = get_enums.toCover(int_cover);
@@ -57,7 +65,7 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   }
   else
   {
-    std::cout << ERR_WRONG_PARAMETER << std::endl;
+    std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
   }
 
   return 0;

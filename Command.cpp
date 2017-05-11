@@ -11,13 +11,13 @@
 #include <iostream>
 #include "Command.h"
 
-//------------------------------------------------------------------------------
+const std::string Command::ERR_WRONG_PARAMETER = "[ERR] Wrong parameter";
+
 Command::Command(std::string name)
 {
   command_name_ = name;
 }
 
-//------------------------------------------------------------------------------
 Command::Command(std::string name, unsigned int parameter_count, 
   std::string parameter_message)
 {
@@ -26,7 +26,6 @@ Command::Command(std::string name, unsigned int parameter_count,
   parameter_message_ = parameter_message;
 }
 
-//------------------------------------------------------------------------------
 Command::~Command()
 {
 }
