@@ -160,6 +160,11 @@ void GameHandler::setResourceMoney(unsigned int money_value)
   resources_.money = money_value;
 }
 
+void GameHandler::setResourceBalance(int balance)
+{
+  resources_.balance = balance;
+}
+
 void GameHandler::setExpenses(unsigned int expenditures)
 {
   resources_.money_spent += expenditures;

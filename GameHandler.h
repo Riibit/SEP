@@ -56,6 +56,7 @@ class GameHandler
     void setResourceLemon(unsigned int lemon_value);
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
+    void setResourceBalance(int balance);
     void setExpenses(unsigned int expenditures);
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);

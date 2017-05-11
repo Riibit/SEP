@@ -36,7 +36,7 @@ Daily Goals:
 -Donnerstag
   Produce (Basic/Aufbau implementierung)
   Stock (implementierung)
-  Balance/Cash (implementierung)
+  | Fertig | Balance/Cash (implementierung)
 -Freitag
   Play (implementierung) !!!
   setWeather (connect)
