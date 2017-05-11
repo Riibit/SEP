@@ -225,6 +225,12 @@ void GameHandler::setRecipe(unsigned int lemon, unsigned int sugar,
     recipe_.water = water;
   }
 }
+
+void GameHandler::setResourceBalance(int balance)
+{
+  resources_.balance = balance;
+}
+
 /*
 void GameHandler::setCondition(std::shared_ptr<EnvironmentalCondition>& 
       environment_condition)

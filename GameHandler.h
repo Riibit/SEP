@@ -35,27 +35,33 @@ class GameHandler
     ~GameHandler();
 
     //--------------------------------------------------------------------------
-    // 
+    // initialize Initializes the game process
     // @return return_value Returns the corresponding return value.
+    //
     int initialize(int argc, char *argv[]);
 
     //--------------------------------------------------------------------------
     // play executes the prompt method and is used to terminate the 
     // programm.
     // @return return_value Returns the corresponding return value.
+    //
     int play();
 
+    //--------------------------------------------------------------------------
+    // resetStandardRecipe Sets the recipie to its standard values after every
+    // round.
+    // 
     void resetStandardRecipe();
 
     //--------------------------------------------------------------------------
     // Setter Methods
-    //
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
     void setResourceLemon(unsigned int lemon_value);
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
+    void setResourceBalance(int balance);
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
@@ -64,7 +70,6 @@ class GameHandler
 
     //--------------------------------------------------------------------------
     // Getter Methods
-    //
     unsigned int getResourceLemon();
     unsigned int getResourceSugar();
     unsigned int getResourceMoney();

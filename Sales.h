@@ -44,10 +44,11 @@ class Sales
     int calculateSaleInfluence(GameHandler& game);
 
     //--------------------------------------------------------------------------
-    // Calculates the total amount of revenue made 
+    // Calculates the total amount of revenue and balance made
     // @param game The game where action should be performed on
     //
     void calculateSales(GameHandler& game);
+    
 
   private:
     //--------------------------------------------------------------------------
