@@ -145,13 +145,26 @@ void Sales::calculateSales(GameHandler& game)
 
   if(customers > game.getResourceLemonade())
   {
-    //Zufriedenheit -10%
+    if(GameHandler::CUSTOMER_SATISFACTION < 10)
+    {
+
+    }
+    else
+    {
+      GameHandler::CUSTOMER_SATISFACTION -= 10;
+    }
     customers = game.getResourceLemonade();
   }
   else
   {
-    
-    //Zufriedenheit +10%
+    if(GameHandler::CUSTOMER_SATISFACTION > 110)
+    {
+
+    }
+    else
+    {
+      GameHandler::CUSTOMER_SATISFACTION += 10;
+    }  
   }
 
   revenue = customers * lemonade_price;
