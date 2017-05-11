@@ -73,9 +73,9 @@ GameHandler::GameHandler()
   resources_.lemons = LEMONS_INITIAL_VALUE;
   resources_.sugar = SUGAR_INITIAL_VALUE;
   resources_.money = MONEY_INITIAL_VALUE;
-  resources_.balance = BALANCE_INITIAL_VALUE;
-  resources_.income = INCOME_INITIAL_VALUE;
-  resources_.money_spent = MONEY_SPENT_INITIAL_VALUE;
+  resources_.balance = ZERO_INITIAL_VALUE;
+  resources_.income = ZERO_INITIAL_VALUE;
+  resources_.money_spent = ZERO_INITIAL_VALUE;
 }
 
 GameHandler::~GameHandler()
