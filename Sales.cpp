@@ -132,7 +132,7 @@ int Sales::calculateSaleInfluence(GameHandler& game)
 
 void Sales::calculateSales(GameHandler& game)
 {
-  int customers = calculateCustomers(game);
+  unsigned int customers = calculateCustomers(game);
   int sale_percent = calculateSaleInfluence(game);
   int lemonade_price = game.getPriceLemonade();
   int revenue;
