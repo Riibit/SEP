@@ -160,9 +160,9 @@ void GameHandler::setResourceMoney(unsigned int money_value)
   resources_.money = money_value;
 }
 
-void setExpenses(unsigned int expenditures)
+void GameHandler::setExpenses(unsigned int expenditures)
 {
-  player_.money_spent += expenditures;
+  resources_.money_spent += expenditures;
 }
 
 unsigned int GameHandler::getResourceLemon()
@@ -185,9 +185,9 @@ int GameHandler::getResourceBalance()
   return resources_.balance;
 }
 
-unsigned int getExpenses() 
+unsigned int GameHandler::getExpenses() 
 {
-  return player_.money_spent;
+  return resources_.money_spent;
 }
 
 
