@@ -21,6 +21,8 @@ using std::endl;
 const std::string CmdBuy::CMD_NAME = "buy";
 const std::string CmdBuy::ERR_CMD = 
   "[ERR] Usage: buy <lemon> <sugar>";
+const std::string CmdBuy::NOT_ENOUGH_MONEY = 
+  "[WARN] Not enough money. I buy what I can.";
 
 CmdBuy::CmdBuy() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
@@ -48,7 +50,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   }
   catch(const ExceptionDataType& exception)
   {
-    cout << ERR_CMD << endl;
+    cout << Command::ERR_WRONG_PARAMETER << endl;
     return 0;
   }
 
@@ -67,7 +69,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
     }
     if(error_output)
     {
-      cout << "[WARN] Not enough money. I buy what I can." << endl;
+      cout << NOT_ENOUGH_MONEY << endl;
       error_output = false;
     }
     if (lemon_buy_amount > 0)

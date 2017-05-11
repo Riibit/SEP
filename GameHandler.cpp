@@ -22,6 +22,7 @@
 #include "CmdSetWeather.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
+#include "CmdProduce.h"
 
 using std::unique_ptr;
 
@@ -31,14 +32,28 @@ const std::string GameHandler::ERR_PROGRAM_START =
 GameHandler::GameHandler() 
 {
   game_quit_ = false;
+  try
+  {
   // TODO:  possibly add out of mem exception handling later
-  commands_.push_back(unique_ptr<Command>(new CmdEcho()));
-  commands_.push_back(unique_ptr<Command>(new CmdBalance()));
-  commands_.push_back(unique_ptr<Command>(new CmdQuote()));
-  commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
-  commands_.push_back(unique_ptr<Command>(new CmdQuit()));
-  commands_.push_back(unique_ptr<Command>(new CmdBuy()));
-  commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
+    commands_.push_back(unique_ptr<Command>(new CmdEcho()));
+    commands_.push_back(unique_ptr<Command>(new CmdBalance()));
+    commands_.push_back(unique_ptr<Command>(new CmdQuote()));
+    commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
+    commands_.push_back(unique_ptr<Command>(new CmdQuit()));
+    commands_.push_back(unique_ptr<Command>(new CmdBuy()));
+    commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
+
+#ifdef AUFBAU
+    //commands_.push_back(unique_ptr<Command>(new CmdForecast()));
+    commands_.push_back(unique_ptr<Command>(new CmdProduce()));
+    //commands_.push_back(unique_ptr<Command>(new CmdLoad()));
+    //commands_.push_back(unique_ptr<Command>(new CmdSave()));
+#endif //AUFBAU
+  }
+  catch(std::bad_alloc& exception)
+  {
+    throw exception;
+  }
   // initialize player resources
   resources_.lemons = LEMONS_INITIAL_VALUE;
   resources_.sugar = SUGAR_INITIAL_VALUE;

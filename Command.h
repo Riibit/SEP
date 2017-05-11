@@ -78,9 +78,6 @@ class Command
     //--------------------------------------------------------------------------
     // The error message displays if the parameter is wrong or invalid
     static const std::string ERR_WRONG_PARAMETER;
-
-
-
 };
 
 #endif //COMMAND_H_INCLUDED
