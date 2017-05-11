@@ -44,6 +44,10 @@ class CmdSave : public Command
     //--------------------------------------------------------------------------
     // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 1;
+
+    //--------------------------------------------------------------------------
+    // Filename recieved from promt
+    static const std::string FILENAME = "";    
 };
 
 #endif //CMD_SAVE

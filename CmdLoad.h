@@ -47,7 +47,7 @@ class CmdLoad : public Command
 
     //--------------------------------------------------------------------------
     // Filename recieved from promt
-    static const std::string filename = "";    
+    static const std::string FILENAME = "";    
 };
 
 #endif //CMD_LOAD
