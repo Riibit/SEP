@@ -34,24 +34,24 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
 
   if(game.getCondition() -> isItStormy())
   {
-    customer_count = customer_count * VALUE_STORMY;
+    customer_count = std::round(customer_count * VALUE_STORMY);
   }
   else if(game.getCondition() -> isItRainy())
   {
-    customer_count = customer_count * VALUE_RAINY;
+    customer_count = std::round(customer_count * VALUE_RAINY);
   }
   else if(game.getCondition() -> isItCloudy())
   {
-    customer_count = customer_count * VALUE_CLOUDY;
+    customer_count = std::round(customer_count * VALUE_CLOUDY);
   }
   else if(game.getCondition() -> isItHot())
   {
-    customer_count = customer_count * VALUE_HOT;
+    customer_count = std::round(customer_count * VALUE_HOT);
   }
 
-  #ifdef AUFBAU
-
-  #endif //AUFBAU customer_satisfaction
+#ifdef AUFBAU
+  customer_count = std::round(customer_count * game.getSatisfactionFactor());
+#endif //AUFBAU customer_satisfaction
   return customer_count;
 }
 
@@ -132,29 +132,44 @@ int Sales::calculateSaleInfluence(GameHandler& game)
 
 void Sales::calculateSales(GameHandler& game)
 {
-  int customers = calculateCustomers(game);
+  unsigned int customers = calculateCustomers(game);
   int sale_percent = calculateSaleInfluence(game);
   int lemonade_price = game.getPriceLemonade();
-  //int lemonade_stock = game.getStockLemonade();
   int revenue;
   int balance;
   int money;
+  int satisfaction_changed;
   float influence_factor = sale_percent / 100;
 
   customers = std::round(customers * influence_factor);
 
-/* 
-  if(customers > lemonade_stock)
+  if(customers > game.getResourceLemonade())
   {
-    //Zufriedenheit -10%
-    customers = lemonade_stock;
+    if(game.getCustomerSatisfaction() < TEN)
+    {
+    }
+    else
+    {
+      satisfaction_changed = game.getCustomerSatisfaction();
+      satisfaction_changed -= TEN;
+      game.setCustomerSatisfaction(satisfaction_changed);
+    }
+    customers = game.getResourceLemonade();
   }
   else
   {
-    
-    //Zufriedenheit +10%
+    if(game.getCustomerSatisfaction() > 110)
+    {
+
+    }
+    else
+    {
+      satisfaction_changed = game.getCustomerSatisfaction();
+      satisfaction_changed += TEN;
+      game.setCustomerSatisfaction(satisfaction_changed);
+    }  
   }
-*/
+
   revenue = customers * lemonade_price;
   balance = revenue - game.getExpenses();
   game.setResourceBalance(balance);

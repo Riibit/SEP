@@ -11,7 +11,7 @@
 #include <iostream>
 #include "Command.h"
 
-const std::string Command::ERR_WRONG_PARAMETER = "[ERR] Wrong parameter";
+const std::string Command::ERR_WRONG_PARAMETER = "[ERR] Wrong parameter.";
 
 Command::Command(std::string name)
 {

@@ -88,6 +88,6 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   game.setResourceSugar(sugar_value);
   game.setResourceLemon(lemon_value);
   game.setResourceMoney(money_value);
-    
+
   return 0;
 }

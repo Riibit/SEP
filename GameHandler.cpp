@@ -59,7 +59,7 @@ GameHandler::GameHandler()
   resources_.sugar = SUGAR_INITIAL_VALUE;
   resources_.money = MONEY_INITIAL_VALUE;
   resources_.balance = BALANCE_INITIAL_VALUE;
-  resources_.money = MONEY_SPENT_INITIAL_VALUE;
+  resources_.money_spent = MONEY_SPENT_INITIAL_VALUE;
 }
 
 GameHandler::~GameHandler()
@@ -118,11 +118,13 @@ int GameHandler::play()
 int GameHandler::resolveCommand()
 {
   int return_value = 0;
+  bool invalid_command = true;
   unsigned int command_index;
   for (command_index = 0; command_index < commands_.size(); ++command_index)
   {
     if (!(commands_[command_index] -> getName().compare(*command_name_)))
     {
+      invalid_command = false;
       if (commands_[command_index] -> 
         correctParameterCount(interface_parameters_ -> size()))
       {
@@ -135,6 +137,11 @@ int GameHandler::resolveCommand()
       }
       break;
     }
+  }
+  
+  if (invalid_command == true)
+  {
+    std::cout << "[ERR] Unknown command." << std::endl;
   }
   return return_value;
 }
@@ -190,6 +197,11 @@ void GameHandler::setResourceLemonade(unsigned int amount)
 void GameHandler::setExpenses(unsigned int expenditures)
 {
   resources_.money_spent += expenditures;
+}
+
+void GameHandler::setCustomerSatisfaction(int satisfaction)
+{
+  customer_satisfaction = satisfaction;
 }
 
 unsigned int GameHandler::getResourceLemon()
@@ -251,6 +263,17 @@ unsigned int GameHandler::getRecipeSugar()
 unsigned int GameHandler::getRecipeWater()
 {
   return recipe_.water;
+}
+
+int GameHandler::getCustomerSatisfaction()
+{
+  return customer_satisfaction;
+}
+
+float GameHandler::getSatisfactionFactor()
+{
+  float divisor = 100;
+  return customer_satisfaction / divisor;
 }
 
 const std::unique_ptr<EnvironmentalCondition>& GameHandler::getCondition() const
