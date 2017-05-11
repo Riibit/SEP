@@ -9,8 +9,13 @@
 //------------------------------------------------------------------------------
 //
 
+#ifndef PRODUCE_H
+#define PRODUCE_H
+
 class GameHandler;
 
+//------------------------------------------------------------------------------
+// Class for producing digital lemonade
 class Produce
 {
   private:
@@ -37,8 +42,17 @@ class Produce
     // @param game The game where action should be performed on
     // @param quantity The quantity of lemonade that is to be produced
     //
+    // @return int Returns predefined values
+    //
     int produceLemonade(GameHandler& game, unsigned int quantity);
 
+    //--------------------------------------------------------------------------
+    // Return Value if input is not divisible by four
     int NOT_DIVISIBLE_BY_FOUR = 1;
+
+    //--------------------------------------------------------------------------
+    // Return Value if resources are not enough to produce the asked quantity
     int NOT_ENOUGH_RESOURCES = 2;
 };
+
+#endif //PRODUCE_H
