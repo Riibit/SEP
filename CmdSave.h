@@ -13,6 +13,7 @@
 #define CMD_SAVE
 
 #include "Command.h"
+#include "Parse.h"
 
 //----------------------------------------------------------------------------
 // CmdSave Class

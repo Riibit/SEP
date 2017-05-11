@@ -13,6 +13,7 @@
 #define CMD_LOAD
 
 #include "Command.h"
+#include "Parse.h"
 
 //----------------------------------------------------------------------------
 // CmdLoad Class
@@ -43,6 +44,10 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 1;
+
+    //--------------------------------------------------------------------------
+    // Filename recieved from promt
+    static const std::string filename = "";    
 };
 
 #endif //CMD_LOAD
