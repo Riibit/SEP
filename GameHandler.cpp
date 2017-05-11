@@ -42,6 +42,7 @@ GameHandler::GameHandler()
   resources_.sugar = SUGAR_INITIAL_VALUE;
   resources_.money = MONEY_INITIAL_VALUE;
   resources_.balance = BALANCE_INITIAL_VALUE;
+  resources_.money = MONEY_SPENT_INITIAL_VALUE;
 }
 
 GameHandler::~GameHandler()
@@ -159,6 +160,11 @@ void GameHandler::setResourceMoney(unsigned int money_value)
   resources_.money = money_value;
 }
 
+void setExpenses(unsigned int expenditures)
+{
+  player_.money_spent += expenditures;
+}
+
 unsigned int GameHandler::getResourceLemon()
 {
   return resources_.lemons;
@@ -177,6 +183,11 @@ unsigned int GameHandler::getResourceMoney()
 int GameHandler::getResourceBalance()
 {
   return resources_.balance;
+}
+
+unsigned int getExpenses() 
+{
+  return player_.money_spent;
 }
 
 
@@ -225,12 +236,6 @@ void GameHandler::setRecipe(unsigned int lemon, unsigned int sugar,
     recipe_.water = water;
   }
 }
-
-void GameHandler::setResourceBalance(int balance)
-{
-  resources_.balance = balance;
-}
-
 /*
 void GameHandler::setCondition(std::shared_ptr<EnvironmentalCondition>& 
       environment_condition)

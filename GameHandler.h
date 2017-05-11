@@ -35,33 +35,28 @@ class GameHandler
     ~GameHandler();
 
     //--------------------------------------------------------------------------
-    // initialize Initializes the game process
+    // 
     // @return return_value Returns the corresponding return value.
-    //
     int initialize(int argc, char *argv[]);
 
     //--------------------------------------------------------------------------
     // play executes the prompt method and is used to terminate the 
     // programm.
     // @return return_value Returns the corresponding return value.
-    //
     int play();
 
-    //--------------------------------------------------------------------------
-    // resetStandardRecipe Sets the recipie to its standard values after every
-    // round.
-    // 
     void resetStandardRecipe();
 
     //--------------------------------------------------------------------------
     // Setter Methods
+    //
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
     void setResourceLemon(unsigned int lemon_value);
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
-    void setResourceBalance(int balance);
+    void setExpenses(unsigned int expenditures);
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
@@ -70,10 +65,12 @@ class GameHandler
 
     //--------------------------------------------------------------------------
     // Getter Methods
+    //
     unsigned int getResourceLemon();
     unsigned int getResourceSugar();
     unsigned int getResourceMoney();
     int getResourceBalance();
+    unsigned int getExpenses();
 
     unsigned int getPriceLemonade();
     unsigned int getPriceLemon();
@@ -117,6 +114,7 @@ class GameHandler
     static const int SUGAR_INITIAL_VALUE = 100;
     static const int MONEY_INITIAL_VALUE = 5000;
     static const int BALANCE_INITIAL_VALUE = 0;
+    static const int MONEY_SPENT_INITIAL_VALUE = 0;    
 
     //--------------------------------------------------------------------------
     // The object that contains the Environmental Condition
@@ -130,6 +128,7 @@ class GameHandler
       unsigned int sugar;
       unsigned int money;
       int balance;
+      unsigned int money_spent;
     } resources_;
 
     //--------------------------------------------------------------------------
