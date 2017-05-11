@@ -120,12 +120,14 @@ EnvironmentalCondition::Rank EnvironmentalCondition::getPrecipitation(void)
   return precipitation_;
 }
 
-void EnvironmentalCondition::setTemperature(float temperature)
+bool EnvironmentalCondition::setTemperature(float temperature)
 {
-  if(temperature_ >= MAX_TEMP || temperature_ <= MIN_TEMP)
+  if(temperature >= MAX_TEMP || temperature <= MIN_TEMP)
   {
     temperature_ = temperature;
+    return true;
   }
+  return false;
 }
 
 float EnvironmentalCondition::getTemperature(void)
