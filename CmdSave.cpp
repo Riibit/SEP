@@ -34,25 +34,48 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
 
   savefile << "  <weather>" << std::endl;
 
-  savefile << "    <wind>" << game.getCondition() -> getWind() << "</wind>" << std::endl;
-  savefile << "    <temperature>" << game.getCondition() -> getTemperature()  << "</temperature>" << std::endl; 
-  savefile << "    <precipitation>" << game.getCondition() -> getPrecipitation() << "</precipitation>" << std::endl;
-  savefile << "    <cover>" << game.getCondition() -> getSkyCover() << "</cover>" << std::endl;
+  savefile << "    <wind>" << game.getCondition() -> getWind();
+  savefile << "</wind>" << std::endl;
+  savefile << "    <temperature>" << game.getCondition() -> getTemperature();
+  savefile << "</temperature>" << std::endl; 
+  savefile << "    <precipitation>" << game.getCondition() -> getPrecipitation();
+  savefile << "</precipitation>" << std::endl;
+  savefile << "    <cover>" << game.getCondition() -> getSkyCover();
+  savefile << "</cover>" << std::endl;
 
   savefile << "  </weather>" << std::endl;
   
   savefile << "  <stats>" << std::endl;
 
-  savefile << "    <cash>" << game.getResourceMoney() << "</cash>" << std::endl;
-  savefile << "    <balance>" << game.getResourceBalance() << "</balance>" << std::endl;
-  savefile << "    <income>" << " "/*game.getIncome()*/ << "</income>" << std::endl;
-  savefile << "    <expense>" << game.getExpenses() << "</expense>" << std::endl;
-  savefile << "    <lemons>" << game.getResourceLemon() << "</lemons>" << std::endl;
-  savefile << "    <sugar>" << game.getResourceSugar() << "</sugar>" << std::endl;
-  savefile << "    <pricelemons>" << game.getResourceLemonade() << "</pricelemons>" << std::endl;
-  savefile << "    <pricesugar>" << game.getPriceSugar() << "</pricesugar>" << std::endl;
-  savefile << "    <pricelemons>" << game.getPriceLemon() << "</pricelemons>" << std::endl;
-  savefile << "    <pricelemonade>" << game.getPriceLemonade() << "</pricelemonade>" << std::endl;
+  savefile << "    <cash>" << game.getResourceMoney();
+  savefile << "</cash>" << std::endl;
+
+  savefile << "    <balance>" << game.getResourceBalance();
+  savefile << "</balance>" << std::endl;
+
+  savefile << "    <income>" << " "/*game.getIncome()*/;
+  savefile << "</income>" << std::endl;
+
+  savefile << "    <expense>" << game.getExpenses() ;
+  savefile << "</expense>" << std::endl;
+
+  savefile << "    <lemons>" << game.getResourceLemon();
+  savefile << "</lemons>" << std::endl;
+
+  savefile << "    <sugar>" << game.getResourceSugar();
+  savefile << "</sugar>" << std::endl;
+
+  savefile << "    <pricelemons>" << game.getResourceLemonade();
+  savefile << "</pricelemons>" << std::endl;
+
+  savefile << "    <pricesugar>" << game.getPriceSugar();
+  savefile << "</pricesugar>" << std::endl;
+
+  savefile << "    <pricelemons>" << game.getPriceLemon();
+  savefile << "</pricelemons>" << std::endl;
+  
+  savefile << "    <pricelemonade>" << game.getPriceLemonade();
+  savefile << "</pricelemonade>" << std::endl;
   savefile << "  </stats>" << std::endl;
 
   savefile << "</savefile>" << std::endl;
