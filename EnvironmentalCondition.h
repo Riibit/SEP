@@ -65,7 +65,9 @@ class EnvironmentalCondition
     //
     // @param temperature the value of the temperature that is to be set
     //
-    void setTemperature(float temperature);
+    // @return bool Return true if the temperature is in the scope
+    //
+    bool setTemperature(float temperature);
 
     //--------------------------------------------------------------------------
     // Method to set the wind rank

@@ -35,16 +35,22 @@ class GameHandler
     ~GameHandler();
 
     //--------------------------------------------------------------------------
-    // 
+    // initialize Initializes the games processes
     // @return return_value Returns the corresponding return value.
+    //
     int initialize(int argc, char *argv[]);
 
     //--------------------------------------------------------------------------
     // play executes the prompt method and is used to terminate the 
     // programm.
     // @return return_value Returns the corresponding return value.
+    //
     int play();
 
+    //--------------------------------------------------------------------------
+    // resetStandardRecipe Resets the recipe to its standard values before 
+    // every round.
+    //
     void resetStandardRecipe();
 
     //--------------------------------------------------------------------------
