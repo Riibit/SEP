@@ -171,6 +171,7 @@ void Sales::calculateSales(GameHandler& game)
   }
 
   revenue = customers * lemonade_price;
+  game.setResourceIncome(revenue);
   balance = revenue - game.getExpenses();
   game.setResourceBalance(balance);
   

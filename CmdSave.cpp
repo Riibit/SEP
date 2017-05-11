@@ -65,8 +65,8 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
   savefile << "    <sugar>" << game.getResourceSugar();
   savefile << "</sugar>" << std::endl;
 
-  savefile << "    <pricelemons>" << game.getResourceLemonade();
-  savefile << "</pricelemons>" << std::endl;
+  savefile << "    <lemonade>" << game.getResourceLemonade();
+  savefile << "</lemonade>" << std::endl;
 
   savefile << "    <pricesugar>" << game.getPriceSugar();
   savefile << "</pricesugar>" << std::endl;
