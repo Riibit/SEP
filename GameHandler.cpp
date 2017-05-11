@@ -13,19 +13,26 @@
 #include "GameHandler.h"
 #include "Interface.h"
 #include "Parse.h"
+#include "CmdSetWeather.h"
 #include "CmdEcho.h"
+#include "CmdPlay.h"
 #include "CmdBalance.h"
 #include "CmdQuote.h"
 #include "CmdRecipe.h"
-#include "CmdQuit.h"
 #include "CmdBuy.h"
-#include "CmdSetWeather.h"
+#include "CmdQuit.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
+
+
+#ifdef AUFBAU
+
 #include "CmdForecast.h"
 #include "CmdProduce.h"
 #include "CmdLoad.h"
 #include "CmdSave.h"
+
+#endif //AUFBAU
 
 using std::unique_ptr;
 
@@ -38,19 +45,20 @@ GameHandler::GameHandler()
   try
   {
   // TODO:  possibly add out of mem exception handling later
+    commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
     commands_.push_back(unique_ptr<Command>(new CmdEcho()));
+    commands_.push_back(unique_ptr<Command>(new CmdPlay()));
     commands_.push_back(unique_ptr<Command>(new CmdBalance()));
     commands_.push_back(unique_ptr<Command>(new CmdQuote()));
     commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
-    commands_.push_back(unique_ptr<Command>(new CmdQuit()));
     commands_.push_back(unique_ptr<Command>(new CmdBuy()));
-    commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
+    commands_.push_back(unique_ptr<Command>(new CmdQuit()));
 
 #ifdef AUFBAU
-    //commands_.push_back(unique_ptr<Command>(new CmdForecast()));
+    commands_.push_back(unique_ptr<Command>(new CmdForecast()));
     commands_.push_back(unique_ptr<Command>(new CmdProduce()));
-    //commands_.push_back(unique_ptr<Command>(new CmdLoad()));
-    //commands_.push_back(unique_ptr<Command>(new CmdSave()));
+    commands_.push_back(unique_ptr<Command>(new CmdLoad()));
+    commands_.push_back(unique_ptr<Command>(new CmdSave()));
 #endif //AUFBAU
   }
   catch(std::bad_alloc& exception)
