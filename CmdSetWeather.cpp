@@ -37,12 +37,18 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   EnvironmentalCondition::Rank wind;
 
   Parse parser;
+  EnvironmentalEngine get_enums;
+  
   try
   {
     int_cover = parser.parseInteger(params[0]);
     int_precipitation = parser.parseInteger(params[1]);
     temperature = parser.parseFloat(params[2]);
     int_wind = parser.parseInteger(params[3]);
+
+    sky_cover = get_enums.toCover(int_cover);
+    precipitation = get_enums.toRank(int_precipitation);
+    wind = get_enums.toRank(int_wind);
   }
   catch(const ExceptionDataType& exception)
   {
@@ -50,10 +56,6 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
     return 0;
   }
 
-  EnvironmentalEngine get_enums;
-  sky_cover = get_enums.toCover(int_cover);
-  precipitation = get_enums.toRank(int_precipitation);
-  wind = get_enums.toRank(int_wind);
 
   game.getCondition() -> setSkyCover(sky_cover);
   game.getCondition() -> setPrecipitation(precipitation);

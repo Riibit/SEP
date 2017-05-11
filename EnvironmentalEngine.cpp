@@ -13,6 +13,7 @@
 #include <cstdlib>
 #include "EnvironmentalEngine.h"
 #include <iostream>
+#include "ExceptionDataType.h"
 
 EnvironmentalEngine::EnvironmentalEngine()
 {
@@ -64,6 +65,11 @@ EnvironmentalCondition::Rank EnvironmentalEngine::randomRank()
 
 EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 {
+  if(input > 3)
+  {
+    throw ExceptionDataType();
+  }
+  
   switch(input)
   {
     case 0 :
@@ -83,6 +89,11 @@ EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 
 EnvironmentalCondition::Rank EnvironmentalEngine::toRank(unsigned int input)
 {
+  if(input > 3)
+  {
+    throw ExceptionDataType();
+  }
+
   switch(input)
   {
     case 0 :
