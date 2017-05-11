@@ -34,7 +34,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   unsigned int money_value = game.getResourceMoney(); // not a pyramid scheme
   unsigned int lemon_price = game.getPriceLemon();
   unsigned int sugar_price = game.getPriceSugar();
-
+  
+  // local variables
+  unsigned int money_spent = 0;
   unsigned int sugar_buy_amount = 0;
   unsigned int lemon_buy_amount = 0;
 
@@ -58,8 +60,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
     {
       lemon_value += lemon_buy_amount;
       sugar_value += sugar_buy_amount;
-      money_value -= lemon_buy_amount * lemon_price;
-      money_value -= sugar_buy_amount * sugar_price;
+      money_spent += lemon_buy_amount * lemon_price; 
+      money_spent += sugar_buy_amount * sugar_price; 
+      money_value -= money_spent;
       break;
     }
     if(error_output)
