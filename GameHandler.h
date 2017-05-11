@@ -63,7 +63,9 @@ class GameHandler
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
     void setResourceBalance(int balance);
+    void setResourceLemonade(unsigned int amount);
     void setExpenses(unsigned int expenditures);
+
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
@@ -76,8 +78,9 @@ class GameHandler
     unsigned int getResourceLemon();
     unsigned int getResourceSugar();
     unsigned int getResourceMoney();
-    int getResourceBalance();
     unsigned int getExpenses();
+    unsigned int getResourceLemonade();
+    int getResourceBalance();
 
     unsigned int getPriceLemonade();
     unsigned int getPriceLemon();
@@ -136,6 +139,7 @@ class GameHandler
       unsigned int money;
       int balance;
       unsigned int money_spent;
+      unsigned int lemonade;
     } resources_;
 
     //--------------------------------------------------------------------------
