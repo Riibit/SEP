@@ -34,19 +34,19 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
 
   if(game.getCondition() -> isItStormy())
   {
-    customer_count = customer_count * VALUE_STORMY;
+    customer_count = std::round(customer_count * VALUE_STORMY);
   }
   else if(game.getCondition() -> isItRainy())
   {
-    customer_count = customer_count * VALUE_RAINY;
+    customer_count = std::round(customer_count * VALUE_RAINY);
   }
   else if(game.getCondition() -> isItCloudy())
   {
-    customer_count = customer_count * VALUE_CLOUDY;
+    customer_count = std::round(customer_count * VALUE_CLOUDY);
   }
   else if(game.getCondition() -> isItHot())
   {
-    customer_count = customer_count * VALUE_HOT;
+    customer_count = std::round(customer_count * VALUE_HOT);
   }
 
 #ifdef AUFBAU
