@@ -167,7 +167,7 @@ void GameHandler::setResourceBalance(int balance)
   resources_.balance = balance;
 }
 
-void setResourceLemonade(unsigned int amount)
+void GameHandler::setResourceLemonade(unsigned int amount)
 {
   resources_.lemonade = amount;
 }
@@ -197,7 +197,7 @@ int GameHandler::getResourceBalance()
   return resources_.balance;
 }
 
-unsigned int getResourceLemonade()
+unsigned int GameHandler::getResourceLemonade()
 {
   return resources_.lemonade;
 }
