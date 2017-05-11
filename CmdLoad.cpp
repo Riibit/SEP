@@ -10,8 +10,9 @@
 //
 
 #include "CmdLoad.h"
+#include "Parse.h"
 
-
+const std::string FILENAME = "";
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
 

@@ -13,7 +13,6 @@
 #define CMD_LOAD
 
 #include "Command.h"
-#include "Parse.h"
 
 //----------------------------------------------------------------------------
 // CmdLoad Class
@@ -47,7 +46,7 @@ class CmdLoad : public Command
 
     //--------------------------------------------------------------------------
     // Filename recieved from promt
-    static const std::string FILENAME = "";    
+    static const std::string FILENAME;    
 };
 
 #endif //CMD_LOAD

@@ -13,7 +13,6 @@
 #define CMD_SAVE
 
 #include "Command.h"
-#include "Parse.h"
 
 //----------------------------------------------------------------------------
 // CmdSave Class
@@ -47,7 +46,7 @@ class CmdSave : public Command
 
     //--------------------------------------------------------------------------
     // Filename recieved from promt
-    static const std::string FILENAME = "";    
+    static const std::string FILENAME;    
 };
 
 #endif //CMD_SAVE

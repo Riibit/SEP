@@ -10,7 +10,9 @@
 //
 
 #include "CmdSave.h"
+#include "Parse.h"
 
+const std::string FILENAME = "";
 const std::string CmdSave::CMD_NAME = "save";
 const std::string CmdSave::ERR_CMD = "[ERR] Usage: save <filename>";
 
