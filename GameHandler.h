@@ -65,6 +65,7 @@ class GameHandler
     void setResourceBalance(int balance);
     void setResourceLemonade(unsigned int amount);
     void setExpenses(unsigned int expenditures);
+    void setCustomerSatisfaction(int satisfaction);
 
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
@@ -89,6 +90,9 @@ class GameHandler
     unsigned int getRecipeLemon();
     unsigned int getRecipeSugar();
     unsigned int getRecipeWater();
+
+    int getCustomerSatisfaction();
+    float getSatisfactionFactor();
 
     const std::unique_ptr<EnvironmentalCondition>& getCondition() const;
 
@@ -128,7 +132,7 @@ class GameHandler
 
     //--------------------------------------------------------------------------
     // The percentage value of the customers satisfaction
-    static const int CUSTOMER_SATISFACTION = 100;  
+    int customer_satisfaction = 100;  
 
     //--------------------------------------------------------------------------
     // The object that contains the Environmental Condition

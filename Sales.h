@@ -60,6 +60,7 @@ class Sales
     static const int TWENTY = 20;
     static const int FIFTY = 50;
     static const int HUNDRED = 100;
+    static const int TEN = 10;
 
     //--------------------------------------------------------------------------
     // The biggest loss in sales possible

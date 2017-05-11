@@ -49,9 +49,9 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
     customer_count = customer_count * VALUE_HOT;
   }
 
-  #ifdef AUFBAU
-
-  #endif //AUFBAU customer_satisfaction
+#ifdef AUFBAU
+  customer_count = std::round(customer_count * game.getSatisfactionFactor());
+#endif //AUFBAU customer_satisfaction
   return customer_count;
 }
 
@@ -135,35 +135,38 @@ void Sales::calculateSales(GameHandler& game)
   int customers = calculateCustomers(game);
   int sale_percent = calculateSaleInfluence(game);
   int lemonade_price = game.getPriceLemonade();
-  //int lemonade_stock = game.getStockLemonade();
   int revenue;
   int balance;
   int money;
+  int satisfaction_changed;
   float influence_factor = sale_percent / 100;
 
   customers = std::round(customers * influence_factor);
 
   if(customers > game.getResourceLemonade())
   {
-    if(GameHandler::CUSTOMER_SATISFACTION < 10)
+    if(game.getCustomerSatisfaction() < TEN)
     {
-
     }
     else
     {
-      GameHandler::CUSTOMER_SATISFACTION -= 10;
+      satisfaction_changed = game.getCustomerSatisfaction();
+      satisfaction_changed -= TEN;
+      game.setCustomerSatisfaction(satisfaction_changed);
     }
     customers = game.getResourceLemonade();
   }
   else
   {
-    if(GameHandler::CUSTOMER_SATISFACTION > 110)
+    if(game.getCustomerSatisfaction() > 110)
     {
 
     }
     else
     {
-      GameHandler::CUSTOMER_SATISFACTION += 10;
+      satisfaction_changed = game.getCustomerSatisfaction();
+      satisfaction_changed += TEN;
+      game.setCustomerSatisfaction(satisfaction_changed);
     }  
   }
 
