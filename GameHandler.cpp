@@ -22,7 +22,10 @@
 #include "CmdSetWeather.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
+#include "CmdForecast.h"
 #include "CmdProduce.h"
+#include "CmdLoad.h"
+#include "CmdSave"
 
 using std::unique_ptr;
 
