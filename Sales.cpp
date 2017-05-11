@@ -143,18 +143,17 @@ void Sales::calculateSales(GameHandler& game)
 
   customers = std::round(customers * influence_factor);
 
-/* 
-  if(customers > lemonade_stock)
+  if(customers > game.getResourceLemonade())
   {
     //Zufriedenheit -10%
-    customers = lemonade_stock;
+    customers = game.getResourceLemonade();
   }
   else
   {
     
     //Zufriedenheit +10%
   }
-*/
+
   revenue = customers * lemonade_price;
   balance = revenue - game.getExpenses();
   game.setResourceBalance(balance);
