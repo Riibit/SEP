@@ -19,6 +19,7 @@
 #include "CmdRecipe.h"
 #include "CmdQuit.h"
 #include "CmdBuy.h"
+#include "CmdSetWeather.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
 
@@ -37,6 +38,7 @@ GameHandler::GameHandler()
   commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
   commands_.push_back(unique_ptr<Command>(new CmdQuit()));
   commands_.push_back(unique_ptr<Command>(new CmdBuy()));
+  commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
   // initialize player resources
   resources_.lemons = LEMONS_INITIAL_VALUE;
   resources_.sugar = SUGAR_INITIAL_VALUE;
@@ -165,7 +167,7 @@ void GameHandler::setResourceBalance(int balance)
   resources_.balance = balance;
 }
 
-void setResourceLemonade(unsigned int amount)
+void GameHandler::setResourceLemonade(unsigned int amount)
 {
   resources_.lemonade = amount;
 }
@@ -195,7 +197,7 @@ int GameHandler::getResourceBalance()
   return resources_.balance;
 }
 
-unsigned int getResourceLemonade()
+unsigned int GameHandler::getResourceLemonade()
 {
   return resources_.lemonade;
 }

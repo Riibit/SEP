@@ -75,6 +75,11 @@ class Command
 
     const std::string& getErrorMessage() const;
 
+    //--------------------------------------------------------------------------
+    // The error message displays if the parameter is wrong or invalid
+    static const std::string ERR_WRONG_PARAMETER;
+
+
 
 };
 
