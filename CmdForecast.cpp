@@ -31,13 +31,12 @@ CmdForecast::CmdForecast() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 
 int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  EnvironmentalCondition condition;
   Parse parser;
 
-  int sky_cover = static_cast<int>(condition.getSkyCover());
-  int precipitation = static_cast<int>(condition.getPrecipitation());
-  float temperature = condition.getTemperature();
-  int wind = static_cast<int>(condition.getWind());
+  int sky_cover = static_cast<int>(game.getCondition() -> getSkyCover());
+  int precipitation = static_cast<int>(game.getCondition() -> getPrecipitation());
+  float temperature = game.getCondition() -> getTemperature();
+  int wind = static_cast<int>(game.getCondition() -> getWind());
   float under_temperature;
   float over_temperature;
 
@@ -77,8 +76,8 @@ int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
   << " and " << parser.parseCover(over_sky_cover) << endl
   << "Precipitation: Between " << parser.parseRank(under_precipitation)
   << " and " << parser.parseRank(over_precipitation) << endl
-  << "Temperature: Between " << under_temperature
-  << " and " << over_temperature << endl
+  << "Temperature: Between " << under_temperature << "°C"
+  << " and " << over_temperature << "°C" << endl
   << "Wind: Between " << parser.parseRank(under_wind)
   << " and " << parser.parseRank(over_wind) << endl;
 
