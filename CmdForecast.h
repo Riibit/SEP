@@ -37,6 +37,24 @@ class CmdForecast : public Command
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------
+    // Calculates the lower enum values
+    //
+    // @param int The enum value casted into int
+    //
+    // @return int Returns the lower value
+    //
+    int weatherLower(int enum_value);
+
+    //--------------------------------------------------------------------------
+    // Calculates the higher enum values
+    //
+    // @param int The enum value casted into int
+    //
+    // @return int Returns the higher value
+    //
+    int weatherHigher(int enum_value);
+
+    //--------------------------------------------------------------------------
     /// The name of the command
     static const std::string CMD_NAME;
 
