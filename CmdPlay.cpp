@@ -15,6 +15,7 @@
 #include "GameHandler.h"
 #include "Sales.h"
 #include "Produce.h"
+#include "EnvironmentalEngine.h"
 #include "HTMLWriterBalance.h"
 #include "HTMLWriterEnvironment.h"
 
@@ -43,7 +44,23 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 
 #endif // AUFBAU
 
+
   sales.calculateSales(game);
+
+  EnvironmentalEngine engine;
+
+
+#ifdef AUFBAU
+
+  engine.realisticCondition(game.getCondition());
+
+#else
+
+  engine.randomizeCondition(game.getCondition());
+
+#endif // AUFBAU
+
+
 
   HTMLWriterEnvironment environment_writer("testfile.html");
   environment_writer.writeFile(game.getCondition());
