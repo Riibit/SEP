@@ -224,7 +224,7 @@ void GameHandler::setExpenses(unsigned int expenditures)
 
 void GameHandler::setCustomerSatisfaction(int satisfaction)
 {
-  customer_satisfaction = satisfaction;
+  customer_satisfaction_ = satisfaction;
 }
 
 unsigned int GameHandler::getResourceLemon()
@@ -295,13 +295,13 @@ unsigned int GameHandler::getRecipeWater()
 
 int GameHandler::getCustomerSatisfaction()
 {
-  return customer_satisfaction;
+  return customer_satisfaction_;
 }
 
 float GameHandler::getSatisfactionFactor()
 {
   float divisor = 100;
-  return customer_satisfaction / divisor;
+  return customer_satisfaction_ / divisor;
 }
 
 const std::unique_ptr<EnvironmentalCondition>& GameHandler::getCondition() const

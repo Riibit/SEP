@@ -65,6 +65,10 @@ class CmdForecast : public Command
     //--------------------------------------------------------------------------
     /// Number of Parameters for this function
     static const unsigned int PARA_COUNT = 0;
+
+    //--------------------------------------------------------------------------
+    /// Temperature swing value
+    static const int SWING = 5;
 };
 
 #endif //CMD_FORECAST_H

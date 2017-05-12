@@ -133,7 +133,7 @@ class GameHandler
     
     //--------------------------------------------------------------------------
     // The percentage value of the customers satisfaction
-    int customer_satisfaction = 100;  
+    int customer_satisfaction_ = 100;  
 
     //--------------------------------------------------------------------------
     // The object that contains the Environmental Condition
