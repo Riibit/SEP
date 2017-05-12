@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 //
 
-#define AUFBAU
+//#define AUFBAU
 
 #include <iostream>
 #include "GameHandler.h"
