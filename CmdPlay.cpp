@@ -65,5 +65,9 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
   HTMLWriterEnvironment environment_writer("testfile.html");
   environment_writer.writeFile(game.getCondition());
 
+  HTMLWriterBalance balance_writer("Balance.html");
+  balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
+    game.getResourceMoney(), game.getResourceBalance());
+
   return 0;
 }
