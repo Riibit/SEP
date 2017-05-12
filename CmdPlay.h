@@ -14,6 +14,8 @@
 
 #include "Command.h"
 
+class GameHandler;
+
 //------------------------------------------------------------------------------
 // CmdPlay Class
 // Class for the play command.
@@ -39,7 +41,7 @@ class CmdPlay : public Command
 
     //--------------------------------------------------------------------------
     // The error message if the parameter count is not right
-    static const std::string ERR_PLAY;
+    static const std::string ERR_CMD;
 
     //--------------------------------------------------------------------------
     // Number of Parameters for this function
