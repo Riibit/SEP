@@ -53,6 +53,10 @@ class Produce
     //--------------------------------------------------------------------------
     // Return Value if resources are not enough to produce the asked quantity
     static const int NOT_ENOUGH_RESOURCES = 2;
+
+    //--------------------------------------------------------------------------
+    // The value for producing Lemonade
+    static const int PRODUCTION_MODULO = 4;
 };
 
 #endif //PRODUCE_H
