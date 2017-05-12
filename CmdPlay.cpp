@@ -9,7 +9,8 @@
 //------------------------------------------------------------------------------
 //
 
-//#include <iostream>
+#include <iostream> // ----------------------------------------------- DEBUG
+#include <cmath>
 #include "CmdPlay.h"
 #include "GameHandler.h"
 #include "Sales.h"
@@ -26,8 +27,23 @@ CmdPlay::CmdPlay() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 
 int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  Produce produce();
-  Sales sales();
+  Sales sales;
+
+#ifndef AUFBAU
+
+  Produce produce;
+  int to_produce = 0;
+  float influence_factor = sales.calculateSaleInfluence(game) / 100.0f;
+  to_produce = std::round(sales.calculateCustomers(game) * influence_factor);
+
+  to_produce += Produce::PRODUCTION_MODULO - 
+    (to_produce % Produce::PRODUCTION_MODULO);
+
+  produce.produceLemonade(game, to_produce);
+
+#endif // AUFBAU
+
+  sales.calculateSales(game);
 
   HTMLWriterEnvironment environment_writer("testfile.html");
   environment_writer.writeFile(game.getCondition());

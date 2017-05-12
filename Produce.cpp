@@ -22,7 +22,7 @@ Produce::~Produce()
 
 int Produce::produceLemonade(GameHandler& game, unsigned int quantity)
 {
-  if(quantity % 4)
+  if(quantity % PRODUCTION_MODULO)
   {
     return NOT_DIVISIBLE_BY_FOUR;
   }
@@ -46,7 +46,7 @@ int Produce::produceLemonade(GameHandler& game, unsigned int quantity)
     return_value = NOT_ENOUGH_RESOURCES;
     while(needed_lemon > lemon_stock || needed_sugar > sugar_stock)
     {
-      quantity -= 4;
+      quantity -= PRODUCTION_MODULO;
       needed_lemon = needed_lemon_per_lemonade * quantity;
       needed_sugar = needed_sugar_per_lemonade * quantity;
     }
@@ -58,6 +58,6 @@ int Produce::produceLemonade(GameHandler& game, unsigned int quantity)
   // Update Stock
   game.setResourceLemon(lemon_stock - needed_lemon);
   game.setResourceSugar(sugar_stock - needed_sugar);
-  
+
   return return_value;
 }
