@@ -10,6 +10,8 @@
 //
 #include <fstream>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 #include "CmdLoad.h"
 #include "Parse.h"
@@ -66,11 +68,57 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   }
   else
   {
-    /*while(getline(savefile, savefile_line))
+    while(getline(savefile, savefile_line))
     {
-      
-    }*/
+      std::vector<std::string> save_line_arguments;
+      std::stringstream stream(savefile_line);
+      std::string argument;
+      char line_char;
+      // get tag content
+      while(!stream.eof())
+      {
+        argument.clear();
+
+          
+        while(!isBracket((line_char = stream.get())))
+        {
+          argument.push_back(line_char);
+        }
+        if(!argument.empty())
+        {
+          save_line_arguments.push_back(argument);
+        }
+      }
+      for (unsigned int i = 0; i < save_line_arguments.size(); i++)
+      {
+        std::cout << save_line_arguments[i] << std::endl;
+      }
+      // check tag validity
+
+      // invalid savefile if tag not found
+
+      // get value current tag
+
+      // set variable to value 
+    }
     savefile.close();
   }
   return 0;
+}
+
+bool CmdLoad::checkTagValidity(std::string tag)
+{
+  return true; // TEMPORARYYYYYYYYYYY!
+}
+
+bool CmdLoad::isBracket(char current_char)
+{
+  if (current_char == '<' || current_char == '>' || current_char == EOF || current_char == ' ')
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }

@@ -26,6 +26,10 @@ class CmdLoad : public Command
     // Constructor
     CmdLoad();
 
+    bool isBracket(char current_char);
+
+    bool checkTagValidity(std::string tag);
+
     //--------------------------------------------------------------------------
     // Executes the command.
     // @param game The game where action should be performed on
