@@ -14,6 +14,8 @@
 
 #include "Command.h"
 
+class GameHandler;
+
 //------------------------------------------------------------------------------
 // CmdPlay Class
 // Class for the play command.
