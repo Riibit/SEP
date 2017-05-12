@@ -37,8 +37,11 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
   float influence_factor = sales.calculateSaleInfluence(game) / 100.0f;
   to_produce = std::round(sales.calculateCustomers(game) * influence_factor);
 
-  to_produce += Produce::PRODUCTION_MODULO - 
-    (to_produce % Produce::PRODUCTION_MODULO);
+  if(to_produce % Produce::PRODUCTION_MODULO)
+  {
+    to_produce += Produce::PRODUCTION_MODULO - 
+      (to_produce % Produce::PRODUCTION_MODULO);
+  }
 
   produce.produceLemonade(game, to_produce);
 
