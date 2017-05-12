@@ -30,7 +30,7 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
   Sales sales();
 
   HTMLWriterEnvironment environment_writer("testfile.html");
-  environment_writer.writeFile(*game.getCondition());
+  environment_writer.writeFile(game.getCondition());
 
   return 0;
 }
