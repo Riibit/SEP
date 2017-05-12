@@ -37,7 +37,7 @@ uint Parse::parseInteger(std::string string)
   {
     to_return = std::stoi(string);
   }
-  catch(const std::out_of_range& exception)
+  catch(const std::exception& exception)
   {
     throw ExceptionDataType();
     return to_return;
@@ -52,12 +52,7 @@ float Parse::parseFloat(std::string input)
   {
     to_return = stof(input);
   }
-  catch(const std::invalid_argument& exception)
-  {
-    throw ExceptionDataType();
-    return to_return;
-  }
-  catch(const std::out_of_range& exception)
+  catch(const std::exception& exception)
   {
     throw ExceptionDataType();
     return to_return;
