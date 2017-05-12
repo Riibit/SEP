@@ -61,13 +61,13 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   game.getCondition() -> setPrecipitation(precipitation);
   game.getCondition() -> setWind(wind);
 
-  if(!(game.getCondition() -> setTemperature(temperature)))
+  if(game.getCondition() -> setTemperature(temperature))
   {
-    game.getCondition() -> setTemperature(temperature);
+    std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
   }
   else
   {
-    std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
+
   }
 
   return 0;

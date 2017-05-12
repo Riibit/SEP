@@ -87,7 +87,6 @@ int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
 
 int CmdForecast::weatherLower(int enum_value)
 {
-
   if(enum_value != 0)
   {
     enum_value -= 1;
@@ -101,7 +100,6 @@ int CmdForecast::weatherLower(int enum_value)
 
 int CmdForecast::weatherHigher(int enum_value)
 {
-
   if(enum_value != 3)
   {
     enum_value += 1;
