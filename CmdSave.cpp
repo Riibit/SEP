@@ -30,55 +30,55 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
   std::fstream savefile;
   savefile.open(save_filename.c_str(), ios::in | ios::out | ios::trunc);
 
-   savefile << "<savefile>" << std::endl
+  savefile << "<savefile>" << std::endl
 
-   << "  <weather>" << std::endl
+  << "  <weather>" << std::endl
 
-   << "    <wind>" << game.getCondition() -> getWind()
-   << "</wind>" << std::endl
-   << "    <temperature>" << game.getCondition() -> getTemperature()
-   << "</temperature>" << std::endl
-   << "    <precipitation>" << game.getCondition() -> getPrecipitation()
-   << "</precipitation>" << std::endl
-   << "    <cover>" << game.getCondition() -> getSkyCover()
-   << "</cover>" << std::endl
+  << "    <wind>" << game.getCondition() -> getWind()
+  << "</wind>" << std::endl
+  << "    <temperature>" << game.getCondition() -> getTemperature()
+  << "</temperature>" << std::endl
+  << "    <precipitation>" << game.getCondition() -> getPrecipitation()
+  << "</precipitation>" << std::endl
+  << "    <cover>" << game.getCondition() -> getSkyCover()
+  << "</cover>" << std::endl
 
-   << "  </weather>" << std::endl
+  << "  </weather>" << std::endl
   
-   << "  <stats>" << std::endl
+  << "  <stats>" << std::endl
 
-   << "    <cash>" << game.getResourceMoney()
-   << "</cash>" << std::endl
+  << "    <cash>" << game.getResourceMoney()
+  << "</cash>" << std::endl
 
-   << "    <balance>" << game.getResourceBalance()
-   << "</balance>" << std::endl
+  << "    <balance>" << game.getResourceBalance()
+  << "</balance>" << std::endl
 
-   << "    <income>" << game.getResourceIncome()
-   << "</income>" << std::endl
+  << "    <income>" << game.getResourceIncome()
+  << "</income>" << std::endl
 
-   << "    <expense>" << game.getExpenses()
-   << "</expense>" << std::endl
+  << "    <expense>" << game.getExpenses()
+  << "</expense>" << std::endl
 
-   << "    <lemons>" << game.getResourceLemon()
-   << "</lemons>" << std::endl
+  << "    <lemons>" << game.getResourceLemon()
+  << "</lemons>" << std::endl
 
-   << "    <sugar>" << game.getResourceSugar()
-   << "</sugar>" << std::endl
+  << "    <sugar>" << game.getResourceSugar()
+  << "</sugar>" << std::endl
 
-   << "    <lemonade>" << game.getResourceLemonade()
-   << "</lemonade>" << std::endl
+  << "    <lemonade>" << game.getResourceLemonade()
+  << "</lemonade>" << std::endl
 
-   << "    <pricesugar>" << game.getPriceSugar()
-   << "</pricesugar>" << std::endl
+  << "    <pricesugar>" << game.getPriceSugar()
+  << "</pricesugar>" << std::endl
 
-   << "    <pricelemons>" << game.getPriceLemon()
-   << "</pricelemons>" << std::endl
+  << "    <pricelemons>" << game.getPriceLemon()
+  << "</pricelemons>" << std::endl
 
-   << "    <pricelemonade>" << game.getPriceLemonade()
-   << "</pricelemonade>" << std::endl
-   << "  </stats>" << std::endl
+  << "    <pricelemonade>" << game.getPriceLemonade()
+  << "</pricelemonade>" << std::endl
+  << "  </stats>" << std::endl
 
-   << "</savefile>" << std::endl;
+  << "</savefile>" << std::endl;
 
   savefile.close();
   return 0;
