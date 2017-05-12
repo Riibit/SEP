@@ -23,8 +23,13 @@
 #include "CmdQuit.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
-// LINE BELOW GOES IN AUFBAU LATER, ALLOWS CMDSAVE TO AVOID COMPILER ERRORS
+// LINE BELOW TO BE DELETED FROM HERE LATER AS IT IS PART OF AUFBAU
+// ALLOWS CMDSAVE TO AVOID COMPILER ERRORS
 #include "CmdSave.h" 
+// ----------------
+// LINE BELOW TO BE DELETED FROM HERE LATER AS IT IS PART OF AUFBAU
+// ALLOWS CMDLOAD TO AVOID COMPILER ERRORS
+#include "CmdLoad.h"
 // ----------------
 
 #ifdef AUFBAU
@@ -55,8 +60,13 @@ GameHandler::GameHandler()
     commands_.push_back(unique_ptr<Command>(new CmdRecipe()));
     commands_.push_back(unique_ptr<Command>(new CmdBuy()));
     commands_.push_back(unique_ptr<Command>(new CmdQuit()));
-    // LINE BELOW GOES IN AUFBAU LATER, ALLOWS CMDSAVE TO AVOID COMPILER ERRORS
+    // LINE BELOW TO BE DELETED FROM HERE LATER AS IT IS PART OF AUFBAU
+    // ALLOWS CMDSAVE TO AVOID COMPILER ERRORS
     commands_.push_back(unique_ptr<Command>(new CmdSave())); 
+    // -----------
+    // LINE BELOW TO BE DELETED FROM HERE LATER AS IT IS PART OF AUFBAU
+    // ALLOWS CMDLOAD TO AVOID COMPILER ERRORS
+    commands_.push_back(unique_ptr<Command>(new CmdLoad()));
     // -----------
 #ifdef AUFBAU
     commands_.push_back(unique_ptr<Command>(new CmdForecast()));
