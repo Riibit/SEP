@@ -12,6 +12,7 @@
 #ifndef CMD_LOAD
 #define CMD_LOAD
 
+#include <vector>
 #include "Command.h"
 
 //----------------------------------------------------------------------------
@@ -44,6 +45,28 @@ class CmdLoad : public Command
     // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 1;
 
+    //--------------------------------------------------------------------------
+    // Tag strings
+    static const std::string TAG_SAVEFILE;
+    static const std::string TAG_STATS;
+    static const std::string TAG_WEATHER;
+    static const std::string TAG_WIND;
+    static const std::string TAG_TEMPERATURE;
+    static const std::string TAG_PRECIPITATION;
+    static const std::string TAG_COVER;
+    static const std::string TAG_CASH;
+    static const std::string TAG_BALANCE;
+    static const std::string TAG_INCOME;
+    static const std::string TAG_EXPENSE;
+    static const std::string TAG_LEMONS;
+    static const std::string TAG_SUGAR;
+    static const std::string TAG_PRICESUGAR;
+    static const std::string TAG_PRICELEMONS;
+
+
+    //--------------------------------------------------------------------------
+    // Contains all possible tags
+    std::vector<std::string> tag_collection_;
 };
 
 #endif //CMD_LOAD
