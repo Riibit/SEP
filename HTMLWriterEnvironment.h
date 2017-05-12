@@ -14,6 +14,7 @@
 
 #include "HTMLWriter.h"
 #include "EnvironmentalCondition.h"
+#include <memory>
 
 //------------------------------------------------------------------------------
 // The class for writing Environment HTML files
@@ -22,7 +23,7 @@ class HTMLWriterEnvironment : public HTMLWriter
 {
   public:
     using HTMLWriter::HTMLWriter;
-    void writeFile(EnvironmentalCondition conditions);
+    void writeFile(const std::unique_ptr<EnvironmentalCondition>& condition);
 
     static const std::string ICON_SUNNY;
     static const std::string ICON_CLOUDY;
