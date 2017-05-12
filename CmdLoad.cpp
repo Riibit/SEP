@@ -106,8 +106,12 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   return 0;
 }
 
-bool CmdLoad::checkTagValidity(std::string tag)
+bool CmdLoad::checkTagValid(std::string tag)
 {
+  if (/* condition */)
+  {
+    /* code */
+  }
   return true; // TEMPORARYYYYYYYYYYY!
 }
 
