@@ -42,7 +42,6 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
     to_produce += Produce::PRODUCTION_MODULO - 
       (to_produce % Produce::PRODUCTION_MODULO);
   }
-  std::cout << "to_produce = " << to_produce << std::endl;
   
   produce.produceLemonade(game, to_produce);
 
@@ -66,12 +65,13 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 
 
 
-  HTMLWriterEnvironment environment_writer("testfile.html");
+  HTMLWriterEnvironment environment_writer("Environment.html");
   environment_writer.writeFile(game.getCondition());
 
   HTMLWriterBalance balance_writer("Balance.html");
   balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
     game.getResourceMoney(), game.getResourceBalance());
 
+  game.resetStandardRecipe();
   return 0;
 }

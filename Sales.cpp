@@ -119,15 +119,13 @@ int Sales::calculateSaleInfluence(GameHandler& game)
   
   if(game.getRecipeWater() > 98)
   {
-    std::cout << "xxxxxxxxxxx " << sale_percent << std::endl;
     sale_percent -= HUNDRED;
   }  
-  std::cout << "after calcSat = " << sale_percent << std::endl;
+
   if(sale_percent < MINIMUM_PERCENT)
   {
     sale_percent = MINIMUM_PERCENT;
   } 
-  std::cout << "after calcSat = " << sale_percent << std::endl;
   return sale_percent + 100;   
 }
 
