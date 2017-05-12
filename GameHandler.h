@@ -53,30 +53,28 @@ class GameHandler
     //
     void resetStandardRecipe();
 
+    void addExpenses(unsigned int expenditures);
+
     //--------------------------------------------------------------------------
     // Setter Methods
-    //
     void setInterfaceParameters(std::vector<std::string>* 
       interface_parameters);
     void setInterfaceCommand(std::string* command_name);
     void setResourceLemon(unsigned int lemon_value);
     void setResourceSugar(unsigned int sugar_value);
     void setResourceMoney(unsigned int money_value);
-    void setResourceBalance(int balance);
     void setResourceIncome(unsigned int value);
     void setResourceLemonade(unsigned int amount);
-    void setExpenses(unsigned int expenditures);
     void setCustomerSatisfaction(int satisfaction);
-
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
-    void setCondition(std::shared_ptr<EnvironmentalCondition>& 
-      environment_condition);
+    //--------------------------------------------------------------------------
+    // Calculates the current balance
+    void calculateBalance();
 
     //--------------------------------------------------------------------------
     // Getter Methods
-    //
     unsigned int getResourceLemon();
     unsigned int getResourceSugar();
     unsigned int getResourceMoney();
@@ -148,7 +146,7 @@ class GameHandler
       unsigned int money;
       int balance;
       unsigned int income;
-      unsigned int money_spent;
+      unsigned int expenses;
       unsigned int lemonade;
     } resources_;
 

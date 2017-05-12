@@ -136,7 +136,6 @@ void Sales::calculateSales(GameHandler& game)
   int sale_percent = calculateSaleInfluence(game);
   int lemonade_price = game.getPriceLemonade();
   int revenue;
-  int balance;
   int money;
   int satisfaction_changed;
   float influence_factor = sale_percent / 100.0f;
@@ -171,13 +170,13 @@ void Sales::calculateSales(GameHandler& game)
   }
 
   revenue = customers * lemonade_price;
-  game.setResourceIncome(revenue);
-  balance = revenue - game.getExpenses();
-  game.setResourceBalance(balance);
-  
+
   money = game.getResourceMoney();
   money += revenue;
   game.setResourceMoney(money);
+
+  game.setResourceIncome(revenue);
+  game.calculateBalance();
 }
 
 
