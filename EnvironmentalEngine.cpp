@@ -26,9 +26,10 @@ EnvironmentalEngine::~EnvironmentalEngine()
 
 std::unique_ptr<EnvironmentalCondition> EnvironmentalEngine::createCondition()
 {
+  float temperature = randomTemperature();
   return std::unique_ptr<EnvironmentalCondition>
     (new EnvironmentalCondition(randomCover(), randomRank(), 
-    randomTemperature(), randomRank()));
+    temperature, randomRank()));
 }
 
 void EnvironmentalEngine::randomizeCondition(
@@ -96,12 +97,10 @@ float EnvironmentalEngine::randomTemperature()
 {
   float temperature;
 
-  temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
+  temperature = ((rand() % 25) + EnvironmentalCondition::MIN_TEMP);
 
-  if(temperature <= EnvironmentalCondition::MAX_TEMP)
-  {
-    temperature += ((rand() % 10) / 10.0f);
-  }
+  temperature += ((rand() % 10) / 10.0f);
+
   return temperature;
 }
 

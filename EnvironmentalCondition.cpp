@@ -124,10 +124,13 @@ bool EnvironmentalCondition::setTemperature(float temperature)
 {
   if(temperature >= MAX_TEMP || temperature <= MIN_TEMP)
   {
-    temperature_ = temperature;
     return true;
   }
-  return false;
+  else
+  {
+    temperature_ = temperature;
+    return false;
+  }
 }
 
 float EnvironmentalCondition::getTemperature(void)
