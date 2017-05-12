@@ -57,12 +57,12 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   bool error_output = true;
   while(1)
   {
-    if (( lemon_buy_amount * lemon_price  + 
-    sugar_buy_amount * sugar_price) <= money_value )
+    if (( (lemon_buy_amount * lemon_price)  + 
+    (sugar_buy_amount * sugar_price)) <= money_value )
     {
       lemon_value += lemon_buy_amount;
       sugar_value += sugar_buy_amount;
-      money_spent += lemon_buy_amount * lemon_price; 
+      money_spent = lemon_buy_amount * lemon_price; 
       money_spent += sugar_buy_amount * sugar_price; 
       money_value -= money_spent;
       break;
@@ -87,6 +87,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   cout << "S: " << sugar_value - game.getResourceSugar() << endl;
 
   // update game data
+  game.addExpenses(money_spent);
   game.setResourceSugar(sugar_value);
   game.setResourceLemon(lemon_value);
   game.setResourceMoney(money_value);
