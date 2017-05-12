@@ -60,16 +60,16 @@ int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
     static_cast<EnvironmentalCondition::Rank>(weatherHigher(wind));
 
 
-  under_temperature = temperature - 5;
-  if(under_temperature < 10)
+  under_temperature = temperature - SWING;
+  if(under_temperature < EnvironmentalCondition::MIN_TEMP)
   {
-    under_temperature = 10;
+    under_temperature = EnvironmentalCondition::MIN_TEMP;
   }
 
-  over_temperature = temperature + 5;
-  if(over_temperature > 35)
+  over_temperature = temperature + SWING;
+  if(over_temperature > EnvironmentalCondition::MAX_TEMP)
   {
-    over_temperature = 35;
+    over_temperature = EnvironmentalCondition::MAX_TEMP;
   }
 
   cout << "The weather forecast for next week is:" << endl
