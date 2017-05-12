@@ -84,11 +84,11 @@ std::string Parse::parseCover(EnvironmentalCondition::Cover cover)
 {
   switch(cover)
   {
-    case EnvironmentalCondition::NONE :
+    case EnvironmentalCondition::SUNNY :
       return "sunny";
-    case EnvironmentalCondition::LOW :
+    case EnvironmentalCondition::CLOUDY :
       return "cloudy";
-    case EnvironmentalCondition::MEDIUM :
+    case EnvironmentalCondition::OVERCAST :
       return "overcast";
     default :
       return "very overcast";

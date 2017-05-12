@@ -15,6 +15,7 @@
 #include "EnvironmentalEngine.h"
 
 #include <iostream>
+#include <string
 
 using std::cout;
 using std::endl;
@@ -29,6 +30,8 @@ CmdForecast::CmdForecast() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 
 int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
 {
+  EnvironmentalCondition condition;
 
+  int sky_cover = static_cast<int>(condition.getSkyCover());
   return 0;
 }
