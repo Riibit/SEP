@@ -13,6 +13,7 @@
 #define PARSE_H_INCLUDED
 
 #include <string>
+#include "EnvironmentalCondition.h"
 
 //------------------------------------------------------------------------------
 // Parse Class
@@ -31,16 +32,26 @@ class Parse
     ~Parse();
 
     //--------------------------------------------------------------------------
-    // Parses string to unsigned integer
+    // parseInteger Parses string to unsigned integer
     // @param input The string that is to be parsed
     // @return uint The parsed unsigned integer
+    //
     uint parseInteger(std::string input);
 
     //--------------------------------------------------------------------------
-    // Parses string to float
+    // parseFloat Parses string to float
     // @param input The string that is to be parsed
     // @return uint The parsed float
+    //
     float parseFloat(std::string input);
+
+    //--------------------------------------------------------------------------
+    // parseRank Parses Rank enum to string
+    // @param rank the Enum value to parse
+    // @return uint The parsed string
+    //
+    std::string parseRank(EnvironmentalCondition::Rank rank);
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor

@@ -31,7 +31,6 @@ class HTMLWriterEnvironment : public HTMLWriter
 
   private:
     std::string isItString(bool input);
-    std::string rankString(EnvironmentalCondition::Rank rank);
 };
 
 #endif // HTML_WRITER_ENV_H

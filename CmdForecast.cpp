@@ -11,6 +11,9 @@
 
 #include "CmdForecast.h"
 #include "GameHandler.h"
+#include "EnvironmentalCondition.h"
+#include "EnvironmentalEngine.h"
+
 #include <iostream>
 
 using std::cout;
@@ -26,5 +29,6 @@ CmdForecast::CmdForecast() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 
 int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
 {
+
   return 0;
 }

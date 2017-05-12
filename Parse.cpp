@@ -64,3 +64,18 @@ float Parse::parseFloat(std::string input)
   }
   return to_return;
 }
+
+std::string Parse::parseRank(EnvironmentalCondition::Rank rank)
+{
+  switch(rank)
+  {
+    case EnvironmentalCondition::NONE :
+      return "none";
+    case EnvironmentalCondition::LOW :
+      return "low";
+    case EnvironmentalCondition::MEDIUM :
+      return "medium";
+    default :
+      return "high";
+  }
+}

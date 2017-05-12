@@ -11,6 +11,7 @@
 
 #include <sstream>
 #include "HTMLWriterEnvironment.h"
+#include "Parse.h"
 
 using std::string;
 using std::endl;
@@ -34,6 +35,7 @@ const string HTMLWriterEnvironment::ICON_VERY_OVERCAST =
 void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
 {
   std::ostringstream environment_body;
+  Parse parser;
 
   environment_body << "<table>" << endl
     << "<tbody>" << endl
@@ -62,12 +64,12 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << " height=\"128\" /></td>" << endl
     << "<td>" << endl
     << "<p><strong>Precipitation: </strong>"
-    << HTMLWriterEnvironment::rankString(condition.getPrecipitation())
+    << parser.parseRank(condition.getPrecipitation())
     << "</p>" << endl
     << "<p><strong>Temperature: </strong>"
     << condition.getTemperature() << "°C</p>" << endl
     << "<p><strong>Wind: </strong>"
-    << HTMLWriterEnvironment::rankString(condition.getWind()) << "</p>" << endl
+    << parser.parseRank(condition.getWind()) << "</p>" << endl
     << "<p><strong>Hot: </strong>"
     << HTMLWriterEnvironment::isItString(condition.isItHot()) << "</p>" << endl
     << "<p><strong>Rainy: </strong>"
@@ -100,28 +102,5 @@ string HTMLWriterEnvironment::isItString(bool input)
   else
   {
     return "false";
-  }
-}
-
-//------------------------------------------------------------------------------
-// Takes a Rank enum defined in the EnvironmentalCondition and returns the
-// corresponding strings
-//
-// @param rank The rank enum
-//
-// @return string The corresponding string
-//
-string HTMLWriterEnvironment::rankString(EnvironmentalCondition::Rank rank)
-{
-  switch(rank)
-  {
-    case EnvironmentalCondition::NONE :
-      return "none";
-    case EnvironmentalCondition::LOW :
-      return "low";
-    case EnvironmentalCondition::MEDIUM :
-      return "medium";
-    default :
-      return "high";
   }
 }
