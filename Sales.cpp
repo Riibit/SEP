@@ -139,7 +139,7 @@ void Sales::calculateSales(GameHandler& game)
   int balance;
   int money;
   int satisfaction_changed;
-  float influence_factor = sale_percent / 100;
+  float influence_factor = sale_percent / 100.0f;
 
   customers = std::round(customers * influence_factor);
 
