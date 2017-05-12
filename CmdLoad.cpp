@@ -66,19 +66,10 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   }
   else
   {
-    /*std::getline(savefile, savefile_line);
-    if (savefile_line.compare("<savefile>"))
+    /*while(getline(savefile, savefile_line))
     {
-      std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
-    }
-    std::getline(savefile, savefile_line);
-    if (savefile_line.compare("  <weather>") || savefile_line.compare("  <stats>"))
-    {
-      std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
-    }
-
-    std::cout << savefile_line << std::endl; // debugging line REMOVE
-    */
+      
+    }*/
     savefile.close();
   }
   return 0;

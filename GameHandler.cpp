@@ -87,6 +87,7 @@ GameHandler::GameHandler()
   resources_.money = MONEY_INITIAL_VALUE;
   resources_.balance = ZERO_INITIAL_VALUE;
   resources_.income = ZERO_INITIAL_VALUE;
+  resources_.lemonade = ZERO_INITIAL_VALUE;
   resources_.money_spent = ZERO_INITIAL_VALUE;
 }
 
