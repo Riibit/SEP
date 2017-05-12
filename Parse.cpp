@@ -79,3 +79,19 @@ std::string Parse::parseRank(EnvironmentalCondition::Rank rank)
       return "high";
   }
 }
+
+std::string Parse::parseCover(EnvironmentalCondition::Cover cover)
+{
+  switch(cover)
+  {
+    case EnvironmentalCondition::NONE :
+      return "sunny";
+    case EnvironmentalCondition::LOW :
+      return "cloudy";
+    case EnvironmentalCondition::MEDIUM :
+      return "overcast";
+    default :
+      return "very overcast";
+  }  
+}
+

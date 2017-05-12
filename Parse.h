@@ -48,9 +48,16 @@ class Parse
     //--------------------------------------------------------------------------
     // parseRank Parses Rank enum to string
     // @param rank the Enum value to parse
-    // @return uint The parsed string
+    // @return string The parsed string
     //
     std::string parseRank(EnvironmentalCondition::Rank rank);
+
+    //--------------------------------------------------------------------------
+    // parseCover Parses cover enum to string
+    // @param cover the Enum value to parse
+    // @return string The parsed string
+    //
+    std::string parseCover(EnvironmentalCondition::Cover cover);
 
   private:
     //--------------------------------------------------------------------------
