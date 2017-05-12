@@ -42,7 +42,8 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
     to_produce += Produce::PRODUCTION_MODULO - 
       (to_produce % Produce::PRODUCTION_MODULO);
   }
-
+  std::cout << "to_produce = " << to_produce << std::endl;
+  
   produce.produceLemonade(game, to_produce);
 
 #endif // AUFBAU

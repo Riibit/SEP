@@ -48,7 +48,7 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
   {
     customer_count = std::round(customer_count * VALUE_HOT);
   }
-
+std::cout << "after calcCust = " << customer_count << std::endl;
 #ifdef AUFBAU
   customer_count = std::round(customer_count * game.getSatisfactionFactor());
 #endif //AUFBAU customer_satisfaction
@@ -57,7 +57,7 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
 
 int Sales::calculateSaleInfluence(GameHandler& game)
 {
-  int sale_percent = HUNDRED;
+  int sale_percent = 0;
 
   if(game.getCondition() -> isItHot())
   {
@@ -119,15 +119,16 @@ int Sales::calculateSaleInfluence(GameHandler& game)
   
   if(game.getRecipeWater() > 98)
   {
+    std::cout << "xxxxxxxxxxx " << sale_percent << std::endl;
     sale_percent -= HUNDRED;
   }  
-
+  std::cout << "after calcSat = " << sale_percent << std::endl;
   if(sale_percent < MINIMUM_PERCENT)
   {
     sale_percent = MINIMUM_PERCENT;
   } 
-  
-  return sale_percent;    
+  std::cout << "after calcSat = " << sale_percent << std::endl;
+  return sale_percent + 100;   
 }
 
 void Sales::calculateSales(GameHandler& game)
