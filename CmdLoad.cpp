@@ -19,21 +19,23 @@
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
 
-const std::string CmdLoad::TAG_SAVEFILE = "<savefile>";
-const std::string CmdLoad::TAG_STATS = "  <stats>";
-const std::string CmdLoad::TAG_WEATHER = "  <weather>";
-const std::string CmdLoad::TAG_WIND = "    <wind>";
-const std::string CmdLoad::TAG_TEMPERATURE = "    <temperature>";
-const std::string CmdLoad::TAG_PRECIPITATION = "    <precipitation>";
-const std::string CmdLoad::TAG_COVER = "    <cover>";
-const std::string CmdLoad::TAG_CASH = "    <cash>";
-const std::string CmdLoad::TAG_BALANCE = "    <balance>";
-const std::string CmdLoad::TAG_INCOME = "    <income>";
-const std::string CmdLoad::TAG_EXPENSE = "    <expense>";
-const std::string CmdLoad::TAG_LEMONS = "    <lemons>";
-const std::string CmdLoad::TAG_SUGAR = "    <sugar>";
-const std::string CmdLoad::TAG_PRICESUGAR = "    <pricesugar>";
-const std::string CmdLoad::TAG_PRICELEMONS = "    <pricelemons>";
+const std::string CmdLoad::TAG_SAVEFILE = "savefile";
+const std::string CmdLoad::TAG_STATS = "stats";
+const std::string CmdLoad::TAG_WEATHER = "weather";
+const std::string CmdLoad::TAG_WIND = "wind";
+const std::string CmdLoad::TAG_TEMPERATURE = "temperature";
+const std::string CmdLoad::TAG_PRECIPITATION = "precipitation";
+const std::string CmdLoad::TAG_COVER = "cover";
+const std::string CmdLoad::TAG_CASH = "cash";
+const std::string CmdLoad::TAG_BALANCE = "balance";
+const std::string CmdLoad::TAG_INCOME = "income";
+const std::string CmdLoad::TAG_EXPENSE = "expense";
+const std::string CmdLoad::TAG_LEMONS = "lemons";
+const std::string CmdLoad::TAG_SUGAR = "sugar";
+const std::string CmdLoad::TAG_PRICESUGAR = "pricesugar";
+const std::string CmdLoad::TAG_PRICELEMONS = "pricelemons";
+const std::string CmdLoad::TAG_PRICELEMONADE = "pricelemonade";
+const std::string CmdLoad::TAG_LEMONADE = "lemonade";
 
 CmdLoad::CmdLoad() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
@@ -52,6 +54,8 @@ CmdLoad::CmdLoad() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
   tag_collection_.push_back(TAG_SUGAR);
   tag_collection_.push_back(TAG_PRICESUGAR);
   tag_collection_.push_back(TAG_PRICELEMONS);
+  tag_collection_.push_back(TAG_PRICELEMONADE);
+  tag_collection_.push_back(TAG_LEMONADE);
 }
   
 int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
@@ -71,6 +75,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     while(getline(savefile, savefile_line))
     {
       std::vector<std::string> save_line_arguments;
+
       std::stringstream stream(savefile_line);
       std::string argument;
       char line_char;
@@ -78,7 +83,6 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
       while(!stream.eof())
       {
         argument.clear();
-
           
         while(!isBracket((line_char = stream.get())))
         {
@@ -89,11 +93,25 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
           save_line_arguments.push_back(argument);
         }
       }
+
+      // check tag validity
       for (unsigned int i = 0; i < save_line_arguments.size(); i++)
       {
-        std::cout << save_line_arguments[i] << std::endl;
+        if (!checkTagValid(save_line_arguments[0]))
+        {
+          std::cout << save_line_arguments[0] << std::endl;
+          std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
+        }
+        else if(save_line_arguments.size() == 3)
+        {
+          // checkTagClosed(save_line_arguments[0], save_line_arguments[2]);
+        }
+        if(i == 0)
+        {
+          i++;
+        }
+        
       }
-      // check tag validity
 
       // invalid savefile if tag not found
 
@@ -106,9 +124,17 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   return 0;
 }
 
-bool CmdLoad::checkTagValidity(std::string tag)
+bool CmdLoad::checkTagValid(std::string tag)
 {
-  return true; // TEMPORARYYYYYYYYYYY!
+  bool valid = false;
+  for(unsigned int tag_id = 0; tag_id < tag_collection_.size() ; tag_id++)
+  {
+    if (!tag.compare(tag_collection_[tag_id]))
+    {
+      valid = true;
+    }
+  }
+  return valid;
 }
 
 bool CmdLoad::isBracket(char current_char)

@@ -28,7 +28,7 @@ class CmdLoad : public Command
 
     bool isBracket(char current_char);
 
-    bool checkTagValidity(std::string tag);
+    bool checkTagValid(std::string tag);
 
     //--------------------------------------------------------------------------
     // Executes the command.
@@ -64,8 +64,10 @@ class CmdLoad : public Command
     static const std::string TAG_EXPENSE;
     static const std::string TAG_LEMONS;
     static const std::string TAG_SUGAR;
+    static const std::string TAG_LEMONADE;
     static const std::string TAG_PRICESUGAR;
     static const std::string TAG_PRICELEMONS;
+    static const std::string TAG_PRICELEMONADE;
 
 
     //--------------------------------------------------------------------------
