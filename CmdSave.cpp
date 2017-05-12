@@ -31,6 +31,8 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
   save_filename = params[0];
 
   std::fstream savefile;
+  
+  // file can never be invalid because on every save it is overwritten
   savefile.open(save_filename, ios::in | ios::out | ios::trunc);
 
   if (!savefile)

@@ -31,7 +31,7 @@ class EnvironmentalEngine
 
     //--------------------------------------------------------------------------
     // The function createCondition creates a new condition, which values are
-    // random, and returns the condition.
+    //   random, and returns the condition.
     //
     // @return std::unique_ptr<EnvironmentalCondition> Returns the pointer to 
     //   the object on the stack wrapped in a unique_ptr
@@ -46,6 +46,29 @@ class EnvironmentalEngine
     //
     void randomizeCondition(
       const std::unique_ptr<EnvironmentalCondition>& condition);
+
+    //--------------------------------------------------------------------------
+    // The functin realisticCondition chnages the EnvironmentalCondition object
+    //   realistically
+    //
+    // @param condition The EnvironmentalCondition object that is to be 
+    //   realistically changed
+    //
+    void realisticCondition(
+      const std::unique_ptr<EnvironmentalCondition>& condition);
+
+    //--------------------------------------------------------------------------
+    // The function realisticEnumInteger is used to realistically change weather
+    //   enum values
+    //
+    // @param enum_value The enum value as integer that is to be realistically
+    //   changed
+    // @param upper_range The upper range of the enum that is not be be exceeded
+    //
+    // @return int Returns the value of the new realistically changed integer
+    //
+    int realisticEnumInteger(
+      int enum_value, int upper_range);
 
     //--------------------------------------------------------------------------
     // Creates a random temperature between the defined limitations
