@@ -89,7 +89,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
           save_line_arguments.push_back(argument);
         }
       }
-      for (int i = 0; i < save_line_arguments.size(); i++)
+      for (unsigned int i = 0; i < save_line_arguments.size(); i++)
       {
         std::cout << save_line_arguments[i] << std::endl;
       }
@@ -106,6 +106,10 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   return 0;
 }
 
+bool CmdLoad::checkTagValidity(std::string tag)
+{
+  return true; // TEMPORARYYYYYYYYYYY!
+}
 
 bool CmdLoad::isBracket(char current_char)
 {
