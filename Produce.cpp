@@ -56,8 +56,6 @@ int Produce::produceLemonade(GameHandler& game, unsigned int quantity)
   // Add lemonade to stock
   game.setResourceLemonade(game.getResourceLemonade() + quantity);
 
-  std::cout << "Lemonade produced: " << quantity << std::endl;
-
   // Update Stock
   game.setResourceLemon(lemon_stock - needed_lemon);
   game.setResourceSugar(sugar_stock - needed_sugar);
