@@ -51,7 +51,7 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
     << "    <precipitation>" 
     << parser.parseRank(game.getCondition() -> getPrecipitation())
     << "</precipitation>" << std::endl
-    << "    <cover>" << game.getCondition() -> getSkyCover()
+    << "    <cover>" << parser.parseCover(game.getCondition() -> getSkyCover())
     << "</cover>" << std::endl
 
     << "  </weather>" << std::endl
