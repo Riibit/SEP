@@ -12,9 +12,9 @@
 #include "CmdPlay.h"
 
 const std::string CmdPlay::CMD_NAME = "play";
-const std::string CmdPlay::ERR_PLAY = "[ERR] Usage: play";
+const std::string CmdPlay::ERR_CMD = "[ERR] Usage: play";
 
-CmdPlay::CmdPlay() : Command::Command(CMD_NAME, PARA_COUNT, ERR_PLAY)
+CmdPlay::CmdPlay() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 

@@ -40,13 +40,65 @@ void EnvironmentalEngine::randomizeCondition(
   condition -> setWind(randomRank());
 }
 
+void EnvironmentalEngine::realisticCondition(
+  const std::unique_ptr<EnvironmentalCondition>& condition)
+{
+  int enum_value;
+  float temperature = condition -> getTemperature();
+  float temperature_summand = 5.0f - (rand() % 11);
+  if(temperature_summand < 5)
+  {
+    temperature_summand += ((rand() % 10) / 10.0f);
+  }
+  temperature += temperature_summand;
+  if(temperature < EnvironmentalCondition::MIN_TEMP)
+  {
+    temperature = EnvironmentalCondition::MIN_TEMP;
+  }
+  if(temperature > EnvironmentalCondition::MAX_TEMP)
+  {
+    temperature = EnvironmentalCondition::MAX_TEMP;
+  }
+  condition -> setTemperature(temperature);
+
+  enum_value = realisticEnumInteger(
+    static_cast<int>(condition -> getSkyCover()), 3);
+  condition -> setSkyCover(
+    static_cast<EnvironmentalCondition::Cover>(enum_value));
+
+  enum_value = realisticEnumInteger(
+    static_cast<int>(condition -> getPrecipitation()), 3);
+  condition -> setPrecipitation(
+    static_cast<EnvironmentalCondition::Rank>(enum_value));
+
+  enum_value = realisticEnumInteger(
+    static_cast<int>(condition -> getWind()), 3);
+  condition -> setWind(
+    static_cast<EnvironmentalCondition::Rank>(enum_value));
+}
+
+int EnvironmentalEngine::realisticEnumInteger(int enum_value, int upper_range)
+{
+  int enum_summand = (rand() % 3) - 1;
+  enum_value += enum_summand;
+  if(enum_value <= 0)
+  {
+    enum_value = 0;
+  }
+  if(enum_value >= upper_range)
+  {
+    enum_value = upper_range;
+  }
+  return enum_value;
+}
+
 float EnvironmentalEngine::randomTemperature()
 {
   float temperature;
 
   temperature = (rand() % 25 + EnvironmentalCondition::MIN_TEMP);
 
-  if (temperature <= EnvironmentalCondition::MAX_TEMP)
+  if(temperature <= EnvironmentalCondition::MAX_TEMP)
   {
     temperature += ((rand() % 10) / 10.0f);
   }
@@ -68,8 +120,7 @@ EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
   if(input > 3)
   {
     throw ExceptionDataType();
-  }
-  
+  }  
   switch(input)
   {
     case 0 :
@@ -85,6 +136,7 @@ EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
       return EnvironmentalCondition::VERY_OVERCAST;
       break;
   }
+  
 }
 
 EnvironmentalCondition::Rank EnvironmentalEngine::toRank(unsigned int input)
