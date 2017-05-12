@@ -32,7 +32,8 @@ const string HTMLWriterEnvironment::ICON_VERY_OVERCAST =
 // @param condition The EnvironmentalCondition object that supplies the values
 //        that are to be written
 //
-void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
+void HTMLWriterEnvironment::writeFile(
+  const std::unique_ptr<EnvironmentalCondition>& condition)
 {
   std::ostringstream environment_body;
   Parse parser;
@@ -44,7 +45,7 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << "<strong>Sky cover</strong></p><br>" << endl
     << "<img src=\"";
 
-  switch(condition.getSkyCover())
+  switch(condition -> getSkyCover())
   {
     case EnvironmentalCondition::SUNNY :
       environment_body << ICON_SUNNY;
@@ -64,18 +65,18 @@ void HTMLWriterEnvironment::writeFile(EnvironmentalCondition condition)
     << " height=\"128\" /></td>" << endl
     << "<td>" << endl
     << "<p><strong>Precipitation: </strong>"
-    << parser.parseRank(condition.getPrecipitation())
+    << parser.parseRank(condition -> getPrecipitation())
     << "</p>" << endl
     << "<p><strong>Temperature: </strong>"
-    << condition.getTemperature() << "°C</p>" << endl
+    << condition -> getTemperature() << "°C</p>" << endl
     << "<p><strong>Wind: </strong>"
-    << parser.parseRank(condition.getWind()) << "</p>" << endl
+    << parser.parseRank(condition -> getWind()) << "</p>" << endl
     << "<p><strong>Hot: </strong>"
-    << HTMLWriterEnvironment::isItString(condition.isItHot()) << "</p>" << endl
+    << HTMLWriterEnvironment::isItString(condition -> isItHot()) << "</p>" << endl
     << "<p><strong>Rainy: </strong>"
-    << HTMLWriterEnvironment::isItString(condition.isItRainy())
+    << HTMLWriterEnvironment::isItString(condition -> isItRainy())
     << "</p>" << endl << "<p><strong>Stormy: </strong>"
-    << HTMLWriterEnvironment::isItString(condition.isItStormy())
+    << HTMLWriterEnvironment::isItString(condition -> isItStormy())
     << "</p>" << endl
     << "</td>" << endl
     << "</tr>" << endl
