@@ -28,7 +28,7 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
   save_filename = params[0];
 
   std::fstream savefile;
-  savefile.open(save_filename.c_str(), ios::in | ios::out | ios::trunc);
+  savefile.open(save_filename, ios::in | ios::out | ios::trunc);
 
   savefile << "<savefile>" << std::endl
 
