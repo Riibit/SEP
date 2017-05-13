@@ -64,6 +64,8 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   std::string load_filename = params[0];
 
   std::vector<std::string> unpaired_tags; // tags closed in another line
+  std::vector<unsigned int> savefile_values; // holds values until end of file check
+  std::vector<std::string> value_names; // holds names of values untile end of file check
 
   std::string savefile_line;
   std::ifstream savefile;
@@ -77,7 +79,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   {
     while(getline(savefile, savefile_line)) // get lines of savefile 
     {
-      bool file_valid = true;
+      bool file_is_valid = true;
       std::vector<std::string> save_line_arguments;
 
       std::stringstream stream(savefile_line);
@@ -99,21 +101,9 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
         }
       }
 
-      if (save_line_arguments.size() == 1 &&
-      unpairedTagAllowed(save_line_arguments[0])) // tags 
-      {
-        unpaired_tags.push_back(save_line_arguments[0]);
-      }
-      else if (!unpairedTagAllowed(save_line_arguments[0]))
-      {
-        file_valid = false;
-      }
-      else if(!tagValidAndClosed(save_line_arguments))
-      {
-        file_valid = false;
-      }
-
-      if (!file_valid)
+      file_is_valid = fileIsValid(save_line_arguments, unpaired_tags);
+      
+      if (!file_is_valid)
       {
         std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
         break;
@@ -182,6 +172,26 @@ bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
           }
         }
   return valid;
+}
+
+bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments,
+ std::vector<std::string> unpaired_tags)
+{
+  bool file_valid = true;
+  if (save_line_arguments.size() == 1 &&
+      unpairedTagAllowed(save_line_arguments[0])) // legal unpaired tags
+      {
+        unpaired_tags.push_back(save_line_arguments[0]);
+      }
+      else if (!unpairedTagAllowed(save_line_arguments[0])) 
+      {
+        file_valid = false;
+      }
+      else if(!tagValidAndClosed(save_line_arguments)) // invalid or unclosed tags
+      {
+        file_valid = false;
+      }
+    return file_valid;
 }
 
 bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
