@@ -77,7 +77,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   {
     while(getline(savefile, savefile_line)) // get lines of savefile 
     {
-      bool file_valid = false;
+      bool file_valid = true;
       std::vector<std::string> save_line_arguments;
 
       std::stringstream stream(savefile_line);
@@ -99,15 +99,18 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
         }
       }
 
-      if (save_line_arguments.size() == 1) // tags 
+      if (save_line_arguments.size() == 1 &&
+      unpairedTagAllowed(save_line_arguments[0])) // tags 
       {
         unpaired_tags.push_back(save_line_arguments[0]);
       }
-
-      // check tag validity
-      if (tagValidAndClosed(save_line_arguments))
+      else if (!unpairedTagAllowed(save_line_arguments[0]))
       {
-        file_valid = true;
+        file_valid = false;
+      }
+      else if(!tagValidAndClosed(save_line_arguments))
+      {
+        file_valid = false;
       }
 
       if (!file_valid)
@@ -181,10 +184,20 @@ bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
   return valid;
 }
 
-/*bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
+bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 {
-  if (unpaired_tag == )
+  bool allowed = false;
+  if (unpaired_tag != TAG_SAVEFILE || unpaired_tag != "/" + TAG_SAVEFILE)
   {
-    
+    allowed = true;
   }
-}*/
+  else if (unpaired_tag != TAG_WEATHER || unpaired_tag != "/" + TAG_WEATHER)
+  {
+    allowed = true;
+  }
+  else if (unpaired_tag != TAG_STATS || unpaired_tag != "/" + TAG_STATS)
+  {
+    allowed = true;
+  }
+  return allowed;
+}

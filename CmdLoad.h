@@ -34,6 +34,8 @@ class CmdLoad : public Command
 
     bool tagValidAndClosed(std::vector<std::string> save_line_arguments);
 
+    bool unpairedTagAllowed(std::string unpaired_tag);
+
     //--------------------------------------------------------------------------
     // Executes the command.
     // @param game The game where action should be performed on
