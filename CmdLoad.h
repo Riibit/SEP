@@ -28,7 +28,11 @@ class CmdLoad : public Command
 
     bool isBracket(char current_char);
 
-    bool checkTagValid(std::string tag);
+    bool checkTagExists(std::string tag);
+
+    bool checkTagClosed(std::string tag, std::string closing_tag);
+
+    bool tagValidAndClosed(std::vector<std::string> save_line_arguments);
 
     //--------------------------------------------------------------------------
     // Executes the command.

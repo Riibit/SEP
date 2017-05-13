@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 
 #include "CmdLoad.h"
 #include "Parse.h"
@@ -62,6 +63,8 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 {
   std::string load_filename = params[0];
 
+  std::vector<std::string> unpaired_tags; // tags closed in another line
+
   std::string savefile_line;
   std::ifstream savefile;
   savefile.open(load_filename);
@@ -72,13 +75,15 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   }
   else
   {
-    while(getline(savefile, savefile_line))
+    while(getline(savefile, savefile_line)) // get lines of savefile 
     {
+      bool file_valid = false;
       std::vector<std::string> save_line_arguments;
 
       std::stringstream stream(savefile_line);
       std::string argument;
       char line_char;
+
       // get tag content
       while(!stream.eof())
       {
@@ -94,26 +99,22 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
         }
       }
 
-      // check tag validity
-      for (unsigned int i = 0; i < save_line_arguments.size(); i++)
+      if (save_line_arguments.size() == 1) // tags 
       {
-        if (!checkTagValid(save_line_arguments[0]))
-        {
-          std::cout << save_line_arguments[0] << std::endl;
-          std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
-        }
-        else if(save_line_arguments.size() == 3)
-        {
-          // checkTagClosed(save_line_arguments[0], save_line_arguments[2]);
-        }
-        if(i == 0)
-        {
-          i++;
-        }
-        
+        unpaired_tags.push_back(save_line_arguments[0]);
       }
 
-      // invalid savefile if tag not found
+      // check tag validity
+      if (tagValidAndClosed(save_line_arguments))
+      {
+        file_valid = true;
+      }
+
+      if (!file_valid)
+      {
+        std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
+        break;
+      }
 
       // get value current tag
 
@@ -124,17 +125,31 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   return 0;
 }
 
-bool CmdLoad::checkTagValid(std::string tag)
+bool CmdLoad::checkTagExists(std::string tag)
 {
-  bool valid = false;
+  bool exists = false;
   for(unsigned int tag_id = 0; tag_id < tag_collection_.size() ; tag_id++)
   {
     if (!tag.compare(tag_collection_[tag_id]))
     {
-      valid = true;
+      exists = true;
+      break; // found, exiting loop
     }
   }
-  return valid;
+  return exists;
+}
+
+bool CmdLoad::checkTagClosed(std::string tag, std::string closing_tag)
+{
+  bool closed = false;
+  std::string tag_corrected = "/";
+  tag_corrected += tag;
+  if (!tag_corrected.compare(closing_tag))
+  {
+    closed = true;
+  }
+
+  return closed;
 }
 
 bool CmdLoad::isBracket(char current_char)
@@ -148,3 +163,28 @@ bool CmdLoad::isBracket(char current_char)
     return false;
   }
 }
+
+bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
+{
+  bool valid = true;
+        if (!checkTagExists(save_line_arguments[0])) // if tag exists
+        {
+          valid = false;
+        }
+        else if(save_line_arguments.size() == 3)
+        {
+          if (!checkTagClosed(save_line_arguments[0], save_line_arguments[2]))
+          {
+            valid = false;
+          }
+        }
+  return valid;
+}
+
+/*bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
+{
+  if (unpaired_tag == )
+  {
+    
+  }
+}*/
