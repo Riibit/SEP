@@ -13,6 +13,16 @@
 #include "ExceptionDataType.h"
 #include <locale>
 
+const std::string Parse::RANK_NONE = "none";
+const std::string Parse::RANK_LOW = "low";
+const std::string Parse::RANK_MEDIUM = "medium";
+const std::string Parse::RANK_HIGH = "high";
+
+const std::string Parse::COVER_SUNNY = "sunny";
+const std::string Parse::COVER_CLOUDY = "cloudy";
+const std::string Parse::COVER_OVERCAST = "overcast";
+const std::string Parse::COVER_VERY_OVERCAST "very overcast";
+
 Parse::Parse()
 {
 }
@@ -80,7 +90,7 @@ std::string Parse::parseCover(EnvironmentalCondition::Cover cover)
   switch(cover)
   {
     case EnvironmentalCondition::SUNNY :
-      return "sunny";
+      return " = "sunny"";
     case EnvironmentalCondition::CLOUDY :
       return "cloudy";
     case EnvironmentalCondition::OVERCAST :
