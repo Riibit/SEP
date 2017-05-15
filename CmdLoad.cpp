@@ -123,7 +123,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     // set variable to value
     for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
     {
-      CmdLoad::setLoadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
+      loadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
     }
     savefile.close();
   }
@@ -235,7 +235,7 @@ bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 }
 
 // sudo send help
-void CmdLoad::setLoadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value)
+void CmdLoad::loadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value)
 {
   Parse parser;
 

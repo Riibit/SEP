@@ -26,20 +26,66 @@ class CmdLoad : public Command
     // Constructor
     CmdLoad();
 
+    //--------------------------------------------------------------------------
+    // isBracket checks if a character is an angle bracket, used in 
+    // savefile parsing
+    // @param current_char character from savefile line that is being checked
+    // @return true if char is an angle bracket
+    //
     bool isBracket(char current_char);
 
+    //--------------------------------------------------------------------------
+    // checkTagExists checks if a tag found in savefile is allowed, used in 
+    // savefile parsing
+    // @param tag that is being checked
+    // @return true if tag exists in list of allowed tags
+    //
     bool checkTagExists(std::string tag);
 
+    //--------------------------------------------------------------------------
+    // checkTagClosed checks if a paired tag is closed or not, used in 
+    // savefile parsing
+    // @param tag tag from savefile that is being checked
+    // @param closing_tag corresponding closing tag from the same line
+    // @return true if char is an angle bracket
+    //    
     bool checkTagClosed(std::string tag, std::string closing_tag);
-
+    
+    //--------------------------------------------------------------------------
+    // tagValidAndClosed calls two methods above to determine the validity 
+    // of the tags in the line
+    // @param vector containing all savefile tags and values from one line
+    // @return true if the tag exists and is closed properly
+    //
     bool tagValidAndClosed(std::vector<std::string> save_line_arguments);
-
+    
+    //--------------------------------------------------------------------------
+    // unpairedTagAllowed checks if an unclosed tag is allowed to be closed
+    // in another line
+    // @param tag which is being tested
+    // @return true if the tag is allowed to be alone in a line
+    //
     bool unpairedTagAllowed(std::string unpaired_tag);
 
+    //--------------------------------------------------------------------------
+    // fileIsValid checks if file is valid by checking unpaired tags and closed
+    // paired tags and if they exist
+    // @param vector containing all savefile tags and values from one line
+    // @param vector containing all unpaired tags
+    // @return true if the file is valid 
+    //
     bool fileIsValid(std::vector<std::string> save_line_arguments,
     std::vector<std::string> unpaired_tags);
 
-    void setLoadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value);
+    //--------------------------------------------------------------------------
+    // loadResourceValue carries the values read from savefile to the
+    // game (calls appropriate setters)
+    // @param game The object of GameHandler where the game is being run
+    // @param tag_name name of variable to be loaded into game
+    // @return tag_value value of variable to be loaded into game
+    //
+    void loadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value);
+
     //--------------------------------------------------------------------------
     // Executes the command.
     // @param game The game where action should be performed on
