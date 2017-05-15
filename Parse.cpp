@@ -114,10 +114,11 @@ EnvironmentalCondition::Rank Parse::parseStringToRank(std::string rank)
   {
     return EnvironmentalCondition::MEDIUM;
   }
-  else if(rank.compare(RANK_HIGH))
+  else if(!rank.compare(RANK_HIGH))
   {
-    return EnvironmentalCondition::HIGH;
+    throw ExceptionDataType();
   }
+  return EnvironmentalCondition::HIGH;
 }
 
 EnvironmentalCondition::Cover Parse::parseStringToCover(std::string cover)
@@ -134,9 +135,10 @@ EnvironmentalCondition::Cover Parse::parseStringToCover(std::string cover)
   {
     return EnvironmentalCondition::OVERCAST;
   }
-  else if(cover.compare(COVER_VERY_OVERCAST))
+  else if(!cover.compare(COVER_VERY_OVERCAST))
   {
-    return EnvironmentalCondition::VERY_OVERCAST;
+    throw ExceptionDataType();
   }
+  return EnvironmentalCondition::VERY_OVERCAST;
 }
 
