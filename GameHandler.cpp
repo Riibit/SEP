@@ -218,6 +218,16 @@ void GameHandler::setCustomerSatisfaction(int satisfaction)
   customer_satisfaction_ = satisfaction;
 }
 
+void GameHandler::setResourceBalance(int balance)
+{
+  resources_.balance = balance;
+}
+
+void GameHandler::setResourceExpense(int expense)
+{
+  resources_.expenses = expense;
+}
+
 unsigned int GameHandler::getResourceLemon()
 {
   return resources_.lemons;
