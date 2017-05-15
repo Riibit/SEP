@@ -68,8 +68,8 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   game.getCondition() -> setPrecipitation(precipitation);
   game.getCondition() -> setWind(wind);
 
-  HTMLWriterEnvironment environment_writer("Environment.html");
-    environment_writer.writeFile(game.getCondition());
+  HTMLWriterEnvironment environment_writer;
+  environment_writer.writeFile(game.getCondition());
 
   return 0;
 }

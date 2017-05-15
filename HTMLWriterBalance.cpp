@@ -21,6 +21,13 @@ const string HTMLWriterBalance::ICON_SUGAR =
 const string HTMLWriterBalance::ICON_COINS = 
   "https://palme.iicm.tugraz.at/wiki/images/f/f0/Coins.png";
 
+const std::string HTMLWriterBalance::STANDARD_NAME = "Balance.html";
+
+
+HTMLWriterBalance::HTMLWriterBalance() : HTMLWriter::HTMLWriter(STANDARD_NAME)
+{
+}
+
 //------------------------------------------------------------------------------
 // Creates the body part of the Balance html file and passes it to the
 // writeFile function of the parent class

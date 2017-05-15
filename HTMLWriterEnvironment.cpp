@@ -25,6 +25,13 @@ const string HTMLWriterEnvironment::ICON_OVERCAST =
 const string HTMLWriterEnvironment::ICON_VERY_OVERCAST = 
   "https://palme.iicm.tugraz.at/wiki/images/3/30/Very_overcast.png";
 
+const std::string HTMLWriterEnvironment::STANDARD_NAME = "Environment.html";
+
+HTMLWriterEnvironment::HTMLWriterEnvironment() : HTMLWriter::HTMLWriter(
+  STANDARD_NAME)
+{
+}
+
 //------------------------------------------------------------------------------
 // Creates the body part of the Environmental html file and passes it to the
 // writeFile function of the parent class
