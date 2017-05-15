@@ -39,6 +39,7 @@ class CmdLoad : public Command
     bool fileIsValid(std::vector<std::string> save_line_arguments,
     std::vector<std::string> unpaired_tags);
 
+    void setLoadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value);
     //--------------------------------------------------------------------------
     // Executes the command.
     // @param game The game where action should be performed on

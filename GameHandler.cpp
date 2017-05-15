@@ -223,7 +223,7 @@ void GameHandler::setResourceBalance(int balance)
   resources_.balance = balance;
 }
 
-void GameHandler::setResourceExpense(int expense)
+void GameHandler::setResourceExpense(unsigned int expense)
 {
   resources_.expenses = expense;
 }

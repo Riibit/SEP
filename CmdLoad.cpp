@@ -16,6 +16,8 @@
 
 #include "CmdLoad.h"
 #include "Parse.h"
+#include "GameHandler.h"
+#include "EnvironmentalCondition.h"
 
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
@@ -64,8 +66,8 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   std::string load_filename = params[0];
 
   std::vector<std::string> unpaired_tags; // tags closed in another line
-  std::vector<unsigned int> savefile_values; // holds values until end of file check
-  std::vector<std::string> value_names; // holds names of values untile end of file check
+  std::vector<std::string> savefile_values; // holds values in string form until end of file check
+  std::vector<std::string> savefile_value_names; // holds names of values untile end of file check
 
   std::string savefile_line;
   std::ifstream savefile;
@@ -110,8 +112,16 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
       }
 
       // get value current tag
-
-      // set variable to value 
+      if (save_line_arguments.size() == 3)
+      {
+        savefile_value_names.push_back(save_line_arguments[0]);
+        savefile_values.push_back(save_line_arguments[1]);
+      }
+    }
+    // set variable to value
+    for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
+    {
+      CmdLoad::setLoadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
     }
     savefile.close();
   }
@@ -183,11 +193,13 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments,
       {
         unpaired_tags.push_back(save_line_arguments[0]);
       }
-      else if (!unpairedTagAllowed(save_line_arguments[0])) 
+      else if (save_line_arguments.size() == 1 && 
+        !unpairedTagAllowed(save_line_arguments[0])) 
       {
         file_valid = false;
       }
-      else if(!tagValidAndClosed(save_line_arguments)) // invalid or unclosed tags
+      else if(save_line_arguments.size() != 3 || 
+        !tagValidAndClosed(save_line_arguments)) // invalid or unclosed tags
       {
         file_valid = false;
       }
@@ -210,4 +222,71 @@ bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
     allowed = true;
   }
   return allowed;
+}
+
+// sudo send help
+void CmdLoad::setLoadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value)
+{
+  Parse parser;
+
+  if (!tag_name.compare(TAG_SAVEFILE) || !tag_name.compare(TAG_WEATHER)
+    || !tag_name.compare(TAG_STATS))
+  {
+  }
+  else if (!tag_name.compare(TAG_WIND))
+  {
+    game.getCondition() -> setWind(parser.parseStringtoRank(tag_value));
+  }
+  else if (!tag_name.compare(TAG_TEMPERATURE))
+  {
+    game.getCondition() -> setTemperature(parser.parseFloat(tag_value));
+  }
+  else if (!tag_name.compare(TAG_PRECIPITATION))
+  {
+    game.getCondition() -> setPrecipitation(parser.parseStringtoRank(tag_value));
+  }
+  else if (!tag_name.compare(TAG_COVER))
+  {
+    game.getCondition() -> setSkyCover(parser.parseStringtoCover(tag_value));
+  }
+  else if (!tag_name.compare(TAG_CASH))
+  {
+    game.setResourceMoney(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_BALANCE))
+  {
+    game.setResourceBalance(std::stoi(tag_value));
+  }
+  else if (!tag_name.compare(TAG_INCOME))
+  {
+    game.setResourceIncome(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_EXPENSE))
+  {
+    game.setResourceExpense(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_LEMONS))
+  {
+    game.setResourceLemon(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_SUGAR))
+  {
+    game.setResourceSugar(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_LEMONADE))
+  {
+    game.setResourceLemonade(parser.parseInteger(tag_value));
+  }
+  else if (!tag_name.compare(TAG_PRICESUGAR))
+  {
+    game.price_sugar_ = parser.parseInteger(tag_value);
+  }
+  else if (!tag_name.compare(TAG_PRICELEMONS))
+  {
+    game.price_lemon_ = parser.parseInteger(tag_value);
+  }
+  else if (!tag_name.compare(TAG_PRICELEMONADE))
+  {
+    game.price_lemonade_ = parser.parseInteger(tag_value);
+  }
 }
