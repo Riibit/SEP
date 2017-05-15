@@ -12,6 +12,7 @@
 
 #include "CmdQuit.h"
 #include "GameHandler.h"
+#include "ReturnValues.h"
 
 const std::string CmdQuit::CMD_NAME = "quit";
 const std::string CmdQuit::ERR_QUIT = "[ERR] Usage: quit";
@@ -25,5 +26,5 @@ int CmdQuit::execute(GameHandler& game, std::vector<std::string>& params)
 {
   std::cout << QUIT_MSG << std::endl;
   game.endOfLife();
-  return 0;
+  return RETURN_SUCCESS;
 }

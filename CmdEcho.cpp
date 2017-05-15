@@ -10,6 +10,7 @@
 //
 
 #include "CmdEcho.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::cout;
@@ -36,7 +37,7 @@ int CmdEcho::execute(GameHandler& game, std::vector<std::string>& params)
     }
     cout << params[counter] << endl;
   }
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 const bool CmdEcho::correctParameterCount(const unsigned int to_compare)

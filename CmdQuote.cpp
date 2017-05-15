@@ -11,6 +11,7 @@
 
 #include "CmdQuote.h"
 #include "GameHandler.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::cout;
@@ -27,5 +28,5 @@ int CmdQuote::execute(GameHandler& game, std::vector<std::string>& params)
 {
   cout << "L: " << game.getPriceLemon() << " $" << endl
   << "S: " << game.getPriceSugar() << " $" << endl;
-  return 0;
+  return RETURN_SUCCESS;
 }

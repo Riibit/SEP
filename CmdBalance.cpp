@@ -11,6 +11,7 @@
 
 #include "CmdBalance.h"
 #include "GameHandler.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::cout;
@@ -30,5 +31,5 @@ int CmdBalance::execute(GameHandler& game, std::vector<std::string>& params)
   << "----------" << endl
   << "C: " << game.getResourceMoney() << " $" << endl
   << "B: " << game.getResourceBalance() << " $" << endl;
-  return 0;
+  return RETURN_SUCCESS;
 }

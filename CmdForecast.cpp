@@ -13,6 +13,7 @@
 #include "GameHandler.h"
 #include "EnvironmentalCondition.h"
 #include "EnvironmentalEngine.h"
+#include "ReturnValues.h"
 #include "Parse.h"
 
 #include <iostream>
@@ -81,14 +82,14 @@ int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
   << "Wind: Between " << parser.parseRank(under_wind)
   << " and " << parser.parseRank(over_wind) << endl;
 
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 int CmdForecast::weatherLower(int enum_value)
 {
   if(enum_value != 0)
   {
-    enum_value -= 1;
+    enum_value--;
     return enum_value;
   }
   else
@@ -101,7 +102,7 @@ int CmdForecast::weatherHigher(int enum_value)
 {
   if(enum_value != 3)
   {
-    enum_value += 1;
+    enum_value++;
     return enum_value;
   }
   else

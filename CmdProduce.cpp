@@ -14,6 +14,7 @@
 #include "Parse.h"
 #include "ExceptionDataType.h"
 #include "Produce.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::cout;
@@ -43,7 +44,7 @@ int CmdProduce::execute(GameHandler& game, std::vector<std::string>& params)
   catch(const ExceptionDataType& exception)
   {
     cout << Command::ERR_WRONG_PARAMETER << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   Produce producer;
@@ -60,5 +61,5 @@ int CmdProduce::execute(GameHandler& game, std::vector<std::string>& params)
     cout << NOT_ENOUGH_RESOURCES << endl;
   }
 
-  return 0;
+  return RETURN_SUCCESS;
 }
