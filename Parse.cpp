@@ -12,6 +12,7 @@
 #include "Parse.h"
 #include "ExceptionDataType.h"
 #include <locale>
+#include <iostream>
 
 const std::string Parse::RANK_NONE = "none";
 const std::string Parse::RANK_LOW = "low";
@@ -102,19 +103,19 @@ std::string Parse::parseCover(EnvironmentalCondition::Cover cover)
 
 EnvironmentalCondition::Rank Parse::parseStringToRank(std::string rank)
 {
-  if(rank.compare(RANK_NONE))
+  if(!rank.compare(RANK_NONE))
   {
     return EnvironmentalCondition::NONE;
   }
-  else if(rank.compare(RANK_LOW))
+  else if(!rank.compare(RANK_LOW))
   {
     return EnvironmentalCondition::LOW;
   }
-  else if(rank.compare(RANK_MEDIUM))
+  else if(!rank.compare(RANK_MEDIUM))
   {
     return EnvironmentalCondition::MEDIUM;
   }
-  else if(!rank.compare(RANK_HIGH))
+  else if(rank.compare(RANK_HIGH))
   {
     throw ExceptionDataType();
   }
@@ -123,19 +124,19 @@ EnvironmentalCondition::Rank Parse::parseStringToRank(std::string rank)
 
 EnvironmentalCondition::Cover Parse::parseStringToCover(std::string cover)
 {
-  if(cover.compare(COVER_SUNNY))
+  if(!cover.compare(COVER_SUNNY))
   {
     return EnvironmentalCondition::SUNNY;
   }
-  else if(cover.compare(COVER_CLOUDY))
+  else if(!cover.compare(COVER_CLOUDY))
   {
     return EnvironmentalCondition::CLOUDY;
   }
-  else if(cover.compare(COVER_OVERCAST))
+  else if(!cover.compare(COVER_OVERCAST))
   {
     return EnvironmentalCondition::OVERCAST;
   }
-  else if(!cover.compare(COVER_VERY_OVERCAST))
+  else if(cover.compare(COVER_VERY_OVERCAST))
   {
     throw ExceptionDataType();
   }
