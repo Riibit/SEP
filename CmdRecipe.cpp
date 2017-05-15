@@ -14,6 +14,7 @@
 #include "GameHandler.h"
 #include "Parse.h"
 #include "ExceptionDataType.h"
+#include "ReturnValues.h"
 
 
 using std::cout;
@@ -51,7 +52,7 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
 int CmdRecipe::executeParameterOne(GameHandler& game, std::vector<std::string>& params)
 {
   printRecipe(game);
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& params) 
@@ -70,29 +71,29 @@ int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& 
   catch(const ExceptionDataType& exception)
   {
     cout << Command::ERR_WRONG_PARAMETER << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   if(lemon_percent + sugar_percent + water_percent != 100)
   {
     cout << ERROR_MSG_PERCENT << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   if((lemon_percent % 3) != 0)
   {
     cout << ERROR_MODULO_LEMON << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   if((sugar_percent % 2) != 0)
   {
     cout << ERROR_MODULO_SUGAR << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
   game.setRecipe(lemon_percent, sugar_percent, water_percent);
   printRecipe(game);
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 void CmdRecipe::printRecipe(GameHandler& game)

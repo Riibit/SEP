@@ -12,9 +12,10 @@
 #ifndef HTML_WRITER_ENV_H
 #define HTML_WRITER_ENV_H
 
+#include <memory>
 #include "HTMLWriter.h"
 #include "EnvironmentalCondition.h"
-#include <memory>
+
 
 //------------------------------------------------------------------------------
 // The class for writing Environment HTML files
@@ -23,12 +24,15 @@ class HTMLWriterEnvironment : public HTMLWriter
 {
   public:
     using HTMLWriter::HTMLWriter;
+    HTMLWriterEnvironment();
     void writeFile(const std::unique_ptr<EnvironmentalCondition>& condition);
 
     static const std::string ICON_SUNNY;
     static const std::string ICON_CLOUDY;
     static const std::string ICON_OVERCAST;
     static const std::string ICON_VERY_OVERCAST;
+
+    static const std::string STANDARD_NAME;
 
   private:
     std::string isItString(bool input);

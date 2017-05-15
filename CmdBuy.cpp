@@ -13,6 +13,7 @@
 #include "GameHandler.h"
 #include "Parse.h"
 #include "ExceptionDataType.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::cout;
@@ -38,9 +39,9 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   unsigned int sugar_price = game.getPriceSugar();
   
   // local variables
-  unsigned int money_spent = 0;
-  unsigned int sugar_buy_amount = 0;
-  unsigned int lemon_buy_amount = 0;
+  unsigned int money_spent;
+  unsigned int sugar_buy_amount;
+  unsigned int lemon_buy_amount;
 
   Parse parser;
   try
@@ -51,7 +52,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   catch(const ExceptionDataType& exception)
   {
     cout << Command::ERR_WRONG_PARAMETER << endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   bool error_output = true;
@@ -92,5 +93,5 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   game.setResourceLemon(lemon_value);
   game.setResourceMoney(money_value);
 
-  return 0;
+  return RETURN_SUCCESS;
 }

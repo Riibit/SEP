@@ -11,6 +11,7 @@
 
 #include "Interface.h"
 #include "GameHandler.h"
+#include "ReturnValues.h"
 #include <iostream>
 
 using std::string;
@@ -51,7 +52,7 @@ const int Interface::runPrompt()
     break;
 
   }
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 const string Interface::getArgument(char* cin_value, const bool to_lower)

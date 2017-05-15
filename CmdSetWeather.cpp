@@ -17,6 +17,7 @@
 #include "EnvironmentalEngine.h"
 #include "ExceptionDataType.h"
 #include "HTMLWriterEnvironment.h"
+#include "ReturnValues.h"
 
 const std::string CmdSetWeather::CMD_NAME = "setweather";
 const std::string CmdSetWeather::ERR_CMD = "[ERR] Usage: setweather <cover> \
@@ -54,22 +55,22 @@ int CmdSetWeather::execute(GameHandler& game, std::vector<std::string>& params)
   catch(const ExceptionDataType& exception)
   {
     std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
 
   if(game.getCondition() -> setTemperature(temperature))
   {
     std::cout << Command::ERR_WRONG_PARAMETER << std::endl;
-    return 0;
+    return RETURN_SUCCESS;
   }
 
   game.getCondition() -> setSkyCover(sky_cover);
   game.getCondition() -> setPrecipitation(precipitation);
   game.getCondition() -> setWind(wind);
 
-  HTMLWriterEnvironment environment_writer("Environment.html");
-    environment_writer.writeFile(game.getCondition());
+  HTMLWriterEnvironment environment_writer;
+  environment_writer.writeFile(game.getCondition());
 
-  return 0;
+  return RETURN_SUCCESS;
 }

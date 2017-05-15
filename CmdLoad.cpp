@@ -20,6 +20,7 @@
 #include "EnvironmentalCondition.h"
 #include "HTMLWriterEnvironment.h"
 #include "HTMLWriterBalance.h"
+#include "ReturnValues.h"
 
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
@@ -135,7 +136,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
   game.getResourceMoney(), game.getResourceBalance());
 
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 bool CmdLoad::checkTagExists(std::string tag)

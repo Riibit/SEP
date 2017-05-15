@@ -18,6 +18,7 @@
 #include "EnvironmentalEngine.h"
 #include "HTMLWriterBalance.h"
 #include "HTMLWriterEnvironment.h"
+#include "ReturnValues.h"
 
 const std::string CmdPlay::CMD_NAME = "play";
 const std::string CmdPlay::ERR_CMD = "[ERR] Usage: play";
@@ -65,13 +66,13 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 
 
 
-  HTMLWriterEnvironment environment_writer("Environment.html");
+  HTMLWriterEnvironment environment_writer;
   environment_writer.writeFile(game.getCondition());
 
-  HTMLWriterBalance balance_writer("Balance.html");
+  HTMLWriterBalance balance_writer;
   balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
     game.getResourceMoney(), game.getResourceBalance());
 
   game.resetStandardRecipe();
-  return 0;
+  return RETURN_SUCCESS;
 }

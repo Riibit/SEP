@@ -21,11 +21,14 @@ class HTMLWriterBalance : public HTMLWriter
 {
   public:
     using HTMLWriter::HTMLWriter;
+    HTMLWriterBalance();
     void writeFile(int lemon, int sugar, int cash, int delta);
 
     const static std::string ICON_LEMON;
     const static std::string ICON_SUGAR;
     const static std::string ICON_COINS;
+
+    static const std::string STANDARD_NAME;
 };
 
 #endif // HTML_WRITER_BALANCE_H

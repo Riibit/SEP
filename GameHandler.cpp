@@ -25,6 +25,7 @@
 #include "CmdQuit.h"
 #include "ExceptionDataType.h"
 #include "EnvironmentalEngine.h"
+#include "ReturnValues.h"
 
 
 #ifdef AUFBAU
@@ -85,7 +86,7 @@ int GameHandler::initialize(int argc, char *parameters[])
   if (argc != 4)
   {
     std::cout << ERR_PROGRAM_START << std::endl;
-    return 2;
+    return RETURN_WRONG_USAGE;
   }
   Parse parser;
   std::string argument_1(parameters[1]);
@@ -100,14 +101,14 @@ int GameHandler::initialize(int argc, char *parameters[])
   catch(const ExceptionDataType& exception)
   {
     std::cout << ERR_PROGRAM_START << std::endl;
-    return 2;
+    return RETURN_WRONG_USAGE;
   }
 
   EnvironmentalEngine engine;
   environment_condition_ = std::move(engine.createCondition());
 
   resetStandardRecipe();
-  return 0;
+  return RETURN_SUCCESS;
 }
 
 int GameHandler::play()
