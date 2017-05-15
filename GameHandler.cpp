@@ -62,7 +62,7 @@ GameHandler::GameHandler()
     commands_.push_back(unique_ptr<Command>(new CmdSave()));
 #endif //AUFBAU
   }
-  catch(std::bad_alloc& exception)
+  catch(const std::bad_alloc& exception)
   {
     throw exception;
   }
@@ -206,6 +206,20 @@ void GameHandler::setResourceIncome(unsigned int value)
 void GameHandler::setResourceLemonade(unsigned int amount)
 {
   resources_.lemonade = amount;
+}
+
+void setPriceLemonade(unsigned int price_lemonade)
+{
+  price_lemonade_ = price_lemonade;
+}
+
+void setPriceLemon(unsigned int price_lemon)
+{
+  price_lemon_ = price_lemon;
+}
+void setPriceSugar(unsigned int price_sugar)
+{
+  price_sugar_ = price_sugar;
 }
 
 void GameHandler::addExpenses(unsigned int expenditures)
