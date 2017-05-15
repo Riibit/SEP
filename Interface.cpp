@@ -65,7 +65,7 @@ const string Interface::getArgument(char* cin_value, const bool to_lower)
       break;
     }
   }
-  while (*cin_value != ' ' && *cin_value != '\n')
+  while (!(std::isspace(*cin_value)))
   {
     if (to_lower)
     {
