@@ -21,7 +21,7 @@ const std::string Parse::RANK_HIGH = "high";
 const std::string Parse::COVER_SUNNY = "sunny";
 const std::string Parse::COVER_CLOUDY = "cloudy";
 const std::string Parse::COVER_OVERCAST = "overcast";
-const std::string Parse::COVER_VERY_OVERCAST "very overcast";
+const std::string Parse::COVER_VERY_OVERCAST = "very overcast";
 
 Parse::Parse()
 {
