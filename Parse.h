@@ -59,6 +59,20 @@ class Parse
     //
     std::string parseCover(EnvironmentalCondition::Cover cover);
 
+    //--------------------------------------------------------------------------
+    // parseStringToRank Parses string to cover enum
+    // @param rank The string to parse
+    // @return The corresponend enum values
+    //
+    EnvironmentalCondition::Rank parseStringToRank(std::string rank);
+
+    //--------------------------------------------------------------------------
+    // parseStringToRank Parses string to rank enum
+    // @param rank The string to parse
+    // @return The corresponend enum values
+    //
+    EnvironmentalCondition::Cover parseStringToCover(std::string cover);
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor

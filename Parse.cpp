@@ -65,13 +65,13 @@ std::string Parse::parseRank(EnvironmentalCondition::Rank rank)
   switch(rank)
   {
     case EnvironmentalCondition::NONE :
-      return "none";
+      return RANK_NONE;
     case EnvironmentalCondition::LOW :
-      return "low";
+      return RANK_LOW;
     case EnvironmentalCondition::MEDIUM :
-      return "medium";
+      return RANK_MEDIUM;
     default :
-      return "high";
+      return RANK_HIGH;
   }
 }
 
@@ -80,13 +80,53 @@ std::string Parse::parseCover(EnvironmentalCondition::Cover cover)
   switch(cover)
   {
     case EnvironmentalCondition::SUNNY :
-      return "sunny";
+      return COVER_SUNNY;
     case EnvironmentalCondition::CLOUDY :
-      return "cloudy";
+      return COVER_CLOUDY;
     case EnvironmentalCondition::OVERCAST :
-      return "overcast";
+      return COVER_OVERCAST;
     default :
-      return "very overcast";
+      return COVER_VERY_OVERCAST;
   }  
+}
+
+EnvironmentalCondition::Rank Parse::parseStringToRank(std::string rank)
+{
+  if(rank.compare(RANK_NONE))
+  {
+    return EnvironmentalCondition::NONE;
+  }
+  else if(rank.compare(RANK_LOW))
+  {
+    return EnvironmentalCondition::LOW;
+  }
+  else if(rank.compare(RANK_MEDIUM))
+  {
+    return EnvironmentalCondition::MEDIUM;
+  }
+  else if(rank.compare(RANK_HIGH))
+  {
+    return EnvironmentalCondition::HIGH;
+  }
+}
+
+EnvironmentalCondition::Cover Parse::parseStringToCover(std::string cover)
+{
+  if(cover.compare(COVER_SUNNY))
+  {
+    return EnvironmentalCondition::SUNNY;
+  }
+  else if(cover.compare(COVER_CLOUDY))
+  {
+    return EnvironmentalCondition::CLOUDY;
+  }
+  else if(cover.compare(COVER_OVERCAST))
+  {
+    return EnvironmentalCondition::OVERCAST;
+  }
+  else if(cover.compare(COVER_VERY_OVERCAST))
+  {
+    return EnvironmentalCondition::VERY_OVERCAST;
+  }
 }
 
