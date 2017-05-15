@@ -28,15 +28,6 @@ HTMLWriterBalance::HTMLWriterBalance() : HTMLWriter::HTMLWriter(STANDARD_NAME)
 {
 }
 
-//------------------------------------------------------------------------------
-// Creates the body part of the Balance html file and passes it to the
-// writeFile function of the parent class
-//
-// @param lemon The lemon value that is to be written in the html file
-// @param sugar The sugar value that is to be written in the html file
-// @param cash The cash value that is to be written in the html file
-// @param delta The delta value that is to be written in the html file
-//
 void HTMLWriterBalance::writeFile(int lemon, int sugar, int cash, int delta)
 {
   std::ostringstream balance_body;

@@ -20,14 +20,33 @@
 class HTMLWriterBalance : public HTMLWriter
 {
   public:
+    //--------------------------------------------------------------------------
+    // Inherit HTMLWriter constructor
     using HTMLWriter::HTMLWriter;
+
+    //--------------------------------------------------------------------------
+    // Constructor
     HTMLWriterBalance();
+
+    //------------------------------------------------------------------------------
+    // Creates the body part of the Balance html file and passes it to the
+    // writeFile function of the parent class
+    //
+    // @param lemon The lemon value that is to be written in the html file
+    // @param sugar The sugar value that is to be written in the html file
+    // @param cash The cash value that is to be written in the html file
+    // @param delta The delta value that is to be written in the html file
+    //
     void writeFile(int lemon, int sugar, int cash, int delta);
 
+    //--------------------------------------------------------------------------
+    // String values for the correspondend icons.
     const static std::string ICON_LEMON;
     const static std::string ICON_SUGAR;
     const static std::string ICON_COINS;
 
+    //--------------------------------------------------------------------------
+    // String value for the html-files name.
     static const std::string STANDARD_NAME;
 };
 

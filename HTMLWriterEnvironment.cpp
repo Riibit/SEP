@@ -32,13 +32,6 @@ HTMLWriterEnvironment::HTMLWriterEnvironment() : HTMLWriter::HTMLWriter(
 {
 }
 
-//------------------------------------------------------------------------------
-// Creates the body part of the Environmental html file and passes it to the
-// writeFile function of the parent class
-//
-// @param condition The EnvironmentalCondition object that supplies the values
-//        that are to be written
-//
 void HTMLWriterEnvironment::writeFile(
   const std::unique_ptr<EnvironmentalCondition>& condition)
 {
@@ -93,14 +86,6 @@ void HTMLWriterEnvironment::writeFile(
   HTMLWriter::writeFile(environment_body.str());
 }
 
-//------------------------------------------------------------------------------
-// Takes a boolean value and returns a true or falase string depending on the
-// value
-//
-// @param input The boolean value
-//
-// @return string The corresponding string
-//
 string HTMLWriterEnvironment::isItString(bool input)
 {
   if(input)
