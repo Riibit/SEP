@@ -11,6 +11,7 @@
 
 #include "Parse.h"
 #include "ExceptionDataType.h"
+#include "ReturnValues.h"
 #include <locale>
 #include <iostream>
 
@@ -41,7 +42,7 @@ uint Parse::parseInteger(std::string string)
     if (!std::isdigit(string[position], loc))
     {
       throw ExceptionDataType();
-      return 0;
+      return RETURN_SUCCESS;
     }
   }
   try
