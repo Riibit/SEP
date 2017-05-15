@@ -18,6 +18,8 @@
 #include "Parse.h"
 #include "GameHandler.h"
 #include "EnvironmentalCondition.h"
+#include "HTMLWriterEnvironment.h"
+#include "HTMLWriterBalance.h"
 
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
@@ -125,6 +127,14 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     }
     savefile.close();
   }
+  // reload html files on load
+  HTMLWriterEnvironment environment_writer("Environment.html");
+  environment_writer.writeFile(game.getCondition());
+
+  HTMLWriterBalance balance_writer("Balance.html");
+  balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
+  game.getResourceMoney(), game.getResourceBalance());
+
   return 0;
 }
 
@@ -235,7 +245,7 @@ void CmdLoad::setLoadResourceValue(GameHandler& game, std::string tag_name, std:
   }
   else if (!tag_name.compare(TAG_WIND))
   {
-    game.getCondition() -> setWind(parser.parseStringtoRank(tag_value));
+    game.getCondition() -> setWind(parser.parseStringToRank(tag_value));
   }
   else if (!tag_name.compare(TAG_TEMPERATURE))
   {
@@ -243,11 +253,11 @@ void CmdLoad::setLoadResourceValue(GameHandler& game, std::string tag_name, std:
   }
   else if (!tag_name.compare(TAG_PRECIPITATION))
   {
-    game.getCondition() -> setPrecipitation(parser.parseStringtoRank(tag_value));
+    game.getCondition() -> setPrecipitation(parser.parseStringToRank(tag_value));
   }
   else if (!tag_name.compare(TAG_COVER))
   {
-    game.getCondition() -> setSkyCover(parser.parseStringtoCover(tag_value));
+    game.getCondition() -> setSkyCover(parser.parseStringToCover(tag_value));
   }
   else if (!tag_name.compare(TAG_CASH))
   {
@@ -279,14 +289,14 @@ void CmdLoad::setLoadResourceValue(GameHandler& game, std::string tag_name, std:
   }
   else if (!tag_name.compare(TAG_PRICESUGAR))
   {
-    game.price_sugar_ = parser.parseInteger(tag_value);
+    game.setPriceSugar(parser.parseInteger(tag_value));
   }
   else if (!tag_name.compare(TAG_PRICELEMONS))
   {
-    game.price_lemon_ = parser.parseInteger(tag_value);
+    game.setPriceLemon(parser.parseInteger(tag_value));
   }
   else if (!tag_name.compare(TAG_PRICELEMONADE))
   {
-    game.price_lemonade_ = parser.parseInteger(tag_value);
+    game.setPriceLemonade(parser.parseInteger(tag_value));
   }
 }

@@ -208,16 +208,16 @@ void GameHandler::setResourceLemonade(unsigned int amount)
   resources_.lemonade = amount;
 }
 
-void setPriceLemonade(unsigned int price_lemonade)
+void GameHandler::setPriceLemonade(unsigned int price_lemonade)
 {
   price_lemonade_ = price_lemonade;
 }
 
-void setPriceLemon(unsigned int price_lemon)
+void GameHandler::setPriceLemon(unsigned int price_lemon)
 {
   price_lemon_ = price_lemon;
 }
-void setPriceSugar(unsigned int price_sugar)
+void GameHandler::setPriceSugar(unsigned int price_sugar)
 {
   price_sugar_ = price_sugar;
 }
