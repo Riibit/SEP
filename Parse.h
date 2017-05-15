@@ -73,6 +73,20 @@ class Parse
     //
     EnvironmentalCondition::Cover parseStringToCover(std::string cover);
 
+    //--------------------------------------------------------------------------
+    // The values of the rank enum in string form
+    static const std::string RANK_NONE;
+    static const std::string RANK_LOW;
+    static const std::string RANK_MEDIUM;
+    static const std::string RANK_HIGH;
+
+    //--------------------------------------------------------------------------
+    // The values of the cover enum in string form
+    static const std::string COVER_SUNNY;
+    static const std::string COVER_CLOUDY;
+    static const std::string COVER_OVERCAST;
+    static const std::string COVER_VERY_OVERCAST;
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
@@ -80,7 +94,7 @@ class Parse
 
     //--------------------------------------------------------------------------
     // Private assignment operator
-    Parse& operator=(const Parse& original);    
+    Parse& operator=(const Parse& original);
 };
 
 
