@@ -71,11 +71,10 @@ class CmdLoad : public Command
     // fileIsValid checks if file is valid by checking unpaired tags and closed
     // paired tags and if they exist
     // @param vector containing all savefile tags and values from one line
-    // @param vector containing all unpaired tags
+    // 
     // @return true if the file is valid 
     //
-    bool fileIsValid(std::vector<std::string> save_line_arguments,
-    std::vector<std::string> unpaired_tags);
+    bool fileIsValid(std::vector<std::string> save_line_arguments);
 
     //--------------------------------------------------------------------------
     // loadResourceValue carries the values read from savefile to the
@@ -85,6 +84,12 @@ class CmdLoad : public Command
     // @return tag_value value of variable to be loaded into game
     //
     void loadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value);
+
+    bool hierarchyCheckPassed(std::vector<std::string> all_savefile_tags);
+
+    bool isWeatherTag(std::string tag);
+
+    bool isStatsTag(std::string tag);
 
     //--------------------------------------------------------------------------
     // Executes the command.

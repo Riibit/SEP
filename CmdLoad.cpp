@@ -68,7 +68,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 {
   std::string load_filename = params[0];
 
-  std::vector<std::string> unpaired_tags; // tags closed in another line
+  std::vector<std::string> all_savefile_tags; // tags closed in another line
   std::vector<std::string> savefile_values; // holds values in string form until end of file check
   std::vector<std::string> savefile_value_names; // holds names of values untile end of file check
 
@@ -106,13 +106,15 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
         }
       }
 
-      file_is_valid = fileIsValid(save_line_arguments, unpaired_tags);
+      file_is_valid = fileIsValid(save_line_arguments);
       
       if (!file_is_valid)
       {
         std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
         break;
       }
+      // keep all tags for hierarchy check
+      all_savefile_tags.push_back(save_line_arguments[0]);
 
       // get value current tag
       if (save_line_arguments.size() == 3)
@@ -121,13 +123,22 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
         savefile_values.push_back(save_line_arguments[1]);
       }
     }
-    // set variable to value
-    for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
+    // perform hierarchy check
+    if (hierarchyCheckPassed(all_savefile_tags))
     {
-      loadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
+      // set variable to value
+      for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
+      {
+        loadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
+      }
     }
-    savefile.close();
+    else
+    {
+      std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
+      // invalidFileErrorAndPreventLoading();
+    }
   }
+  savefile.close();
   // reload html files on load
   HTMLWriterEnvironment environment_writer("Environment.html");
   environment_writer.writeFile(game.getCondition());
@@ -195,14 +206,14 @@ bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
   return valid;
 }
 
-bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments,
- std::vector<std::string> unpaired_tags)
+bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
 {
   bool file_valid = true;
   if (save_line_arguments.size() == 1 &&
       unpairedTagAllowed(save_line_arguments[0])) // legal unpaired tags
       {
-        unpaired_tags.push_back(save_line_arguments[0]);
+        // not sure if i need this now (possibly obsolete code)
+        // unpaired_tags.push_back(save_line_arguments[0]);
       }
       else if (save_line_arguments.size() == 1 && 
         !unpairedTagAllowed(save_line_arguments[0])) 
@@ -235,8 +246,97 @@ bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
   return allowed;
 }
 
+bool CmdLoad::isWeatherTag(std::string tag)
+{
+  bool is_weather = false;
+  for (int index = 3; index <= 6; index++)
+  {
+    if (tag.compare(tag_collection_[index]))
+    {
+      is_weather = true;
+    }
+  }
+    return is_weather;
+}
+
+bool CmdLoad::isStatsTag(std::string tag)
+{
+  bool is_stat = false;
+  for (unsigned int index = 7; index <= tag_collection_.size() - 1; index++)
+  {
+    if (tag.compare(tag_collection_[index]))
+    {
+      is_stat = true;
+    }
+  }
+  return is_stat;
+}
+
+bool CmdLoad::hierarchyCheckPassed(std::vector<std::string> all_savefile_tags)
+{
+  bool passed = true;
+  bool weather_flag = false;
+  bool stats_flag = false;
+  bool premature_fail = false;
+  unsigned int tag_count = all_savefile_tags.size();
+  
+  if (all_savefile_tags[0].compare(TAG_SAVEFILE))
+  {
+    premature_fail = true;
+  }
+  else if (all_savefile_tags[tag_count - 1].compare("/" + TAG_SAVEFILE))
+  {
+    premature_fail = true;
+  }
+
+  if (premature_fail)
+  {
+    passed = false;
+  }
+  else
+  {
+    for (unsigned int tag_index = 1; tag_index < tag_count - 2; tag_index++)
+    {
+      if (!all_savefile_tags[tag_index].compare(TAG_WEATHER))
+      {
+        weather_flag = true;
+      }
+      else if (!all_savefile_tags[tag_index].compare(TAG_STATS))
+      {
+        stats_flag = true;
+      }
+      else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER))
+      {
+        weather_flag = false;
+      }
+      else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS))
+      {
+        stats_flag = false;
+      }
+      else if (weather_flag && !isWeatherTag(all_savefile_tags[tag_index]))
+      {
+        passed = false;
+      }
+      else if (stats_flag && !isStatsTag(all_savefile_tags[tag_index]))
+      {
+        passed = false;
+      }
+      else if (!stats_flag && !weather_flag)
+      {
+        passed = false;
+      }
+      if (!passed)
+      {
+        break;
+      }
+    }
+  }
+  return passed;
+}
+
 // sudo send help
-void CmdLoad::loadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value)
+void CmdLoad::loadResourceValue(GameHandler& game, std::string tag_name,
+  std::string tag_value)
 {
   Parse parser;
 
