@@ -11,7 +11,7 @@
 #ifndef RETURN_VALUES_H
 #define RETURN_VALUES_H
 
-#define AUFBAU
+//#define AUFBAU
 
 static const int RETURN_SUCCESS = 0;
 static const int RETURN_OUT_OF_MEMORY = 1;
