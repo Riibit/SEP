@@ -9,12 +9,12 @@
 //------------------------------------------------------------------------------
 //
 
-#ifndef CMD_SAVE
-#define CMD_SAVE
+#ifndef CMD_SAVE_H
+#define CMD_SAVE_H
 
 #include "Command.h"
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // CmdSave Class
 // Class for the save command.
 //
@@ -43,7 +43,10 @@ class CmdSave : public Command
     //--------------------------------------------------------------------------
     // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 1;
-   
+
+    //--------------------------------------------------------------------------
+    // The message if the file could not be opened to write
+    static const std::string FILE_ERROR;
 };
 
-#endif //CMD_SAVE
+#endif //CMD_SAVE_H

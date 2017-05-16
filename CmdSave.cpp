@@ -20,6 +20,8 @@
 const std::string CmdSave::CMD_NAME = "save";
 const std::string CmdSave::ERR_CMD = "[ERR] Usage: save <filename>";
 
+const std::string CmdSave::FILE_ERROR = "[ERR] Could not open file.";
+
 using std::ios;
 CmdSave::CmdSave() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
@@ -33,13 +35,11 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
 
   std::fstream savefile;
 
-  // file can never be invalid because on every save it is overwritten
   savefile.open(save_filename, ios::in | ios::out | ios::trunc);
 
   if (!savefile)
   {
-    // this should never ever happen
-    std::cout << "[ERR] Could not open file." << std::endl; // replace this hardcoded error string with a const string
+    std::cout << FILE_ERROR << std::endl;
   }
   else
   {

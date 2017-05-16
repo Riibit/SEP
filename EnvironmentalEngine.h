@@ -105,6 +105,17 @@ class EnvironmentalEngine
     //
     EnvironmentalCondition::Rank toRank(unsigned int input);
 
+    //---------------------------------------------------------------------------
+    // The margin for the realistic Temperature for the avoidance of them 
+    // hardcoded values and its floating twin
+    static const int REALISTIC_TEMPERATURE_MARGIN = 5;
+    static const float REALISTIC_TEMPERATURE_MARGIN_FLOAT;
+
+    //---------------------------------------------------------------------------
+    // The value for the calculation of the random digit and a float for it
+    static const int DIGIT_MODULUS = 10;
+    static const float DIGIT_MODULUS_FLOAT;
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor

@@ -15,6 +15,12 @@
 #include <iostream>
 #include "ExceptionDataType.h"
 
+const float  EnvironmentalEngine::REALISTIC_TEMPERATURE_MARGIN_FLOAT = 
+  static_cast<float>(EnvironmentalEngine::REALISTIC_TEMPERATURE_MARGIN);
+
+const float  EnvironmentalEngine::DIGIT_MODULUS_FLOAT = 
+  static_cast<float>(EnvironmentalEngine::DIGIT_MODULUS);
+
 EnvironmentalEngine::EnvironmentalEngine()
 {
   srand (time(NULL));
@@ -46,10 +52,11 @@ void EnvironmentalEngine::realisticCondition(
 {
   int enum_value;
   float temperature = condition -> getTemperature();
-  float temperature_summand = 5.0f - (rand() % 11);
-  if(temperature_summand < 5)
+  float temperature_summand = REALISTIC_TEMPERATURE_MARGIN_FLOAT - 
+    (rand() % 11);
+  if(temperature_summand < REALISTIC_TEMPERATURE_MARGIN)
   {
-    temperature_summand += ((rand() % 10) / 10.0f);
+    temperature_summand += ((rand() % DIGIT_MODULUS) / DIGIT_MODULUS_FLOAT);
   }
   temperature += temperature_summand;
   if(temperature < EnvironmentalCondition::MIN_TEMP)
@@ -62,18 +69,18 @@ void EnvironmentalEngine::realisticCondition(
   }
   condition -> setTemperature(temperature);
 
-  enum_value = realisticEnumInteger(
-    static_cast<int>(condition -> getSkyCover()), 3);
+  enum_value = realisticEnumInteger(static_cast<int>(
+    condition -> getSkyCover()), EnvironmentalCondition::MAX_COVER_INT);
   condition -> setSkyCover(
     static_cast<EnvironmentalCondition::Cover>(enum_value));
 
-  enum_value = realisticEnumInteger(
-    static_cast<int>(condition -> getPrecipitation()), 3);
+  enum_value = realisticEnumInteger(static_cast<int>(
+    condition -> getPrecipitation()), EnvironmentalCondition::MAX_RANK_INT);
   condition -> setPrecipitation(
     static_cast<EnvironmentalCondition::Rank>(enum_value));
 
-  enum_value = realisticEnumInteger(
-    static_cast<int>(condition -> getWind()), 3);
+  enum_value = realisticEnumInteger(static_cast<int>(
+    condition -> getWind()), EnvironmentalCondition::MAX_RANK_INT);
   condition -> setWind(
     static_cast<EnvironmentalCondition::Rank>(enum_value));
 }
@@ -99,24 +106,24 @@ float EnvironmentalEngine::randomTemperature()
 
   temperature = ((rand() % 25) + EnvironmentalCondition::MIN_TEMP);
 
-  temperature += ((rand() % 10) / 10.0f);
+  temperature += ((rand() % DIGIT_MODULUS) / DIGIT_MODULUS_FLOAT);
 
   return temperature;
 }
 
 EnvironmentalCondition::Cover EnvironmentalEngine::randomCover()
 {
-  return toCover(rand() % 4);
+  return toCover(rand() % (EnvironmentalCondition::MAX_COVER_INT + 1));
 }
 
 EnvironmentalCondition::Rank EnvironmentalEngine::randomRank()
 {
-  return toRank(rand() % 4);
+  return toRank(rand() % (EnvironmentalCondition::MAX_RANK_INT + 1));
 }
 
 EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 {
-  if(input > 3)
+  if(input > EnvironmentalCondition::MAX_COVER_INT)
   {
     throw ExceptionDataType();
   }  
@@ -140,7 +147,7 @@ EnvironmentalCondition::Cover EnvironmentalEngine::toCover(unsigned int input)
 
 EnvironmentalCondition::Rank EnvironmentalEngine::toRank(unsigned int input)
 {
-  if(input > 3)
+  if(input > EnvironmentalCondition::MAX_RANK_INT)
   {
     throw ExceptionDataType();
   }

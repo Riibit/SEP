@@ -145,6 +145,9 @@ class EnvironmentalCondition
     //
     bool isItChilly();
 
+    static const int MAX_COVER_INT = 3;
+    static const int MAX_RANK_INT = 3;
+
   private:
     //--------------------------------------------------------------------------
     // Private copy constructor
