@@ -32,12 +32,12 @@ class HTMLWriterEnvironment : public HTMLWriter
     // Constructor
     HTMLWriterEnvironment();
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Creates the body part of the Environmental html file and passes it to the
     // writeFile function of the parent class
     //
-    // @param condition The EnvironmentalCondition object that supplies the values
-    //        that are to be written
+    // @param condition The EnvironmentalCondition object that supplies the 
+    //        values that are to be written
     //
     void writeFile(const std::unique_ptr<EnvironmentalCondition>& condition);
 
@@ -53,9 +53,9 @@ class HTMLWriterEnvironment : public HTMLWriter
     static const std::string STANDARD_NAME;
 
   private:
-    //------------------------------------------------------------------------------
-    // Takes a boolean value and returns a true or falase string depending on the
-    // value
+    //--------------------------------------------------------------------------
+    // Takes a boolean value and returns a true or falase string depending 
+    // on the value
     //
     // @param input The boolean value
     //

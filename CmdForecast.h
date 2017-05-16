@@ -14,7 +14,6 @@
 
 #include "Command.h"
 
-
 //------------------------------------------------------------------------------
 // CmdForecast class
 // Class for the forecast command

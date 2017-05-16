@@ -44,7 +44,6 @@ const std::string &Command::getErrorMessage() const
   return parameter_message_;
 }
 
-//------------------------------------------------------------------------------
 const std::string &Command::getName() const
 {
   return command_name_;

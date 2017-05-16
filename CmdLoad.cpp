@@ -131,9 +131,11 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     if (file_is_valid && hierarchyCheckPassed(all_savefile_tags))
     {
       // set variable to value
-      for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
+      for (unsigned int value_id = 0; 
+        value_id < savefile_values.size(); ++value_id)
       {
-        loadResourceValue(game, savefile_value_names[value_id], savefile_values[value_id]);
+        loadResourceValue(game, savefile_value_names[value_id], 
+          savefile_values[value_id]);
       }
     }
     else
@@ -392,7 +394,8 @@ void CmdLoad::loadResourceValue(GameHandler& game, std::string tag_name,
   }
   else if (!tag_name.compare(TAG_PRECIPITATION))
   {
-    game.getCondition() -> setPrecipitation(parser.parseStringToRank(tag_value));
+    game.getCondition() -> 
+      setPrecipitation(parser.parseStringToRank(tag_value));
   }
   else if (!tag_name.compare(TAG_COVER))
   {
