@@ -29,7 +29,9 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // isBracket checks if a character is an angle bracket, used in 
     // savefile parsing
+    //
     // @param current_char character from savefile line that is being checked
+    //
     // @return true if char is an angle bracket
     //
     bool isBracket(char current_char);
@@ -37,7 +39,9 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // checkTagExists checks if a tag found in savefile is allowed, used in 
     // savefile parsing
+    //
     // @param tag that is being checked
+    //
     // @return true if tag exists in list of allowed tags
     //
     bool checkTagExists(std::string tag);
@@ -45,8 +49,10 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // checkTagClosed checks if a paired tag is closed or not, used in 
     // savefile parsing
+    //
     // @param tag tag from savefile that is being checked
     // @param closing_tag corresponding closing tag from the same line
+    //
     // @return true if char is an angle bracket
     //    
     bool checkTagClosed(std::string tag, std::string closing_tag);
@@ -83,7 +89,8 @@ class CmdLoad : public Command
     // @param tag_name name of variable to be loaded into game
     // @return tag_value value of variable to be loaded into game
     //
-    void loadResourceValue(GameHandler& game, std::string tag_name, std::string tag_value);
+    void loadResourceValue(GameHandler& game, std::string tag_name,
+        std::string tag_value);
 
     bool hierarchyCheckPassed(std::vector<std::string> all_savefile_tags);
 
@@ -99,12 +106,29 @@ class CmdLoad : public Command
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------
+    // The start and end index of weather tag strings
+    static const int WEATHER_START = 3;
+    static const int WEATHER_END = 6;
+
+    //--------------------------------------------------------------------------
+    // The start index of stats tag strings
+    static const unsigned int STATS_START = 7;
+
+    //--------------------------------------------------------------------------
     // The name of the command
     static const std::string CMD_NAME;
 
     //--------------------------------------------------------------------------
     // The error message if the parameter count is not right
     static const std::string ERR_CMD;
+
+    //--------------------------------------------------------------------------
+    // The error message if there is a problem while opening savefile
+    static const std::string FILE_OPEN_ERROR;
+
+    //--------------------------------------------------------------------------
+    // The error message if savefile is invalid
+    static const std::string ERR_FILE_INVALID;
 
     //--------------------------------------------------------------------------
     // Number of Parameters for this function
