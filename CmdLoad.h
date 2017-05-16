@@ -60,7 +60,9 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // tagValidAndClosed calls two methods above to determine the validity 
     // of the tags in the line
+    //
     // @param vector containing all savefile tags and values from one line
+    //
     // @return true if the tag exists and is closed properly
     //
     bool tagValidAndClosed(std::vector<std::string> save_line_arguments);
@@ -68,7 +70,9 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // unpairedTagAllowed checks if an unclosed tag is allowed to be closed
     // in another line
+    //
     // @param tag which is being tested
+    //
     // @return true if the tag is allowed to be alone in a line
     //
     bool unpairedTagAllowed(std::string unpaired_tag);
@@ -76,6 +80,7 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // fileIsValid checks if file is valid by checking unpaired tags and closed
     // paired tags and if they exist
+    //
     // @param vector containing all savefile tags and values from one line
     // 
     // @return true if the file is valid 
@@ -85,23 +90,47 @@ class CmdLoad : public Command
     //--------------------------------------------------------------------------
     // loadResourceValue carries the values read from savefile to the
     // game (calls appropriate setters)
+    //
     // @param game The object of GameHandler where the game is being run
     // @param tag_name name of variable to be loaded into game
-    // @return tag_value value of variable to be loaded into game
+    // @param tag_value value of variable to be loaded into game
     //
     void loadResourceValue(GameHandler& game, std::string tag_name,
         std::string tag_value);
 
+    //--------------------------------------------------------------------------
+    // hierarchyCheckPassed checks the nesting in the savefile
+    //
+    // @param vector containing all savefile tags
+    // 
+    // @return true if the nesting is ok
+    //
     bool hierarchyCheckPassed(std::vector<std::string> all_savefile_tags);
 
+    //--------------------------------------------------------------------------
+    // isWeatherTag checks if the given tag is a weather tag
+    //
+    // @param tag to be checked
+    // 
+    // @return true if tag belongs inside the <weather> tag
+    //
     bool isWeatherTag(std::string tag);
 
+    //--------------------------------------------------------------------------
+    // isStatsTag checks if the given tag is a stats tag
+    //
+    // @param tag to be checked
+    // 
+    // @return true if tag belongs inside the <stats> tag
+    //
     bool isStatsTag(std::string tag);
 
     //--------------------------------------------------------------------------
     // Executes the command.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Integer representing the success of the action
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
