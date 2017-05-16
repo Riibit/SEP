@@ -34,7 +34,7 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   // game data loaded
   unsigned int lemon_value = game.getResourceLemon();
   unsigned int sugar_value = game.getResourceSugar();
-  unsigned int money_value = game.getResourceMoney(); // not a pyramid scheme
+  unsigned int money_value = game.getResourceMoney();
   unsigned int lemon_price = game.getPriceLemon();
   unsigned int sugar_price = game.getPriceSugar();
   

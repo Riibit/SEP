@@ -35,7 +35,8 @@ int CmdForecast::execute(GameHandler& game, std::vector<std::string>& params)
   Parse parser;
 
   int sky_cover = static_cast<int>(game.getCondition() -> getSkyCover());
-  int precipitation = static_cast<int>(game.getCondition() -> getPrecipitation());
+  int precipitation = 
+    static_cast<int>(game.getCondition() -> getPrecipitation());
   float temperature = game.getCondition() -> getTemperature();
   int wind = static_cast<int>(game.getCondition() -> getWind());
   float under_temperature;
