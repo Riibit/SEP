@@ -24,8 +24,8 @@
 
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
-const std::string FILE_OPEN_ERROR = "[ERR] Could not open file.";
-const std::string ERR_FILE_INVALID = "[ERR] Invalid file.";
+const std::string CmdLoad::FILE_OPEN_ERROR = "[ERR] Could not open file.";
+const std::string CmdLoad::ERR_FILE_INVALID = "[ERR] Invalid file.";
 
 const std::string CmdLoad::TAG_SAVEFILE = "savefile";
 const std::string CmdLoad::TAG_STATS = "stats";
