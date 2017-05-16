@@ -212,13 +212,10 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
   if (save_line_arguments.size() == 1 &&
       unpairedTagAllowed(save_line_arguments[0])) // legal unpaired tags
       {
-        // not sure if i need this now (possibly obsolete code)
-        // unpaired_tags.push_back(save_line_arguments[0]);
       }
       else if (save_line_arguments.size() == 1 && 
         !unpairedTagAllowed(save_line_arguments[0])) 
       {
-
         file_valid = false;
       }
       else if(save_line_arguments.size() != 3 || 
