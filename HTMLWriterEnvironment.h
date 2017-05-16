@@ -18,6 +18,7 @@
 
 
 //------------------------------------------------------------------------------
+// HTMLWriterEnvironment class
 // The class for writing Environment HTML files
 //
 class HTMLWriterEnvironment : public HTMLWriter
