@@ -298,50 +298,61 @@ bool CmdLoad::hierarchyCheckPassed(std::vector<std::string> all_savefile_tags)
   {
     for (unsigned int tag_index = 1; tag_index < tag_count - 1; tag_index++)
     {
+      // weather tag inside stats or already exists
       if (!all_savefile_tags[tag_index].compare(TAG_WEATHER)
         && (stats_flag || weather_flag))
       {
         passed = false;
       }
+      // set wether flag
       else if (!all_savefile_tags[tag_index].compare(TAG_WEATHER))
       {
         weather_flag = true;
       }
+      // stats tag inside weather or already exists
       else if (!all_savefile_tags[tag_index].compare(TAG_STATS)
         && (stats_flag || weather_flag))
       {
         passed = false;
       }
+      // set stats flag
       else if (!all_savefile_tags[tag_index].compare(TAG_STATS))
       {
         stats_flag = true;
       }
+      // closing unopened weather tag
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER)
         && !weather_flag)
       {
         passed = false;
       }
+      // unset weather flag
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER))
       {
         weather_flag = false;
       }
+      // closing unopened stats tag
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS)
         && !stats_flag)
       {
         stats_flag = false;
       }
+      // unset stats flag
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS))
       {
         stats_flag = false;
       }
+      // wrong tag inside weather tag
       else if (weather_flag && !isWeatherTag(all_savefile_tags[tag_index]))
       {
         passed = false;
       }
+      // wrong tag inside stats tag
       else if (stats_flag && !isStatsTag(all_savefile_tags[tag_index]))
       {
         passed = false;
       }
+      // outside of weather and stats tags
       else if (!stats_flag && !weather_flag)
       {
         passed = false;
