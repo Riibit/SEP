@@ -72,6 +72,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   std::vector<std::string> savefile_values; // holds values in string form until end of file check
   std::vector<std::string> savefile_value_names; // holds names of values untile end of file check
 
+  bool file_is_valid = true;
   std::string savefile_line;
   std::ifstream savefile;
   savefile.open(load_filename);
@@ -84,7 +85,6 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   {
     while(getline(savefile, savefile_line)) // get lines of savefile 
     {
-      bool file_is_valid = true;
       std::vector<std::string> save_line_arguments;
 
       std::stringstream stream(savefile_line);
@@ -110,7 +110,6 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
       
       if (!file_is_valid)
       {
-        std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
         break;
       }
       // keep all tags for hierarchy check
@@ -124,7 +123,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
       }
     }
     // perform hierarchy check
-    if (hierarchyCheckPassed(all_savefile_tags))
+    if (file_is_valid && hierarchyCheckPassed(all_savefile_tags))
     {
       // set variable to value
       for (unsigned int value_id = 0; value_id < savefile_values.size(); ++value_id)
@@ -219,6 +218,7 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
       else if (save_line_arguments.size() == 1 && 
         !unpairedTagAllowed(save_line_arguments[0])) 
       {
+
         file_valid = false;
       }
       else if(save_line_arguments.size() != 3 || 
@@ -232,15 +232,18 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
 bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 {
   bool allowed = false;
-  if (unpaired_tag != TAG_SAVEFILE || unpaired_tag != "/" + TAG_SAVEFILE)
+  if (!unpaired_tag.compare(TAG_SAVEFILE) ||
+    !unpaired_tag.compare("/" + TAG_SAVEFILE))
   {
     allowed = true;
   }
-  else if (unpaired_tag != TAG_WEATHER || unpaired_tag != "/" + TAG_WEATHER)
+  else if (!unpaired_tag.compare(TAG_WEATHER) ||
+    !unpaired_tag.compare("/" + TAG_WEATHER))
   {
     allowed = true;
   }
-  else if (unpaired_tag != TAG_STATS || unpaired_tag != "/" + TAG_STATS)
+  else if (!unpaired_tag.compare(TAG_STATS) ||
+    !unpaired_tag.compare("/" + TAG_STATS))
   {
     allowed = true;
   }
