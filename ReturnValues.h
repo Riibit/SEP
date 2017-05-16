@@ -11,8 +11,10 @@
 #ifndef RETURN_VALUES_H
 #define RETURN_VALUES_H
 
-#define AUFBAU
+//#define AUFBAU
 
+//------------------------------------------------------------------------------
+// Return value variables
 static const int RETURN_SUCCESS = 0;
 static const int RETURN_OUT_OF_MEMORY = 1;
 static const int RETURN_WRONG_USAGE = 2;

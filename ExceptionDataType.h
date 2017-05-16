@@ -15,6 +15,7 @@
 #include "OwnBaseException.h"
 
 //------------------------------------------------------------------------------
+// ExceptionDataType class
 // Not Integer Exception
 //
 class ExceptionDataType : public OwnBaseException

@@ -30,30 +30,3 @@ int main(int argc, char **argv)
   return_value = game.play();
   return return_value;
 }
-
-/*
-Daily Goals:
-
--Donnerstag
--Freitag
-  Play (implementierung) !!!
-  realsticWeather / forecast
--Samstag
-  Save/Load (implementierung) Milan???
--Sonntag
-  Save/Load -"-
--Montag
-  Error-Handling
-  Valgrind
-  return const
-  Verbleibendes
--Dienstag
-  Alles Verbleibendes
--Mittwoch
-  CS
-  Verbleibendes
--Donnerstag
-  Frustsaufen
-
-
-*/

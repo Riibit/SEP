@@ -15,6 +15,7 @@
 #include <exception>
 
 //------------------------------------------------------------------------------
+// OwnBaseException class
 // Base for all exceptions
 //
 class OwnBaseException : std::exception

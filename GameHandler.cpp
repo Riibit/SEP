@@ -9,8 +9,6 @@
 //------------------------------------------------------------------------------
 //
 
-#define AUFBAU
-
 #include <iostream>
 #include "GameHandler.h"
 #include "Interface.h"
