@@ -139,6 +139,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     }
   }
   savefile.close();
+
   // reload html files on load
   HTMLWriterEnvironment environment_writer("Environment.html");
   environment_writer.writeFile(game.getCondition());
@@ -251,7 +252,7 @@ bool CmdLoad::isWeatherTag(std::string tag)
   bool is_weather = false;
   for (int index = 3; index <= 6; index++)
   {
-    if (tag.compare(tag_collection_[index]))
+    if (!tag.compare(tag_collection_[index]))
     {
       is_weather = true;
     }
@@ -264,7 +265,7 @@ bool CmdLoad::isStatsTag(std::string tag)
   bool is_stat = false;
   for (unsigned int index = 7; index <= tag_collection_.size() - 1; index++)
   {
-    if (tag.compare(tag_collection_[index]))
+    if (!tag.compare(tag_collection_[index]))
     {
       is_stat = true;
     }
@@ -295,19 +296,39 @@ bool CmdLoad::hierarchyCheckPassed(std::vector<std::string> all_savefile_tags)
   }
   else
   {
-    for (unsigned int tag_index = 1; tag_index < tag_count - 2; tag_index++)
+    for (unsigned int tag_index = 1; tag_index < tag_count - 1; tag_index++)
     {
-      if (!all_savefile_tags[tag_index].compare(TAG_WEATHER))
+      if (!all_savefile_tags[tag_index].compare(TAG_WEATHER)
+        && (stats_flag || weather_flag))
+      {
+        passed = false;
+      }
+      else if (!all_savefile_tags[tag_index].compare(TAG_WEATHER))
       {
         weather_flag = true;
+      }
+      else if (!all_savefile_tags[tag_index].compare(TAG_STATS)
+        && (stats_flag || weather_flag))
+      {
+        passed = false;
       }
       else if (!all_savefile_tags[tag_index].compare(TAG_STATS))
       {
         stats_flag = true;
       }
+      else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER)
+        && !weather_flag)
+      {
+        passed = false;
+      }
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER))
       {
         weather_flag = false;
+      }
+      else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS)
+        && !stats_flag)
+      {
+        stats_flag = false;
       }
       else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS))
       {
