@@ -24,6 +24,8 @@
 
 const std::string CmdLoad::CMD_NAME = "load";
 const std::string CmdLoad::ERR_CMD = "[ERR] Usage: load <filename>";
+const std::string FILE_OPEN_ERROR = "[ERR] Could not open file.";
+const std::string ERR_FILE_INVALID = "[ERR] Invalid file.";
 
 const std::string CmdLoad::TAG_SAVEFILE = "savefile";
 const std::string CmdLoad::TAG_STATS = "stats";
@@ -68,9 +70,12 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 {
   std::string load_filename = params[0];
 
-  std::vector<std::string> all_savefile_tags; // tags closed in another line
-  std::vector<std::string> savefile_values; // holds values in string form until end of file check
-  std::vector<std::string> savefile_value_names; // holds names of values untile end of file check
+  // tags closed in another line
+  std::vector<std::string> all_savefile_tags;
+  // holds values in string form until end of file check
+  std::vector<std::string> savefile_values;
+   // holds names of values untile end of file check
+  std::vector<std::string> savefile_value_names;
 
   bool file_is_valid = true;
   std::string savefile_line;
@@ -79,11 +84,11 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 
   if (!savefile)
   {
-    std::cout << "[ERR] Could not open file." << std::endl; // replace this hardcoded error string with a const string
+    std::cout << FILE_OPEN_ERROR << std::endl;
   }
   else
   {
-    while(getline(savefile, savefile_line)) // get lines of savefile 
+    while(getline(savefile, savefile_line))
     {
       std::vector<std::string> save_line_arguments;
 
@@ -133,8 +138,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
     }
     else
     {
-      std::cout << "[ERR] Invalid file." << std::endl; // replace this hardcoded error string with a const string
-      // invalidFileErrorAndPreventLoading();
+      std::cout << ERR_FILE_INVALID << std::endl;
     }
   }
   savefile.close();
@@ -158,7 +162,7 @@ bool CmdLoad::checkTagExists(std::string tag)
     if (!tag.compare(tag_collection_[tag_id]))
     {
       exists = true;
-      break; // found, exiting loop
+      break;
     }
   }
   return exists;
@@ -179,7 +183,8 @@ bool CmdLoad::checkTagClosed(std::string tag, std::string closing_tag)
 
 bool CmdLoad::isBracket(char current_char)
 {
-  if (current_char == '<' || current_char == '>' || current_char == EOF || current_char == ' ')
+  if (current_char == '<' || current_char == '>' ||
+    current_char == EOF || current_char == ' ')
   {
     return true;
   }
@@ -192,7 +197,7 @@ bool CmdLoad::isBracket(char current_char)
 bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
 {
   bool valid = true;
-        if (!checkTagExists(save_line_arguments[0])) // if tag exists
+        if (!checkTagExists(save_line_arguments[0]))
         {
           valid = false;
         }
@@ -210,7 +215,7 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
 {
   bool file_valid = true;
   if (save_line_arguments.size() == 1 &&
-      unpairedTagAllowed(save_line_arguments[0])) // legal unpaired tags
+      unpairedTagAllowed(save_line_arguments[0])) 
       {
       }
       else if (save_line_arguments.size() == 1 && 
@@ -219,7 +224,7 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
         file_valid = false;
       }
       else if(save_line_arguments.size() != 3 || 
-        !tagValidAndClosed(save_line_arguments)) // invalid or unclosed tags
+        !tagValidAndClosed(save_line_arguments)) 
       {
         file_valid = false;
       }
@@ -250,7 +255,7 @@ bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 bool CmdLoad::isWeatherTag(std::string tag)
 {
   bool is_weather = false;
-  for (int index = 3; index <= 6; index++)
+  for (int index = WEATHER_START; index <= WEATHER_END; index++)
   {
     if (!tag.compare(tag_collection_[index]))
     {
@@ -263,7 +268,8 @@ bool CmdLoad::isWeatherTag(std::string tag)
 bool CmdLoad::isStatsTag(std::string tag)
 {
   bool is_stat = false;
-  for (unsigned int index = 7; index <= tag_collection_.size() - 1; index++)
+  for (unsigned int index = STATS_START;
+    index <= tag_collection_.size() - 1; index++)
   {
     if (!tag.compare(tag_collection_[index]))
     {
