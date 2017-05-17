@@ -31,9 +31,10 @@ class EnvironmentalCondition
     // Destructor
     ~EnvironmentalCondition();
 
+    //--------------------------------------------------------------------------
+    // The enums for cover and rank
     enum Cover {SUNNY, CLOUDY, OVERCAST, VERY_OVERCAST};
     enum Rank {NONE, LOW, MEDIUM, HIGH};
-
 
     //--------------------------------------------------------------------------
     // Constructor for the class
@@ -157,6 +158,8 @@ class EnvironmentalCondition
     // Private assignment operator
     EnvironmentalCondition& operator=(const EnvironmentalCondition& original);
 
+    //--------------------------------------------------------------------------
+    // The enum variables for sky coverage, precipitation, temperature and wind
     Cover sky_cover_;
     Rank precipitation_;
     float temperature_;

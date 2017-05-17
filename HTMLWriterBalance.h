@@ -15,6 +15,7 @@
 #include "HTMLWriter.h"
 
 //------------------------------------------------------------------------------
+// HTMLWriterBalance class
 // The class for writing Balance HTML files
 //
 class HTMLWriterBalance : public HTMLWriter

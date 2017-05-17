@@ -49,13 +49,15 @@ int CmdRecipe::execute(GameHandler& game, std::vector<std::string>& params)
   }
 }
 
-int CmdRecipe::executeParameterOne(GameHandler& game, std::vector<std::string>& params)
+int CmdRecipe::executeParameterOne(GameHandler& game, 
+  std::vector<std::string>& params)
 {
   printRecipe(game);
   return RETURN_SUCCESS;
 }
 
-int CmdRecipe::executeParameterTwo(GameHandler& game, std::vector<std::string>& params) 
+int CmdRecipe::executeParameterTwo(GameHandler& game, 
+  std::vector<std::string>& params) 
 {
   unsigned int lemon_percent;
   unsigned int sugar_percent;

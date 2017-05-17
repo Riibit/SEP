@@ -19,7 +19,6 @@
 // Parse Class
 // Class that parses various values.
 //
-
 class Parse
 {
   public:

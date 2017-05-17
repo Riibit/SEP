@@ -72,7 +72,8 @@ void HTMLWriterEnvironment::writeFile(
     << "<p><strong>Wind: </strong>"
     << parser.parseRank(condition -> getWind()) << "</p>" << endl
     << "<p><strong>Hot: </strong>"
-    << HTMLWriterEnvironment::isItString(condition -> isItHot()) << "</p>" << endl
+    << HTMLWriterEnvironment::isItString(condition -> isItHot()) 
+    << "</p>" << endl
     << "<p><strong>Rainy: </strong>"
     << HTMLWriterEnvironment::isItString(condition -> isItRainy())
     << "</p>" << endl << "<p><strong>Stormy: </strong>"

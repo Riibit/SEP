@@ -17,7 +17,7 @@
 
 class GameHandler;
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // Command Class
 // Class for the command management.
 //
@@ -36,8 +36,12 @@ class Command
     // Name of this command
     std::string command_name_;
 
+    //--------------------------------------------------------------------------
+    // The variable which saves the corresponding error messages
     std::string parameter_message_;
 
+    //--------------------------------------------------------------------------
+    // How many parameters a command accepts
     unsigned int parameter_count_;
 
 

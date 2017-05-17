@@ -15,7 +15,9 @@
 class GameHandler;
 
 //------------------------------------------------------------------------------
+// GameHandler class
 // Class for producing digital lemonade
+//
 class Produce
 {
   private:

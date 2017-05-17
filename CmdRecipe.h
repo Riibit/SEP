@@ -16,7 +16,7 @@
 
 class GameHandler;
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // CmdRecipe Class
 // Class for the recipe command.
 //
@@ -39,14 +39,16 @@ class CmdRecipe : public Command
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
     // @return Integer representing the success of the action
-    int executeParameterOne(GameHandler& game, std::vector<std::string>& params);
+    int executeParameterOne(GameHandler& game, 
+      std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------
     // Executes the command if there are three parameters.
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
     // @return Integer representing the success of the action
-    int executeParameterTwo(GameHandler& game, std::vector<std::string>& params);
+    int executeParameterTwo(GameHandler& game, 
+      std::vector<std::string>& params);
     
     //--------------------------------------------------------------------------
     // Prints out the current recipe
