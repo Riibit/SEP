@@ -146,6 +146,8 @@ class EnvironmentalCondition
     //
     bool isItChilly();
 
+    //--------------------------------------------------------------------------
+    // Integer represeenting the maximal value of the ranks
     static const int MAX_COVER_INT = 3;
     static const int MAX_RANK_INT = 3;
 

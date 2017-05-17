@@ -35,15 +35,17 @@ class GameHandler
     ~GameHandler();
 
     //--------------------------------------------------------------------------
-    // initialize Initializes the games processes
-    // @return return_value Returns the corresponding return value.
+    // Initialize Initializes the games processes
+    //
+    // @return int Returns the corresponding return value.
     //
     int initialize(int argc, char *argv[]);
 
     //--------------------------------------------------------------------------
     // play executes the prompt method and is used to terminate the 
     // programm.
-    // @return return_value Returns the corresponding return value.
+    //
+    // @return int Returns the corresponding return value.
     //
     int play();
 
@@ -53,7 +55,13 @@ class GameHandler
     //
     void resetStandardRecipe();
 
+    //--------------------------------------------------------------------------
+    // Adds the expenditures to the expenses
     void addExpenses(unsigned int expenditures);
+
+    //--------------------------------------------------------------------------
+    // Calculates the current balance
+    void calculateBalance();
 
     //--------------------------------------------------------------------------
     // Setter Methods
@@ -75,9 +83,6 @@ class GameHandler
 
     void setRecipe(unsigned int lemon, unsigned int sugar, unsigned int water);
 
-    //--------------------------------------------------------------------------
-    // Calculates the current balance
-    void calculateBalance();
 
     //--------------------------------------------------------------------------
     // Getter Methods
@@ -110,7 +115,7 @@ class GameHandler
     void endOfLife();
 
     //--------------------------------------------------------------------------
-    /// The message if the parameters are invalid at start
+    // The message if the parameters are invalid at start
     static const std::string ERR_PROGRAM_START;
 
     //--------------------------------------------------------------------------
@@ -198,11 +203,11 @@ class GameHandler
     unsigned int price_sugar_;
 
     //--------------------------------------------------------------------------
-    // resolveCommand Method
     // Compares the first arg with the commands and checks the if the number of
     // parameters are correct.
     // 
     // @return Returns the correspondent return value.
+    //
     int resolveCommand();
 };
 

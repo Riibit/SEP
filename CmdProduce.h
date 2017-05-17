@@ -54,6 +54,7 @@ class CmdProduce : public Command
     //--------------------------------------------------------------------------
     // The warning message if the ressources are not enough to produce all
     // lemonade
+    //
     static const std::string NOT_ENOUGH_RESOURCES;
 };
 

@@ -29,6 +29,7 @@ class Sales
 
     //--------------------------------------------------------------------------
     // Calculates the amount of customers based on the weather
+    //
     // @param game The game where action should be performed on
     //
     // @return uint Returns the amount of customers
@@ -37,6 +38,7 @@ class Sales
 
     //--------------------------------------------------------------------------
     // Calculates the percentage which changes the total amount of sales
+    //
     // @param game The game where action should be performed on
     //
     // @return int Returns the percentage
@@ -45,6 +47,7 @@ class Sales
 
     //--------------------------------------------------------------------------
     // Calculates the total amount of revenue and balance made
+    //
     // @param game The game where action should be performed on
     //
     void calculateSales(GameHandler& game);

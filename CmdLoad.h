@@ -32,7 +32,7 @@ class CmdLoad : public Command
     //
     // @param current_char character from savefile line that is being checked
     //
-    // @return true if char is an angle bracket
+    // @return bool true if char is an angle bracket
     //
     bool isBracket(char current_char);
 
@@ -42,7 +42,7 @@ class CmdLoad : public Command
     //
     // @param tag that is being checked
     //
-    // @return true if tag exists in list of allowed tags
+    // @return bool true if tag exists in list of allowed tags
     //
     bool checkTagExists(std::string tag);
 
@@ -53,7 +53,7 @@ class CmdLoad : public Command
     // @param tag tag from savefile that is being checked
     // @param closing_tag corresponding closing tag from the same line
     //
-    // @return true if char is an angle bracket
+    // @return bool true if char is an angle bracket
     //    
     bool checkTagClosed(std::string tag, std::string closing_tag);
     
@@ -63,7 +63,7 @@ class CmdLoad : public Command
     //
     // @param vector containing all savefile tags and values from one line
     //
-    // @return true if the tag exists and is closed properly
+    // @return bool true if the tag exists and is closed properly
     //
     bool tagValidAndClosed(std::vector<std::string> save_line_arguments);
     
@@ -73,7 +73,7 @@ class CmdLoad : public Command
     //
     // @param tag which is being tested
     //
-    // @return true if the tag is allowed to be alone in a line
+    // @return bool true if the tag is allowed to be alone in a line
     //
     bool unpairedTagAllowed(std::string unpaired_tag);
 
@@ -83,7 +83,7 @@ class CmdLoad : public Command
     //
     // @param vector containing all savefile tags and values from one line
     // 
-    // @return true if the file is valid 
+    // @return bool true if the file is valid 
     //
     bool fileIsValid(std::vector<std::string> save_line_arguments);
 
@@ -103,7 +103,7 @@ class CmdLoad : public Command
     //
     // @param vector containing all savefile tags
     // 
-    // @return true if the nesting is ok
+    // @return bool true if the nesting is ok
     //
     bool hierarchyCheckPassed(std::vector<std::string> all_savefile_tags);
 
@@ -112,7 +112,7 @@ class CmdLoad : public Command
     //
     // @param tag to be checked
     // 
-    // @return true if tag belongs inside the <weather> tag
+    // @return bool true if tag belongs inside the <weather> tag
     //
     bool isWeatherTag(std::string tag);
 
@@ -121,7 +121,7 @@ class CmdLoad : public Command
     //
     // @param tag to be checked
     // 
-    // @return true if tag belongs inside the <stats> tag
+    // @return bool true if tag belongs inside the <stats> tag
     //
     bool isStatsTag(std::string tag);
 
@@ -131,7 +131,8 @@ class CmdLoad : public Command
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
     //
-    // @return Integer representing the success of the action
+    // @return int Integer representing the success of the action
+    //
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------

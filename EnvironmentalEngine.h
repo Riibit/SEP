@@ -35,7 +35,7 @@ class EnvironmentalEngine
     //   random, and returns the condition.
     //
     // @return std::unique_ptr<EnvironmentalCondition> Returns the pointer to 
-    //   the object on the stack wrapped in a unique_ptr
+    //         the object on the stack wrapped in a unique_ptr
     //
     std::unique_ptr<EnvironmentalCondition> createCondition();
 
@@ -43,7 +43,7 @@ class EnvironmentalEngine
     // The function randomizeCondition randomizes the EnvironmentalCondition
     //
     // @param condition The EnvironmentalCondition object that is to be 
-    //   randomized
+    //                  randomized
     //
     void randomizeCondition(
       const std::unique_ptr<EnvironmentalCondition>& condition);
@@ -53,7 +53,7 @@ class EnvironmentalEngine
     //   realistically
     //
     // @param condition The EnvironmentalCondition object that is to be 
-    //   realistically changed
+    //                  realistically changed
     //
     void realisticCondition(
       const std::unique_ptr<EnvironmentalCondition>& condition);
@@ -63,7 +63,7 @@ class EnvironmentalEngine
     //   enum values
     //
     // @param enum_value The enum value as integer that is to be realistically
-    //   changed
+    //                   changed
     // @param upper_range The upper range of the enum that is not be be exceeded
     //
     // @return int Returns the value of the new realistically changed integer

@@ -48,7 +48,7 @@ class HTMLWriter
     //--------------------------------------------------------------------------
     // Private assignment operator
     HTMLWriter& operator=(const HTMLWriter& original);
-    std::string filename_;
+      std::string filename_;
 };
 
 #endif //HTML_WRITER_H
