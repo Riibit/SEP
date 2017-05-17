@@ -73,6 +73,7 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
     game.getResourceMoney(), game.getResourceBalance());
 
   game.resetStandardRecipe();
+  game.setResourceLemonade(0);
 
   return RETURN_SUCCESS;
 }
