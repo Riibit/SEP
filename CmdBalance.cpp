@@ -20,6 +20,7 @@ using std::endl;
 const std::string CmdBalance::CMD_NAME = "balance";
 const std::string CmdBalance::ERR_CMD = "[ERR] Usage: balance";
 
+
 CmdBalance::CmdBalance() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }

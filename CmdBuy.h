@@ -27,9 +27,12 @@ class CmdBuy : public Command
 
     //--------------------------------------------------------------------------
     // Executes the command.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Integer representing the success of the action
+    //
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------

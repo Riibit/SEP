@@ -28,7 +28,7 @@ Interface::~Interface()
 {
 }
 
-const int Interface::runPrompt()
+void Interface::runPrompt()
 {
   string input;
   std::vector<string> arguments;
@@ -51,7 +51,6 @@ const int Interface::runPrompt()
     break;
 
   }
-  return RETURN_SUCCESS;
 }
 
 const string Interface::getArgument(char* cin_value, const bool to_lower)
@@ -85,6 +84,7 @@ void Interface::makeVector(char* cin_value)
   string temporarily_used_string_value;
   std::vector<string> *heap_parameters;
   heap_parameters = new std::vector<string>;
+  game_ -> setInterfaceParameters(heap_parameters);
   while(!(*cin_value == '\n'))
   {
     temporarily_used_string_value = getArgument(cin_value, false);
@@ -94,5 +94,4 @@ void Interface::makeVector(char* cin_value)
     }
     heap_parameters -> push_back(temporarily_used_string_value);
   }
-  game_ -> setInterfaceParameters(heap_parameters);
 }

@@ -25,20 +25,19 @@ const std::string CmdBuy::ERR_CMD =
 const std::string CmdBuy::NOT_ENOUGH_MONEY = 
   "[WARN] Not enough money. I buy what I can.";
 
+
 CmdBuy::CmdBuy() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 {
 }
 
 int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
 {
-  // game data loaded
+  // loading game data
   unsigned int lemon_value = game.getResourceLemon();
   unsigned int sugar_value = game.getResourceSugar();
   unsigned int money_value = game.getResourceMoney();
-  unsigned int lemon_price = game.getPriceLemon();
-  unsigned int sugar_price = game.getPriceSugar();
   
-  // local variables
+
   unsigned int money_spent;
   unsigned int sugar_buy_amount;
   unsigned int lemon_buy_amount;
@@ -58,13 +57,13 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   bool error_output = true;
   while(1)
   {
-    if (( (lemon_buy_amount * lemon_price)  + 
-    (sugar_buy_amount * sugar_price)) <= money_value )
+    if (( (lemon_buy_amount * game.getPriceLemon())  + 
+    (sugar_buy_amount * game.getPriceSugar())) <= money_value )
     {
       lemon_value += lemon_buy_amount;
       sugar_value += sugar_buy_amount;
-      money_spent = lemon_buy_amount * lemon_price; 
-      money_spent += sugar_buy_amount * sugar_price; 
+      money_spent = lemon_buy_amount * game.getPriceLemon(); 
+      money_spent += sugar_buy_amount * game.getPriceSugar(); 
       money_value -= money_spent;
       break;
     }
