@@ -28,7 +28,7 @@ HTMLWriter::~HTMLWriter()
 void HTMLWriter::writeFile(string body)
 {
   std::ofstream writer;
-  writer.open (filename_.c_str());
+  writer.open(filename_.c_str());
   if(writer.is_open())
   {
     writer << "<!DOCTYPE html>" << endl
@@ -48,6 +48,5 @@ void HTMLWriter::writeFile(string body)
   }
   else
   {
-    //Error handling
   }
 }
