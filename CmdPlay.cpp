@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 //
 
-#include <iostream> // ----------------------------------------------- DEBUG
 #include <cmath>
 #include "CmdPlay.h"
 #include "GameHandler.h"
@@ -30,6 +29,7 @@ CmdPlay::CmdPlay() : Command::Command(CMD_NAME, PARA_COUNT, ERR_CMD)
 int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 {
   Sales sales;
+
 
 #ifndef AUFBAU
 
@@ -65,7 +65,6 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 #endif // AUFBAU
 
 
-
   HTMLWriterEnvironment environment_writer;
   environment_writer.writeFile(game.getCondition());
 
@@ -74,5 +73,6 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
     game.getResourceMoney(), game.getResourceBalance());
 
   game.resetStandardRecipe();
+
   return RETURN_SUCCESS;
 }

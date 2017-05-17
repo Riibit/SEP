@@ -40,12 +40,13 @@ using std::unique_ptr;
 const std::string GameHandler::ERR_PROGRAM_START = 
   "[ERR] Wrong usage: ./basic <price_lemonade> <price_lemon> <price_sugar>";
 
+const std::string GameHandler::ERR_UNKNOWN_COMMAND = "[ERR] Unknown command.";
+
 GameHandler::GameHandler() 
 {
   game_quit_ = false;
   try
   {
-  // TODO:  possibly add out of mem exception handling later
     commands_.push_back(unique_ptr<Command>(new CmdSetWeather()));
     commands_.push_back(unique_ptr<Command>(new CmdEcho()));
     commands_.push_back(unique_ptr<Command>(new CmdPlay()));
@@ -154,7 +155,7 @@ int GameHandler::resolveCommand()
   
   if (invalid_command == true)
   {
-    std::cout << "[ERR] Unknown command." << std::endl;
+    std::cout << ERR_UNKNOWN_COMMAND << std::endl;
   }
   return return_value;
 }

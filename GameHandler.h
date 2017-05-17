@@ -114,6 +114,10 @@ class GameHandler
     static const std::string ERR_PROGRAM_START;
 
     //--------------------------------------------------------------------------
+    // Error if no matching command was found
+    static const std::string ERR_UNKNOWN_COMMAND;
+
+    //--------------------------------------------------------------------------
     // The standard recipe for the lemonade
     static const int STANDARD_RECIPE_LEMON = 6;
     static const int STANDARD_RECIPE_SUGAR = 6;

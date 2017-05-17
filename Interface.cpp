@@ -20,9 +20,8 @@ using std::cout;
 
 const string Interface::PROMPT_STRING = "sep> ";
 
-Interface::Interface(GameHandler* game)
+Interface::Interface(GameHandler* game) : game_(game)
 {
-  game_ = game;
 }
 
 Interface::~Interface()

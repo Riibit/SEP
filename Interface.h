@@ -13,9 +13,9 @@
 #define INTERFACE_H_INCLUDED
 
 #include <string>
-#include <vector>
+//#include <vector>
 
-class GameHandler; 
+class GameHandler;
 
 //------------------------------------------------------------------------------
 // Interface Class
@@ -68,7 +68,7 @@ class Interface
     Interface& operator=(const Interface& original);
 
     //--------------------------------------------------------------------------
-    /// object pointer to game
+    // Object pointer to game
     GameHandler* game_;
 };
 

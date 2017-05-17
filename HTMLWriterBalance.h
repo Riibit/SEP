@@ -28,7 +28,7 @@ class HTMLWriterBalance : public HTMLWriter
     // Constructor
     HTMLWriterBalance();
 
-    //------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
     // Creates the body part of the Balance html file and passes it to the
     // writeFile function of the parent class
     //

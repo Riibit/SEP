@@ -177,5 +177,3 @@ void Sales::calculateSales(GameHandler& game)
   game.setResourceIncome(revenue);
   game.calculateBalance();
 }
-
-
