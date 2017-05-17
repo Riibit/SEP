@@ -74,6 +74,9 @@ GameHandler::GameHandler()
   resources_.income = ZERO_INITIAL_VALUE;
   resources_.lemonade = ZERO_INITIAL_VALUE;
   resources_.expenses = ZERO_INITIAL_VALUE;
+
+  EnvironmentalEngine engine;
+  environment_condition_ = std::move(engine.createCondition());
 }
 
 GameHandler::~GameHandler()
@@ -103,21 +106,27 @@ int GameHandler::initialize(int argc, char *parameters[])
     return RETURN_WRONG_USAGE;
   }
 
-  EnvironmentalEngine engine;
-  environment_condition_ = std::move(engine.createCondition());
-
   resetStandardRecipe();
+
   return RETURN_SUCCESS;
 }
 
 int GameHandler::play()
 {
-  int return_value = 0;
-  unique_ptr<Interface> interface_instance;
-  interface_instance = unique_ptr<Interface>(new Interface(this));
+  int return_value = RETURN_SUCCESS;
+  Interface interface_instance(this);
   while(1) 
   {
-    interface_instance -> runPrompt();
+    try
+    {
+      interface_instance.runPrompt();
+    }
+    catch(const ExceptionDataType& exception)
+    {
+      delete command_name_;
+      delete interface_parameters_;
+      return RETURN_OUT_OF_MEMORY;
+    }
     return_value = resolveCommand();
     delete command_name_;
     delete interface_parameters_;

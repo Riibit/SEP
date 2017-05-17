@@ -27,6 +27,7 @@ class Interface
 
     //--------------------------------------------------------------------------
     // Constructor
+    //
     // @param game Pointer to the calling object
     //
     Interface(GameHandler* game);
@@ -36,26 +37,11 @@ class Interface
     ~Interface();
 
     //--------------------------------------------------------------------------
-    // Initializes the interface
-    //  
-    const int runPrompt();
+    // Runs the prompt
+    void runPrompt();
 
     //--------------------------------------------------------------------------
-    // Acquires command name
-    // @param cin_value Input item 
-    // @param to_lower Lowercase flag
-    // @return Lowercase Input item
-    //
-    const std::string getArgument(char* cin_value, bool to_lower);
-    
-    //--------------------------------------------------------------------------
-    // Pushes command parameters to a vector
-    // @param cin_value Input item
-    //
-    void makeVector(char* cin_value);
-
-    //--------------------------------------------------------------------------
-    /// The string before every command entry
+    // The string before every command entry
     static const std::string PROMPT_STRING;
 
   private:
@@ -66,6 +52,23 @@ class Interface
     //--------------------------------------------------------------------------
     // Private assignment operator
     Interface& operator=(const Interface& original);
+
+    //--------------------------------------------------------------------------
+    // Acquires command name
+    //
+    // @param cin_value Input item 
+    // @param to_lower Lowercase flag
+    //
+    // @return Lowercase Input item
+    //
+    const std::string getArgument(char* cin_value, bool to_lower);
+    
+    //--------------------------------------------------------------------------
+    // Pushes command parameters to a vector
+    //
+    // @param cin_value Input item
+    //
+    void makeVector(char* cin_value);
 
     //--------------------------------------------------------------------------
     // Object pointer to game
