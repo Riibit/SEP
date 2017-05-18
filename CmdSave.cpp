@@ -37,7 +37,7 @@ int CmdSave::execute(GameHandler& game, std::vector<std::string>& params)
 
   savefile.open(save_filename, ios::in | ios::out | ios::trunc);
 
-  if (!savefile)
+  if(!savefile)
   {
     std::cout << FILE_ERROR << std::endl;
   }

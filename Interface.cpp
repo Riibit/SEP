@@ -34,13 +34,13 @@ void Interface::runPrompt()
   std::vector<string> arguments;
   char character;
 
-  while (1)
+  while(1)
   {
     cout << PROMPT_STRING;
     
     input = getArgument(&character, true);
 
-    if (input.empty())
+    if(input.empty())
     {
       continue;
     }
@@ -56,7 +56,7 @@ void Interface::runPrompt()
 const string Interface::getArgument(char* cin_value, const bool to_lower)
 {
   string return_string;
-  while (1)
+  while(1)
   {
     *cin_value = cin.get();
     if (!(std::isspace(*cin_value)) || *cin_value == '\n')
@@ -64,9 +64,9 @@ const string Interface::getArgument(char* cin_value, const bool to_lower)
       break;
     }
   }
-  while (!(std::isspace(*cin_value)))
+  while(!(std::isspace(*cin_value)))
   {
-    if (to_lower)
+    if(to_lower)
     {
       return_string.push_back(std::tolower(*cin_value));
     }
@@ -88,7 +88,7 @@ void Interface::makeVector(char* cin_value)
   while(!(*cin_value == '\n'))
   {
     temporarily_used_string_value = getArgument(cin_value, false);
-    if (temporarily_used_string_value.empty())
+    if(temporarily_used_string_value.empty())
     {
       break;
     }

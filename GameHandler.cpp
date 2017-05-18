@@ -85,7 +85,7 @@ GameHandler::~GameHandler()
 
 int GameHandler::initialize(int argc, char *parameters[])
 {
-  if (argc != 4)
+  if(argc != 4)
   {
     std::cout << ERR_PROGRAM_START << std::endl;
     return RETURN_WRONG_USAGE;
@@ -130,7 +130,7 @@ int GameHandler::play()
     return_value = resolveCommand();
     delete command_name_;
     delete interface_parameters_;
-    if (game_quit_)
+    if(game_quit_)
     {
       break;
     }
@@ -143,12 +143,12 @@ int GameHandler::resolveCommand()
   int return_value = 0;
   bool invalid_command = true;
   unsigned int command_index;
-  for (command_index = 0; command_index < commands_.size(); ++command_index)
+  for(command_index = 0; command_index < commands_.size(); ++command_index)
   {
-    if (!(commands_[command_index] -> getName().compare(*command_name_)))
+    if(!(commands_[command_index] -> getName().compare(*command_name_)))
     {
       invalid_command = false;
-      if (commands_[command_index] -> 
+      if(commands_[command_index] -> 
         correctParameterCount(interface_parameters_ -> size()))
       {
         return_value = commands_[command_index] -> 
@@ -162,7 +162,7 @@ int GameHandler::resolveCommand()
     }
   }
   
-  if (invalid_command == true)
+  if(invalid_command == true)
   {
     std::cout << ERR_UNKNOWN_COMMAND << std::endl;
   }

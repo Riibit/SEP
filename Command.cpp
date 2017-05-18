@@ -32,7 +32,7 @@ Command::~Command()
 
 const bool Command::correctParameterCount(unsigned int to_compare)
 {
-  if (parameter_count_ == to_compare)
+  if(parameter_count_ == to_compare)
   {
     return true;
   }

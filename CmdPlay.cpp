@@ -30,7 +30,6 @@ int CmdPlay::execute(GameHandler& game, std::vector<std::string>& params)
 {
   Sales sales;
 
-
 #ifndef AUFBAU
 
   Produce produce;

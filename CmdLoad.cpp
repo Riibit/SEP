@@ -82,7 +82,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
   std::ifstream savefile;
   savefile.open(load_filename);
 
-  if (!savefile)
+  if(!savefile)
   {
     std::cout << FILE_OPEN_ERROR << std::endl;
   }
@@ -113,7 +113,7 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
 
       file_is_valid = fileIsValid(save_line_arguments);
       
-      if (!file_is_valid)
+      if(!file_is_valid)
       {
         break;
       }
@@ -121,17 +121,17 @@ int CmdLoad::execute(GameHandler& game, std::vector<std::string>& params)
       all_savefile_tags.push_back(save_line_arguments[0]);
 
       // get value current tag
-      if (save_line_arguments.size() == 3)
+      if(save_line_arguments.size() == 3)
       {
         savefile_value_names.push_back(save_line_arguments[0]);
         savefile_values.push_back(save_line_arguments[1]);
       }
     }
     // perform hierarchy check
-    if (file_is_valid && hierarchyCheckPassed(all_savefile_tags))
+    if(file_is_valid && hierarchyCheckPassed(all_savefile_tags))
     {
       // set variable to value
-      for (unsigned int value_id = 0; 
+      for(unsigned int value_id = 0; 
         value_id < savefile_values.size(); ++value_id)
       {
         loadResourceValue(game, savefile_value_names[value_id], 
@@ -161,7 +161,7 @@ bool CmdLoad::checkTagExists(std::string tag)
   bool exists = false;
   for(unsigned int tag_id = 0; tag_id < tag_collection_.size() ; tag_id++)
   {
-    if (!tag.compare(tag_collection_[tag_id]))
+    if(!tag.compare(tag_collection_[tag_id]))
     {
       exists = true;
       break;
@@ -175,7 +175,7 @@ bool CmdLoad::checkTagClosed(std::string tag, std::string closing_tag)
   bool closed = false;
   std::string tag_corrected = "/";
   tag_corrected += tag;
-  if (!tag_corrected.compare(closing_tag))
+  if(!tag_corrected.compare(closing_tag))
   {
     closed = true;
   }
@@ -185,7 +185,7 @@ bool CmdLoad::checkTagClosed(std::string tag, std::string closing_tag)
 
 bool CmdLoad::isBracket(char current_char)
 {
-  if (current_char == '<' || current_char == '>' ||
+  if(current_char == '<' || current_char == '>' ||
     current_char == EOF || current_char == ' ')
   {
     return true;
@@ -199,13 +199,13 @@ bool CmdLoad::isBracket(char current_char)
 bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
 {
   bool valid = true;
-        if (!checkTagExists(save_line_arguments[0]))
+        if(!checkTagExists(save_line_arguments[0]))
         {
           valid = false;
         }
         else if(save_line_arguments.size() == 3)
         {
-          if (!checkTagClosed(save_line_arguments[0], save_line_arguments[2]))
+          if(!checkTagClosed(save_line_arguments[0], save_line_arguments[2]))
           {
             valid = false;
           }
@@ -216,11 +216,11 @@ bool CmdLoad::tagValidAndClosed(std::vector<std::string> save_line_arguments)
 bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
 {
   bool file_valid = true;
-  if (save_line_arguments.size() == 1 &&
+  if(save_line_arguments.size() == 1 &&
       unpairedTagAllowed(save_line_arguments[0])) 
       {
       }
-      else if (save_line_arguments.size() == 1 && 
+      else if(save_line_arguments.size() == 1 && 
         !unpairedTagAllowed(save_line_arguments[0])) 
       {
         file_valid = false;
@@ -236,17 +236,17 @@ bool CmdLoad::fileIsValid(std::vector<std::string> save_line_arguments)
 bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 {
   bool allowed = false;
-  if (!unpaired_tag.compare(TAG_SAVEFILE) ||
+  if(!unpaired_tag.compare(TAG_SAVEFILE) ||
     !unpaired_tag.compare("/" + TAG_SAVEFILE))
   {
     allowed = true;
   }
-  else if (!unpaired_tag.compare(TAG_WEATHER) ||
+  else if(!unpaired_tag.compare(TAG_WEATHER) ||
     !unpaired_tag.compare("/" + TAG_WEATHER))
   {
     allowed = true;
   }
-  else if (!unpaired_tag.compare(TAG_STATS) ||
+  else if(!unpaired_tag.compare(TAG_STATS) ||
     !unpaired_tag.compare("/" + TAG_STATS))
   {
     allowed = true;
@@ -257,9 +257,9 @@ bool CmdLoad::unpairedTagAllowed(std::string unpaired_tag)
 bool CmdLoad::isWeatherTag(std::string tag)
 {
   bool is_weather = false;
-  for (int index = WEATHER_START; index <= WEATHER_END; index++)
+  for(int index = WEATHER_START; index <= WEATHER_END; index++)
   {
-    if (!tag.compare(tag_collection_[index]))
+    if(!tag.compare(tag_collection_[index]))
     {
       is_weather = true;
     }
@@ -270,10 +270,10 @@ bool CmdLoad::isWeatherTag(std::string tag)
 bool CmdLoad::isStatsTag(std::string tag)
 {
   bool is_stat = false;
-  for (unsigned int index = STATS_START;
+  for(unsigned int index = STATS_START;
     index <= tag_collection_.size() - 1; index++)
   {
-    if (!tag.compare(tag_collection_[index]))
+    if(!tag.compare(tag_collection_[index]))
     {
       is_stat = true;
     }
@@ -289,83 +289,83 @@ bool CmdLoad::hierarchyCheckPassed(std::vector<std::string> all_savefile_tags)
   bool premature_fail = false;
   unsigned int tag_count = all_savefile_tags.size();
   
-  if (all_savefile_tags[0].compare(TAG_SAVEFILE))
+  if(all_savefile_tags[0].compare(TAG_SAVEFILE))
   {
     premature_fail = true;
   }
-  else if (all_savefile_tags[tag_count - 1].compare("/" + TAG_SAVEFILE))
+  else if(all_savefile_tags[tag_count - 1].compare("/" + TAG_SAVEFILE))
   {
     premature_fail = true;
   }
 
-  if (premature_fail)
+  if(premature_fail)
   {
     passed = false;
   }
   else
   {
-    for (unsigned int tag_index = 1; tag_index < tag_count - 1; tag_index++)
+    for(unsigned int tag_index = 1; tag_index < tag_count - 1; tag_index++)
     {
       // weather tag inside stats or already exists
-      if (!all_savefile_tags[tag_index].compare(TAG_WEATHER)
+      if(!all_savefile_tags[tag_index].compare(TAG_WEATHER)
         && (stats_flag || weather_flag))
       {
         passed = false;
       }
       // set wether flag
-      else if (!all_savefile_tags[tag_index].compare(TAG_WEATHER))
+      else if(!all_savefile_tags[tag_index].compare(TAG_WEATHER))
       {
         weather_flag = true;
       }
       // stats tag inside weather or already exists
-      else if (!all_savefile_tags[tag_index].compare(TAG_STATS)
+      else if(!all_savefile_tags[tag_index].compare(TAG_STATS)
         && (stats_flag || weather_flag))
       {
         passed = false;
       }
       // set stats flag
-      else if (!all_savefile_tags[tag_index].compare(TAG_STATS))
+      else if(!all_savefile_tags[tag_index].compare(TAG_STATS))
       {
         stats_flag = true;
       }
       // closing unopened weather tag
-      else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER)
+      else if(!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER)
         && !weather_flag)
       {
         passed = false;
       }
       // unset weather flag
-      else if (!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER))
+      else if(!all_savefile_tags[tag_index].compare("/" + TAG_WEATHER))
       {
         weather_flag = false;
       }
       // closing unopened stats tag
-      else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS)
+      else if(!all_savefile_tags[tag_index].compare("/" + TAG_STATS)
         && !stats_flag)
       {
         stats_flag = false;
       }
       // unset stats flag
-      else if (!all_savefile_tags[tag_index].compare("/" + TAG_STATS))
+      else if(!all_savefile_tags[tag_index].compare("/" + TAG_STATS))
       {
         stats_flag = false;
       }
       // wrong tag inside weather tag
-      else if (weather_flag && !isWeatherTag(all_savefile_tags[tag_index]))
+      else if(weather_flag && !isWeatherTag(all_savefile_tags[tag_index]))
       {
         passed = false;
       }
       // wrong tag inside stats tag
-      else if (stats_flag && !isStatsTag(all_savefile_tags[tag_index]))
+      else if(stats_flag && !isStatsTag(all_savefile_tags[tag_index]))
       {
         passed = false;
       }
       // outside of weather and stats tags
-      else if (!stats_flag && !weather_flag)
+      else if(!stats_flag && !weather_flag)
       {
         passed = false;
       }
-      if (!passed)
+      if(!passed)
       {
         break;
       }
@@ -380,64 +380,64 @@ void CmdLoad::loadResourceValue(GameHandler& game, std::string tag_name,
 {
   Parse parser;
 
-  if (!tag_name.compare(TAG_SAVEFILE) || !tag_name.compare(TAG_WEATHER)
+  if(!tag_name.compare(TAG_SAVEFILE) || !tag_name.compare(TAG_WEATHER)
     || !tag_name.compare(TAG_STATS))
   {
   }
-  else if (!tag_name.compare(TAG_WIND))
+  else if(!tag_name.compare(TAG_WIND))
   {
     game.getCondition() -> setWind(parser.parseStringToRank(tag_value));
   }
-  else if (!tag_name.compare(TAG_TEMPERATURE))
+  else if(!tag_name.compare(TAG_TEMPERATURE))
   {
     game.getCondition() -> setTemperature(parser.parseFloat(tag_value));
   }
-  else if (!tag_name.compare(TAG_PRECIPITATION))
+  else if(!tag_name.compare(TAG_PRECIPITATION))
   {
     game.getCondition() -> 
       setPrecipitation(parser.parseStringToRank(tag_value));
   }
-  else if (!tag_name.compare(TAG_COVER))
+  else if(!tag_name.compare(TAG_COVER))
   {
     game.getCondition() -> setSkyCover(parser.parseStringToCover(tag_value));
   }
-  else if (!tag_name.compare(TAG_CASH))
+  else if(!tag_name.compare(TAG_CASH))
   {
     game.setResourceMoney(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_BALANCE))
+  else if(!tag_name.compare(TAG_BALANCE))
   {
     game.setResourceBalance(std::stoi(tag_value));
   }
-  else if (!tag_name.compare(TAG_INCOME))
+  else if(!tag_name.compare(TAG_INCOME))
   {
     game.setResourceIncome(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_EXPENSE))
+  else if(!tag_name.compare(TAG_EXPENSE))
   {
     game.setResourceExpense(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_LEMONS))
+  else if(!tag_name.compare(TAG_LEMONS))
   {
     game.setResourceLemon(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_SUGAR))
+  else if(!tag_name.compare(TAG_SUGAR))
   {
     game.setResourceSugar(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_LEMONADE))
+  else if(!tag_name.compare(TAG_LEMONADE))
   {
     game.setResourceLemonade(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_PRICESUGAR))
+  else if(!tag_name.compare(TAG_PRICESUGAR))
   {
     game.setPriceSugar(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_PRICELEMONS))
+  else if(!tag_name.compare(TAG_PRICELEMONS))
   {
     game.setPriceLemon(parser.parseInteger(tag_value));
   }
-  else if (!tag_name.compare(TAG_PRICELEMONADE))
+  else if(!tag_name.compare(TAG_PRICELEMONADE))
   {
     game.setPriceLemonade(parser.parseInteger(tag_value));
   }
