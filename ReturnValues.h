@@ -11,7 +11,7 @@
 #ifndef RETURN_VALUES_H
 #define RETURN_VALUES_H
 
-#define AUFBAU
+//#define AUFBAU
 
 //------------------------------------------------------------------------------
 // Return value variables
