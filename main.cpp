@@ -14,8 +14,6 @@
 #include "GameHandler.h"
 #include "ReturnValues.h"
 
-static const std::string OUT_OF_MEMORY = "[ERR] Out of memory.";
-
 
 //------------------------------------------------------------------------------
 // main function
@@ -25,7 +23,7 @@ static const std::string OUT_OF_MEMORY = "[ERR] Out of memory.";
 //
 int main(int argc, char **argv)
 {
-  int return_value = 0;
+  int return_value = RETURN_SUCCESS;
   try
   {
     GameHandler game;
@@ -41,7 +39,7 @@ int main(int argc, char **argv)
   }
   if(return_value == RETURN_OUT_OF_MEMORY)
   {
-    std::cout << OUT_OF_MEMORY << std::endl;
+    std::cout << "[ERR] Out of memory." << std::endl;
   }
   return return_value;
 }

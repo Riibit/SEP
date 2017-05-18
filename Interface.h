@@ -54,7 +54,7 @@ class Interface
     Interface& operator=(const Interface& original);
 
     //--------------------------------------------------------------------------
-    // Acquires command name
+    // Aquires command name
     //
     // @param cin_value Input item 
     // @param to_lower Lowercase flag

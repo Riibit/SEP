@@ -12,6 +12,7 @@
 #include "Produce.h"
 #include "GameHandler.h"
 #include <iostream>
+#include "ReturnValues.h"
 
 Produce::Produce()
 {
@@ -28,7 +29,7 @@ int Produce::produceLemonade(GameHandler& game, unsigned int quantity)
     return NOT_DIVISIBLE_BY_FOUR;
   }
 
-  int return_value = 0;
+  int return_value = RETURN_SUCCESS;
 
   // Get ingredient stock
   unsigned int lemon_stock = game.getResourceLemon();

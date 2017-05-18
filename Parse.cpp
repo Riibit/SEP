@@ -33,13 +33,13 @@ Parse::~Parse()
 {
 }
 
-uint Parse::parseInteger(std::string string)
+unsigned int Parse::parseInteger(std::string string)
 {
-  uint to_return = 0;
+  unsigned int to_return = 0;
   std::locale loc;
-  for (unsigned int position = 0; position < string.size(); ++position)
+  for(unsigned int position = 0; position < string.size(); ++position)
   {
-    if (!std::isdigit(string[position], loc))
+    if(!std::isdigit(string[position], loc))
     {
       throw ExceptionDataType();
       return RETURN_SUCCESS;

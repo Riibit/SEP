@@ -37,7 +37,7 @@ class Parse
     //
     // @return uint The parsed unsigned integer
     //
-    uint parseInteger(std::string input);
+    unsigned int parseInteger(std::string input);
 
     //--------------------------------------------------------------------------
     // parseFloat Parses string to float
