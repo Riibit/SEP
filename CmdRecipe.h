@@ -29,24 +29,33 @@ class CmdRecipe : public Command
 
     //--------------------------------------------------------------------------
     // Executes the command.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Function Param = 0 or Param = 3
+    //
     virtual int execute(GameHandler& game, std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------
     // Executes the command if there are no parameters.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Integer representing the success of the action
+    //
     int executeParameterOne(GameHandler& game, 
       std::vector<std::string>& params);
 
     //--------------------------------------------------------------------------
     // Executes the command if there are three parameters.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Integer representing the success of the action
+    //
     int executeParameterTwo(GameHandler& game, 
       std::vector<std::string>& params);
     

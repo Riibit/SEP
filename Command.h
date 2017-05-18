@@ -61,16 +61,22 @@ class Command
 
     //--------------------------------------------------------------------------
     // Executes the command.
+    //
     // @param game The game where action should be performed on
     // @param params Possible parameters needed for the execution
+    //
     // @return Integer representing the success of the action
+    //
     virtual int execute(GameHandler& game, 
       std::vector<std::string>& params) = 0;
 
     //--------------------------------------------------------------------------
     // Checks if the Command has the correct amount of parameters
+    //
     // @param The amount of parameters
+    //
     // @return True if the amount is correct, otherwise false 
+    //
     virtual const bool correctParameterCount(const unsigned int to_compare);
     
     //--------------------------------------------------------------------------

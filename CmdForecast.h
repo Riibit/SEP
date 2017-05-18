@@ -54,19 +54,19 @@ class CmdForecast : public Command
     int weatherHigher(int enum_value);
 
     //--------------------------------------------------------------------------
-    /// The name of the command
+    // The name of the command
     static const std::string CMD_NAME;
 
     //--------------------------------------------------------------------------
-    /// The error message if the parameter count is not right
+    // The error message if the parameter count is not right
     static const std::string ERR_CMD;
 
     //--------------------------------------------------------------------------
-    /// Number of Parameters for this function
+    // Number of Parameters for this function
     static const unsigned int PARA_COUNT = 0;
 
     //--------------------------------------------------------------------------
-    /// Temperature swing value
+    // Temperature swing value
     static const int SWING = 5;
 };
 

@@ -32,42 +32,54 @@ class Parse
 
     //--------------------------------------------------------------------------
     // parseInteger Parses string to unsigned integer
+    //
     // @param input The string that is to be parsed
+    //
     // @return uint The parsed unsigned integer
     //
     uint parseInteger(std::string input);
 
     //--------------------------------------------------------------------------
     // parseFloat Parses string to float
+    //
     // @param input The string that is to be parsed
+    //
     // @return uint The parsed float
     //
     float parseFloat(std::string input);
 
     //--------------------------------------------------------------------------
     // parseRank Parses Rank enum to string
+    //
     // @param rank the Enum value to parse
+    //
     // @return string The parsed string
     //
     std::string parseRank(EnvironmentalCondition::Rank rank);
 
     //--------------------------------------------------------------------------
     // parseCover Parses cover enum to string
+    //
     // @param cover the Enum value to parse
+    //
     // @return string The parsed string
     //
     std::string parseCover(EnvironmentalCondition::Cover cover);
 
     //--------------------------------------------------------------------------
     // parseStringToRank Parses string to cover enum
+    //
     // @param rank The string to parse
+    //
     // @return The corresponend enum values
     //
     EnvironmentalCondition::Rank parseStringToRank(std::string rank);
 
     //--------------------------------------------------------------------------
     // parseStringToRank Parses string to rank enum
+    //
     // @param rank The string to parse
+    //
     // @return The corresponend enum values
     //
     EnvironmentalCondition::Cover parseStringToCover(std::string cover);
