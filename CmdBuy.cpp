@@ -14,6 +14,7 @@
 #include "Parse.h"
 #include "ExceptionDataType.h"
 #include "ReturnValues.h"
+#include "HTMLWriterBalance.h"
 #include <iostream>
 
 using std::cout;
@@ -91,6 +92,10 @@ int CmdBuy::execute(GameHandler& game, std::vector<std::string>& params)
   game.setResourceSugar(sugar_value);
   game.setResourceLemon(lemon_value);
   game.setResourceMoney(money_value);
+
+  HTMLWriterBalance balance_writer;
+  balance_writer.writeFile(game.getResourceLemon(), game.getResourceSugar(), 
+    game.getResourceMoney(), game.getResourceBalance());
 
   return RETURN_SUCCESS;
 }
