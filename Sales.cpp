@@ -52,6 +52,7 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
 #ifdef AUFBAU
   customer_count = std::round(customer_count * game.getSatisfactionFactor());
 #endif //AUFBAU customer_satisfaction
+  
   return customer_count;
 }
 
