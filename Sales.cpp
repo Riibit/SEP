@@ -145,7 +145,7 @@ void Sales::calculateSales(GameHandler& game)
 
   if(customers > game.getResourceLemonade())
   {
-    if(game.getCustomerSatisfaction() < TEN)
+    if(game.getCustomerSatisfaction() <= TEN)
     {
     }
     else
@@ -158,7 +158,7 @@ void Sales::calculateSales(GameHandler& game)
   }
   else
   {
-    if(game.getCustomerSatisfaction() > 110)
+    if(game.getCustomerSatisfaction() >= 110)
     {
 
     }
