@@ -51,6 +51,9 @@ class Sales
     // @param game The game where action should be performed on
     //
     void calculateSales(GameHandler& game);
+
+    void loadSalesValues();
+    int extractValue(std::string to_extract_from);
     
 
   private:
@@ -68,6 +71,13 @@ class Sales
     //--------------------------------------------------------------------------
     // The biggest loss in sales possible
     static const int MINIMUM_PERCENT = -100;
+
+    int a;
+    int b;
+    int c;
+    int d;
+    int e;
+    int f54;
 
     //--------------------------------------------------------------------------
     // The percentages of the correspondent weather influences

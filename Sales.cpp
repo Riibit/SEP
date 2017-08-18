@@ -11,7 +11,9 @@
 
 #include <iostream>
 #include <memory>
+#include <string>
 #include <cmath>
+#include <fstream>
 #include "GameHandler.h"
 #include "Sales.h"
 #include "EnvironmentalCondition.h"
@@ -23,6 +25,7 @@ const float Sales::VALUE_HOT = 1.5;
 
 Sales::Sales()
 {
+  loadSalesValues();
 }
 
 Sales::~Sales()
@@ -57,6 +60,52 @@ unsigned int Sales::calculateCustomers(GameHandler& game)
   return customer_count;
 }
 
+void Sales::loadSalesValues()
+{
+  std::ifstream sales_values;
+  sales_values.open("salesConfig");
+  std::string finput = "";
+  if (sales_values)
+  {
+    std::getline(sales_values, finput);
+    getline(sales_values, finput);
+    a = extractValue(finput);
+    std::cout << a << std::endl;
+
+    getline(sales_values, finput);
+    b = extractValue(finput);
+    std::cout << b << std::endl;
+
+    getline(sales_values, finput);
+    c = extractValue(finput);
+    std::cout << c << std::endl;
+
+    std::getline(sales_values, finput);
+    getline(sales_values, finput);
+    d = extractValue(finput);
+
+    std::cout << d << std::endl;
+    getline(sales_values, finput);
+    e = extractValue(finput);
+    
+    std::cout << e << std::endl;
+    getline(sales_values, finput);
+    f = extractValue(finput);
+    std::cout << f << std::endl;
+  }
+  else
+  {
+    std::cout << "[ERR] Something wrong with config file\n";
+  }
+}
+
+int Sales::extractValue(std::string to_extract_from)
+{
+  std::string ret_val;
+  ret_val  = to_extract_from.substr(2);
+  return std::stoi(ret_val);
+}
+
 int Sales::calculateSaleInfluence(GameHandler& game)
 {
   int sale_percent = 0;
@@ -65,32 +114,32 @@ int Sales::calculateSaleInfluence(GameHandler& game)
   {
     if(game.getRecipeSugar() < GameHandler::STANDARD_RECIPE_SUGAR)
     {
-      sale_percent += TWENTY;
+      sale_percent += a;
     }
     else if(game.getRecipeSugar() > GameHandler::STANDARD_RECIPE_SUGAR)
     {
-      sale_percent -= TWENTY;
+      sale_percent -= b;
     }
 
     if(game.getRecipeLemon() > GameHandler::STANDARD_RECIPE_LEMON)
     {
-      sale_percent += TWENTY;
+      sale_percent += c;
     }
   }
   else if(game.getCondition() -> isItChilly())
   {
     if(game.getRecipeSugar() > GameHandler::STANDARD_RECIPE_SUGAR)
     {
-      sale_percent += TWENTY;
+      sale_percent += d;
     }
     else if(game.getRecipeSugar() < GameHandler::STANDARD_RECIPE_SUGAR)
     {
-      sale_percent -= TWENTY;
+      sale_percent -= e;
     }
 
     if(game.getRecipeLemon() > GameHandler::STANDARD_RECIPE_LEMON)
     {
-      sale_percent -= TWENTY;
+      sale_percent -= f;
     }
   }
 
